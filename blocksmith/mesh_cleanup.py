@@ -39,7 +39,7 @@ def union(vertices,faces):
                 bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-7)
                 bmesh.ops.dissolve_degenerate(bm,edges=list(bm.edges),dist=1e-8)
                 bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces))
-                if not all(e.is_manifold for e in bm.edges): raise ValueError('Генератор создал незамкнутое объединение')
+                if not all(e.is_manifold for e in bm.edges): raise ValueError('The generator produced an open union')
                 bm.verts.ensure_lookup_table(); bm.verts.index_update()
                 return tuple(tuple(v.co) for v in bm.verts),tuple(tuple(v.index for v in f.verts) for f in bm.faces)
             finally: bm.free()

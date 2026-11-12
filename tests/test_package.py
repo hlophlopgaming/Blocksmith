@@ -20,6 +20,8 @@ class PackageTests(unittest.TestCase):
                 self.assertIn('blender_manifest.toml',names)
                 self.assertIn('__init__.py',names)
                 self.assertIn('LICENSE',names)
+                self.assertIn('translations.py',names)
+                self.assertIn('translations.json',names)
                 self.assertIn('assets/kenney/License.txt',names)
                 self.assertIn('assets/kenney/SOURCE.txt',names)
                 self.assertEqual(sum(n.startswith('assets/previews/') and n.endswith('.png') for n in names),32)

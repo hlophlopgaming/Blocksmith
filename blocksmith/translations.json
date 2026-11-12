@@ -1,0 +1,2907 @@
+[
+  [
+    "Ignore Blocksmith Rules",
+    "Игнорировать правила Blocksmith",
+    "Ignorar reglas de Blocksmith",
+    "Ignorer les règles de Blocksmith",
+    "Blocksmith-Regeln ignorieren"
+  ],
+  [
+    "Object excluded from checks and rollbacks",
+    "Объект исключён из проверок и откатов",
+    "Objeto excluido de comprobaciones y reversiones",
+    "Objet exclu des contrôles et annulations",
+    "Objekt von Prüfungen und Rücksetzungen ausgenommen"
+  ],
+  [
+    "Allow overlaps, reflections and manual edits without Blocksmith rollbacks",
+    "Разрешить пересечения, отражения и ручные правки без отката защитой Blocksmith",
+    "Permitir solapamientos, reflejos y cambios manuales sin reversiones de Blocksmith",
+    "Autoriser les chevauchements, symétries et retouches sans annulation par Blocksmith",
+    "Überlappungen, Spiegelungen und manuelle Änderungen ohne Rücksetzung erlauben"
+  ],
+  [
+    "Free Placement",
+    "Свободное размещение",
+    "Colocación libre",
+    "Placement libre",
+    "Freie Platzierung"
+  ],
+  [
+    "Set or clear free placement on selected meshes",
+    "Добавить или снять метку свободного размещения у выделенных мешей",
+    "Activar o desactivar la colocación libre en las mallas seleccionadas",
+    "Activer ou désactiver le placement libre des maillages sélectionnés",
+    "Freie Platzierung für ausgewählte Meshes ein- oder ausschalten"
+  ],
+  [
+    "Apply to Selected",
+    "Применить к выделенным",
+    "Aplicar a seleccionados",
+    "Appliquer à la sélection",
+    "Auf Auswahl anwenden"
+  ],
+  [
+    "Tab → Object Mode",
+    "Tab → режим объектов",
+    "Tab → modo Objeto",
+    "Tab → mode Objet",
+    "Tab → Objektmodus"
+  ],
+  [
+    "Draw Structures",
+    "Рисовать конструкции",
+    "Dibujar estructuras",
+    "Dessiner des structures",
+    "Konstruktionen zeichnen"
+  ],
+  [
+    "Wall",
+    "Стена",
+    "Pared",
+    "Mur",
+    "Wand"
+  ],
+  [
+    "Floor",
+    "Пол",
+    "Suelo",
+    "Sol",
+    "Boden"
+  ],
+  [
+    "Room",
+    "Комната",
+    "Habitación",
+    "Pièce",
+    "Raum"
+  ],
+  [
+    "Stairs",
+    "Лестница",
+    "Escalera",
+    "Escalier",
+    "Treppe"
+  ],
+  [
+    "Ramp",
+    "Пандус",
+    "Rampa",
+    "Rampe",
+    "Rampe"
+  ],
+  [
+    "Block",
+    "Блок",
+    "Bloque",
+    "Bloc",
+    "Block"
+  ],
+  [
+    "Door",
+    "Дверь",
+    "Puerta",
+    "Porte",
+    "Tür"
+  ],
+  [
+    "Window",
+    "Окно",
+    "Ventana",
+    "Fenêtre",
+    "Fenster"
+  ],
+  [
+    "Arch",
+    "Арка",
+    "Arco",
+    "Arche",
+    "Bogen"
+  ],
+  [
+    "Drag an opening directly on a wall",
+    "Протяните проём прямо на стене",
+    "Dibuja un hueco directamente sobre una pared",
+    "Tracez une ouverture sur un mur",
+    "Öffnung direkt auf einer Wand aufziehen"
+  ],
+  [
+    "From lower floor to upper edge",
+    "От нижнего пола к верхнему краю",
+    "Del suelo inferior al borde superior",
+    "Du sol inférieur au bord supérieur",
+    "Vom unteren Boden zur oberen Kante"
+  ],
+  [
+    "Drag to draw a structure in the scene",
+    "Протяните конструкцию в сцене",
+    "Arrastra para dibujar una estructura",
+    "Faites glisser pour dessiner une structure",
+    "Konstruktion in der Szene aufziehen"
+  ],
+  [
+    "Object Row",
+    "Ряд объектов",
+    "Fila de objetos",
+    "Rangée d’objets",
+    "Objektreihe"
+  ],
+  [
+    "Opening Row",
+    "Ряд проёмов",
+    "Fila de huecos",
+    "Rangée d’ouvertures",
+    "Öffnungsreihe"
+  ],
+  [
+    "Preset Catalog",
+    "Объекты с превью",
+    "Catálogo de preajustes",
+    "Catalogue de préréglages",
+    "Vorlagenkatalog"
+  ],
+  [
+    "Next Structure",
+    "Следующая конструкция",
+    "Siguiente estructura",
+    "Structure suivante",
+    "Nächste Konstruktion"
+  ],
+  [
+    "Drag LMB · Esc / RMB: select",
+    "Протяните ЛКМ · Esc / ПКМ: выделение",
+    "Arrastra con clic izquierdo · Esc / clic derecho: seleccionar",
+    "Glisser avec clic gauche · Échap / clic droit : sélectionner",
+    "Mit LMT ziehen · Esc / RMT: auswählen"
+  ],
+  [
+    "H: height · Ctrl: no snapping",
+    "H: высота · Ctrl: без привязки",
+    "H: altura · Ctrl: sin ajuste",
+    "H : hauteur · Ctrl : sans accrochage",
+    "H: Höhe · Strg: ohne Einrasten"
+  ],
+  [
+    "Attach to face: ",
+    "К грани: ",
+    "Unir a la cara: ",
+    "Raccorder à la face : ",
+    "An Fläche anfügen: "
+  ],
+  [
+    "Target axes; the neighboring piece moves",
+    "Оси основной детали; соседняя перемещается",
+    "Ejes del destino; se mueve la pieza vecina",
+    "Axes de la cible ; la pièce voisine se déplace",
+    "Achsen des Zielobjekts; Nachbarteil wird verschoben"
+  ],
+  [
+    "Selected Wall Joints",
+    "Стыки выделенных стен",
+    "Uniones de paredes seleccionadas",
+    "Jonctions des murs sélectionnés",
+    "Verbindungen ausgewählter Wände"
+  ],
+  [
+    "Target: ",
+    "Основная: ",
+    "Destino: ",
+    "Cible : ",
+    "Ziel: "
+  ],
+  [
+    "Thickness",
+    "Толщина",
+    "Grosor",
+    "Épaisseur",
+    "Dicke"
+  ],
+  [
+    "Height",
+    "Высота",
+    "Altura",
+    "Hauteur",
+    "Höhe"
+  ],
+  [
+    "Smoothness",
+    "Плавность",
+    "Suavidad",
+    "Lissage",
+    "Glätte"
+  ],
+  [
+    "Edit Points and Handles (Tab)",
+    "Редактировать точки и ручки (Tab)",
+    "Editar puntos y controles (Tab)",
+    "Modifier les points et poignées (Tab)",
+    "Punkte und Griffe bearbeiten (Tab)"
+  ],
+  [
+    "Selected Object",
+    "Выбранный объект",
+    "Objeto seleccionado",
+    "Objet sélectionné",
+    "Ausgewähltes Objekt"
+  ],
+  [
+    "Manual mesh edits — dimensions protected",
+    "Ручная правка меша — размеры защищены",
+    "Malla editada manualmente: dimensiones protegidas",
+    "Maillage retouché — dimensions protégées",
+    "Manuell bearbeitetes Mesh — Maße geschützt"
+  ],
+  [
+    "Bake to Mesh",
+    "Сохранить как меш",
+    "Convertir a malla",
+    "Convertir en maillage",
+    "In Mesh umwandeln"
+  ],
+  [
+    "Reset Manual Edits",
+    "Сбросить ручные правки",
+    "Restablecer cambios manuales",
+    "Réinitialiser les retouches",
+    "Manuelle Änderungen zurücksetzen"
+  ],
+  [
+    "Length",
+    "Длина",
+    "Longitud",
+    "Longueur",
+    "Länge"
+  ],
+  [
+    "Depth",
+    "Глубина",
+    "Profundidad",
+    "Profondeur",
+    "Tiefe"
+  ],
+  [
+    "Drag Dimensions in Viewport",
+    "Тянуть размеры в сцене",
+    "Ajustar dimensiones en la vista",
+    "Ajuster les dimensions dans la vue",
+    "Abmessungen in der Ansicht ziehen"
+  ],
+  [
+    "Automatic Steps",
+    "Автоматические ступени",
+    "Peldaños automáticos",
+    "Marches automatiques",
+    "Automatische Stufen"
+  ],
+  [
+    "Step Height",
+    "Высота шага",
+    "Altura del peldaño",
+    "Hauteur de marche",
+    "Stufenhöhe"
+  ],
+  [
+    "Steps",
+    "Ступеней",
+    "Peldaños",
+    "Marches",
+    "Stufen"
+  ],
+  [
+    "Reverse",
+    "Развернуть",
+    "Invertir",
+    "Inverser",
+    "Umkehren"
+  ],
+  [
+    "Flight Width",
+    "Ширина марша",
+    "Anchura del tramo",
+    "Largeur de volée",
+    "Laufbreite"
+  ],
+  [
+    "Floor and Walls",
+    "Пол и стены",
+    "Suelo y paredes",
+    "Sol et murs",
+    "Boden und Wände"
+  ],
+  [
+    "Turn Angle",
+    "Угол поворота",
+    "Ángulo de giro",
+    "Angle de rotation",
+    "Drehwinkel"
+  ],
+  [
+    "Post Spacing",
+    "Шаг стоек",
+    "Separación de postes",
+    "Espacement des poteaux",
+    "Pfostenabstand"
+  ],
+  [
+    "Rails",
+    "Перекладины",
+    "Travesaños",
+    "Traverses",
+    "Querstreben"
+  ],
+  [
+    "Rung Spacing",
+    "Шаг перекладин",
+    "Separación de peldaños",
+    "Espacement des barreaux",
+    "Sprossenabstand"
+  ],
+  [
+    "Roof Type",
+    "Тип крыши",
+    "Tipo de tejado",
+    "Type de toit",
+    "Dachtyp"
+  ],
+  [
+    "Copy +",
+    "Копия +",
+    "Copia +",
+    "Copie +",
+    "Kopie +"
+  ],
+  [
+    "Alt + ± button: all selected",
+    "Alt + кнопка ±: все выделенные",
+    "Alt + botón ±: todos los seleccionados",
+    "Alt + bouton ± : toute la sélection",
+    "Alt + ±-Schaltfläche: gesamte Auswahl"
+  ],
+  [
+    "Select a mesh to cut or edit",
+    "Выберите меш для проёма или редактирования",
+    "Selecciona una malla para cortar o editar",
+    "Sélectionnez un maillage à découper ou modifier",
+    "Mesh zum Ausschneiden oder Bearbeiten auswählen"
+  ],
+  [
+    "Textures",
+    "Текстуры",
+    "Texturas",
+    "Textures",
+    "Texturen"
+  ],
+  [
+    "Tags",
+    "Теги",
+    "Etiquetas",
+    "Étiquettes",
+    "Tags"
+  ],
+  [
+    "Edit Opening",
+    "Изменить проём",
+    "Editar hueco",
+    "Modifier l’ouverture",
+    "Öffnung bearbeiten"
+  ],
+  [
+    "Blockout View",
+    "Вид прототипа",
+    "Vista del prototipo",
+    "Vue du prototype",
+    "Prototypansicht"
+  ],
+  [
+    "Surfaces",
+    "Поверхности",
+    "Superficies",
+    "Surfaces",
+    "Oberflächen"
+  ],
+  [
+    "Apply Kenney to Selected",
+    "Применить Kenney к выделенным",
+    "Aplicar Kenney a seleccionados",
+    "Appliquer Kenney à la sélection",
+    "Kenney auf Auswahl anwenden"
+  ],
+  [
+    "Tile Size, m",
+    "Размер плитки, м",
+    "Tamaño de baldosa, m",
+    "Taille de tuile, m",
+    "Kachelgröße, m"
+  ],
+  [
+    "Kenney · CC0 · included in GLB",
+    "Kenney · CC0 · сохраняется в GLB",
+    "Kenney · CC0 · incluido en GLB",
+    "Kenney · CC0 · inclus dans GLB",
+    "Kenney · CC0 · in GLB enthalten"
+  ],
+  [
+    "Kenney Textures",
+    "Текстуры Kenney",
+    "Texturas Kenney",
+    "Textures Kenney",
+    "Kenney-Texturen"
+  ],
+  [
+    "Color Tags",
+    "Цветовые теги",
+    "Etiquetas de color",
+    "Étiquettes de couleur",
+    "Farb-Tags"
+  ],
+  [
+    "Curved Walls",
+    "Кривые стены",
+    "Paredes curvas",
+    "Murs courbes",
+    "Gekrümmte Wände"
+  ],
+  [
+    "Left (−X)",
+    "Левая (−X)",
+    "Izquierda (−X)",
+    "Gauche (−X)",
+    "Links (−X)"
+  ],
+  [
+    "Right (+X)",
+    "Правая (+X)",
+    "Derecha (+X)",
+    "Droite (+X)",
+    "Rechts (+X)"
+  ],
+  [
+    "Front (−Y)",
+    "Передняя (−Y)",
+    "Frontal (−Y)",
+    "Avant (−Y)",
+    "Vorne (−Y)"
+  ],
+  [
+    "Back (+Y)",
+    "Задняя (+Y)",
+    "Trasera (+Y)",
+    "Arrière (+Y)",
+    "Hinten (+Y)"
+  ],
+  [
+    "Cut Direction",
+    "Направление выреза",
+    "Dirección del corte",
+    "Direction de découpe",
+    "Schnittrichtung"
+  ],
+  [
+    "Room Wall",
+    "Стена комнаты",
+    "Pared de la habitación",
+    "Mur de la pièce",
+    "Raumwand"
+  ],
+  [
+    "Round",
+    "Полукруг",
+    "Semicircular",
+    "Plein cintre",
+    "Rundbogen"
+  ],
+  [
+    "Segmental",
+    "Пологая",
+    "Rebajado",
+    "Surbaissé",
+    "Segmentbogen"
+  ],
+  [
+    "Pointed",
+    "Стрельчатая",
+    "Apuntado",
+    "Brisé",
+    "Spitzbogen"
+  ],
+  [
+    "Dimension Handles",
+    "Ручки размеров",
+    "Controles de dimensiones",
+    "Poignées de dimensions",
+    "Maßgriffe"
+  ],
+  [
+    "Depth / Thickness",
+    "Глубина / толщина",
+    "Profundidad / grosor",
+    "Profondeur / épaisseur",
+    "Tiefe / Dicke"
+  ],
+  [
+    "Base Elevation",
+    "Уровень основания",
+    "Altura de la base",
+    "Niveau de base",
+    "Basishöhe"
+  ],
+  [
+    "Wall Chain",
+    "Цепочка стен",
+    "Cadena de paredes",
+    "Chaîne de murs",
+    "Wandkette"
+  ],
+  [
+    "Wall Joint",
+    "Стык стен",
+    "Unión de paredes",
+    "Jonction de murs",
+    "Wandverbindung"
+  ],
+  [
+    "Scale Hints",
+    "Подсказки масштаба",
+    "Indicaciones de escala",
+    "Indications d’échelle",
+    "Maßhinweise"
+  ],
+  [
+    "Additional Tools",
+    "Дополнительные инструменты",
+    "Herramientas adicionales",
+    "Outils supplémentaires",
+    "Weitere Werkzeuge"
+  ],
+  [
+    "Selected Object Tools",
+    "Инструменты выделенных объектов",
+    "Herramientas de la selección",
+    "Outils des objets sélectionnés",
+    "Werkzeuge für ausgewählte Objekte"
+  ],
+  [
+    "Check Geometry",
+    "Проверить геометрию",
+    "Comprobar geometría",
+    "Vérifier la géométrie",
+    "Geometrie prüfen"
+  ],
+  [
+    "Object Tags",
+    "Теги объектов",
+    "Etiquetas de objetos",
+    "Étiquettes d’objets",
+    "Objekt-Tags"
+  ],
+  [
+    "Player Dimensions and Standards",
+    "Размеры персонажа и стандарты",
+    "Dimensiones del jugador y normas",
+    "Dimensions du joueur et normes",
+    "Spielermaße und Standards"
+  ],
+  [
+    "Viewport Hints",
+    "Подсказки в сцене",
+    "Indicaciones en la vista",
+    "Indications dans la vue",
+    "Hinweise in der Ansicht"
+  ],
+  [
+    "Export to Godot",
+    "Экспорт в Godot",
+    "Exportar a Godot",
+    "Exporter vers Godot",
+    "Nach Godot exportieren"
+  ],
+  [
+    "Check Intersections",
+    "Проверить пересечения",
+    "Comprobar intersecciones",
+    "Vérifier les intersections",
+    "Überschneidungen prüfen"
+  ],
+  [
+    "No intersections or inverted geometry",
+    "Пересечений и инверсии нет",
+    "Sin intersecciones ni geometría invertida",
+    "Aucune intersection ni géométrie inversée",
+    "Keine Überschneidungen oder umgekehrte Geometrie"
+  ],
+  [
+    "Module Presets",
+    "Готовые модули",
+    "Módulos predefinidos",
+    "Modules prédéfinis",
+    "Modulvorlagen"
+  ],
+  [
+    "Category",
+    "Раздел",
+    "Categoría",
+    "Catégorie",
+    "Kategorie"
+  ],
+  [
+    "Select",
+    "Выбрать",
+    "Seleccionar",
+    "Sélectionner",
+    "Auswählen"
+  ],
+  [
+    "Select Module",
+    "Выбрать модуль",
+    "Seleccionar módulo",
+    "Choisir un module",
+    "Modul auswählen"
+  ],
+  [
+    "Change by Grid Step",
+    "Изменить на шаг сетки",
+    "Cambiar un paso de cuadrícula",
+    "Modifier d’un pas de grille",
+    "Um einen Rasterschritt ändern"
+  ],
+  [
+    "Attach to Face",
+    "Пристыковать к грани",
+    "Unir a la cara",
+    "Raccorder à la face",
+    "An Fläche anfügen"
+  ],
+  [
+    "Target Axis",
+    "Ось основной детали",
+    "Eje del destino",
+    "Axe de la cible",
+    "Achse des Zielobjekts"
+  ],
+  [
+    "Move the neighboring piece to the active object's outer face, preserving shape and rotation; target axes",
+    "Переместить соседнюю деталь к внешней грани активной, сохраняя форму и поворот; оси основной детали",
+    "Mover la pieza vecina a la cara exterior del objeto activo, conservando forma y rotación; ejes del destino",
+    "Déplacer la pièce voisine vers la face extérieure de l’objet actif sans changer sa forme ni sa rotation ; axes de la cible",
+    "Nachbarteil an die Außenfläche des aktiven Objekts verschieben; Form und Drehung bleiben erhalten; Zielachsen"
+  ],
+  [
+    "Drag Dimension",
+    "Потянуть размер",
+    "Arrastrar dimensión",
+    "Ajuster une dimension",
+    "Abmessung ziehen"
+  ],
+  [
+    "Drag to an edge or vertex · Ctrl: no snapping · Esc: cancel",
+    "Тяните к ребру или вершине · Ctrl: без привязки · Esc: отменить",
+    "Arrastra a una arista o vértice · Ctrl: sin ajuste · Esc: cancelar",
+    "Glisser vers une arête ou un sommet · Ctrl : sans accrochage · Échap : annuler",
+    "Zu Kante oder Punkt ziehen · Strg: ohne Einrasten · Esc: abbrechen"
+  ],
+  [
+    "Return to Selection",
+    "Вернуться к выделению",
+    "Volver a selección",
+    "Revenir à la sélection",
+    "Zur Auswahl zurückkehren"
+  ],
+  [
+    "Choose a structure and drag LMB. Esc / RMB returns to selection",
+    "Выберите конструкцию и протяните ЛКМ. Esc / ПКМ — выделение",
+    "Elige una estructura y arrastra con clic izquierdo. Esc / clic derecho vuelve a selección",
+    "Choisissez une structure et glissez avec clic gauche. Échap / clic droit revient à la sélection",
+    "Konstruktion wählen und mit LMT ziehen. Esc / RMT kehrt zur Auswahl zurück"
+  ],
+  [
+    "Build",
+    "Строить",
+    "Construir",
+    "Construire",
+    "Bauen"
+  ],
+  [
+    "Walls, floors and rooms",
+    "Стены, полы и комнаты",
+    "Paredes, suelos y habitaciones",
+    "Murs, sols et pièces",
+    "Wände, Böden und Räume"
+  ],
+  [
+    "Openings",
+    "Проёмы",
+    "Huecos",
+    "Ouvertures",
+    "Öffnungen"
+  ],
+  [
+    "Doors, windows and arcades",
+    "Двери, окна и аркады",
+    "Puertas, ventanas y arcadas",
+    "Portes, fenêtres et arcades",
+    "Türen, Fenster und Arkaden"
+  ],
+  [
+    "Access",
+    "Подъёмы",
+    "Accesos",
+    "Accès",
+    "Aufgänge"
+  ],
+  [
+    "Stairs and ramps",
+    "Лестницы и пандусы",
+    "Escaleras y rampas",
+    "Escaliers et rampes",
+    "Treppen und Rampen"
+  ],
+  [
+    "Details",
+    "Детали",
+    "Detalles",
+    "Détails",
+    "Details"
+  ],
+  [
+    "Supports, railings and roofs",
+    "Опоры, ограждения и крыши",
+    "Soportes, barandillas y tejados",
+    "Supports, garde-corps et toits",
+    "Stützen, Geländer und Dächer"
+  ],
+  [
+    "Gameplay",
+    "Геймплей",
+    "Jugabilidad",
+    "Jouabilité",
+    "Gameplay"
+  ],
+  [
+    "Cover, water and player scale",
+    "Укрытия, вода и масштаб игрока",
+    "Coberturas, agua y escala del jugador",
+    "Abris, eau et échelle du joueur",
+    "Deckung, Wasser und Spielermaßstab"
+  ],
+  [
+    "Wall 2 m",
+    "Стена 2 м",
+    "Pared de 2 m",
+    "Mur de 2 m",
+    "Wand 2 m"
+  ],
+  [
+    "Wall 4 m",
+    "Стена 4 м",
+    "Pared de 4 m",
+    "Mur de 4 m",
+    "Wand 4 m"
+  ],
+  [
+    "Wall 8 m",
+    "Стена 8 м",
+    "Pared de 8 m",
+    "Mur de 8 m",
+    "Wand 8 m"
+  ],
+  [
+    "Floor 4 × 4",
+    "Пол 4 × 4",
+    "Suelo 4 × 4",
+    "Sol 4 × 4",
+    "Boden 4 × 4"
+  ],
+  [
+    "Floor 8 × 8",
+    "Пол 8 × 8",
+    "Suelo 8 × 8",
+    "Sol 8 × 8",
+    "Boden 8 × 8"
+  ],
+  [
+    "Platform",
+    "Платформа",
+    "Plataforma",
+    "Plateforme",
+    "Plattform"
+  ],
+  [
+    "Room 6 × 6",
+    "Комната 6 × 6",
+    "Habitación 6 × 6",
+    "Pièce 6 × 6",
+    "Raum 6 × 6"
+  ],
+  [
+    "Wall Corner",
+    "Угол стены",
+    "Esquina de pared",
+    "Angle de mur",
+    "Wandecke"
+  ],
+  [
+    "Wide Door",
+    "Широкая дверь",
+    "Puerta ancha",
+    "Porte large",
+    "Breite Tür"
+  ],
+  [
+    "Window Row",
+    "Ряд окон",
+    "Fila de ventanas",
+    "Rangée de fenêtres",
+    "Fensterreihe"
+  ],
+  [
+    "Round Arch",
+    "Круглая арка",
+    "Arco de medio punto",
+    "Arc en plein cintre",
+    "Rundbogen"
+  ],
+  [
+    "Pointed Arch",
+    "Стрельчатая арка",
+    "Arco apuntado",
+    "Arc brisé",
+    "Spitzbogen"
+  ],
+  [
+    "Arcade",
+    "Аркада",
+    "Arcada",
+    "Arcade",
+    "Arkade"
+  ],
+  [
+    "Stairs 1 m",
+    "Лестница 1 м",
+    "Escalera de 1 m",
+    "Escalier de 1 m",
+    "Treppe 1 m"
+  ],
+  [
+    "Storey Stairs",
+    "Лестница этаж",
+    "Escalera entre plantas",
+    "Escalier d’étage",
+    "Geschosstreppe"
+  ],
+  [
+    "L Stairs",
+    "Лестница L",
+    "Escalera en L",
+    "Escalier en L",
+    "L-Treppe"
+  ],
+  [
+    "U Stairs",
+    "Лестница U",
+    "Escalera en U",
+    "Escalier en U",
+    "U-Treppe"
+  ],
+  [
+    "Spiral",
+    "Винтовая",
+    "Caracol",
+    "Hélicoïdal",
+    "Wendel"
+  ],
+  [
+    "Ladder",
+    "Приставная",
+    "Escalera de mano",
+    "Échelle",
+    "Leiter"
+  ],
+  [
+    "Pillar",
+    "Колонна",
+    "Pilar",
+    "Pilier",
+    "Säule"
+  ],
+  [
+    "Arc Wall",
+    "Дуговая стена",
+    "Pared en arco",
+    "Mur en arc",
+    "Bogenwand"
+  ],
+  [
+    "Railing 4 m",
+    "Перила 4 м",
+    "Barandilla de 4 m",
+    "Garde-corps de 4 m",
+    "Geländer 4 m"
+  ],
+  [
+    "Gable Roof",
+    "Двускатная крыша",
+    "Tejado a dos aguas",
+    "Toit à deux pans",
+    "Satteldach"
+  ],
+  [
+    "Shed Roof",
+    "Навес",
+    "Tejado a un agua",
+    "Toit à un pan",
+    "Pultdach"
+  ],
+  [
+    "Low Cover",
+    "Низкое укрытие",
+    "Cobertura baja",
+    "Abri bas",
+    "Niedrige Deckung"
+  ],
+  [
+    "High Cover",
+    "Высокое укрытие",
+    "Cobertura alta",
+    "Abri haut",
+    "Hohe Deckung"
+  ],
+  [
+    "Water 4 × 4",
+    "Вода 4 × 4",
+    "Agua 4 × 4",
+    "Eau 4 × 4",
+    "Wasser 4 × 4"
+  ],
+  [
+    "Player Height",
+    "Рост игрока",
+    "Altura del jugador",
+    "Taille du joueur",
+    "Spielerhöhe"
+  ],
+  [
+    "Clearance",
+    "Габарит прохода",
+    "Espacio de paso",
+    "Gabarit de passage",
+    "Durchgangsmaß"
+  ],
+  [
+    "Cylinder",
+    "Цилиндр",
+    "Cilindro",
+    "Cylindre",
+    "Zylinder"
+  ],
+  [
+    "Corner",
+    "Угол",
+    "Esquina",
+    "Angle",
+    "Ecke"
+  ],
+  [
+    "Spiral Stairs",
+    "Винтовая лестница",
+    "Escalera de caracol",
+    "Escalier hélicoïdal",
+    "Wendeltreppe"
+  ],
+  [
+    "Roof",
+    "Крыша",
+    "Tejado",
+    "Toit",
+    "Dach"
+  ],
+  [
+    "Railing",
+    "Перила",
+    "Barandilla",
+    "Garde-corps",
+    "Geländer"
+  ],
+  [
+    "Water",
+    "Вода",
+    "Agua",
+    "Eau",
+    "Wasser"
+  ],
+  [
+    "Player",
+    "Игрок",
+    "Jugador",
+    "Joueur",
+    "Spieler"
+  ],
+  [
+    "Crouching Player",
+    "Игрок присев",
+    "Jugador agachado",
+    "Joueur accroupi",
+    "Geduckter Spieler"
+  ],
+  [
+    "Height Ruler",
+    "Линейка роста",
+    "Regla de altura",
+    "Règle de hauteur",
+    "Höhenmaß"
+  ],
+  [
+    "Jump Ruler",
+    "Линейка прыжка",
+    "Regla de salto",
+    "Règle de saut",
+    "Sprungmaß"
+  ],
+  [
+    "Light",
+    "Светлый",
+    "Claro",
+    "Clair",
+    "Hell"
+  ],
+  [
+    "Dark",
+    "Тёмный",
+    "Oscuro",
+    "Sombre",
+    "Dunkel"
+  ],
+  [
+    "Orange",
+    "Оранжевый",
+    "Naranja",
+    "Orange",
+    "Orange"
+  ],
+  [
+    "Green",
+    "Зелёный",
+    "Verde",
+    "Vert",
+    "Grün"
+  ],
+  [
+    "Purple",
+    "Фиолетовый",
+    "Morado",
+    "Violet",
+    "Violett"
+  ],
+  [
+    "Red",
+    "Красный",
+    "Rojo",
+    "Rouge",
+    "Rot"
+  ],
+  [
+    "Pattern ",
+    "Рисунок ",
+    "Patrón ",
+    "Motif ",
+    "Muster "
+  ],
+  [
+    "Arched Window",
+    "Арочное окно",
+    "Ventana arqueada",
+    "Fenêtre cintrée",
+    "Bogenfenster"
+  ],
+  [
+    "Remove Opening",
+    "Убрать проём",
+    "Quitar hueco",
+    "Supprimer l’ouverture",
+    "Öffnung entfernen"
+  ],
+  [
+    "Points / Bezier",
+    "Точки / Безье",
+    "Puntos / Bézier",
+    "Points / Bézier",
+    "Punkte / Bézier"
+  ],
+  [
+    "LMB adds points; Enter finishes; Tab edits handles",
+    "ЛКМ ставит точки; Enter завершает; ручки доступны в Tab",
+    "clic izquierdo añade puntos; Intro termina; Tab edita controles",
+    "clic gauche ajoute des points ; Entrée termine ; Tab modifie les poignées",
+    "LMT setzt Punkte; Eingabe beendet; Tab bearbeitet Griffe"
+  ],
+  [
+    "Freehand",
+    "Свободная линия",
+    "Trazo libre",
+    "Main levée",
+    "Freihand"
+  ],
+  [
+    "Drag LMB to draw a wall",
+    "Протяните ЛКМ, чтобы нарисовать стену",
+    "Arrastra con clic izquierdo para dibujar una pared",
+    "Glissez avec clic gauche pour dessiner un mur",
+    "Mit LMT ziehen, um eine Wand zu zeichnen"
+  ],
+  [
+    "Three-Point Arc",
+    "Дуга по 3 точкам",
+    "Arco de tres puntos",
+    "Arc à trois points",
+    "Dreipunktbogen"
+  ],
+  [
+    "Start, point on arc, end",
+    "Начало, точка на дуге, конец",
+    "Inicio, punto del arco, final",
+    "Départ, point sur l’arc, arrivée",
+    "Start, Punkt auf Bogen, Ende"
+  ],
+  [
+    "Curved Wall",
+    "Кривая стена",
+    "Pared curva",
+    "Mur courbe",
+    "Gekrümmte Wand"
+  ],
+  [
+    "Close End Caps",
+    "Замкнуть торцы",
+    "Cerrar extremos",
+    "Fermer les extrémités",
+    "Endflächen schließen"
+  ],
+  [
+    "Draw Curved Wall",
+    "Нарисовать кривую стену",
+    "Dibujar pared curva",
+    "Dessiner un mur courbe",
+    "Gekrümmte Wand zeichnen"
+  ],
+  [
+    "Curve · LMB: points / drag · Enter: finish · Backspace: delete · Esc: cancel",
+    "Кривая · ЛКМ: точки / протянуть · Enter: готово · Backspace: удалить · Esc: отмена",
+    "Curva · clic izquierdo: puntos / arrastrar · Intro: terminar · Retroceso: borrar · Esc: cancelar",
+    "Courbe · clic gauche : points / glisser · Entrée : terminer · Retour arrière : supprimer · Échap : annuler",
+    "Kurve · LMT: Punkte / ziehen · Eingabe: fertig · Rücktaste: löschen · Esc: abbrechen"
+  ],
+  [
+    "Miter Joint",
+    "Под углом",
+    "Unión a inglete",
+    "Jonction en onglet",
+    "Gehrungsverbindung"
+  ],
+  [
+    "Trim both walls along a shared seam, including different thicknesses",
+    "Общая подрезка двух стен, включая разную толщину",
+    "Recortar ambas paredes por una unión común, incluso con grosores distintos",
+    "Ajuster les deux murs sur une jonction commune, même avec des épaisseurs différentes",
+    "Beide Wände an gemeinsamer Fuge zuschneiden, auch bei verschiedenen Dicken"
+  ],
+  [
+    "Butt Joint",
+    "Встык",
+    "Unión a tope",
+    "Jonction bout à bout",
+    "Stumpfstoß"
+  ],
+  [
+    "Keep the target end square and trim the neighbor to its face",
+    "Прямой торец основной стены, соседняя подрезается к её грани",
+    "Mantener recto el extremo del destino y recortar la vecina a su cara",
+    "Garder l’extrémité de la cible droite et ajuster la voisine à sa face",
+    "Zielende gerade lassen und Nachbarwand an dessen Fläche zuschneiden"
+  ],
+  [
+    "T Joint / Trim",
+    "Т-стык / подрезка",
+    "Unión en T / recorte",
+    "Jonction en T / découpe",
+    "T-Verbindung / Zuschnitt"
+  ],
+  [
+    "Trim the neighbor to the target face without changing the target",
+    "Подрезать соседнюю стену к грани основной, основную не менять",
+    "Recortar la vecina a la cara del destino sin modificarlo",
+    "Ajuster la voisine à la face de la cible sans modifier celle-ci",
+    "Nachbarwand an Zielfläche zuschneiden, Ziel unverändert lassen"
+  ],
+  [
+    "Join Walls",
+    "Состыковать стены",
+    "Unir paredes",
+    "Joindre les murs",
+    "Wände verbinden"
+  ],
+  [
+    "Build Structure",
+    "Строить конструкцию",
+    "Crear estructura",
+    "Créer une structure",
+    "Konstruktion erstellen"
+  ],
+  [
+    "Draw Structure",
+    "Нарисовать конструкцию",
+    "Dibujar estructura",
+    "Dessiner une structure",
+    "Konstruktion zeichnen"
+  ],
+  [
+    "Drag the selected structure in the scene. Esc / RMB returns to selection",
+    "Протяните выбранную конструкцию в сцене. Esc / ПКМ — вернуться к выделению",
+    "Arrastra la estructura elegida. Esc / clic derecho vuelve a selección",
+    "Tracez la structure choisie. Échap / clic droit revient à la sélection",
+    "Gewählte Konstruktion aufziehen. Esc / RMT kehrt zur Auswahl zurück"
+  ],
+  [
+    "Add at Cursor",
+    "Добавить у курсора",
+    "Añadir en el cursor",
+    "Ajouter au curseur",
+    "Am Cursor hinzufügen"
+  ],
+  [
+    "Place with Mouse",
+    "Разместить мышью",
+    "Colocar con el ratón",
+    "Placer à la souris",
+    "Mit Maus platzieren"
+  ],
+  [
+    "Stamp Copies",
+    "Серия копий",
+    "Estampar copias",
+    "Placer des copies",
+    "Kopien stempeln"
+  ],
+  [
+    "Draw",
+    "Рисовать",
+    "Dibujar",
+    "Dessiner",
+    "Zeichnen"
+  ],
+  [
+    "Place Module",
+    "Разместить модуль",
+    "Colocar módulo",
+    "Placer un module",
+    "Modul platzieren"
+  ],
+  [
+    "Blocksmith · Drag on a surface · Ctrl: no snapping · Esc / RMB: exit",
+    "Blocksmith · Протяните на поверхности · Ctrl: без привязки · Esc / ПКМ: выйти",
+    "Blocksmith · Arrastra sobre una superficie · Ctrl: sin ajuste · Esc / clic derecho: salir",
+    "Blocksmith · Glissez sur une surface · Ctrl : sans accrochage · Échap / clic droit : quitter",
+    "Blocksmith · Auf Oberfläche ziehen · Strg: ohne Einrasten · Esc / RMT: beenden"
+  ],
+  [
+    "Drag an opening on a wall · Esc / RMB: exit",
+    "Протяните проём на стене · Esc / ПКМ: выйти",
+    "Dibuja un hueco en una pared · Esc / clic derecho: salir",
+    "Tracez une ouverture sur un mur · Échap / clic droit : quitter",
+    "Öffnung auf Wand aufziehen · Esc / RMT: beenden"
+  ],
+  [
+    "Drag LMB in the scene · Esc / RMB: exit",
+    "Протяните ЛКМ в сцене · Esc / ПКМ: выйти",
+    "Arrastra con clic izquierdo en la escena · Esc / clic derecho: salir",
+    "Glissez avec clic gauche dans la scène · Échap / clic droit : quitter",
+    "Mit LMT in der Szene ziehen · Esc / RMT: beenden"
+  ],
+  [
+    "Release LMB: create · H: height · Esc: exit",
+    "Отпустите ЛКМ: создать · H: высота · Esc: выход",
+    "Suelta clic izquierdo: crear · H: altura · Esc: salir",
+    "Relâcher clic gauche : créer · H : hauteur · Échap : quitter",
+    "LMT loslassen: erstellen · H: Höhe · Esc: beenden"
+  ],
+  [
+    "Release LMB: create · Esc: exit",
+    "Отпустите ЛКМ: создать · Esc: выход",
+    "Suelta clic izquierdo: crear · Esc: salir",
+    "Relâcher clic gauche : créer · Échap : quitter",
+    "LMT loslassen: erstellen · Esc: beenden"
+  ],
+  [
+    "Height: move mouse up / down · LMB: create · Esc: exit",
+    "Высота: мышь вверх / вниз · ЛКМ: создать · Esc: выход",
+    "Altura: mueve el ratón arriba / abajo · clic izquierdo: crear · Esc: salir",
+    "Hauteur : souris vers le haut / bas · clic gauche : créer · Échap : quitter",
+    "Höhe: Maus auf / ab · LMT: erstellen · Esc: beenden"
+  ],
+  [
+    "Release LMB: cut · Esc: cancel",
+    "Отпустите ЛКМ: вырезать · Esc: отмена",
+    "Suelta clic izquierdo: cortar · Esc: cancelar",
+    "Relâcher clic gauche : découper · Échap : annuler",
+    "LMT loslassen: ausschneiden · Esc: abbrechen"
+  ],
+  [
+    "Drag the opening width and height",
+    "Протяните ширину и высоту проёма",
+    "Arrastra la anchura y altura del hueco",
+    "Tracez la largeur et la hauteur de l’ouverture",
+    "Breite und Höhe der Öffnung aufziehen"
+  ],
+  [
+    "Draw Row",
+    "Протянуть ряд",
+    "Dibujar fila",
+    "Tracer une rangée",
+    "Reihe aufziehen"
+  ],
+  [
+    "Row · mouse: length and direction · wheel: count · LMB: create · Esc / RMB: cancel",
+    "Ряд · мышь: длина и направление · колесо: число · ЛКМ: создать · Esc / ПКМ: отменить",
+    "Fila · ratón: longitud y dirección · rueda: cantidad · clic izquierdo: crear · Esc / clic derecho: cancelar",
+    "Rangée · souris : longueur et direction · molette : nombre · clic gauche : créer · Échap / clic droit : annuler",
+    "Reihe · Maus: Länge und Richtung · Rad: Anzahl · LMT: erstellen · Esc / RMT: abbrechen"
+  ],
+  [
+    "Repeat",
+    "Повторять",
+    "Repetir",
+    "Répéter",
+    "Wiederholen"
+  ],
+  [
+    "Snapping",
+    "Привязка",
+    "Ajuste",
+    "Accrochage",
+    "Einrasten"
+  ],
+  [
+    "On Surfaces",
+    "На поверхности",
+    "Sobre superficies",
+    "Sur les surfaces",
+    "Auf Oberflächen"
+  ],
+  [
+    "Chain Walls",
+    "Соединять стены в цепочку",
+    "Encadenar paredes",
+    "Enchaîner les murs",
+    "Wände verketten"
+  ],
+  [
+    "Grid",
+    "Сетка",
+    "Cuadrícula",
+    "Grille",
+    "Raster"
+  ],
+  [
+    "Shape",
+    "Форма",
+    "Forma",
+    "Forme",
+    "Form"
+  ],
+  [
+    "Click Length",
+    "Длина при щелчке",
+    "Longitud con un clic",
+    "Longueur au clic",
+    "Länge bei Klick"
+  ],
+  [
+    "Joint",
+    "Стык",
+    "Unión",
+    "Jonction",
+    "Verbindung"
+  ],
+  [
+    "Color",
+    "Цвет",
+    "Color",
+    "Couleur",
+    "Farbe"
+  ],
+  [
+    "Step",
+    "Шаг",
+    "Paso",
+    "Marche",
+    "Stufe"
+  ],
+  [
+    "Jump",
+    "Прыжок",
+    "Salto",
+    "Saut",
+    "Sprung"
+  ],
+  [
+    "Above Jump",
+    "Выше прыжка",
+    "Supera el salto",
+    "Au-delà du saut",
+    "Über Sprunghöhe"
+  ],
+  [
+    "Step ",
+    "Ступень ",
+    "Peldaño ",
+    "Marche ",
+    "Stufe "
+  ],
+  [
+    "Stairs ",
+    "Лестница ",
+    "Escalera ",
+    "Escalier ",
+    "Treppe "
+  ],
+  [
+    "Slope ",
+    "Уклон ",
+    "Pendiente ",
+    "Pente ",
+    "Neigung "
+  ],
+  [
+    "Opening ",
+    "Проём ",
+    "Hueco ",
+    "Ouverture ",
+    "Öffnung "
+  ],
+  [
+    "Cover ",
+    "Укрытие ",
+    "Cobertura ",
+    "Abri ",
+    "Deckung "
+  ],
+  [
+    " m",
+    " м",
+    " m",
+    " m",
+    " m"
+  ],
+  [
+    " m > step ",
+    " м > шаг ",
+    " m > peldaño ",
+    " m > marche ",
+    " m > Stufe "
+  ],
+  [
+    " m < player width ",
+    " м < ширина игрока ",
+    " m < anchura del jugador ",
+    " m < largeur du joueur ",
+    " m < Spielerbreite "
+  ],
+  [
+    " m < player height ",
+    " м < рост ",
+    " m < altura del jugador ",
+    " m < taille du joueur ",
+    " m < Spielerhöhe "
+  ],
+  [
+    " m < width ",
+    " м < ширина ",
+    " m < anchura ",
+    " m < largeur ",
+    " m < Breite "
+  ],
+  [
+    " m · target ",
+    " м · ориентир ",
+    " m · referencia ",
+    " m · référence ",
+    " m · Richtwert "
+  ],
+  [
+    "Depth between wading and swimming",
+    "Глубина между бродом и плаванием",
+    "Profundidad entre vadear y nadar",
+    "Profondeur entre marche dans l’eau et nage",
+    "Tiefe zwischen Waten und Schwimmen"
+  ],
+  [
+    " · opening ",
+    " · проём ",
+    " · hueco ",
+    " · ouverture ",
+    " · Öffnung "
+  ],
+  [
+    " steps · rise ",
+    " ступеней · шаг ",
+    " peldaños · altura ",
+    " marches · hauteur ",
+    " Stufen · Höhe "
+  ],
+  [
+    "Row: ",
+    "Ряд: ",
+    "Fila: ",
+    "Rangée : ",
+    "Reihe: "
+  ],
+  [
+    " objects · length ",
+    " объектов · длина ",
+    " objetos · longitud ",
+    " objets · longueur ",
+    " Objekte · Länge "
+  ],
+  [
+    " repeats · ",
+    " повторов · ",
+    " repeticiones · ",
+    " répétitions · ",
+    " Wiederholungen · "
+  ],
+  [
+    " • opening",
+    " • проём",
+    " • hueco",
+    " • ouverture",
+    " • Öffnung"
+  ],
+  [
+    "The selected mesh has no geometry",
+    "В выбранном меше нет геометрии",
+    "La malla seleccionada no tiene geometría",
+    "Le maillage sélectionné ne contient pas de géométrie",
+    "Das ausgewählte Mesh enthält keine Geometrie"
+  ],
+  [
+    "The selected object has no geometry",
+    "В выбранном объекте нет геометрии",
+    "El objeto seleccionado no tiene geometría",
+    "L’objet sélectionné ne contient pas de géométrie",
+    "Das ausgewählte Objekt enthält keine Geometrie"
+  ],
+  [
+    "An opening requires a solid mesh",
+    "Для проёма нужен объёмный меш",
+    "Un hueco requiere una malla sólida",
+    "Une ouverture nécessite un maillage solide",
+    "Eine Öffnung benötigt ein geschlossenes Mesh"
+  ],
+  [
+    "The joint requires nonparallel walls",
+    "Для стыка нужны непараллельные стены",
+    "La unión requiere paredes no paralelas",
+    "La jonction nécessite des murs non parallèles",
+    "Die Verbindung benötigt nicht parallele Wände"
+  ],
+  [
+    "Attachment requires nonempty meshes",
+    "Для стыковки нужны непустые меши",
+    "La unión requiere mallas no vacías",
+    "Le raccord nécessite des maillages non vides",
+    "Das Anfügen benötigt nicht leere Meshes"
+  ],
+  [
+    "Select two parametric walls without modifiers",
+    "Выберите две параметрические стены без модификаторов",
+    "Selecciona dos paredes paramétricas sin modificadores",
+    "Sélectionnez deux murs paramétriques sans modificateurs",
+    "Zwei parametrische Wände ohne Modifikatoren auswählen"
+  ],
+  [
+    "Select two straight walls without reflection",
+    "Выберите две прямые стены без отражения",
+    "Selecciona dos paredes rectas sin reflejo",
+    "Sélectionnez deux murs droits sans symétrie",
+    "Zwei gerade Wände ohne Spiegelung auswählen"
+  ],
+  [
+    "The module has zero size",
+    "Модуль имеет нулевой размер",
+    "El módulo tiene tamaño cero",
+    "Le module a une taille nulle",
+    "Das Modul hat die Größe null"
+  ],
+  [
+    "Draw the first opening on the object",
+    "Нарисуйте первый проём на объекте",
+    "Dibuja el primer hueco en el objeto",
+    "Tracez la première ouverture sur l’objet",
+    "Erste Öffnung auf dem Objekt zeichnen"
+  ],
+  [
+    "Start inside a face of a solid mesh",
+    "Начните внутри грани объёмного меша",
+    "Empieza dentro de una cara de una malla sólida",
+    "Commencez à l’intérieur d’une face d’un maillage solide",
+    "Innerhalb einer Fläche eines geschlossenen Meshes beginnen"
+  ],
+  [
+    "Start drawing on a wall or mesh",
+    "Начните рисовать на стене или меше",
+    "Empieza a dibujar sobre una pared o malla",
+    "Commencez à dessiner sur un mur ou un maillage",
+    "Auf einer Wand oder einem Mesh zu zeichnen beginnen"
+  ],
+  [
+    "At most 512 points per curve",
+    "Не более 512 точек на одну кривую",
+    "Máximo 512 puntos por curva",
+    "512 points maximum par courbe",
+    "Höchstens 512 Punkte pro Kurve"
+  ],
+  [
+    "Invalid curve coordinates",
+    "Недопустимые координаты кривой",
+    "Coordenadas de curva inválidas",
+    "Coordonnées de courbe invalides",
+    "Ungültige Kurvenkoordinaten"
+  ],
+  [
+    "The wall is too short for the joint and opening",
+    "Недостаточно длины стены для стыка и проёма",
+    "La pared es demasiado corta para la unión y el hueco",
+    "Le mur est trop court pour la jonction et l’ouverture",
+    "Die Wand ist zu kurz für Verbindung und Öffnung"
+  ],
+  [
+    "Unknown curve mode",
+    "Неизвестный режим кривой",
+    "Modo de curva desconocido",
+    "Mode de courbe inconnu",
+    "Unbekannter Kurvenmodus"
+  ],
+  [
+    "At least two distinct points are required",
+    "Нужны хотя бы две различные точки",
+    "Se necesitan al menos dos puntos distintos",
+    "Au moins deux points distincts sont nécessaires",
+    "Mindestens zwei verschiedene Punkte erforderlich"
+  ],
+  [
+    "Wall bases must lie in the same plane",
+    "Основания стен должны лежать в одной плоскости",
+    "Las bases de las paredes deben estar en el mismo plano",
+    "Les bases des murs doivent être dans le même plan",
+    "Wandbasen müssen in derselben Ebene liegen"
+  ],
+  [
+    "Negative or zero scale: ",
+    "Отрицательный или нулевой масштаб: ",
+    "Escala negativa o nula: ",
+    "Échelle négative ou nulle : ",
+    "Negative Skalierung oder Nullskalierung: "
+  ],
+  [
+    "Apply wall scale before joining",
+    "Перед стыковкой примените масштаб стен",
+    "Aplica la escala antes de unir paredes",
+    "Appliquez l’échelle des murs avant la jonction",
+    "Wandskalierung vor dem Verbinden anwenden"
+  ],
+  [
+    "Moving also affects the target: remove the parent link",
+    "Перемещение изменит и основную деталь: разорвите связь родителя",
+    "El movimiento también afecta al destino: elimina el vínculo parental",
+    "Le déplacement affecte aussi la cible : supprimez le lien de parenté",
+    "Verschieben betrifft auch das Ziel: Elternverknüpfung lösen"
+  ],
+  [
+    "Intersection with ",
+    "Пересечение с ",
+    "Intersección con ",
+    "Intersection avec ",
+    "Überschneidung mit "
+  ],
+  [
+    "Intersection: ",
+    "Пересечение: ",
+    "Intersección: ",
+    "Intersection : ",
+    "Überschneidung: "
+  ],
+  [
+    "Curve drawing stopped: ",
+    "Рисование кривой остановлено: ",
+    "Dibujo de curva detenido: ",
+    "Tracé de courbe arrêté : ",
+    "Kurvenzeichnen beendet: "
+  ],
+  [
+    "Drawing stopped: ",
+    "Рисование остановлено: ",
+    "Dibujo detenido: ",
+    "Dessin arrêté : ",
+    "Zeichnen beendet: "
+  ],
+  [
+    "The opening row extends outside the object",
+    "Ряд проёмов выходит за пределы объекта",
+    "La fila de huecos sale del objeto",
+    "La rangée d’ouvertures dépasse l’objet",
+    "Die Öffnungsreihe ragt aus dem Objekt"
+  ],
+  [
+    "The neighbor's free end lies inside the target",
+    "Свободный конец соседней стены находится внутри основной",
+    "El extremo libre de la pared vecina está dentro del destino",
+    "L’extrémité libre du mur voisin est à l’intérieur de la cible",
+    "Das freie Ende der Nachbarwand liegt im Ziel"
+  ],
+  [
+    "The arc radius is too large",
+    "Слишком большой радиус дуги",
+    "El radio del arco es demasiado grande",
+    "Le rayon de l’arc est trop grand",
+    "Der Bogenradius ist zu groß"
+  ],
+  [
+    "The angle is too sharp — start a separate wall",
+    "Слишком острый угол — начните отдельную стену",
+    "El ángulo es demasiado cerrado: empieza otra pared",
+    "L’angle est trop aigu — commencez un mur séparé",
+    "Der Winkel ist zu spitz — eine separate Wand beginnen"
+  ],
+  [
+    "The T joint must lie within the target wall length",
+    "Т-стык должен попадать в длину основной стены",
+    "La unión en T debe quedar dentro de la longitud de la pared destino",
+    "La jonction en T doit être dans la longueur du mur cible",
+    "Die T-Verbindung muss innerhalb der Zielwandlänge liegen"
+  ],
+  [
+    "The three arc points must not be collinear",
+    "Три точки дуги не должны лежать на одной прямой",
+    "Los tres puntos del arco no deben estar alineados",
+    "Les trois points de l’arc ne doivent pas être alignés",
+    "Die drei Bogenpunkte dürfen nicht auf einer Geraden liegen"
+  ],
+  [
+    "The target has zero scale",
+    "У основной детали нулевой масштаб",
+    "El destino tiene escala cero",
+    "La cible a une échelle nulle",
+    "Das Ziel hat Nullskalierung"
+  ],
+  [
+    "The surface has no thickness for a cut",
+    "У поверхности нет толщины для выреза",
+    "La superficie no tiene grosor para el corte",
+    "La surface n’a pas d’épaisseur pour la découpe",
+    "Die Oberfläche hat keine Dicke für einen Ausschnitt"
+  ],
+  [
+    "Specify the end of the row",
+    "Укажите конец ряда",
+    "Indica el final de la fila",
+    "Indiquez la fin de la rangée",
+    "Ende der Reihe angeben"
+  ],
+  [
+    "Specify an X/Y/Z axis and a −1/+1 direction",
+    "Укажите ось X/Y/Z и сторону −1/+1",
+    "Indica un eje X/Y/Z y una dirección −1/+1",
+    "Indiquez un axe X/Y/Z et un sens −1/+1",
+    "Achse X/Y/Z und Richtung −1/+1 angeben"
+  ],
+  [
+    "Reduce the repeat count or extend the row",
+    "Уменьшите число повторов или растяните ряд",
+    "Reduce las repeticiones o alarga la fila",
+    "Réduisez les répétitions ou allongez la rangée",
+    "Anzahl verringern oder Reihe verlängern"
+  ],
+  [
+    "The wall is too short for this angle",
+    "Стена слишком короткая для этого угла",
+    "La pared es demasiado corta para este ángulo",
+    "Le mur est trop court pour cet angle",
+    "Die Wand ist zu kurz für diesen Winkel"
+  ],
+  [
+    "The wall is too short for the opening and miter",
+    "Стена слишком короткая для проёма и подрезки угла",
+    "La pared es demasiado corta para el hueco y el inglete",
+    "Le mur est trop court pour l’ouverture et l’onglet",
+    "Die Wand ist zu kurz für Öffnung und Gehrung"
+  ],
+  [
+    "The generator produced an open union",
+    "Генератор создал незамкнутое объединение",
+    "El generador ha producido una unión abierta",
+    "Le générateur a produit une union ouverte",
+    "Der Generator hat eine offene Vereinigung erzeugt"
+  ],
+  [
+    "Empty geometry",
+    "Пустая геометрия",
+    "Geometría vacía",
+    "Géométrie vide",
+    "Leere Geometrie"
+  ],
+  [
+    "Nonfinite coordinates",
+    "Неконечные координаты",
+    "Coordenadas no finitas",
+    "Coordonnées non finies",
+    "Nicht endliche Koordinaten"
+  ],
+  [
+    "Open mesh or inconsistent normals",
+    "Незамкнутая сетка или несогласованные нормали",
+    "Malla abierta o normales incoherentes",
+    "Maillage ouvert ou normales incohérentes",
+    "Offenes Mesh oder inkonsistente Normalen"
+  ],
+  [
+    "Inverted or degenerate geometry",
+    "Вывернутая или вырожденная геометрия",
+    "Geometría invertida o degenerada",
+    "Géométrie inversée ou dégénérée",
+    "Umgekehrte oder entartete Geometrie"
+  ],
+  [
+    "Exact checking of a nonconvex mesh requires a scene",
+    "Точная проверка невыпуклого меша требует сцены",
+    "La comprobación exacta de una malla no convexa requiere una escena",
+    "Le contrôle exact d’un maillage non convexe nécessite une scène",
+    "Die genaue Prüfung eines nicht konvexen Meshes benötigt eine Szene"
+  ],
+  [
+    "Width / Run",
+    "Ширина / длина подъёма",
+    "Anchura / recorrido",
+    "Largeur / longueur",
+    "Breite / Lauf"
+  ],
+  [
+    "Depth / Flight",
+    "Глубина / марш",
+    "Profundidad / tramo",
+    "Profondeur / volée",
+    "Tiefe / Treppenlauf"
+  ],
+  [
+    "Opening Width",
+    "Ширина проёма",
+    "Anchura del hueco",
+    "Largeur d’ouverture",
+    "Öffnungsbreite"
+  ],
+  [
+    "Opening Height",
+    "Высота проёма",
+    "Altura del hueco",
+    "Hauteur d’ouverture",
+    "Öffnungshöhe"
+  ],
+  [
+    "Opening Count",
+    "Число проёмов",
+    "Cantidad de huecos",
+    "Nombre d’ouvertures",
+    "Anzahl der Öffnungen"
+  ],
+  [
+    "Max Step",
+    "Максимальная ступень",
+    "Altura máxima del peldaño",
+    "Hauteur de marche maximale",
+    "Maximale Stufenhöhe"
+  ],
+  [
+    "Turn (degrees)",
+    "Поворот, градусы",
+    "Giro (grados)",
+    "Rotation (degrés)",
+    "Drehung (Grad)"
+  ],
+  [
+    "Move Snapping",
+    "Привязка перемещения",
+    "Ajuste al mover",
+    "Accrochage au déplacement",
+    "Einrasten beim Verschieben"
+  ],
+  [
+    "Snap to Vertices",
+    "Привязка к вершинам",
+    "Ajustar a vértices",
+    "Accrocher aux sommets",
+    "An Punkten einrasten"
+  ],
+  [
+    "Godot Collision (-col)",
+    "Коллизии Godot (-col)",
+    "Colisión Godot (-col)",
+    "Collision Godot (-col)",
+    "Godot-Kollision (-col)"
+  ],
+  [
+    "Center Individual Pieces",
+    "Центрировать отдельные детали",
+    "Centrar piezas individuales",
+    "Centrer les pièces individuelles",
+    "Einzelteile zentrieren"
+  ],
+  [
+    "Add Blocksmith Shape",
+    "Добавить форму Blocksmith",
+    "Añadir forma Blocksmith",
+    "Ajouter une forme Blocksmith",
+    "Blocksmith-Form hinzufügen"
+  ],
+  [
+    "Blocksmith Tool",
+    "Инструмент Blocksmith",
+    "Herramienta Blocksmith",
+    "Outil Blocksmith",
+    "Blocksmith-Werkzeug"
+  ],
+  [
+    "Set Gameplay Tag",
+    "Назначить игровой тег",
+    "Asignar etiqueta de juego",
+    "Attribuer une étiquette de jeu",
+    "Gameplay-Tag setzen"
+  ],
+  [
+    "Change Grid",
+    "Изменить сетку",
+    "Cambiar cuadrícula",
+    "Modifier la grille",
+    "Raster ändern"
+  ],
+  [
+    "Export for Godot",
+    "Экспортировать для Godot",
+    "Exportar para Godot",
+    "Exporter pour Godot",
+    "Für Godot exportieren"
+  ],
+  [
+    "Export GLB",
+    "Экспорт GLB",
+    "Exportar GLB",
+    "Exporter GLB",
+    "GLB exportieren"
+  ],
+  [
+    "Snap to Grid",
+    "Привязать к сетке",
+    "Ajustar a cuadrícula",
+    "Accrocher à la grille",
+    "Am Raster einrasten"
+  ],
+  [
+    "Fit Size to Grid",
+    "Подогнать размер к сетке",
+    "Ajustar tamaño a cuadrícula",
+    "Adapter la taille à la grille",
+    "Größe ans Raster anpassen"
+  ],
+  [
+    "Apply Uniform Scale",
+    "Применить равномерный масштаб",
+    "Aplicar escala uniforme",
+    "Appliquer l’échelle uniforme",
+    "Gleichmäßige Skalierung anwenden"
+  ],
+  [
+    "Cut Active with Selected",
+    "Вырезать выделенными из активного",
+    "Cortar activo con seleccionados",
+    "Découper l’actif avec la sélection",
+    "Aktives Objekt mit Auswahl ausschneiden"
+  ],
+  [
+    "Make Editable Block",
+    "Сделать редактируемый блок",
+    "Crear bloque editable",
+    "Créer un bloc modifiable",
+    "Bearbeitbaren Block erstellen"
+  ],
+  [
+    "Mark as Asset",
+    "Пометить как ассет",
+    "Marcar como recurso",
+    "Marquer comme ressource",
+    "Als Asset markieren"
+  ],
+  [
+    "Check Metrics",
+    "Проверить размеры",
+    "Comprobar medidas",
+    "Vérifier les dimensions",
+    "Maße prüfen"
+  ],
+  [
+    "Pivot to Cursor",
+    "Origin к курсору",
+    "Origen al cursor",
+    "Origine au curseur",
+    "Ursprung zum Cursor"
+  ],
+  [
+    "Cursor to Pivot",
+    "Курсор к origin",
+    "Cursor al origen",
+    "Curseur à l’origine",
+    "Cursor zum Ursprung"
+  ],
+  [
+    "Bottom",
+    "Низ",
+    "Inferior",
+    "Bas",
+    "Unten"
+  ],
+  [
+    "Center",
+    "Центр",
+    "Centro",
+    "Centre",
+    "Mitte"
+  ],
+  [
+    "Top",
+    "Верх",
+    "Superior",
+    "Haut",
+    "Oben"
+  ],
+  [
+    "Extend ",
+    "Продолжить ",
+    "Extender ",
+    "Prolonger ",
+    "Verlängern "
+  ],
+  [
+    "Enabled",
+    "Параметры включены",
+    "Activado",
+    "Activé",
+    "Aktiviert"
+  ],
+  [
+    "Kind",
+    "Тип",
+    "Tipo",
+    "Type",
+    "Art"
+  ],
+  [
+    "Tag",
+    "Тег",
+    "Etiqueta",
+    "Étiquette",
+    "Tag"
+  ],
+  [
+    "Sill",
+    "Подоконник",
+    "Alféizar",
+    "Appui",
+    "Fensterbank"
+  ],
+  [
+    "Offset",
+    "Смещение",
+    "Desplazamiento",
+    "Décalage",
+    "Versatz"
+  ],
+  [
+    "Miter Start",
+    "Подрезка начала",
+    "Inglete inicial",
+    "Onglet initial",
+    "Gehrung am Anfang"
+  ],
+  [
+    "Miter End",
+    "Подрезка конца",
+    "Inglete final",
+    "Onglet final",
+    "Gehrung am Ende"
+  ],
+  [
+    "Count",
+    "Количество",
+    "Cantidad",
+    "Nombre",
+    "Anzahl"
+  ],
+  [
+    "Opening",
+    "Проём",
+    "Hueco",
+    "Ouverture",
+    "Öffnung"
+  ],
+  [
+    "Arch Style",
+    "Стиль арки",
+    "Estilo del arco",
+    "Style d’arc",
+    "Bogenstil"
+  ],
+  [
+    "Solid",
+    "Сплошное основание",
+    "Macizo",
+    "Plein",
+    "Massiv"
+  ],
+  [
+    "Flip",
+    "Отражение",
+    "Invertir",
+    "Inverser",
+    "Spiegeln"
+  ],
+  [
+    "Inner Radius",
+    "Внутренний радиус",
+    "Radio interior",
+    "Rayon intérieur",
+    "Innenradius"
+  ],
+  [
+    "Column",
+    "Центральная колонна",
+    "Columna",
+    "Colonne",
+    "Mittelsäule"
+  ],
+  [
+    "Segments",
+    "Сегменты",
+    "Segmentos",
+    "Segments",
+    "Segmente"
+  ],
+  [
+    "Spacing",
+    "Шаг элементов",
+    "Separación",
+    "Espacement",
+    "Abstand"
+  ],
+  [
+    "Use Kenney",
+    "Использовать Kenney",
+    "Usar Kenney",
+    "Utiliser Kenney",
+    "Kenney verwenden"
+  ],
+  [
+    "Texture",
+    "Текстура",
+    "Textura",
+    "Texture",
+    "Textur"
+  ],
+  [
+    "Palette",
+    "Палитра",
+    "Paleta",
+    "Palette",
+    "Palette"
+  ],
+  [
+    "Uv Tile",
+    "Размер UV-плитки",
+    "Tamaño de baldosa UV",
+    "Taille de tuile UV",
+    "UV-Kachelgröße"
+  ],
+  [
+    "Pivot Offset",
+    "Смещение origin",
+    "Desplazamiento del origen",
+    "Décalage de l’origine",
+    "Ursprungsversatz"
+  ],
+  [
+    "Player Radius",
+    "Радиус персонажа",
+    "Radio del jugador",
+    "Rayon du joueur",
+    "Spielerradius"
+  ],
+  [
+    "Crouch Height",
+    "Высота приседания",
+    "Altura agachado",
+    "Hauteur accroupie",
+    "Höhe beim Ducken"
+  ],
+  [
+    "Jump Height",
+    "Высота прыжка",
+    "Altura del salto",
+    "Hauteur de saut",
+    "Sprunghöhe"
+  ],
+  [
+    "Jump Gap",
+    "Дальность прыжка",
+    "Distancia del salto",
+    "Distance de saut",
+    "Sprungweite"
+  ],
+  [
+    "Preset",
+    "Пресет",
+    "Preajuste",
+    "Préréglage",
+    "Vorlage"
+  ],
+  [
+    "Preset Group",
+    "Группа пресетов",
+    "Grupo de preajustes",
+    "Groupe de préréglages",
+    "Vorlagengruppe"
+  ],
+  [
+    "Sync Grid",
+    "Синхронизировать сетку",
+    "Sincronizar cuadrícula",
+    "Synchroniser la grille",
+    "Raster synchronisieren"
+  ],
+  [
+    "Dimensions",
+    "Размеры",
+    "Dimensiones",
+    "Dimensions",
+    "Abmessungen"
+  ],
+  [
+    "Wall Height",
+    "Высота стен",
+    "Altura de pared",
+    "Hauteur des murs",
+    "Wandhöhe"
+  ],
+  [
+    "Wall Thickness",
+    "Толщина стен",
+    "Grosor de pared",
+    "Épaisseur des murs",
+    "Wanddicke"
+  ],
+  [
+    "Floor Thickness",
+    "Толщина пола",
+    "Grosor del suelo",
+    "Épaisseur du sol",
+    "Bodendicke"
+  ],
+  [
+    "Door Width",
+    "Ширина двери",
+    "Anchura de puerta",
+    "Largeur de porte",
+    "Türbreite"
+  ],
+  [
+    "Door Height",
+    "Высота двери",
+    "Altura de puerta",
+    "Hauteur de porte",
+    "Türhöhe"
+  ],
+  [
+    "Water Depth",
+    "Глубина воды",
+    "Profundidad del agua",
+    "Profondeur de l’eau",
+    "Wassertiefe"
+  ],
+  [
+    "Max Slope",
+    "Максимальный уклон",
+    "Pendiente máxima",
+    "Pente maximale",
+    "Maximale Neigung"
+  ],
+  [
+    "Max Wade",
+    "Максимальная глубина брода",
+    "Profundidad máxima al vadear",
+    "Profondeur maximale à gué",
+    "Maximale Wattiefe"
+  ],
+  [
+    "Min Swim",
+    "Минимальная глубина плавания",
+    "Profundidad mínima para nadar",
+    "Profondeur minimale de nage",
+    "Minimale Schwimmtiefe"
+  ],
+  [
+    "Export Format",
+    "Формат экспорта",
+    "Formato de exportación",
+    "Format d’export",
+    "Exportformat"
+  ],
+  [
+    "Export Scope",
+    "Область экспорта",
+    "Ámbito de exportación",
+    "Portée de l’export",
+    "Exportumfang"
+  ],
+  [
+    "Per Object",
+    "Отдельный файл на объект",
+    "Por objeto",
+    "Par objet",
+    "Pro Objekt"
+  ],
+  [
+    "Export Path",
+    "Путь экспорта",
+    "Ruta de exportación",
+    "Chemin d’export",
+    "Exportpfad"
+  ],
+  [
+    "Filename",
+    "Имя файла",
+    "Nombre de archivo",
+    "Nom de fichier",
+    "Dateiname"
+  ],
+  [
+    "Prefix",
+    "Префикс",
+    "Prefijo",
+    "Préfixe",
+    "Präfix"
+  ],
+  [
+    "Collection",
+    "Коллекция",
+    "Colección",
+    "Collection",
+    "Sammlung"
+  ],
+  [
+    "Selected",
+    "Выделенные",
+    "Seleccionados",
+    "Sélection",
+    "Ausgewählt"
+  ],
+  [
+    "Visible",
+    "Видимые",
+    "Visibles",
+    "Visibles",
+    "Sichtbar"
+  ],
+  [
+    "None",
+    "Нет",
+    "Ninguno",
+    "Aucun",
+    "Keine"
+  ],
+  [
+    "Gable",
+    "Двускатная",
+    "A dos aguas",
+    "À deux pans",
+    "Satteldach"
+  ],
+  [
+    "Shed",
+    "Односкатная",
+    "A un agua",
+    "À un pan",
+    "Pultdach"
+  ],
+  [
+    "Blockout",
+    "Прототип",
+    "Prototipo",
+    "Prototype",
+    "Prototyp"
+  ],
+  [
+    "Walkable",
+    "Проходимое",
+    "Transitable",
+    "Praticable",
+    "Begehbar"
+  ],
+  [
+    "Cover",
+    "Укрытие",
+    "Cobertura",
+    "Abri",
+    "Deckung"
+  ],
+  [
+    "Climbable",
+    "Можно взобраться",
+    "Escalable",
+    "Escaladable",
+    "Erkletterbar"
+  ],
+  [
+    "Interactive",
+    "Интерактивное",
+    "Interactivo",
+    "Interactif",
+    "Interaktiv"
+  ],
+  [
+    "Hazard",
+    "Опасность",
+    "Peligro",
+    "Danger",
+    "Gefahr"
+  ],
+  [
+    "Trigger",
+    "Триггер",
+    "Activador",
+    "Déclencheur",
+    "Auslöser"
+  ],
+  [
+    "Prop",
+    "Декорация",
+    "Decoración",
+    "Accessoire",
+    "Requisite"
+  ],
+  [
+    "Out Of Bounds",
+    "Вне уровня",
+    "Fuera de límites",
+    "Hors limites",
+    "Außerhalb des Levels"
+  ],
+  [
+    "Save the .blend or choose an absolute export folder",
+    "Сохраните .blend или выберите абсолютную папку экспорта",
+    "Guarda el .blend o elige una carpeta de exportación absoluta",
+    "Enregistrez le .blend ou choisissez un dossier d’export absolu",
+    ".blend speichern oder absoluten Exportordner wählen"
+  ],
+  [
+    "Nothing to export",
+    "Нет объектов для экспорта",
+    "No hay nada que exportar",
+    "Aucun objet à exporter",
+    "Nichts zu exportieren"
+  ],
+  [
+    "Apply Scale requires an unedited, single-user shape with positive scale",
+    "Применение масштаба требует неизменённой формы с одним пользователем и положительным масштабом",
+    "Apply Scale requiere una forma sin editar, con un usuario y escala positiva",
+    "Apply Scale nécessite une forme non modifiée, à utilisateur unique et d’échelle positive",
+    "Apply Scale benötigt eine unveränderte Form mit einem Benutzer und positiver Skalierung"
+  ],
+  [
+    "Use uniform scale, or bake before applying nonuniform scale",
+    "Используйте равномерный масштаб или сначала запеките меш",
+    "Usa escala uniforme o convierte a malla antes de aplicar escala no uniforme",
+    "Utilisez une échelle uniforme ou convertissez en maillage avant d’appliquer une échelle non uniforme",
+    "Gleichmäßig skalieren oder vor ungleichmäßiger Skalierung in Mesh umwandeln"
+  ],
+  [
+    "Cannot use an ancestor as a cutter",
+    "Родитель не может использоваться как резак",
+    "No se puede usar un ascendiente como cortador",
+    "Un ancêtre ne peut pas servir d’objet de découpe",
+    "Ein übergeordnetes Objekt kann nicht als Schneideobjekt dienen"
+  ],
+  [
+    "Metrics OK",
+    "Размеры в норме",
+    "Medidas correctas",
+    "Dimensions correctes",
+    "Maße in Ordnung"
+  ],
+  [
+    "Exported to ",
+    "Экспортировано в ",
+    "Exportado a ",
+    "Exporté vers ",
+    "Exportiert nach "
+  ],
+  [
+    "Export exists; choose another filename or folder: ",
+    "Файл экспорта существует; выберите другое имя или папку: ",
+    "La exportación existe; elige otro nombre o carpeta: ",
+    "L’export existe ; choisissez un autre nom ou dossier : ",
+    "Export vorhanden; anderen Namen oder Ordner wählen: "
+  ],
+  [
+    "Export filenames collide after sanitizing: ",
+    "Совпадение имён файлов после очистки: ",
+    "Los nombres de exportación coinciden tras normalizarlos: ",
+    "Les noms d’export entrent en conflit après nettoyage : ",
+    "Exportdateinamen stimmen nach Bereinigung überein: "
+  ],
+  [
+    "Missing Kenney texture: ",
+    "Отсутствует текстура Kenney: ",
+    "Falta la textura Kenney: ",
+    "Texture Kenney manquante : ",
+    "Kenney-Textur fehlt: "
+  ],
+  [
+    "{0:.2f} × {1:.2f} × {2:.2f} m",
+    "{0:.2f} × {1:.2f} × {2:.2f} м",
+    "{0:.2f} × {1:.2f} × {2:.2f} m",
+    "{0:.2f} × {1:.2f} × {2:.2f} m",
+    "{0:.2f} × {1:.2f} × {2:.2f} m"
+  ],
+  [
+    "{0} {1:.2f} m",
+    "{0} {1:.2f} м",
+    "{0} {1:.2f} m",
+    "{0} {1:.2f} m",
+    "{0} {1:.2f} m"
+  ],
+  [
+    "Step {0:.2f} m > step {1:.2f} m",
+    "Ступень {0:.2f} м > шаг {1:.2f} м",
+    "Peldaño {0:.2f} m > peldaño {1:.2f} m",
+    "Marche {0:.2f} m > marche {1:.2f} m",
+    "Stufe {0:.2f} m > Stufe {1:.2f} m"
+  ],
+  [
+    "Stairs {0:.2f} m < player width {1:.2f} m",
+    "Лестница {0:.2f} м < ширина игрока {1:.2f} м",
+    "Escalera {0:.2f} m < anchura del jugador {1:.2f} m",
+    "Escalier {0:.2f} m < largeur du joueur {1:.2f} m",
+    "Treppe {0:.2f} m < Spielerbreite {1:.2f} m"
+  ],
+  [
+    "Slope {0:.0f}° > {1:.0f}°",
+    "Уклон {0:.0f}° > {1:.0f}°",
+    "Pendiente {0:.0f}° > {1:.0f}°",
+    "Pente {0:.0f}° > {1:.0f}°",
+    "Neigung {0:.0f}° > {1:.0f}°"
+  ],
+  [
+    "Opening {0:.2f} m < player height {1:.2f} m",
+    "Проём {0:.2f} м < рост {1:.2f} м",
+    "Hueco {0:.2f} m < altura del jugador {1:.2f} m",
+    "Ouverture {0:.2f} m < taille du joueur {1:.2f} m",
+    "Öffnung {0:.2f} m < Spielerhöhe {1:.2f} m"
+  ],
+  [
+    "Opening {0:.2f} m < width {1:.2f} m",
+    "Проём {0:.2f} м < ширина {1:.2f} м",
+    "Hueco {0:.2f} m < anchura {1:.2f} m",
+    "Ouverture {0:.2f} m < largeur {1:.2f} m",
+    "Öffnung {0:.2f} m < Breite {1:.2f} m"
+  ],
+  [
+    "Cover {0:.2f} m · target {1:.2f} m",
+    "Укрытие {0:.2f} м · ориентир {1:.2f} м",
+    "Cobertura {0:.2f} m · referencia {1:.2f} m",
+    "Abri {0:.2f} m · référence {1:.2f} m",
+    "Deckung {0:.2f} m · Richtwert {1:.2f} m"
+  ],
+  [
+    "Pattern {0:02d}",
+    "Рисунок {0:02d}",
+    "Patrón {0:02d}",
+    "Motif {0:02d}",
+    "Muster {0:02d}"
+  ],
+  [
+    "{0} steps · rise {1:.2f} m",
+    "{0} ступеней · шаг {1:.2f} м",
+    "{0} peldaños · altura {1:.2f} m",
+    "{0} marches · hauteur {1:.2f} m",
+    "{0} Stufen · Höhe {1:.2f} m"
+  ],
+  [
+    " · opening {0:.2f} × {1:.2f} m",
+    " · проём {0:.2f} × {1:.2f} м",
+    " · hueco {0:.2f} × {1:.2f} m",
+    " · ouverture {0:.2f} × {1:.2f} m",
+    " · Öffnung {0:.2f} × {1:.2f} m"
+  ],
+  [
+    "  {0:.2f} × {1:.2f} × {2:.2f} m",
+    "  {0:.2f} × {1:.2f} × {2:.2f} м",
+    "  {0:.2f} × {1:.2f} × {2:.2f} m",
+    "  {0:.2f} × {1:.2f} × {2:.2f} m",
+    "  {0:.2f} × {1:.2f} × {2:.2f} m"
+  ],
+  [
+    "Row: {0} objects · length {1:.2f} m",
+    "Ряд: {0} объектов · длина {1:.2f} м",
+    "Fila: {0} objetos · longitud {1:.2f} m",
+    "Rangée : {0} objets · longueur {1:.2f} m",
+    "Reihe: {0} Objekte · Länge {1:.2f} m"
+  ],
+  [
+    "{0} repeats · {1:.2f} m",
+    "{0} повторов · {1:.2f} м",
+    "{0} repeticiones · {1:.2f} m",
+    "{0} répétitions · {1:.2f} m",
+    "{0} Wiederholungen · {1:.2f} m"
+  ],
+  [
+    "Pattern 01",
+    "Рисунок 01",
+    "Patrón 01",
+    "Motif 01",
+    "Muster 01"
+  ],
+  [
+    "Pattern 02",
+    "Рисунок 02",
+    "Patrón 02",
+    "Motif 02",
+    "Muster 02"
+  ],
+  [
+    "Pattern 03",
+    "Рисунок 03",
+    "Patrón 03",
+    "Motif 03",
+    "Muster 03"
+  ],
+  [
+    "Pattern 04",
+    "Рисунок 04",
+    "Patrón 04",
+    "Motif 04",
+    "Muster 04"
+  ],
+  [
+    "Pattern 05",
+    "Рисунок 05",
+    "Patrón 05",
+    "Motif 05",
+    "Muster 05"
+  ],
+  [
+    "Pattern 06",
+    "Рисунок 06",
+    "Patrón 06",
+    "Motif 06",
+    "Muster 06"
+  ],
+  [
+    "Pattern 07",
+    "Рисунок 07",
+    "Patrón 07",
+    "Motif 07",
+    "Muster 07"
+  ],
+  [
+    "Pattern 08",
+    "Рисунок 08",
+    "Patrón 08",
+    "Motif 08",
+    "Muster 08"
+  ],
+  [
+    "Pattern 09",
+    "Рисунок 09",
+    "Patrón 09",
+    "Motif 09",
+    "Muster 09"
+  ],
+  [
+    "Pattern 10",
+    "Рисунок 10",
+    "Patrón 10",
+    "Motif 10",
+    "Muster 10"
+  ],
+  [
+    "Pattern 11",
+    "Рисунок 11",
+    "Patrón 11",
+    "Motif 11",
+    "Muster 11"
+  ],
+  [
+    "Pattern 12",
+    "Рисунок 12",
+    "Patrón 12",
+    "Motif 12",
+    "Muster 12"
+  ],
+  [
+    "Pattern 13",
+    "Рисунок 13",
+    "Patrón 13",
+    "Motif 13",
+    "Muster 13"
+  ],
+  [
+    "Keep Drawing",
+    "Продолжать рисование",
+    "Seguir dibujando",
+    "Continuer à dessiner",
+    "Weiterzeichnen"
+  ],
+  [
+    "Key",
+    "Параметр",
+    "Parámetro",
+    "Paramètre",
+    "Parameter"
+  ],
+  [
+    "Direction",
+    "Направление",
+    "Dirección",
+    "Direction",
+    "Richtung"
+  ],
+  [
+    "All Selected",
+    "Все выделенные",
+    "Todos los seleccionados",
+    "Toute la sélection",
+    "Gesamte Auswahl"
+  ],
+  [
+    "Axis",
+    "Ось",
+    "Eje",
+    "Axe",
+    "Achse"
+  ],
+  [
+    "Value",
+    "Значение",
+    "Valor",
+    "Valeur",
+    "Wert"
+  ],
+  [
+    "Side",
+    "Сторона",
+    "Lado",
+    "Côté",
+    "Seite"
+  ],
+  [
+    "Action",
+    "Действие",
+    "Acción",
+    "Action",
+    "Aktion"
+  ],
+  [
+    "Identifier",
+    "Идентификатор",
+    "Identificador",
+    "Identifiant",
+    "Kennung"
+  ],
+  [
+    "Factor",
+    "Коэффициент",
+    "Factor",
+    "Facteur",
+    "Faktor"
+  ],
+  [
+    "Gap",
+    "Зазор",
+    "Separación",
+    "Écart",
+    "Abstand"
+  ],
+  [
+    "Pivot",
+    "Опорная точка",
+    "Pivote",
+    "Pivot",
+    "Drehpunkt"
+  ],
+  [
+    "Variant",
+    "Вариант",
+    "Variante",
+    "Variante",
+    "Variante"
+  ],
+  [
+    "Mode",
+    "Режим",
+    "Modo",
+    "Mode",
+    "Modus"
+  ],
+  [
+    "Use Preset",
+    "Использовать пресет",
+    "Usar preajuste",
+    "Utiliser le préréglage",
+    "Vorlage verwenden"
+  ],
+  [
+    "Place Only",
+    "Только размещение",
+    "Solo colocar",
+    "Placement uniquement",
+    "Nur platzieren"
+  ],
+  [
+    "Repeat Placement",
+    "Штамповать",
+    "Repetir colocación",
+    "Répéter le placement",
+    "Platzierung wiederholen"
+  ],
+  [
+    "Blocksmith resize",
+    "Масштабирование Blocksmith",
+    "Redimensionar Blocksmith",
+    "Redimensionner Blocksmith",
+    "Blocksmith-Größenänderung"
+  ],
+  [
+    "Arch Window",
+    "Арочное окно",
+    "Ventana arqueada",
+    "Fenêtre cintrée",
+    "Bogenfenster"
+  ],
+  [
+    "Glb",
+    "GLB",
+    "GLB",
+    "GLB",
+    "GLB"
+  ],
+  [
+    "Fbx",
+    "FBX",
+    "FBX",
+    "FBX",
+    "FBX"
+  ]
+]

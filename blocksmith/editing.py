@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Small geometry edits shared by panel buttons and viewport handles."""
+from .translations import tr
 from mathutils import Vector
 from . import guard
 
@@ -8,11 +9,11 @@ from . import guard
 def attach(context,obj,target,axis='X',direction=1):
     """Translate actual mesh support planes into contact, in the target's axes."""
     if axis not in {'X','Y','Z'} or direction not in (-1,1):
-        raise ValueError('Укажите ось X/Y/Z и сторону −1/+1')
+        raise ValueError('Specify an X/Y/Z axis and a −1/+1 direction')
     if obj==target or target in obj.children_recursive:
-        raise ValueError('Перемещение изменит и основную деталь: разорвите связь родителя')
+        raise ValueError('Moving also affects the target: remove the parent link')
     if abs(target.matrix_world.determinant())<1e-12:
-        raise ValueError('У основной детали нулевой масштаб')
+        raise ValueError('The target has zero scale')
     normal=Vector(tuple(direction if a==axis else 0 for a in 'XYZ'))
     normal=target.matrix_world.to_3x3().inverted().transposed()@normal
     normal.normalize()
@@ -21,7 +22,7 @@ def attach(context,obj,target,axis='X',direction=1):
         evaluated=o.evaluated_get(dg)
         return [evaluated.matrix_world@v.co for v in evaluated.data.vertices]
     source=points(obj); destination=points(target)
-    if not source or not destination: raise ValueError('Для стыковки нужны непустые меши')
+    if not source or not destination: raise ValueError('Attachment requires nonempty meshes')
     offset=max(normal.dot(v) for v in destination)-min(normal.dot(v) for v in source)
     world=obj.matrix_world.copy(); world.translation+=normal*offset
     inv=target.matrix_world.inverted()
@@ -65,23 +66,23 @@ def metric_issues(p,s,scale=(1,1,1)):
     if 'STAIRS' in p.kind:
         count=max(1,math.ceil(p.height/p.max_step) if p.auto_steps else p.steps)
         step=p.height*z/count
-        if step>s.max_step+1e-5: issues.append(f'Ступень {step:.2f} м > шаг {s.max_step:.2f} м')
+        if step>s.max_step+1e-5: issues.append(tr('Step {0:.2f} m > step {1:.2f} m').format(step,s.max_step))
         width=(p.depth if p.kind=='STAIRS' else p.flight_width)*y
-        if width<2*s.player_radius: issues.append(f'Лестница {width:.2f} м < ширина игрока {2*s.player_radius:.2f} м')
+        if width<2*s.player_radius: issues.append(tr('Stairs {0:.2f} m < player width {1:.2f} m').format(width,2 * s.player_radius))
     if p.kind=='RAMP':
         slope=math.degrees(math.atan2(p.height*z,p.width*x))
-        if slope>s.max_slope: issues.append(f'Уклон {slope:.0f}° > {s.max_slope:.0f}°')
+        if slope>s.max_slope: issues.append(tr('Slope {0:.0f}° > {1:.0f}°').format(slope,s.max_slope))
     if p.kind in {'DOOR','ARCH'} or (p.kind in {'WALL','ROOM'} and p.opening in {'DOOR','ARCH'}):
         length=p.width; axis=x
         if p.kind=='ROOM' and p.room_wall in {'LEFT','RIGHT'}:
             length=p.depth-2*min(p.thickness,p.width/3,p.depth/3); axis=y
         height=min(p.open_height,p.height*.98)*z; width=min(p.open_width,length*.95)*axis
-        if height<s.player_height: issues.append(f'Проём {height:.2f} м < рост {s.player_height:.2f} м')
-        if width<2*s.player_radius: issues.append(f'Проём {width:.2f} м < ширина {2*s.player_radius:.2f} м')
-    if p.kind=='WATER' and s.max_wade<p.height*z<s.min_swim: issues.append('Глубина между бродом и плаванием')
+        if height<s.player_height: issues.append(tr('Opening {0:.2f} m < player height {1:.2f} m').format(height,s.player_height))
+        if width<2*s.player_radius: issues.append(tr('Opening {0:.2f} m < width {1:.2f} m').format(width,2 * s.player_radius))
+    if p.kind=='WATER' and s.max_wade<p.height*z<s.min_swim: issues.append('Depth between wading and swimming')
     if p.kind in {'LOW_COVER','HIGH_COVER'}:
         target=s.low_cover if p.kind=='LOW_COVER' else s.high_cover
-        if abs(p.height*z-target)>.25: issues.append(f'Укрытие {p.height*z:.2f} м · ориентир {target:.2f} м')
+        if abs(p.height*z-target)>.25: issues.append(tr('Cover {0:.2f} m · target {1:.2f} m').format(p.height * z,target))
     return issues
 
 

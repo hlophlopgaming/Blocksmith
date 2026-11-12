@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """A mouse-driven row backed by Blender's editable Array modifier."""
+from .translations import tr
 import bpy
 from bpy.props import BoolProperty,IntProperty
 from mathutils import Vector,Matrix
@@ -23,17 +24,17 @@ def array_modifier(obj,count,delta):
 
 def spacing_error(source,count,delta):
     length=delta.length
-    if length<.01:return 'Укажите конец ряда'
+    if length<.01:return 'Specify the end of the row'
     axis=delta/length
     points=[source.matrix_world@Vector(v) for v in source.bound_box]
     size=max(v.dot(axis) for v in points)-min(v.dot(axis) for v in points)
-    return 'Уменьшите число повторов или растяните ряд' if length/(count-1)<size-1e-5 else ''
+    return 'Reduce the repeat count or extend the row' if length/(count-1)<size-1e-5 else ''
 
 
 class BS_OT_row(bpy.types.Operator):
-    bl_idname='blocksmith.row'; bl_label='Протянуть ряд'; bl_options={'REGISTER','UNDO','BLOCKING'}
-    opening: BoolProperty(default=False)
-    count: IntProperty(default=5,min=2,max=100)
+    bl_idname='blocksmith.row'; bl_label='Draw Row'; bl_options={'REGISTER','UNDO','BLOCKING'}
+    opening: BoolProperty(name='Opening',default=False)
+    count: IntProperty(name='Count',default=5,min=2,max=100)
     @classmethod
     def poll(cls,context):
         o=context.active_object
@@ -45,15 +46,15 @@ class BS_OT_row(bpy.types.Operator):
         if ACTIVE is not None or DRAW is not None or CURVE is not None:return {'CANCELLED'}
         self.owner=context.active_object; self.source=opening_source(self.owner) if self.opening else self.owner
         if self.source is None:
-            self.report({'WARNING'},'Нарисуйте первый проём на объекте');return {'CANCELLED'}
+            self.report({'WARNING'},tr('Draw the first opening on the object'));return {'CANCELLED'}
         if abs(self.source.matrix_world.determinant())<1e-12:return {'CANCELLED'}
         self.area=context.area;self.window=context.window;self.scene=context.scene
         self.region=next(r for r in self.area.regions if r.type=='WINDOW')
-        self.hidden=self.owner.hide_get();self.closed=False;self.delta=Vector();self.error='Укажите конец ряда'
+        self.hidden=self.owner.hide_get();self.closed=False;self.delta=Vector();self.error='Specify the end of the row'
         self.temporary=[]
         try:
             self.preview=self.copy(context,self.source)
-            if not self.preview.data.vertices:raise ValueError('В выбранном объекте нет геометрии')
+            if not self.preview.data.vertices:raise ValueError('The selected object has no geometry')
             self.mod=array_modifier(self.preview,self.count,Vector())
             if self.opening:
                 self.preview.hide_set(True)
@@ -66,12 +67,12 @@ class BS_OT_row(bpy.types.Operator):
             self.anchor=sum(box,Vector())/8
             self.normal=(self.source.matrix_world.to_3x3().inverted().transposed()@Vector((0,1,0))).normalized() if self.opening else Vector((0,0,1))
             self.workspace=context.workspace
-            self.workspace.status_text_set('Ряд · мышь: длина и направление · колесо: число · ЛКМ: создать · Esc / ПКМ: отменить')
+            self.workspace.status_text_set(tr('Row · mouse: length and direction · wheel: count · LMB: create · Esc / RMB: cancel'))
             self.hud=bpy.types.SpaceView3D.draw_handler_add(self.draw_hud,(),'WINDOW','POST_PIXEL')
             context.window_manager.modal_handler_add(self); ACTIVE=self
             return {'RUNNING_MODAL'}
         except Exception as exc:
-            self.cleanup();self.report({'WARNING'},str(exc));return {'CANCELLED'}
+            self.cleanup();self.report({'WARNING'},tr(str(exc)));return {'CANCELLED'}
     def copy(self,context,source):
         mesh=bpy.data.meshes.new_from_object(source.evaluated_get(context.evaluated_depsgraph_get()))
         obj=bpy.data.objects.new('__BS_row_preview',mesh);obj['bs_guard_temp']=True
@@ -108,20 +109,20 @@ class BS_OT_row(bpy.types.Operator):
                 axis=self.source.matrix_world.col[i].xyz.normalized()
                 if (min(v.dot(axis) for v in repeated)<min(v.dot(axis) for v in owner)-1e-4 or
                     max(v.dot(axis) for v in repeated)>max(v.dot(axis) for v in owner)+1e-4):
-                    self.error='Ряд проёмов выходит за пределы объекта';break
-        if not self.error and guard.managed(self.owner):
+                    self.error='The opening row extends outside the object';break
+        if not self.error and guard.protected(self.owner):
             evaluated=self.result.evaluated_get(context.evaluated_depsgraph_get());mesh=evaluated.to_mesh()
             try:
                 kind=self.owner.bs.kind if self.owner.bs.enabled else self.owner.get('bs_role','BLOCK')
                 self.error=guard.placement_error(context,[v.co[:] for v in mesh.vertices],[p.vertices[:] for p in mesh.polygons],self.result.matrix_world,kind,{self.owner:None})
             finally:evaluated.to_mesh_clear()
-        self.area.header_text_set(f'Ряд: {self.count} объектов · длина {self.delta.length:.2f} м'+(' · '+self.error if self.error else ''))
+        self.area.header_text_set(tr('Row: {0} objects · length {1:.2f} m').format(self.count,self.delta.length)+(' · '+self.error if self.error else ''))
         self.area.tag_redraw()
     def draw_hud(self):
         if bpy.context.area!=self.area:return
         import blf
         blf.size(0,16);blf.color(0,1,.3,.2,1) if self.error else blf.color(0,.3,.8,1,1)
-        blf.position(0,30,60,0);blf.draw(0,self.error or f'{self.count} повторов · {self.delta.length:.2f} м')
+        blf.position(0,30,60,0);blf.draw(0,self.error or tr('{0} repeats · {1:.2f} m').format(self.count,self.delta.length))
     def cleanup(self):
         global ACTIVE
         if getattr(self,'closed',True):return
@@ -138,7 +139,7 @@ class BS_OT_row(bpy.types.Operator):
     def finish(self,context):
         self.update_preview(context)
         if self.error:
-            self.report({'WARNING'},self.error);return {'RUNNING_MODAL'}
+            self.report({'WARNING'},tr(self.error));return {'RUNNING_MODAL'}
         self.cleanup()
         mod=None
         try:
@@ -149,7 +150,7 @@ class BS_OT_row(bpy.types.Operator):
             if mod is not None:
                 try:self.source.modifiers.remove(mod)
                 except ReferenceError:pass
-            self.report({'WARNING'},str(exc));return {'CANCELLED'}
+            self.report({'WARNING'},tr(str(exc)));return {'CANCELLED'}
         return {'FINISHED'}
     def modal(self,context,event):
         if self.closed:return {'CANCELLED'}
@@ -168,5 +169,5 @@ class BS_OT_row(bpy.types.Operator):
             elif event.type=='MIDDLEMOUSE':return {'PASS_THROUGH'}
             return {'RUNNING_MODAL'}
         except Exception as exc:
-            self.cleanup();self.report({'WARNING'},str(exc));return {'CANCELLED'}
+            self.cleanup();self.report({'WARNING'},tr(str(exc)));return {'CANCELLED'}
     def cancel(self,context):self.cleanup()

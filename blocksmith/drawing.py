@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """One toolbar tool, semantic previews, and a short modal per drawing gesture."""
+from .translations import tr
 from types import SimpleNamespace
 import math
 import bpy
@@ -329,11 +330,11 @@ def leave_tool(context):
 
 
 class BS_OT_draw(bpy.types.Operator):
-    bl_idname='blocksmith.draw'; bl_label='Нарисовать конструкцию'
+    bl_idname='blocksmith.draw'; bl_label='Draw Structure'
     bl_options={'REGISTER','UNDO','BLOCKING'}
-    use_preset: BoolProperty(default=True)
-    place_only: BoolProperty(default=False,options={'HIDDEN'})
-    repeat: BoolProperty(default=False,options={'HIDDEN'})
+    use_preset: BoolProperty(name='Use Preset',default=True)
+    place_only: BoolProperty(name='Place Only',default=False,options={'HIDDEN'})
+    repeat: BoolProperty(name='Repeat',default=False,options={'HIDDEN'})
     @classmethod
     def poll(cls,context):
         return context.mode=='OBJECT' and context.area and context.area.type=='VIEW_3D'
@@ -361,7 +362,7 @@ class BS_OT_draw(bpy.types.Operator):
         self.hud=bpy.types.SpaceView3D.draw_handler_add(self.draw_hud,(),'WINDOW','POST_PIXEL')
         self.timer=context.window_manager.event_timer_add(.1,window=context.window)
         ACTIVE=self
-        self.workspace.status_text_set('Blocksmith · Протяните на поверхности · Ctrl: без привязки · Esc / ПКМ: выйти')
+        self.workspace.status_text_set(tr('Blocksmith · Drag on a surface · Ctrl: no snapping · Esc / RMB: exit'))
         self.window.cursor_modal_set('CROSSHAIR'); context.window_manager.modal_handler_add(self)
         if event.type=='LEFTMOUSE' and context.region.type=='WINDOW': self.begin(context,event)
         self.area.tag_redraw()
@@ -372,7 +373,7 @@ class BS_OT_draw(bpy.types.Operator):
             from .openings import surface
             try: self.cut_target,self.frame,self.cut_depth=surface(context,event)
             except ValueError as exc:
-                self.error=str(exc); return
+                self.error=tr(str(exc)); return
             self.front=True; self.previous=None
         else:
             access=self.params.kind in {'STAIRS','RAMP'} and not self.place_only
@@ -444,12 +445,12 @@ class BS_OT_draw(bpy.types.Operator):
                     self.previous_params=SimpleNamespace(**guard.props(self.previous.bs))
                     self.previous_matrix=self.previous.matrix_world.copy()
                 else:
-                    if axis<-.866: raise ValueError('Слишком острый угол — начните отдельную стену')
+                    if axis<-.866: raise ValueError('The angle is too sharp — start a separate wall')
                     (self.previous_params,self.previous_matrix),(self.params,self.matrix)=plan(
                         self.previous.bs,self.previous.matrix_world,self.params,self.matrix,context.scene.bs.joint_mode)
                 self.previous_mesh=build(self.previous_params)
             except ValueError as exc:
-                self.error=str(exc); self.batch=None; return
+                self.error=tr(str(exc)); self.batch=None; return
         try:
             if self.cut_target is not None:
                 from .openings import drawn_mesh
@@ -487,7 +488,7 @@ class BS_OT_draw(bpy.types.Operator):
             self.shader=gpu.shader.from_builtin('UNIFORM_COLOR')
             self.batch=batch_for_shader(self.shader,'TRIS',{'pos':tris}); self.lines=batch_for_shader(self.shader,'LINES',{'pos':edges})
         except (ValueError,ArithmeticError) as exc:
-            self.error=str(exc); self.batch=None
+            self.error=tr(str(exc)); self.batch=None
     def draw_preview(self):
         if self.batch is None or bpy.context.area!=self.area: return
         gpu.state.blend_set('ALPHA'); gpu.state.depth_test_set('LESS_EQUAL')
@@ -498,23 +499,23 @@ class BS_OT_draw(bpy.types.Operator):
     def draw_hud(self):
         if bpy.context.area!=self.area: return
         p=self.params
-        label=BY_ID[self.preset][1] if self.preset in BY_ID else p.kind.replace('_',' ').title()
+        label=tr(BY_ID[self.preset][1] if self.preset in BY_ID else p.kind.replace('_',' ').title())
         cutting=p.kind in {'DOOR','WINDOW','ARCH'} and not self.place_only
-        lines=[label+(f' · проём {p.width:.2f} × {p.height:.2f} м' if cutting else f'  {p.width:.2f} × {p.depth:.2f} × {p.height:.2f} м')]
+        lines=[label+(tr(' · opening {0:.2f} × {1:.2f} m').format(p.width,p.height) if cutting else tr('  {0:.2f} × {1:.2f} × {2:.2f} m').format(p.width,p.depth,p.height))]
         if self.error: lines.append(self.error[:90])
-        elif self.phase=='HEIGHT': lines.append('Высота: мышь вверх / вниз · ЛКМ: создать · Esc: выход')
-        elif self.phase=='WAIT': lines.append('Протяните проём на стене · Esc / ПКМ: выйти' if cutting else 'Протяните ЛКМ в сцене · Esc / ПКМ: выйти')
-        else: lines.append('Отпустите ЛКМ: вырезать · Esc: отмена' if cutting else 'Отпустите ЛКМ: создать · Esc: выход' if p.kind in {'STAIRS','RAMP'} else 'Отпустите ЛКМ: создать · H: высота · Esc: выход')
+        elif self.phase=='HEIGHT': lines.append('Height: move mouse up / down · LMB: create · Esc: exit')
+        elif self.phase=='WAIT': lines.append('Drag an opening on a wall · Esc / RMB: exit' if cutting else 'Drag LMB in the scene · Esc / RMB: exit')
+        else: lines.append('Release LMB: cut · Esc: cancel' if cutting else 'Release LMB: create · Esc: exit' if p.kind in {'STAIRS','RAMP'} else 'Release LMB: create · H: height · Esc: exit')
         if 'STAIRS' in p.kind:
             n=max(1,math.ceil(p.height/p.max_step) if p.auto_steps else p.steps)
-            lines.append(f'{n} ступеней · шаг {p.height/n:.2f} м')
+            lines.append(tr('{0} steps · rise {1:.2f} m').format(n,p.height / n))
         if self.scene.bs.show_metrics and not cutting:
             from .editing import metric_issues
             lines.extend(metric_issues(p,self.scene.bs)[:2])
         x=max(12,min(self.mouse[0]-self.region.x+18,self.region.width-460)); y=max(60,min(self.mouse[1]-self.region.y-28,self.region.height-35))
         blf.size(0,13); blf.enable(0,blf.SHADOW); blf.shadow(0,5,0,0,0,1)
         blf.color(0,1,.35,.2,1) if self.error else blf.color(0,.9,.95,1,1)
-        for i,line in enumerate(lines): blf.position(0,x,y-i*20,0); blf.draw(0,line)
+        for i,line in enumerate(lines): blf.position(0,x,y-i*20,0); blf.draw(0,tr(line))
         blf.disable(0,blf.SHADOW)
     def finish(self,context,exit_tool=False):
         global ACTIVE
@@ -538,7 +539,7 @@ class BS_OT_draw(bpy.types.Operator):
         core=sys.modules[__package__]
         self.update_preview(context)
         if self.error:
-            self.report({'WARNING'},self.error); return {'RUNNING_MODAL'}
+            self.report({'WARNING'},tr(self.error)); return {'RUNNING_MODAL'}
         try:
             with guard.transaction(context):
                 if self.previous_mesh:
@@ -561,19 +562,19 @@ class BS_OT_draw(bpy.types.Operator):
                     if self.preset in BY_ID: obj.name=BY_ID[self.preset][1]; obj['bs_preset']=self.preset
                 context.view_layer.update()
         except guard.ConstraintError as exc:
-            self.error=str(exc); self.report({'WARNING'},self.error); return {'RUNNING_MODAL'}
+            self.error=tr(str(exc)); self.report({'WARNING'},tr(self.error)); return {'RUNNING_MODAL'}
         self.created=True; texture_view(context)
         if context.scene.bs.draw_chain and self.params.kind=='WALL' and self.params.opening=='NONE' and not self.front:
             CHAIN[context.window.as_pointer()]=(context.scene.session_uid,obj.name,obj.session_uid)
         if self.place_only and self.repeat:
-            bpy.ops.ed.undo_push(message='Разместить модуль'); self.phase='WAIT'; self.batch=None
+            bpy.ops.ed.undo_push(message='Place Module'); self.phase='WAIT'; self.batch=None
             self.params=SimpleNamespace(**vars(self.default)); return {'RUNNING_MODAL'}
         return self.finish(context,not context.scene.bs.keep_drawing or self.place_only)
     def modal(self,context,event):
         if self.closed or self.stop_requested: return self.finish(context,True)
         try: return self.handle_event(context,event)
         except Exception as exc:
-            self.report({'WARNING'},'Рисование остановлено: '+str(exc))
+            self.report({'WARNING'},tr('Drawing stopped: ')+tr(str(exc)))
             return self.finish(context,True)
     def handle_event(self,context,event):
         self.area.tag_redraw()
@@ -634,7 +635,7 @@ class BS_OT_draw(bpy.types.Operator):
 
 class BS_WST_draw(bpy.types.WorkSpaceTool):
     bl_space_type='VIEW_3D'; bl_context_mode='OBJECT'; bl_idname=TOOL_ID
-    bl_label='Blocksmith'; bl_description='Выберите конструкцию и протяните ЛКМ. Esc / ПКМ — выделение'
+    bl_label='Blocksmith'; bl_description='Choose a structure and drag LMB. Esc / RMB returns to selection'
     bl_icon='ops.mesh.primitive_cube_add_gizmo'; bl_cursor='CROSSHAIR'
     bl_operator='blocksmith.draw'
     bl_keymap=(('blocksmith.draw',{'type':'LEFTMOUSE','value':'PRESS','any':True},{'properties':[('use_preset',True)]}),
@@ -645,8 +646,8 @@ class BS_WST_draw(bpy.types.WorkSpaceTool):
         s=context.scene.bs
         layout.prop(s,'shape',text='')
         if s.shape not in {'DOOR','WINDOW','ARCH','STAIRS','RAMP'}:
-            layout.prop(s,'draw_height',text='Высота')
-            layout.prop(s,'draw_depth',text='Глубина')
-        layout.prop(s,'object_snap',text='Привязка',toggle=True)
-        if s.shape not in {'DOOR','WINDOW','ARCH','STAIRS','RAMP'}: layout.prop(s,'surfaces',text='Поверхности',toggle=True)
-        layout.prop(s,'keep_drawing',text='Повторять',toggle=True)
+            layout.prop(s,'draw_height',text='Height')
+            layout.prop(s,'draw_depth',text='Depth')
+        layout.prop(s,'object_snap',text='Snapping',toggle=True)
+        if s.shape not in {'DOOR','WINDOW','ARCH','STAIRS','RAMP'}: layout.prop(s,'surfaces',text='Surfaces',toggle=True)
+        layout.prop(s,'keep_drawing',text='Repeat',toggle=True)

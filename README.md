@@ -1,231 +1,109 @@
 # Blocksmith
 
-Плагин Blender 5+ для создания блочного прототипа уровня и экспорта в Godot. Собственная реализация по публичному описанию BlockD, версия 0.8.2; полное совпадение функций с BlockD пока не достигнуто.
+**English** · [Español](docs/README.es.md) · [Français](docs/README.fr.md) · [Deutsch](docs/README.de.md) · [Русский](docs/README.ru.md)
 
-## Установка в Blender
+Draw editable level blockouts in **Blender 5+** and export them to **Godot**. Version **0.8.3**, licensed under **GPL-3.0-or-later**.
 
-Соберите установочный архив из корня проекта командой `python3 tools/package.py` (Python 3.10+, без зависимостей) или скачайте установочный ZIP из GitHub Release, если он опубликован. В **Edit → Preferences → Get Extensions → меню справа сверху → Install from Disk** выберите `dist/blocksmith-0.8.2.zip`. Включите расширение. В 3D-виде нажмите **N → Blocksmith**. Автоматический архив исходников GitHub «Source code» для установки расширения не подходит.
+Blocksmith is an independent implementation inspired by publicly described BlockD workflows. It does not implement every BlockD feature. The interface supports English, Spanish, French, German and Russian. Choose your language in **Edit → Preferences → Interface → Translation** and enable **Interface** and **Tooltips**. Blocksmith follows Blender’s language; existing object names are preserved.
 
-## Лицензия и разработка
+## Features
 
-Код Blocksmith распространяется под **GPL-3.0-or-later**: полный текст в [LICENSE](LICENSE), копия включена в установочный ZIP. Текстуры Kenney сохраняют **CC0**: [лицензия](blocksmith/assets/kenney/License.txt) и [источник](blocksmith/assets/kenney/SOURCE.txt).
+- Draw walls, floors, rooms, stairs and ramps directly in the viewport; choose from 32 presets with previews.
+- Edit dimensions through the sidebar or viewport handles. Room floors and walls, doors, windows, arches, roofs, railings and curved walls are supported.
+- Snap to a grid, visible vertices and edges, including evaluated Boolean and Array geometry. Join straight walls with miter, butt and T joints.
+- Draw non-destructive door, window and arch cuts on existing solid meshes. Repeat objects or openings with the row tool.
+- Connect two levels with straight stairs or a ramp. Display player references and scale hints for steps, openings, cover and slopes.
+- Apply bundled Kenney prototype textures, assign gameplay tags, and export GLB or FBX.
+- Mark individual meshes for **free placement** to bypass Blocksmith's geometry restrictions.
+- Generate levels from validated JSON through a Python CLI, without installing the add-on in your personal Blender session.
 
-Инструкции сборки и проверок: [CONTRIBUTING.md](CONTRIBUTING.md). Изменения версий: [CHANGELOG.md](CHANGELOG.md). Резервные копии, `dist/`, `generated/` и экспортированные сцены остаются локальными и исключены из Git; примеры JSON входят в репозиторий. GitHub Actions проверяет CLI и собирает установочный ZIP.
+## Installation
 
-## Создание и редактирование
+1. Download `blocksmith-0.8.3.zip` from [Releases](https://github.com/hlophlopgaming/Blocksmith/releases), or build it from this repository:
 
-**Рисовать конструкции** или **Shift+Alt+D** включает инструмент Blocksmith в левой панели. Выберите форму в верхней строке или в блоке **Следующая конструкция**. Каталог открывает 32 готовых модуля с превью и начальными параметрами.
+   ```sh
+   python3 tools/package.py
+   ```
 
-Протяните ЛКМ в сцене и отпустите, чтобы создать конструкцию. Во время движения видны настоящая геометрия, размеры и предупреждение о пересечении. Стена и обычная лестница рисуются по направлению; пол, комната и лестницы L/U — по площади. Комната включает пол и четыре стены. При рисовании нижняя грань её пола опирается на выбранную поверхность; стены начинаются выше на толщину собственного пола комнаты. Простой щелчок использует размеры выбранного пресета. **H** во время протягивания включает отдельную настройку высоты движением мыши; затем ЛКМ подтверждает. **F** разворачивает лестницу или пандус.
+2. In Blender, open **Edit → Preferences → Get Extensions → top-right menu → Install from Disk**. Select the downloaded ZIP or `dist/blocksmith-0.8.3.zip` and enable the extension.
+3. In the 3D Viewport, press **N** and open the **Blocksmith** tab.
 
-**Повторять** оставляет инструмент выбранным после размещения. Между жестами модальный обработчик не работает: доступны панель, навигация и ручки размеров. **Esc / ПКМ** возвращают выделение; во время незавершённого рисования также удаляют превью. Без **Повторять** выделение включается сразу после одной детали. Одна завершённая конструкция — один шаг Undo.
+Building requires Python 3.10+ and no third-party Python dependencies. GitHub's automatic **Source code** archives are source distributions, not installable extension ZIPs.
 
-**Привязка** использует сетку и ближайшие вершины/рёбра в начале и в конце жеста. Геометрия имеет приоритет над сеткой: можно точно дотянуть пол до края на 4,37 м при сетке 0,5 м. В конце учитываются видимые меши и их пересечения с фиксированной плоскостью рисования; поддерживающая плоскость не меняется. **Ctrl** временно отключает привязку. **Shift** ограничивает направление линии шагом 45° или делает квадратное основание. После начала жеста плоскость фиксируется: предварительный результат не перескакивает на соседние объекты. **На поверхности** позволяет рисовать на существующей геометрии, включая вертикальные стены; выключив его, можно задать явный **Уровень основания**. 3D-курсор для рисования не требуется.
+## Quick start
 
-**Соединять стены в цепочку** продолжает следующую стену от конца предыдущей. Первую стену протяните, затем указывайте следующие углы щелчком или протягиванием. Углы подрезаются по общей границе, защита от пересечений остаётся включённой. Esc завершает цепочку. Это цепочка отдельных редактируемых стен: последующее перемещение одной стены не перемещает соседние. Автоматическое замыкание на первую стену не реализовано; для прямоугольного помещения используйте **Комнату**. Очень острые повороты отклоняются. Толщину следующей стены можно менять, не прерывая цепочку.
+1. Click **Draw Structures**, or press **Shift+Alt+D**.
+2. Choose a shape in the top row or **Next Structure**. Open **Preset Catalog** for the preset catalog.
+3. Drag with the left mouse button, then release to create the structure. Select it to edit its dimensions or drag the orange handles.
+4. Keep **Repeat** enabled to draw more pieces. **Esc / right-click** cancels an unfinished gesture or returns to selection.
 
-### Примыкание пола, стены и других деталей
+During ordinary drawing, **Ctrl** temporarily disables snapping, **Shift** constrains the direction to 45° increments or makes a square footprint, **H** adjusts height, and **F** reverses stairs or ramps. Navigation and sidebar controls remain available between gestures.
 
-Выделите две детали, последней — основную. В блоке **К грани: имя основной** нажмите **−X / +X / −Y / +Y / −Z / +Z**. Оси относятся к основной детали с учётом её поворота. Например, для западной стены у пола выделите стену, затем пол и нажмите **−X**; для установки блока сверху пола — **+Z**.
+For straight stairs or ramps, drag from the lower floor to the upper landing edge; the reverse gesture also works. For a door, window or arch, drag a rectangle directly on a solid mesh. Each completed opening adds a non-destructive Boolean cut. Curved walls use points, a freehand stroke or a three-point arc. See the [detailed Russian manual](docs/manual.ru.md) for advanced tools and their individual controls.
 
-Соседняя деталь перемещается до касания внешней опорной плоскости основной. Расчёт учитывает фактические вершины после модификаторов, масштаб, поворот и смещённый origin. Размеры, меш и поворот сохраняются. После касания по нормали деталь минимально сдвигается вдоль грани, если её габариты выходят за края основной детали и могут поместиться целиком. Размеры и поворот сохраняются; слишком большая деталь не уменьшается автоматически. На скошенных и кривых деталях это касание крайней точкой/ребром, без подрезки и сварки. Для угловых стен используйте стыки ниже. Для модулей Blocksmith пересечение с третьим защищённым объектом отменяет операцию; действие поддерживает Undo/Redo.
+## Free placement
 
-Для агентов доступен тот же оператор после выделения соседней и активной основной детали:
+Select a mesh and enable **N → Blocksmith → Ignore Blocksmith Rules**. This is a persistent property on the object, available in Object Mode and Edit Mode. For several selected meshes, use **Apply to Selected** after setting the active mesh’s flag.
 
-```python
-bpy.ops.blocksmith.attach(axis='X', direction=-1)
-```
+Marked meshes can overlap other objects, move, rotate, scale, use negative scale, and receive manual edits or reversed normals without being rolled back by Blocksmith. Other modules can also overlap a marked mesh. The mark preserves geometry, materials and gameplay tags, survives duplication, baking and `.blend` save/load, and keeps the mesh available for snapping and export unless its role already excludes it, such as a cutter or reference figure.
 
-### Варианты стыков
+Turning the flag off restores the usual protection for a Blocksmith module. If its current state violates the rules, protection stays off; the mesh and its manual edits are preserved. Fix its intersections, scale or normals first. Ordinary Blender meshes are unrestricted even without this mark. The operation supports Undo/Redo.
 
-Выделите две параметрические прямые стены; последней выберите основную стену (она активная). В панели появится **Стыки выделенных стен**:
-
-- **Под углом** — обе стены подрезаются по общей линии; поддерживаются повороты в обе стороны и разная толщина.
-- **Встык** — основная стена получает прямой торец, примыкающая подрезается к её грани.
-- **Т-стык / подрезка** — основная остаётся целой, торец примыкающей доводится до её поверхности, включая косое примыкание.
-
-Применяется ближайший к пересечению конец каждой стены. Перед стыковкой примените масштаб; основания должны лежать в одной плоскости. Стены с ручными правками или модификаторами не перестраиваются. Защита проверяет результат и откатывает конфликт с остальной сценой. Обе стены меняются за один Undo. Поле **Стык** также выбирает подрезку при рисовании цепочки; Т-стык удобнее делать выделением готовых стен. Стыки не связывают последующее перемещение стен.
-
-### Кривые стены
-
-В блоке **Кривые стены** доступны три инструмента. Высота и толщина берутся из **Следующая конструкция**.
-
-- **Точки / Безье**: ставьте точки ЛКМ, завершите Enter. Backspace удаляет последнюю точку.
-- **Свободная линия**: протяните ЛКМ и отпустите. Длинные штрихи автоматически прореживаются.
-- **Дуга по 3 точкам**: щёлкните начало, точку на дуге и конец. Три точки на одной прямой не принимаются.
-
-Esc / ПКМ отменяет незавершённую кривую. Кривые создаются в плоскости первой точки; при выключенном **На поверхности** используется **Уровень основания**. В режиме точек и дуги Ctrl отключает сетку. После создания **Tab** открывает обычное редактирование точек Blender; у Безье доступны ручки. Высота, толщина и плавность остаются в панели выбранной кривой. Проверка пересечений выполняется после создания, изменения размеров и выхода из Edit Mode; конфликтная правка откатывается. Копии кривых могут иметь разные размеры.
-
-Стены остаются нативными кривыми в `.blend`, а при экспорте GLB/FBX превращаются в меши с коллизией. Создание произвольных кривых через JSON CLI пока не добавлено; CLI по-прежнему поддерживает дуговую стену `CURVED_WALL` и параметры подрезки прямых стен.
-
-**Shift+Alt+B** открывает круговое меню рисования. **Shift+A → Mesh → Blocksmith** сохраняет команды добавления у 3D-курсора для совместимости. Встроенный Add Cube Blender работает самостоятельно.
-
-Выберите созданный объект: его размеры остаются в блоке **Выбранный объект**. **±** меняют размер на клетку сетки, **Alt + ±** применяют шаг ко всем выделенным модулям. Оранжевые ручки изменяют размер во вьюпорте, сохраняя противоположную грань; **Ctrl** отключает сетку, **Esc** отменяет жест. **Копия +X / +Y** продолжает модульный ряд.
-
-### Общая привязка к готовой геометрии
-
-Все формы начинают построение от ближайшего видимого ребра или вершины готового меша, включая результат Boolean и Array. Курсор внутри отверстия больше не переключает начало на дальнюю стену; край доступен и у одиночной стены, когда за отверстием пустота. Привязка не округляет найденный край по сетке. После начала жеста плоскость остаётся фиксированной; Ctrl временно отключает привязку.
-
-Пол, вода и комната у вертикального края строятся горизонтально. При примыкании новая геометрия подрезается по выбранной опоре, если иначе она пересекает её; эта операция не разрешает пересекать посторонние защищённые объекты. Пол на сплошной горизонтальной опоре опирается нижней гранью, а при продолжении от края сохраняет уровень верхней поверхности. Центрированные формы учитывают свой радиус и не погружаются наполовину в стену.
-
-Оранжевые ручки размеров используют тот же поиск видимых рёбер и вершин. Потяните ручку к нужному краю: изменяется только выбранный размер, противоположная грань сохраняется. Ручка не привязывается к собственной геометрии объекта. Ctrl отключает геометрическую привязку и сетку. Перемещение обычным G по-прежнему использует собственные настройки snapping Blender.
-
-### Быстрый ряд объектов и проёмов
-
-Выберите колонну или любой меш и нажмите **Ряд объектов** под быстрыми формами. Переместите курсор к концу ряда: предварительный результат показывает длину и направление. **Колесо** меняет общее число повторов (2–100, включая исходный), **ЛКМ** подтверждает, **Esc / ПКМ** отменяют. **Shift** ограничивает направление осями плоскости, **Ctrl** отключает сетку. Обычные объекты повторяются в горизонтальной плоскости, проёмы — в плоскости исходного выреза.
-
-Чтобы получить ряд окон, сначала нарисуйте одно окно/арку на стене. Выберите эту стену и нажмите **Ряд проёмов**. Повторяется последний нарисованный вырез: в предварительном просмотре отверстия действительно вырезаны в стене. Новая вкладка не требуется. Слишком плотный ряд, выход отверстий за габариты объекта и пересечения защищённых модулей блокируют подтверждение. После отмены исходные объекты и их видимость восстанавливаются.
-
-Результат использует нативный модификатор **Array / BS_Row** на исходном объекте либо на скрытом резаке проёма. Поэтому число и шаг можно менять позже в обычных модификаторах Blender; отдельные дубликаты и постоянные вспомогательные объекты не создаются. Новые ряды можно отменять и возвращать через Undo/Redo, результат сохраняется в `.blend` и экспортируется в GLB/FBX. Ряд линейный, с равным шагом; размещение вдоль кривой не добавлено.
-
-### Чистая геометрия генераторов
-
-Начиная с 0.8.0 прямые лестницы строятся одной ступенчатой оболочкой, цилиндры и дуговые стены — общими кольцами без внутренних радиальных перегородок. Винтовая лестница формирует наружную оболочку ступеней и колонны, включая открытые ступени и несколько оборотов. Угол дуговой стены выше 360° означает замкнутое кольцо, без повторного наложения одинаковой геометрии.
-
-Составные прямоугольные модели объединяются штатным Exact Boolean перед перестроением и предварительным просмотром, так что внутренние контактные поверхности не остаются в результате. Проверены все 32 пресета: замкнутость после сварки совпадающих вершин, положительный объём и сохранение габаритов. Дополнительно проверены варианты лестниц и круговых моделей. Подробный результат: `docs/generator-audit-0.8.0.json`.
-
-Установленное обновление не перезаписывает уже созданные меши. При последующем изменении параметров модуль перестраивается новым генератором. Защита ручных правок сохраняется.
-
-### Быстро построить лестницу или пандус
-
-Вверху панели доступны быстрые кнопки **Стена / Пол / Комната**, **Лестница / Пандус / Блок** и **Дверь / Окно / Арка**. Основные формы выбираются без каталога и дополнительных полей. Под быстрыми кнопками видны картинка и название текущего пресета. **Объекты с превью** открывает каталог с картинками всех 32 модулей и разделами, включая лестницы L/U и винтовые. Каталог доступен при любой выбранной форме, даже если настройки следующей конструкции свёрнуты.
-
-Для прямой лестницы или пандуса нажмите соответствующую кнопку и протяните ЛКМ **от нижнего пола к верхнему краю площадки**. Направление, длина и высота определяются по двум поверхностям, ступени рассчитываются по допустимой высоте шага. Можно тянуть и в обратном направлении: подъём всё равно строится от нижней точки к верхней. Предварительный результат виден до отпускания кнопки.
-
-Привязка использует видимые рёбра верхних поверхностей: скрытые вершины за площадкой и рёбра её нижней стороны не перехватывают курсор. Попадание в бок или низ площадки выбирает её верхнюю поверхность. Если указать внутрь верхней площадки, конец подъёма автоматически переносится на ближайшую по направлению подхода границу. Это работает и при обратном жесте сверху вниз. Если косой подход заходит углом в площадку, лестница или пандус автоматически подрезаются по фактической геометрии площадки. Подрезка сохраняется Boolean-модификатором, остальные препятствия продолжают блокировать размещение. Ширина берётся из пресета и ограничивается доступным участком верхней площадки. Подъём сдвигается поперёк направления так, чтобы на опору попадали оба верхних угла. После создания ширина доступна в обычных размерах выбранного объекта.
-
-Для этих двух инструментов не нужно включать **На поверхности** или вводить высоту. **Shift** ограничивает горизонтальное направление шагом 45°, **Ctrl** отключает привязку, **Esc / ПКМ** отменяют жест. Если обе точки находятся на одной высоте, используется высота пресета. L/U и винтовые лестницы остаются в каталоге; автоматическое соединение двух уровней относится к прямой лестнице и пандусу.
-
-### Нарисовать проём на поверхности
-
-Нажмите **Дверь / Окно / Арка** вверху панели и протяните ЛКМ прямо по стене или другому объёмному мешу. Отпустите — отверстие вырезается в объекте под мышью. Выделять объект заранее, выбирать ось и вводить размеры не требуется. Размер и положение задаёт прямоугольник жеста; арка строится внутри него. Арка выше пола даёт арочное окно.
-
-Тот же жест работает при выборе **Двери / Окна / Арки** в форме инструмента. В этом режиме рисование не создаёт отдельную стену с отверстием. На комнате вырезается только нажатая стена, противоположная остаётся целой. Поворот, масштаб и толщина выбранной поверхности учитываются автоматически; флажок **На поверхности** для проёмов не требуется.
-
-Каждый жест добавляет отдельный неразрушающий Boolean-вырез. Исходный меш и предыдущие отверстия сохраняются, скрытые дочерние резаки исключаются из экспорта. Можно нарисовать несколько окон и арок на одной стене. **Esc / ПКМ** отменяют незавершённый жест, **Undo/Redo** отменяют и возвращают один вырез. Щелчок без протягивания ничего не вырезает. **Ctrl** временно отключает привязку.
-
-Толщина берётся в начальной точке жеста. После изменения толщины самой стены прежний вырез может потребоваться перерисовать. Инструмент работает с объёмными мешами; свет, текст и нативные кривые не вырезаются. Размещение отдельного готового модуля через старый режим штампа и программное редактирование параметрических проёмов сохраняются для совместимости.
-
-Подсказки масштаба показывают низкие проходы, слишком высокие ступени и крутые пандусы возле выбранной детали и в панели. Для блоков, укрытий и пола есть цветная линейка высоты от поверхности снизу: зелёный — шаг, жёлтый — прыжок, красный — выше заданного прыжка. Это геометрический ориентир; он не моделирует траекторию и физику контроллера Godot. Настройка **Подсказки в сцене** находится в разделе размеров персонажа. Рост, радиус и приседание обновляют созданные reference-фигуры, а дальность прыжка — линейку. Ручные изменения reference-меша сохраняются.
-
-В разделе **Текстуры Kenney** выберите цвет и рисунок из визуального меню, затем **Применить к выделенным**. Выбор также задаёт материал новых модулей. По умолчанию используется сетка №13. **Размер плитки, м** регулирует физический размер повторения; меняйте размеры модуля, а не object scale, чтобы сохранить масштаб текстуры. Кнопки **Текстуры / Теги** переключают отображение. Изображения упакованы в .blend и GLB и доступны офлайн.
-
-Текстуры: [Kenney Prototype Textures](https://kenney.nl/assets/prototype-textures), 78 PNG, 6 цветов × 13 рисунков, CC0. Скачаны с [публикации автора на OpenGameArt](https://opengameart.org/content/prototype-textures), поскольку сервер kenney.nl вернул 403. Лицензия, источник и SHA256 архива находятся в `blocksmith/assets/kenney/`.
-
-## Защита геометрии
-
-### Метка свободного размещения
-
-Выделите один или несколько мешей. В **N → Blocksmith → Свободное размещение** нажмите **Добавить метку**. Помеченный меш можно двигать внутрь других объектов, отражать отрицательным масштабом, поворачивать, масштабировать и редактировать вручную, включая переворот нормалей: защита Blocksmith не откатывает его изменения. Другие конструкции также могут пересекать помеченный меш. Метка не меняет геометрию, материалы или игровой тег; сохраняется в `.blend`, при копировании и запекании. Меш остаётся доступен для привязки и экспорта, если не исключён своей ролью (например, резак или reference-фигура).
-
-**Снять метку** возвращает обычную защиту модуля Blocksmith. Если его текущее состояние нарушает ограничения, снятие отклоняется, метка восстанавливается, меш остаётся на месте. Сначала устраните пересечения и приведите масштаб и нормали в допустимое состояние. Обычные меши Blender и без метки не ограничиваются защитой Blocksmith. Операция поддерживает Undo/Redo и применяется ко всем выделенным редактируемым мешам.
-
-Для скриптов после выделения мешей:
+For scripts, select the meshes and use:
 
 ```python
-bpy.ops.blocksmith.free_placement(enabled=True)  # добавить метку
-bpy.ops.blocksmith.free_placement(enabled=False)  # снять метку
+obj.bs.free_placement = True  # persistent flag on one object
+bpy.ops.blocksmith.free_placement(enabled=True)  # selected meshes
+bpy.ops.blocksmith.free_placement(enabled=False)
 ```
 
-Свободное размещение отключает проверку корректности помеченного меша: его пересечения и вывернутые нормали могут попасть в экспорт. Подсказки размеров и привязка Blender остаются независимыми настройками.
+The mark bypasses validation: overlapping or invalid marked geometry can reach your export. Blender snapping and dimension hints remain separate settings. A parent transform may still be rejected if it affects a protected child.
 
-### Проверки защищённых модулей
+## Geometry protection
 
-Защита проверяет только модели Blocksmith: созданные аддоном, преобразованные в редактируемый блок и запечённые из его модулей. Импортированные и обычные Blender-модели могут пересекаться между собой и с Blocksmith; их отрицательный масштаб не блокируется проверкой или экспортом. При отказе изменения откатываются только защищённые модули. Исключение: трансформация родителя, влияющая на защищённый дочерний модуль, тоже может быть отменена.
+Unmarked Blocksmith modules reject intersections, negative or zero scale, open meshes and reversed normals. Face contact is allowed. Checks use actual evaluated geometry rather than bounding boxes alone. Ordinary/imported Blender meshes, reference figures, water and active Boolean cutters are outside the solid-module checks.
 
-Начиная с 0.3.0, новые пересечения твёрдых модулей отклоняются при добавлении, рисовании, изменении размеров и обычных перемещениях/масштабировании Blender. Недопустимое размещение видно красным в превью. Отрицательный/нулевой масштаб, незамкнутая сетка и вывернутые нормали защищённого модуля откатываются. При этом касание граней разрешено, дверные проёмы остаются свободными. Проверка работает с частями меша и фактической геометрией модификаторов, а не только с габаритами объекта.
+Protection applies to add-on operations, native transforms, edits after leaving Edit Mode, and Undo/Redo. Export validates protected modules again. Existing scenes are accepted as a starting state without deleting their objects, but conflicting protected geometry must be fixed before export. Checks are numerical, can be slower on large or complex scenes, and are not a mathematical guarantee.
 
-**Проверить пересечения** выделяет конфликты. Новые недопустимые изменения откатываются к последнему принятому состоянию, включая обычные дубликаты и Undo/Redo. Нативные изменения проверяются таймером примерно раз в 80 мс после обновления сцены; во время Edit Mode проверка откладывается до возвращения в Object Mode. Вода, reference-фигуры и используемые boolean-резаки могут пересекаться намеренно. Запекание сохраняет роль таких объектов.
+## Export to Godot
 
-Экспорт и CLI `generate` строго проверяют готовую геометрию и отказываются создавать результат при конфликтах. CLI возвращает JSON-ошибку с именами объектов, сохраняя предыдущие `.blend` и `.glb` при неудачной перегенерации. Команда `validate` проверяет структуру JSON; геометрия проверяется в Blender при `generate`.
+Open **Export to Godot**, choose **GLB** or **FBX**, an export scope, destination folder and filename. Save the `.blend` first if using a relative output path.
 
-Вода экспортируется видимым мешем без коллизии, в том числе после запекания и смены цветового тега. Reference-фигуры, используемые резаки, скрытые архивы исходных мешей и временные объекты защиты исключаются из экспорта.
+GLB is the main tested format. With collision enabled, solid meshes receive the Godot `-col` suffix. Water exports visibly without collision; reference figures, cutters in use, hidden source archives and temporary guard objects are excluded. Curved walls are converted to meshes. Existing export files are not overwritten: choose another filename or folder.
 
-Существующие сцены принимаются как исходное состояние: плагин не удаляет детали и не переделывает старые пересечения при включении. Экспорт сцены с пересечениями защищённых модулей будет отклонён.
+## JSON CLI
 
-Точность контакта — 0.00001 м; меньшие численные расхождения считаются касанием. Проверка вычислений не является математическим доказательством отсутствия всех возможных пересечений. На больших сценах и сложных невыпуклых мешах она может добавлять задержку. Защита относится к рабочим операциям и экспорту плагина, а не к произвольному Python-коду, способному отключить или удалить саму защиту.
-
-## CLI для агентов
-
-Нужны Python 3.10+ и установленный Blender 5+. Python-библиотеки и установка аддона в пользовательский Blender для CLI не требуются. Запуск всегда создаёт отдельную фоновую сцену, открытая сессия Blender не затрагивается.
-
-Из каталога проекта:
+Run from the repository root with Python 3.10+ and Blender 5+ in `PATH`:
 
 ```sh
 python3 tools/levelgen.py shapes
 python3 tools/levelgen.py presets
 python3 tools/levelgen.py schema
-python3 tools/levelgen.py example > my-level.json
-python3 tools/levelgen.py validate my-level.json
-python3 tools/levelgen.py generate my-level.json --out-dir ./generated/my-level
+python3 tools/levelgen.py validate examples/courtyard.json
+python3 tools/levelgen.py generate examples/courtyard.json --out-dir generated/courtyard
 ```
 
-`generate` выдаёт `level.blend`, `level.glb`, `level.spec.json`, `report.json`, `blender.log`. В stdout — только JSON-отчёт. Ошибка — JSON в stderr и код выхода 1; ошибки синтаксиса командной строки argparse используют код 2. `--blender /path/to/blender` задаёт бинарник, `--timeout 180` ограничивает время. Для обновления результатов передайте `--overwrite`. Геометрия сначала строится во временном каталоге: ошибка генерации сохраняет прежние `.blend`/`.glb`, подробности остаются в `blender.log`.
+Generation produces `level.blend`, `level.glb`, `level.spec.json`, `report.json` and `blender.log`. Use `--blender /path/to/blender` for a custom executable and `--overwrite` to replace previous output. Generation runs in a separate background Blender process and preserves prior exports if validation fails. Output is JSON; errors use stderr and a nonzero exit code.
 
-Один и тот же JSON даёт одну и ту же геометрию. Сгенерированный `.blend` сохраняет параметры объектов для дальнейшего редактирования с установленным плагином. Без плагина объекты остаются обычными отображаемыми мешами.
+The specification uses **meters**, Blender **Z-up** coordinates and Euler rotation angles in **degrees**. GLB converts to Godot's Y-up coordinates. See [the schema](examples/level.schema.json), [examples](examples/) and the CLI's `schema` command. Unknown keys, duplicate names, invalid numbers and excessive complexity are rejected; JSON never executes Python. The free-placement mark is a Blender mesh setting, not a field in the current CLI schema.
 
-## Контракт спецификации v1
-
-Машиночитаемая JSON Schema: `examples/level.schema.json`, актуальная версия — команда `schema`. `validate` дополнительно проверяет уникальность имён, ссылки резаков и ограничения сложности.
-
-```json
-{
-  "version": 1,
-  "name": "First level",
-  "metrics": {"player_height": 1.8, "max_step": 0.25},
-  "objects": [
-    {"name": "Floor", "shape": "FLOOR", "params": {"width": 10, "depth": 8, "height": 0.2}},
-    {"name": "Door", "shape": "DOOR", "position": [0, 0, 0], "params": {"width": 10, "height": 3, "open_width": 1.2, "open_height": 2.2}},
-    {"name": "Stairs", "shape": "STAIRS", "position": [2, 3, 0], "rotation": [0, 0, 90], "params": {"width": 3, "depth": 1.5, "height": 1.5}}
-  ]
-}
-```
-
-- Все размеры — **метры**. Спецификация использует координаты Blender: X/Y — земля, **Z вверх**. GLB экспортируется с Y вверх для Godot. Координаты отчёта остаются в системе Blender.
-- `position` — начальная точка формы, обычно нижний угол. Пол и вода идут **вниз** от указанной высоты; у цилиндров/дуг центр расположен в локальных `[0, 0]`. `rotation` — XYZ углы Эйлера **в градусах**, по умолчанию `[0,0,0]`.
-- `width` — длина по локальному X; `depth` — по Y; `height` — по Z. Прямые лестницы и пандусы поднимаются по **+X**. Толщина стен — `depth`; `thickness` задаёт толщину частей составных форм. `metrics.wall_thickness` задаёт начальную толщину новых стен.
-- `tag` — один из `BLOCKOUT`, `WALKABLE`, `WALL`, `COVER`, `CLIMBABLE`, `INTERACTIVE`, `HAZARD`, `TRIGGER`, `PROP`, `OUT_OF_BOUNDS`, `WATER`. Теги описательные: они не добавляют игровые скрипты.
-- `pivot: [0.5, 0.5, 0]` переносит origin к центру основания мирового bounding box без перемещения геометрии. В отчёте `aabb_min/max` — мировые границы после поворота, `dimensions` — размеры локального bounding box.
-- `cuts: [{"target": "Wall", "cutter": "Hole"}]` добавляет boolean difference; обе формы сначала определяются в `objects`. Резак не экспортируется. Вложенные зависимости и повторное использование одного резака не поддерживаются.
-- Неизвестные ключи и параметры, NaN/Infinity, одинаковые имена и чрезмерное число ступеней отклоняются. Ввод содержит только данные, Python из JSON не выполняется.
-
-Вместо `shape` можно указать `preset` (идентификаторы выдаёт команда `presets`). `params` переопределяют размеры пресета. Материал задаётся полем `material`, например:
-
-```json
-{"name":"Arcade", "preset":"arcade", "params":{"count":3}, "material":{"palette":"Orange", "pattern":"13", "tile_size":2}}
-```
-
-Полный пример с пресетами и Kenney: `examples/kenney-courtyard.json`. Для создания готовых файлов используйте `python3 tools/levelgen.py generate examples/kenney-courtyard.json --out-dir generated/kenney-courtyard`.
-
-Пример комнаты с дверью: `examples/room-door.json`. В `params` задайте `opening: "DOOR"` и `room_wall: "FRONT"`, `"BACK"`, `"LEFT"` или `"RIGHT"` (−Y, +Y, −X, +X в локальных координатах). `offset` смещает проём вдоль стены, `count` повторяет его. У боковых стен доступная длина исключает толщину передней и задней стен.
-
-Пример двора 20 × 16 м с проёмами, площадкой, лестницей, укрытиями, пандусом и водой: `examples/courtyard.json`. Создайте результат командой `python3 tools/levelgen.py generate examples/courtyard.json --out-dir generated/courtyard`.
-
-## Проверки и текущие ограничения
+## Development and checks
 
 ```sh
 python3 -m unittest discover -s tests -p 'test_*.py' -v
-blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/blender_check.py
-blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/ui_check.py
-blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/guard_check.py
 blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/free_placement_check.py
-blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/drafting_check.py
-blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/room_opening_check.py
-python3 tests/cli_guard_check.py
+blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/guard_check.py
+python3 tools/package.py
 ```
 
-Проверено на Blender **5.2.3 LTS**; геометрия, экспорт и загрузка расширения также проверены на **5.3.0**. Импорт GLB и создание коллизий — на Godot **4.7.2**. Минимум 5.0 заявлен в manifest; отдельный запуск на 5.0 ещё не выполнен. FBX есть как дополнительный экспорт, основной проверенный формат — GLB.
+See [CONTRIBUTING](CONTRIBUTING.md), [CHANGELOG](CHANGELOG.md) and the [0.8.3 validation report](docs/validation-0.8.3.md). GitHub Actions is configured to run Python tests, check syntax and build the extension. Viewport tests require a graphical environment. Backups, builds and generated scenes are excluded from Git.
 
-Автоматическое замыкание цепочки и перемещение соседних стен при правке одной не реализованы. Подковообразные арки не добавлены. L/U лестницы всегда имеют сплошное основание. Alt+D разделяет меш, но не параметры; используйте Shift+D для независимо редактируемых форм. Apply Scale поддерживает положительный равномерный scale на одиночных мешах. Подсказки проходов и ступеней учитывают масштаб объекта и рассчитаны для обычной вертикальной ориентации конструкций; они не заменяют проверку движения контроллера в Godot. Коллизии — статические trimesh, для движущихся rigid bodies понадобятся выпуклые формы.
+## Current limits
 
-Составные формы состоят из отдельных замкнутых частей и могут иметь внутренние поверхности. Это подходит для blockout, но перед финальным производственным использованием сетку следует оптимизировать. Рисование из боковой панели, GPU-превью, размещение и отмена растягивания проверены событиями мыши в отдельном UI-процессе Blender (`tests/viewport_check.py`, флаг `--enable-event-simulate --factory-startup`). Перетаскивание из Asset Browser в этой версии не добавлялось; пресеты доступны в собственном каталоге.
+Blender 5.0 is the declared minimum; it has not been tested separately. Earlier checks covered Blender 5.2.3, 5.3.0 and Godot 4.7.2. FBX has less validation coverage than GLB. Wall chains do not automatically close or move neighboring walls when one is edited. Use **Shift+D** for independently editable copies; **Alt+D** shares a mesh but not its parameters. Apply Scale supports positive uniform scale on unedited, single-user parametric meshes. Scale hints do not simulate a game controller. Exported collision is a static triangle mesh. Blockout meshes may need optimization for production.
 
-### Проверка нового инструмента
+## License
 
-`tests/drafting_viewport_check.py` запускается в отдельном Blender с `--factory-startup --enable-event-simulate --python-exit-code 1 --python tests/drafting_viewport_check.py`. Проверяет создание пола, двери, лестницы и комнаты, семантическое превью, Undo/Redo одной детали, отмену, отпускание над панелью, потерю фокуса окна, прямое изменение размеров, рисование лестницы на вертикальной стене и подрезку углов цепочки с атомарным Undo. Сценарий активирует инструмент через оператор и запускает его модальную часть в указанной области: синтетические события Blender не обеспечили доставку первого клика в карту активного инструмента. Физический клик по инструменту и ощущение работы требуют отдельной ручной проверки.
+Blocksmith code: **GPL-3.0-or-later**, see [LICENSE](LICENSE). A copy is included in the installable extension.
 
-`tests/godot_check.gd` проверяет GLB из `tests/blender_check.py` как `res://blockout.glb`: твёрдые коллизии, воду без коллизии и отсутствие фигуры игрока. `tests/drafting_godot_check.gd` проверяет GLB из `examples/drafting-joins.json` как `res://joins.glb`: семь видимых конструкций с коллизиями, без reference-фигуры. Запуск: `godot --headless --path <проект с импортированным GLB> --script <путь к проверке>`.
-
-`tests/room_godot_check.gd` проверяет GLB из `examples/room-door.json` как `res://room.glb`: луч проходит через дверь, а стены и пол сохраняют коллизию.
-
-Поля `miter_start` и `miter_end` в CLI задают смещение дальних концов стены вдоль её локальной X, в метрах. При левом повороте на угол `a` стена до угла получает `miter_end = -depth * tan(a/2)`, следующая — `miter_start = depth * tan(a/2)` при одинаковой толщине. Поля сохраняются в `.blend`; экспорт использует подрезанную геометрию. Слишком короткая стена с такими параметрами отклоняется CLI. В интерфейсе длина ограничивается до выворачивания дальней грани.
+Bundled [Kenney Prototype Textures](https://kenney.nl/assets/prototype-textures): **CC0**. Their [license](blocksmith/assets/kenney/License.txt) and [source information](blocksmith/assets/kenney/SOURCE.txt) are preserved with the assets.

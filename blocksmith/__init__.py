@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Blocksmith: editable blockouts for Blender 5 and Godot."""
+from .translations import tr
 import bpy
 import bmesh
 import blf
@@ -14,22 +15,23 @@ from bpy_extras import view3d_utils
 from gpu_extras.batch import batch_for_shader
 from .geometry import build as raw_build, SHAPES, REFERENCES, wall_min_width
 from . import guard
+from . import translations
 from .presets import PRESETS, BY_ID, GROUPS
 from .editing import metric_issues, sync_references, reach
 from .materials import PALETTES, PATTERNS, apply_texture, texture_changed, texture_items
 from .joints import MODES as JOINT_MODES, BS_OT_join
 from .curves import BS_OT_curve
 
-bl_info = {'name':'Blocksmith','author':'Blocksmith contributors','version':(0,8,2),
+bl_info = {'name':'Blocksmith','author':'Blocksmith contributors','version':(0,8,3),
            'blender':(5,0,0),'location':'View3D > Sidebar > Blocksmith','category':'Object'}
 TAGS = {'BLOCKOUT':(.55,.55,.55,1),'WALKABLE':(.25,.65,.35,1),'WALL':(.55,.65,.8,1),
         'COVER':(.7,.5,.2,1),'CLIMBABLE':(.9,.65,.15,1),'INTERACTIVE':(.3,.8,.9,1),
         'HAZARD':(.85,.15,.12,1),'TRIGGER':(.7,.2,.8,1),'PROP':(.6,.4,.2,1),
         'OUT_OF_BOUNDS':(.15,.15,.2,1),'WATER':(.1,.4,.85,.45)}
-SHAPE_LABELS=dict(zip(SHAPES,('Блок','Стена','Дверь','Окно','Арка','Пол','Лестница','Пандус','Цилиндр',
-    'Угол','Лестница L','Лестница U','Дуговая стена','Винтовая лестница','Крыша','Низкое укрытие',
-    'Высокое укрытие','Приставная лестница','Перила','Вода','Комната','Игрок','Игрок присев',
-    'Линейка роста','Линейка прыжка','Габарит прохода')))
+SHAPE_LABELS=dict(zip(SHAPES,('Block','Wall','Door','Window','Arch','Floor','Stairs','Ramp','Cylinder',
+    'Corner','L Stairs','U Stairs','Arc Wall','Spiral Stairs','Roof','Low Cover',
+    'High Cover','Ladder','Railing','Water','Room','Player','Crouching Player',
+    'Height Ruler','Jump Ruler','Clearance')))
 SHAPE_ITEMS=[(k,SHAPE_LABELS[k],'') for k in SHAPES]
 BUSY=False
 KEYMAPS=[]
@@ -135,7 +137,7 @@ def changed(self,context):
             if modifier(obj): update(obj,context)
     except guard.ConstraintError: pass
     except ValueError as exc:
-        if context.workspace: context.workspace.status_text_set('Blocksmith: '+str(exc))
+        if context.workspace: context.workspace.status_text_set('Blocksmith: '+tr(str(exc)))
 
 
 def enum(items):
@@ -143,52 +145,52 @@ def enum(items):
 
 
 class BSShape(bpy.types.PropertyGroup):
-    enabled: BoolProperty(default=False)
-    free_placement: BoolProperty(name='Свободное размещение',default=False,
-        description='Разрешить пересечения, отражения и ручные правки без отката защитой Blocksmith')
-    kind: EnumProperty(items=SHAPE_ITEMS,update=changed)
-    tag: EnumProperty(items=enum(TAGS))
+    enabled: BoolProperty(name='Enabled',default=False)
+    free_placement: BoolProperty(name='Ignore Blocksmith Rules',default=False,update=guard.placement_changed,
+        description='Allow overlaps, reflections and manual edits without Blocksmith rollbacks')
+    kind: EnumProperty(name='Kind',items=SHAPE_ITEMS,update=changed)
+    tag: EnumProperty(name='Tag',items=enum(TAGS))
     width: FloatProperty(name='Width / Run',default=2,min=.01,max=10000,unit='LENGTH',update=changed)
     depth: FloatProperty(name='Depth / Flight',default=2,min=.01,max=10000,unit='LENGTH',update=changed)
     height: FloatProperty(name='Height',default=2,min=.01,max=10000,unit='LENGTH',update=changed)
-    thickness: FloatProperty(default=.2,min=.005,max=100,unit='LENGTH',update=changed)
+    thickness: FloatProperty(name='Thickness',default=.2,min=.005,max=100,unit='LENGTH',update=changed)
     open_width: FloatProperty(name='Opening Width',default=1,min=.01,unit='LENGTH',update=changed)
     open_height: FloatProperty(name='Opening Height',default=2.1,min=.01,unit='LENGTH',update=changed)
-    sill: FloatProperty(default=1,min=0,unit='LENGTH',update=changed)
-    offset: FloatProperty(default=0,unit='LENGTH',update=changed)
-    miter_start: FloatProperty(default=0,min=-1000,max=1000,unit='LENGTH',update=changed)
-    miter_end: FloatProperty(default=0,min=-1000,max=1000,unit='LENGTH',update=changed)
+    sill: FloatProperty(name='Sill',default=1,min=0,unit='LENGTH',update=changed)
+    offset: FloatProperty(name='Offset',default=0,unit='LENGTH',update=changed)
+    miter_start: FloatProperty(name='Miter Start',default=0,min=-1000,max=1000,unit='LENGTH',update=changed)
+    miter_end: FloatProperty(name='Miter End',default=0,min=-1000,max=1000,unit='LENGTH',update=changed)
     count: IntProperty(name='Opening Count',default=1,min=1,max=100,update=changed)
-    opening: EnumProperty(items=enum(['NONE','DOOR','WINDOW','ARCH','ARCH_WINDOW']),update=changed)
-    cut_axis: EnumProperty(name='Направление выреза',items=enum(['X','Y','Z']),default='Y',update=changed)
-    room_wall: EnumProperty(name='Стена комнаты',items=[('FRONT','Передняя (−Y)',''),('BACK','Задняя (+Y)',''),
-        ('LEFT','Левая (−X)',''),('RIGHT','Правая (+X)','')],update=changed)
-    arch_style: EnumProperty(items=[('ROUND','Полукруг',''),('SEGMENTAL','Пологая',''),('POINTED','Стрельчатая','')],update=changed)
-    steps: IntProperty(default=12,min=1,max=512,update=changed)
+    opening: EnumProperty(name='Opening',items=enum(['NONE','DOOR','WINDOW','ARCH','ARCH_WINDOW']),update=changed)
+    cut_axis: EnumProperty(name='Cut Direction',items=enum(['X','Y','Z']),default='Y',update=changed)
+    room_wall: EnumProperty(name='Room Wall',items=[('FRONT','Front (−Y)',''),('BACK','Back (+Y)',''),
+        ('LEFT','Left (−X)',''),('RIGHT','Right (+X)','')],update=changed)
+    arch_style: EnumProperty(name='Arch Style',items=[('ROUND','Round',''),('SEGMENTAL','Segmental',''),('POINTED','Pointed','')],update=changed)
+    steps: IntProperty(name='Steps',default=12,min=1,max=512,update=changed)
     auto_steps: BoolProperty(name='Automatic Steps',default=True,update=changed)
     max_step: FloatProperty(name='Max Step',default=.25,min=.01,unit='LENGTH',update=changed)
-    solid: BoolProperty(default=True,update=changed)
-    flip: BoolProperty(default=False,update=changed)
-    flight_width: FloatProperty(default=1,min=.1,unit='LENGTH',update=changed)
+    solid: BoolProperty(name='Solid',default=True,update=changed)
+    flip: BoolProperty(name='Flip',default=False,update=changed)
+    flight_width: FloatProperty(name='Flight Width',default=1,min=.1,unit='LENGTH',update=changed)
     angle: FloatProperty(name='Turn (degrees)',default=180,min=1,max=1440,update=changed)
-    inner_radius: FloatProperty(default=.3,min=.01,unit='LENGTH',update=changed)
-    column: BoolProperty(default=True,update=changed)
-    segments: IntProperty(default=32,min=8,max=128,update=changed)
-    roof: EnumProperty(items=enum(['GABLE','SHED']),update=changed)
-    spacing: FloatProperty(default=.3,min=.05,unit='LENGTH',update=changed)
-    rails: IntProperty(default=2,min=1,max=12,update=changed)
-    use_kenney: BoolProperty(default=False)
-    texture: EnumProperty(items=PATTERNS,default='13',update=texture_changed)
-    palette: EnumProperty(items=PALETTES,default='Light',update=texture_changed)
-    uv_tile: FloatProperty(default=1,min=.01,unit='LENGTH',update=changed)
-    pivot_offset: FloatVectorProperty(size=3)
-    player_height: FloatProperty(default=1.8)
-    player_radius: FloatProperty(default=.3)
-    crouch_height: FloatProperty(default=1.1)
-    jump_height: FloatProperty(default=1)
-    jump_gap: FloatProperty(default=3)
-    low_cover: FloatProperty(default=1)
-    high_cover: FloatProperty(default=1.7)
+    inner_radius: FloatProperty(name='Inner Radius',default=.3,min=.01,unit='LENGTH',update=changed)
+    column: BoolProperty(name='Column',default=True,update=changed)
+    segments: IntProperty(name='Segments',default=32,min=8,max=128,update=changed)
+    roof: EnumProperty(name='Roof',items=enum(['GABLE','SHED']),update=changed)
+    spacing: FloatProperty(name='Spacing',default=.3,min=.05,unit='LENGTH',update=changed)
+    rails: IntProperty(name='Rails',default=2,min=1,max=12,update=changed)
+    use_kenney: BoolProperty(name='Use Kenney',default=False)
+    texture: EnumProperty(name='Texture',items=PATTERNS,default='13',update=texture_changed)
+    palette: EnumProperty(name='Palette',items=PALETTES,default='Light',update=texture_changed)
+    uv_tile: FloatProperty(name='Uv Tile',default=1,min=.01,unit='LENGTH',update=changed)
+    pivot_offset: FloatVectorProperty(name='Pivot Offset',size=3)
+    player_height: FloatProperty(name='Player Height',default=1.8)
+    player_radius: FloatProperty(name='Player Radius',default=.3)
+    crouch_height: FloatProperty(name='Crouch Height',default=1.1)
+    jump_height: FloatProperty(name='Jump Height',default=1)
+    jump_gap: FloatProperty(name='Jump Gap',default=3)
+    low_cover: FloatProperty(name='Low Cover',default=1)
+    high_cover: FloatProperty(name='High Cover',default=1.7)
 
 
 def grid_update(self,context):
@@ -208,51 +210,51 @@ def draw_shape_changed(self,context):
 
 
 class BSSettings(bpy.types.PropertyGroup):
-    shape: EnumProperty(items=SHAPE_ITEMS,default='WALL',update=draw_shape_changed)
-    preset: StringProperty(default='wall_4')
-    preset_group: EnumProperty(items=GROUPS)
-    handles: BoolProperty(name='Ручки размеров',default=True)
-    palette: EnumProperty(items=PALETTES,default='Light')
-    texture: EnumProperty(items=texture_items,default=12)
-    grid: FloatProperty(default=.5,min=.001,max=1000,unit='LENGTH',update=grid_update)
-    sync_grid: BoolProperty(default=True,update=grid_update)
+    shape: EnumProperty(name='Shape',items=SHAPE_ITEMS,default='WALL',update=draw_shape_changed)
+    preset: StringProperty(name='Preset',default='wall_4')
+    preset_group: EnumProperty(name='Preset Group',items=GROUPS)
+    handles: BoolProperty(name='Dimension Handles',default=True)
+    palette: EnumProperty(name='Palette',items=PALETTES,default='Light')
+    texture: EnumProperty(name='Texture',items=texture_items,default=12)
+    grid: FloatProperty(name='Grid',default=.5,min=.001,max=1000,unit='LENGTH',update=grid_update)
+    sync_grid: BoolProperty(name='Sync Grid',default=True,update=grid_update)
     move_snap: BoolProperty(name='Move Snapping',default=False,update=grid_update)
     surfaces: BoolProperty(name='On Surfaces',default=True)
     object_snap: BoolProperty(name='Snap to Vertices',default=True)
-    keep_drawing: BoolProperty(default=True)
-    draw_width: FloatProperty(name='Длина',default=4,min=.01,max=10000,unit='LENGTH')
-    draw_depth: FloatProperty(name='Глубина / толщина',default=.2,min=.01,max=10000,unit='LENGTH')
-    draw_height: FloatProperty(name='Высота',default=3,min=.01,max=10000,unit='LENGTH')
-    draw_plane_z: FloatProperty(name='Уровень основания',default=0,min=-10000,max=10000,unit='LENGTH')
-    draw_chain: BoolProperty(name='Цепочка стен',default=False)
-    joint_mode: EnumProperty(name='Стык стен',items=JOINT_MODES)
-    dimensions: BoolProperty(default=True)
-    show_metrics: BoolProperty(name='Подсказки масштаба',default=True)
-    wall_height: FloatProperty(default=3,min=.1,unit='LENGTH')
-    wall_thickness: FloatProperty(default=.2,min=.01,unit='LENGTH')
-    floor_thickness: FloatProperty(default=.2,min=.01,unit='LENGTH')
-    door_width: FloatProperty(default=1,min=.1,unit='LENGTH')
-    door_height: FloatProperty(default=2.1,min=.1,unit='LENGTH')
-    water_depth: FloatProperty(default=1,min=.01,unit='LENGTH')
-    player_height: FloatProperty(default=1.8,min=.1,unit='LENGTH',update=sync_references)
-    player_radius: FloatProperty(default=.3,min=.05,unit='LENGTH',update=sync_references)
-    crouch_height: FloatProperty(default=1.1,min=.1,unit='LENGTH',update=sync_references)
-    max_step: FloatProperty(default=.25,min=.01,unit='LENGTH',update=sync_references)
-    jump_height: FloatProperty(default=1,min=.01,unit='LENGTH',update=sync_references)
-    jump_gap: FloatProperty(default=3,min=.01,unit='LENGTH',update=sync_references)
-    max_slope: FloatProperty(default=45,min=1,max=89)
-    low_cover: FloatProperty(default=1,min=.01,unit='LENGTH',update=sync_references)
-    high_cover: FloatProperty(default=1.7,min=.01,unit='LENGTH',update=sync_references)
-    max_wade: FloatProperty(default=.5,min=0,unit='LENGTH')
-    min_swim: FloatProperty(default=1.2,min=.01,unit='LENGTH')
-    export_format: EnumProperty(items=enum(['GLB','FBX']))
+    keep_drawing: BoolProperty(name='Keep Drawing',default=True)
+    draw_width: FloatProperty(name='Length',default=4,min=.01,max=10000,unit='LENGTH')
+    draw_depth: FloatProperty(name='Depth / Thickness',default=.2,min=.01,max=10000,unit='LENGTH')
+    draw_height: FloatProperty(name='Height',default=3,min=.01,max=10000,unit='LENGTH')
+    draw_plane_z: FloatProperty(name='Base Elevation',default=0,min=-10000,max=10000,unit='LENGTH')
+    draw_chain: BoolProperty(name='Wall Chain',default=False)
+    joint_mode: EnumProperty(name='Wall Joint',items=JOINT_MODES)
+    dimensions: BoolProperty(name='Dimensions',default=True)
+    show_metrics: BoolProperty(name='Scale Hints',default=True)
+    wall_height: FloatProperty(name='Wall Height',default=3,min=.1,unit='LENGTH')
+    wall_thickness: FloatProperty(name='Wall Thickness',default=.2,min=.01,unit='LENGTH')
+    floor_thickness: FloatProperty(name='Floor Thickness',default=.2,min=.01,unit='LENGTH')
+    door_width: FloatProperty(name='Door Width',default=1,min=.1,unit='LENGTH')
+    door_height: FloatProperty(name='Door Height',default=2.1,min=.1,unit='LENGTH')
+    water_depth: FloatProperty(name='Water Depth',default=1,min=.01,unit='LENGTH')
+    player_height: FloatProperty(name='Player Height',default=1.8,min=.1,unit='LENGTH',update=sync_references)
+    player_radius: FloatProperty(name='Player Radius',default=.3,min=.05,unit='LENGTH',update=sync_references)
+    crouch_height: FloatProperty(name='Crouch Height',default=1.1,min=.1,unit='LENGTH',update=sync_references)
+    max_step: FloatProperty(name='Max Step',default=.25,min=.01,unit='LENGTH',update=sync_references)
+    jump_height: FloatProperty(name='Jump Height',default=1,min=.01,unit='LENGTH',update=sync_references)
+    jump_gap: FloatProperty(name='Jump Gap',default=3,min=.01,unit='LENGTH',update=sync_references)
+    max_slope: FloatProperty(name='Max Slope',default=45,min=1,max=89)
+    low_cover: FloatProperty(name='Low Cover',default=1,min=.01,unit='LENGTH',update=sync_references)
+    high_cover: FloatProperty(name='High Cover',default=1.7,min=.01,unit='LENGTH',update=sync_references)
+    max_wade: FloatProperty(name='Max Wade',default=.5,min=0,unit='LENGTH')
+    min_swim: FloatProperty(name='Min Swim',default=1.2,min=.01,unit='LENGTH')
+    export_format: EnumProperty(name='Export Format',items=enum(['GLB','FBX']))
     collision: BoolProperty(name='Godot Collision (-col)',default=True)
-    export_scope: EnumProperty(items=enum(['COLLECTION','SELECTED','VISIBLE']))
-    per_object: BoolProperty(default=False)
+    export_scope: EnumProperty(name='Export Scope',items=enum(['COLLECTION','SELECTED','VISIBLE']))
+    per_object: BoolProperty(name='Per Object',default=False)
     center: BoolProperty(name='Center Individual Pieces',default=True)
-    export_path: StringProperty(subtype='DIR_PATH',default='//export/')
-    filename: StringProperty(default='blockout')
-    prefix: StringProperty(default='')
+    export_path: StringProperty(name='Export Path',subtype='DIR_PATH',default='//export/')
+    filename: StringProperty(name='Filename',default='blockout')
+    prefix: StringProperty(name='Prefix',default='')
 
 
 def collection(context):
@@ -308,7 +310,7 @@ class BS_OT_add(bpy.types.Operator):
     bl_idname='blocksmith.add'
     bl_label='Add Blocksmith Shape'
     bl_options={'REGISTER','UNDO'}
-    kind: EnumProperty(items=SHAPE_ITEMS)
+    kind: EnumProperty(name='Kind',items=SHAPE_ITEMS)
     @guard.checked
     def execute(self,context):
         create(context,self.kind); return {'FINISHED'}
@@ -332,13 +334,13 @@ class BS_OT_tool(bpy.types.Operator):
     bl_idname='blocksmith.tool'
     bl_label='Blocksmith Tool'
     bl_options={'REGISTER','UNDO'}
-    action: EnumProperty(items=enum(['SNAP','FIT','BAKE','RESET','CUT','ASSET','APPLY_SCALE',
+    action: EnumProperty(name='Action',items=enum(['SNAP','FIT','BAKE','RESET','CUT','ASSET','APPLY_SCALE',
                                    'PIVOT','PIVOT_CURSOR','CURSOR_PIVOT','EXTEND','CONVERT','METRICS','VIEW']))
-    axis: EnumProperty(items=enum(['X','Y','Z']))
-    direction: IntProperty(default=1,min=-1,max=1)
-    count: IntProperty(default=1,min=1,max=100)
-    gap: FloatProperty(default=0,unit='LENGTH')
-    pivot: FloatVectorProperty(default=(.5,.5,0),size=3,min=0,max=1)
+    axis: EnumProperty(name='Axis',items=enum(['X','Y','Z']))
+    direction: IntProperty(name='Direction',default=1,min=-1,max=1)
+    count: IntProperty(name='Count',default=1,min=1,max=100)
+    gap: FloatProperty(name='Gap',default=0,unit='LENGTH')
+    pivot: FloatVectorProperty(name='Pivot',default=(.5,.5,0),size=3,min=0,max=1)
 
     @classmethod
     def poll(cls,context): return context.mode=='OBJECT'
@@ -363,14 +365,14 @@ class BS_OT_tool(bpy.types.Operator):
                 problems=metric_issues(o.bs,s,o.matrix_world.to_scale())
                 o.select_set(bool(problems))
                 if problems: failures.append(o.name+': '+', '.join(problems))
-            self.report({'WARNING'} if failures else {'INFO'},'; '.join(failures[:4]) or 'Metrics OK')
+            self.report({'WARNING'} if failures else {'INFO'},tr('; '.join(failures[:4]) or 'Metrics OK'))
             return {'FINISHED'}
         if self.action=='CUT':
             if not active or active.type!='MESH': return {'CANCELLED'}
             for o in objects:
                 if o==active or o.type!='MESH': continue
                 if active in list(o.children_recursive):
-                    self.report({'ERROR'},'Cannot use an ancestor as a cutter'); return {'CANCELLED'}
+                    self.report({'ERROR'},tr('Cannot use an ancestor as a cutter')); return {'CANCELLED'}
                 mod=active.modifiers.new('BS_Cut','BOOLEAN'); mod.operation='DIFFERENCE'; mod.solver='EXACT'; mod.object=o
                 o['bs_cutter']=True; o.display_type='WIRE'; o.hide_render=True
                 world=o.matrix_world.copy(); o.parent=active; o.matrix_world=world
@@ -399,11 +401,11 @@ class BS_OT_tool(bpy.types.Operator):
                 if not old.users: bpy.data.meshes.remove(old)
             elif self.action=='APPLY_SCALE':
                 if p.enabled and (any(x<=0 for x in obj.scale) or obj.data.users>1 or manual(obj)):
-                    self.report({'WARNING'},'Apply Scale requires an unedited, single-user shape with positive scale'); continue
+                    self.report({'WARNING'},tr('Apply Scale requires an unedited, single-user shape with positive scale')); continue
                 if p.enabled:
                     # Nonuniform scale cannot preserve curved/arch profiles parametrically.
                     if max(obj.scale)-min(obj.scale)>1e-5:
-                        self.report({'WARNING'},'Use uniform scale, or bake before applying nonuniform scale'); continue
+                        self.report({'WARNING'},tr('Use uniform scale, or bake before applying nonuniform scale')); continue
                     BUSY=True
                     try:
                         f=obj.scale.x
@@ -451,8 +453,8 @@ class BS_OT_tool(bpy.types.Operator):
 
 class BS_OT_tag(bpy.types.Operator):
     bl_idname='blocksmith.tag'; bl_label='Set Gameplay Tag'; bl_options={'REGISTER','UNDO'}
-    tag: EnumProperty(items=enum(TAGS))
-    select: BoolProperty(default=False)
+    tag: EnumProperty(name='Tag',items=enum(TAGS))
+    select: BoolProperty(name='Select',default=False)
     @guard.checked
     def execute(self,context):
         for o in context.visible_objects if self.select else context.selected_objects:
@@ -464,7 +466,7 @@ class BS_OT_tag(bpy.types.Operator):
 
 class BS_OT_grid(bpy.types.Operator):
     bl_idname='blocksmith.grid'; bl_label='Change Grid'; bl_options={'UNDO'}
-    factor: FloatProperty(default=2)
+    factor: FloatProperty(name='Factor',default=2)
     @guard.checked
     def execute(self,context):
         context.scene.bs.grid=max(.001,min(1000,context.scene.bs.grid*self.factor))
@@ -487,15 +489,15 @@ class BS_OT_export(bpy.types.Operator):
         s=context.scene.bs
         try: guard.require_valid(context.scene)
         except guard.ConstraintError as exc:
-            self.report({'ERROR'},str(exc)); return {'CANCELLED'}
+            self.report({'ERROR'},tr(str(exc))); return {'CANCELLED'}
         if s.export_path.startswith('//') and not bpy.data.filepath:
-            self.report({'ERROR'},'Save the .blend or choose an absolute export folder'); return {'CANCELLED'}
+            self.report({'ERROR'},tr('Save the .blend or choose an absolute export folder')); return {'CANCELLED'}
         folder=Path(bpy.path.abspath(s.export_path)).expanduser()
         source=(context.selected_objects if s.export_scope=='SELECTED' else
                 collection(context).all_objects if s.export_scope=='COLLECTION' else context.visible_objects)
         source=[o for o in source if (o.type=='MESH' or (o.type=='CURVE' and o.get('bs_curve_wall'))) and o.visible_get() and not guard.excluded(o,context.scene,include_water=True)]
         if not source:
-            self.report({'ERROR'},'Nothing to export'); return {'CANCELLED'}
+            self.report({'ERROR'},tr('Nothing to export')); return {'CANCELLED'}
         selected=list(context.selected_objects); active=context.view_layer.objects.active
         temp=bpy.data.collections.new('BS_Export_Temp'); context.scene.collection.children.link(temp)
         copies=[]
@@ -515,11 +517,11 @@ class BS_OT_export(bpy.types.Operator):
                 if s.per_object and s.center: group[0].location=(0,0,0)
                 name=s.prefix+(source[copies.index(group[0])].name if s.per_object else s.filename)
                 name=bpy.path.clean_name(name).strip('.') or 'blockout'
-                if name in used: raise ValueError('Export filenames collide after sanitizing: '+name)
+                if name in used: raise ValueError(tr('Export filenames collide after sanitizing: ')+name)
                 used.add(name)
                 path=str(folder/(name+'.'+s.export_format.lower()))
                 if os.path.exists(path):
-                    raise FileExistsError('Export exists; choose another filename or folder: '+path)
+                    raise FileExistsError(tr('Export exists; choose another filename or folder: ')+path)
                 if s.export_format=='GLB':
                     bpy.ops.export_scene.gltf(filepath=path,export_format='GLB',use_selection=True,
                                               export_apply=True,export_animations=False,export_extras=True)
@@ -527,7 +529,7 @@ class BS_OT_export(bpy.types.Operator):
                     bpy.ops.export_scene.fbx(filepath=path,use_selection=True,object_types={'MESH'},
                                              axis_forward='-Z',axis_up='Y',bake_anim=False)
         except Exception as exc:
-            self.report({'ERROR'},str(exc)); return {'CANCELLED'}
+            self.report({'ERROR'},tr(str(exc))); return {'CANCELLED'}
         finally:
             for o in copies:
                 mesh=o.data; bpy.data.objects.remove(o,do_unlink=True)
@@ -535,7 +537,7 @@ class BS_OT_export(bpy.types.Operator):
             bpy.data.collections.remove(temp)
             for o in selected: o.select_set(True)
             context.view_layer.objects.active=active
-        self.report({'INFO'},'Exported to '+str(folder)); return {'FINISHED'}
+        self.report({'INFO'},tr('Exported to ')+str(folder)); return {'FINISHED'}
 
 
 class BS_MT_add(bpy.types.Menu):
@@ -549,7 +551,7 @@ class BS_MT_pie(bpy.types.Menu):
     bl_idname='BS_MT_pie'; bl_label='Blocksmith'
     def draw(self,context):
         pie=self.layout.menu_pie()
-        pie.operator('blocksmith.activate',text='Рисовать конструкции')
+        pie.operator('blocksmith.activate',text='Draw Structures')
         for key in ('BLOCK','WALL','FLOOR','STAIRS','RAMP','ROOM'):
             pie.operator('blocksmith.activate',text=SHAPE_LABELS[key]).kind=key
         pie.operator('blocksmith.export',text='Export GLB')
@@ -563,12 +565,12 @@ class BS_PT_main(bpy.types.Panel):
 
 
 class BS_PT_tools(bpy.types.Panel):
-    bl_label='Дополнительные инструменты'; bl_idname='BS_PT_tools'; bl_parent_id='BS_PT_main'
+    bl_label='Additional Tools'; bl_idname='BS_PT_tools'; bl_parent_id='BS_PT_main'
     bl_space_type='VIEW_3D'; bl_region_type='UI'; bl_category='Blocksmith'; bl_options={'DEFAULT_CLOSED'}
     def draw(self,context):
         l=self.layout
-        box=l.box(); box.label(text='Инструменты выделенных объектов')
-        box.operator('blocksmith.audit',text='Проверить геометрию',icon='VIEWZOOM')
+        box=l.box(); box.label(text='Selected Object Tools')
+        box.operator('blocksmith.audit',text='Check Geometry',icon='VIEWZOOM')
         for key,label in [('SNAP','Snap to Grid'),('FIT','Fit Size to Grid'),('APPLY_SCALE','Apply Uniform Scale'),
                           ('CUT','Cut Active with Selected'),('BAKE','Bake to Mesh'),('CONVERT','Make Editable Block'),
                           ('ASSET','Mark as Asset'),('METRICS','Check Metrics'),('PIVOT_CURSOR','Pivot to Cursor'),
@@ -580,14 +582,14 @@ class BS_PT_tools(bpy.types.Panel):
         for axis in 'XYZ':
             row=box.row(align=True)
             for sign in (-1,1):
-                op=row.operator('blocksmith.tool',text=f'Extend {"+" if sign>0 else "−"}{axis}')
+                op=row.operator('blocksmith.tool',text=tr('Extend ')+('+' if sign>0 else '−')+axis)
                 op.action='EXTEND'; op.axis=axis; op.direction=sign
 
 
 
 
 class BS_PT_tags(bpy.types.Panel):
-    bl_label='Теги объектов'; bl_idname='BS_PT_tags'; bl_parent_id='BS_PT_main'
+    bl_label='Object Tags'; bl_idname='BS_PT_tags'; bl_parent_id='BS_PT_main'
     bl_space_type='VIEW_3D'; bl_region_type='UI'; bl_category='Blocksmith'; bl_options={'DEFAULT_CLOSED'}
     def draw(self,context):
         for tag in TAGS:
@@ -597,10 +599,10 @@ class BS_PT_tags(bpy.types.Panel):
 
 
 class BS_PT_metrics(bpy.types.Panel):
-    bl_label='Размеры персонажа и стандарты'; bl_idname='BS_PT_metrics'; bl_parent_id='BS_PT_main'
+    bl_label='Player Dimensions and Standards'; bl_idname='BS_PT_metrics'; bl_parent_id='BS_PT_main'
     bl_space_type='VIEW_3D'; bl_region_type='UI'; bl_category='Blocksmith'; bl_options={'DEFAULT_CLOSED'}
     def draw(self,context):
-        self.layout.prop(context.scene.bs,'show_metrics',text='Подсказки в сцене')
+        self.layout.prop(context.scene.bs,'show_metrics',text='Viewport Hints')
         for key in ('player_height','player_radius','crouch_height','max_step','jump_height','jump_gap',
                     'max_slope','low_cover','high_cover','max_wade','min_swim','wall_height','wall_thickness',
                     'floor_thickness','door_width','door_height','water_depth'):
@@ -609,7 +611,7 @@ class BS_PT_metrics(bpy.types.Panel):
 
 
 class BS_PT_export(bpy.types.Panel):
-    bl_label='Экспорт в Godot'; bl_idname='BS_PT_export'; bl_parent_id='BS_PT_main'
+    bl_label='Export to Godot'; bl_idname='BS_PT_export'; bl_parent_id='BS_PT_main'
     bl_space_type='VIEW_3D'; bl_region_type='UI'; bl_category='Blocksmith'; bl_options={'DEFAULT_CLOSED'}
     def draw(self,context):
         s=context.scene.bs
@@ -626,12 +628,12 @@ def draw_dimensions():
         point=view3d_utils.location_3d_to_region_2d(context.region,context.region_data,obj.matrix_world.translation)
         if point is None: continue
         p=obj.bs; dims=(p.width,p.depth,p.height)
-        lines=[f'{dims[0]:.2f} × {dims[1]:.2f} × {dims[2]:.2f} м']
+        lines=[tr('{0:.2f} × {1:.2f} × {2:.2f} m').format(dims[0],dims[1],dims[2])]
         if context.scene.bs.show_metrics: lines.extend(metric_issues(p,context.scene.bs,obj.matrix_world.to_scale()))
         blf.size(0,12); blf.enable(0,blf.SHADOW); blf.shadow(0,5,0,0,0,1)
         for i,line in enumerate(lines):
             blf.position(0,point.x+8,point.y+8+i*18,0); blf.color(0,1,.45,.2,1) if i else blf.color(0,1,.85,.4,1)
-            blf.draw(0,line)
+            blf.draw(0,tr(line))
         blf.disable(0,blf.SHADOW)
         if context.scene.bs.show_metrics and p.kind in {'BLOCK','LOW_COVER','HIGH_COVER','FLOOR'} and len(context.selected_objects)<=3:
             base,top,height,x,y=reach(context,obj)
@@ -639,11 +641,11 @@ def draw_dimensions():
             b=view3d_utils.location_3d_to_region_2d(context.region,context.region_data,Vector((x,y,top)))
             if a is None or b is None: continue
             s=context.scene.bs
-            label,color=('Шаг',(.3,1,.35,1)) if height<=s.max_step else ('Прыжок',(1,.8,.15,1)) if height<=s.jump_height else ('Выше прыжка',(1,.25,.15,1))
+            label,color=('Step',(.3,1,.35,1)) if height<=s.max_step else ('Jump',(1,.8,.15,1)) if height<=s.jump_height else ('Above Jump',(1,.25,.15,1))
             shader=gpu.shader.from_builtin('UNIFORM_COLOR')
             batch=batch_for_shader(shader,'LINES',{'pos':[(a.x,a.y),(b.x,b.y),(a.x-5,a.y),(a.x+5,a.y),(b.x-5,b.y),(b.x+5,b.y)]})
             shader.bind(); shader.uniform_float('color',color); batch.draw(shader)
-            blf.position(0,b.x+8,b.y,0); blf.color(0,*color); blf.draw(0,f'{label} {height:.2f} м')
+            blf.position(0,b.x+8,b.y,0); blf.color(0,*color); blf.draw(0,tr('{0} {1:.2f} m').format(tr(label),height))
 
 
 def menu_add(self,context): self.layout.menu('BS_MT_add')
@@ -656,6 +658,7 @@ CLASSES=(BSShape,BSSettings,BS_OT_add,BS_OT_tool,BS_OT_tag,BS_OT_grid,BS_OT_draw
 
 def register():
     global DRAW_HANDLE
+    translations.register()
     for cls in CLASSES: bpy.utils.register_class(cls)
     bpy.types.Object.bs=PointerProperty(type=BSShape)
     bpy.types.Scene.bs=PointerProperty(type=BSSettings)
@@ -684,3 +687,4 @@ def unregister():
     bpy.types.VIEW3D_MT_mesh_add.remove(menu_add)
     del bpy.types.Object.bs; del bpy.types.Scene.bs
     for cls in reversed(CLASSES): bpy.utils.unregister_class(cls)
+    translations.unregister()

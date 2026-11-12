@@ -92,14 +92,17 @@ select(free)
 assert bpy.ops.blocksmith.free_placement(enabled=True)=={'FINISHED'}
 free.location.x=1; c.view_layer.update(); assert g.flush()
 bpy.ops.ed.undo_push(message='Free placement')
-free.bs.free_placement=False
+bs.BUSY=True
+try: free.bs.free_placement=False
+finally: bs.BUSY=False
 bpy.ops.ed.undo_push(message='Unmarked invalid history')
 free.bs.free_placement=True
 bpy.ops.ed.undo_push(message='Marked again')
 assert g.flush()
+g._messages.clear()
 bpy.ops.ed.undo()
 g.check_history(c.scene)
-assert g.message(c.scene).startswith('Пересечение:'),'History ignored removal of the mark'
+assert g.message(c.scene).startswith('Intersection:'),'History ignored removal of the mark'
 assert c.scene.objects['Free'].bs.free_placement,'Invalid Undo did not restore the mark'
 
 bs.unregister(); bs.register(); bs.unregister()

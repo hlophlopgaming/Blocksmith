@@ -42,8 +42,8 @@ class Part:
 class Solid:
     def __init__(self,vertices,faces):
         self.vertices=[Vector(v) for v in vertices]; self.faces=[tuple(f) for f in faces]
-        if not self.vertices or not self.faces: raise GeometryError('Пустая геометрия')
-        if not all(math.isfinite(x) for v in self.vertices for x in v): raise GeometryError('Неконечные координаты')
+        if not self.vertices or not self.faces: raise GeometryError('Empty geometry')
+        if not all(math.isfinite(x) for v in self.vertices for x in v): raise GeometryError('Nonfinite coordinates')
         self.bounds=bounds(self.vertices)
         roots=list(range(len(vertices)))
         def root(i):
@@ -72,8 +72,8 @@ class Solid:
                 for j in range(1,len(face)-1):
                     volume+=(a-origin).dot((points[face[j]]-origin).cross(points[face[j+1]]-origin))/6
             if any(count!=2 or sign!=0 for count,sign in directed.values()):
-                raise GeometryError('Незамкнутая сетка или несогласованные нормали')
-            if volume<=1e-12: raise GeometryError('Вывернутая или вырожденная геометрия')
+                raise GeometryError('Open mesh or inconsistent normals')
+            if volume<=1e-12: raise GeometryError('Inverted or degenerate geometry')
             convex=all(n.dot(v-a)<=EPS for n,a in planes for v in points)
             self.parts.append(Part(points,polygons,bounds(points),unique_axes(normals),unique_axes(edges),convex))
 
@@ -127,6 +127,6 @@ def exact_overlap(a,b,scene):
 def overlaps(a,b,scene=None):
     if not bounds_overlap(a.bounds,b.bounds): return False
     if not all(p.convex for p in a.parts+b.parts):
-        if scene is None: raise GeometryError('Точная проверка невыпуклого меша требует сцены')
+        if scene is None: raise GeometryError('Exact checking of a nonconvex mesh requires a scene')
         return exact_overlap(a,b,scene)
     return any(convex_overlap(p,q) for p in a.parts for q in b.parts if bounds_overlap(p.bounds,q.bounds))

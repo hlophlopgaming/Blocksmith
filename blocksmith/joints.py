@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Plan wall ends before changing either mesh; active wall has priority."""
+from .translations import tr
 from types import SimpleNamespace
 import bpy
 from bpy.props import EnumProperty
@@ -7,9 +8,9 @@ from mathutils import Vector
 from . import guard
 from .geometry import wall_min_width
 
-MODES=[('MITER','Под углом','Общая подрезка двух стен, включая разную толщину'),
-       ('BUTT','Встык','Прямой торец основной стены, соседняя подрезается к её грани'),
-       ('TRIM','Т-стык / подрезка','Подрезать соседнюю стену к грани основной, основную не менять')]
+MODES=[('MITER','Miter Joint','Trim both walls along a shared seam, including different thicknesses'),
+       ('BUTT','Butt Joint','Keep the target end square and trim the neighbor to its face'),
+       ('TRIM','T Joint / Trim','Trim the neighbor to the target face without changing the target')]
 
 
 def plan(p,world,q,other,mode='MITER'):
@@ -19,16 +20,16 @@ def plan(p,world,q,other,mode='MITER'):
     world=world.copy(); other=other.copy()
     for params,matrix in ((p,world),(q,other)):
         if params.kind not in {'WALL','DOOR','WINDOW','ARCH'} or params.flip:
-            raise ValueError('Выберите две прямые стены без отражения')
+            raise ValueError('Select two straight walls without reflection')
         if any(abs(v-1)>1e-4 for v in matrix.to_scale()) or matrix.determinant()<0:
-            raise ValueError('Перед стыковкой примените масштаб стен')
+            raise ValueError('Apply wall scale before joining')
     x,y,z=(world.col[i].xyz.normalized() for i in range(3))
     u,v,n=(other.col[i].xyz.normalized() for i in range(3))
     origin=world@(-Vector(getattr(p,'pivot_offset',(0,0,0)))); start=other@(-Vector(getattr(q,'pivot_offset',(0,0,0))))
     if z.dot(n)<.9999 or abs(z.dot(start-origin))>1e-4:
-        raise ValueError('Основания стен должны лежать в одной плоскости')
+        raise ValueError('Wall bases must lie in the same plane')
     denominator=z.dot(x.cross(u))
-    if abs(denominator)<.02: raise ValueError('Для стыка нужны непараллельные стены')
+    if abs(denominator)<.02: raise ValueError('The joint requires nonparallel walls')
     def crossing(a,b):
         return a+x*(z.dot((b-a).cross(u))/denominator)
     hit=crossing(origin,start)
@@ -41,7 +42,7 @@ def plan(p,world,q,other,mode='MITER'):
             params.width-=near; params.miter_start=far-near
             matrix.translation+=matrix.col[0].xyz*near
         if params.width<wall_min_width(params)-1e-5:
-            raise ValueError('Недостаточно длины стены для стыка и проёма')
+            raise ValueError('The wall is too short for the joint and opening')
         build(params)
     if mode=='MITER':
         # Two starts/two ends meet opposite sides; an end/start meets like sides.
@@ -55,7 +56,7 @@ def plan(p,world,q,other,mode='MITER'):
         far_end=start+u*(0 if end_q else q.width)
         side=y.dot(far_end-origin)
         if -.0001<=side<=p.depth+.0001:
-            raise ValueError('Свободный конец соседней стены находится внутри основной')
+            raise ValueError("The neighbor's free end lies inside the target")
         face=origin+y*(0 if side<0 else p.depth)
         near=crossing(face,start); far=crossing(face,start+v*q.depth)
         if mode=='BUTT':
@@ -64,7 +65,7 @@ def plan(p,world,q,other,mode='MITER'):
             end(p,world,end_p,limit,limit)
         elif (min(x.dot(near-origin),x.dot(far-origin))<(0 if side<0 else p.miter_start)-.0001 or
               max(x.dot(near-origin),x.dot(far-origin))>p.width+(0 if side<0 else p.miter_end)+.0001):
-            raise ValueError('Т-стык должен попадать в длину основной стены')
+            raise ValueError('The T joint must lie within the target wall length')
         end(q,other,end_q,u.dot(near-start),u.dot(far-start))
     return (p,world),(q,other)
 
@@ -79,8 +80,8 @@ def apply(obj,params,world):
 
 
 class BS_OT_join(bpy.types.Operator):
-    bl_idname='blocksmith.join'; bl_label='Состыковать стены'; bl_options={'REGISTER','UNDO'}
-    mode: EnumProperty(items=MODES)
+    bl_idname='blocksmith.join'; bl_label='Join Walls'; bl_options={'REGISTER','UNDO'}
+    mode: EnumProperty(name='Mode',items=MODES)
     @classmethod
     def poll(cls,context):
         return context.mode=='OBJECT' and len(context.selected_objects)==2 and context.active_object in context.selected_objects
@@ -89,10 +90,10 @@ class BS_OT_join(bpy.types.Operator):
         from . import manual
         target=context.active_object; branch=next(o for o in context.selected_objects if o!=target)
         if any(o.type!='MESH' or not o.bs.enabled or manual(o) or o.modifiers for o in (target,branch)):
-            self.report({'WARNING'},'Выберите две параметрические стены без модификаторов'); return {'CANCELLED'}
+            self.report({'WARNING'},tr('Select two parametric walls without modifiers')); return {'CANCELLED'}
         try: result=plan(target.bs,target.matrix_world,branch.bs,branch.matrix_world,self.mode)
         except ValueError as exc:
-            self.report({'WARNING'},str(exc)); return {'CANCELLED'}
+            self.report({'WARNING'},tr(str(exc))); return {'CANCELLED'}
         for obj,(params,world) in zip((target,branch),result): apply(obj,params,world)
         context.view_layer.update()
         return {'FINISHED'}

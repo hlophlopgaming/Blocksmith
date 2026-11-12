@@ -1,12 +1,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Editable through-cuts for meshes without replacing their source geometry."""
+from .translations import tr
 import bpy
 import bmesh
 from mathutils import Matrix
 from .geometry import Mesh, arch_top
 
 WALLS={'WALL','DOOR','WINDOW','ARCH','ROOM'}
-VARIANTS=[('DOOR','Дверь',''),('WINDOW','Окно',''),('ARCH','Арка',''),('ARCH_WINDOW','Арочное окно',''),('NONE','Убрать проём','')]
+VARIANTS=[('DOOR','Door',''),('WINDOW','Window',''),('ARCH','Arch',''),('ARCH_WINDOW','Arched Window',''),('NONE','Remove Opening','')]
 
 
 def native(obj):
@@ -25,12 +26,12 @@ def update(obj,context):
     if mod is None and p.opening=='NONE': return
     evaluated=obj.evaluated_get(context.evaluated_depsgraph_get())
     vertices=evaluated.data.vertices
-    if not vertices: raise ValueError('В выбранном меше нет геометрии')
+    if not vertices: raise ValueError('The selected mesh has no geometry')
     low=[min(v.co[i] for v in vertices) for i in range(3)]
     high=[max(v.co[i] for v in vertices) for i in range(3)]
     axis='XYZ'.index(p.cut_axis); horizontal=1 if axis==0 else 0; vertical=1 if axis==2 else 2
     width=high[horizontal]-low[horizontal]; height=high[vertical]-low[vertical]
-    if min(width,height,high[axis]-low[axis])<1e-5: raise ValueError('Для проёма нужен объёмный меш')
+    if min(width,height,high[axis]-low[axis])<1e-5: raise ValueError('An opening requires a solid mesh')
     margin=max(.01,(high[axis]-low[axis])*.01)
     shape=Mesh()
     if p.opening=='NONE':
@@ -54,7 +55,7 @@ def update(obj,context):
         elif axis==2: shape.vertices=[(x,z,y) for x,y,z in shape.vertices]
     if mod is None:
         mesh=bpy.data.meshes.new('BS_Opening')
-        cutter=bpy.data.objects.new(obj.name+' • проём',mesh)
+        cutter=bpy.data.objects.new(obj.name+tr(' • opening'),mesh)
         context.collection.objects.link(cutter)
         cutter['bs_opening']=True; cutter['bs_cutter']=True; cutter['bs_managed']=True
         mod=obj.modifiers.new('BS_Opening','BOOLEAN'); mod.operation='DIFFERENCE'; mod.solver='EXACT'; mod.object=cutter
@@ -86,9 +87,9 @@ def set_variant(context,obj,variant):
             if modifier(obj) is None and variant!='NONE':
                 evaluated=obj.evaluated_get(context.evaluated_depsgraph_get())
                 coords=[v.co for v in evaluated.data.vertices]
-                if not coords: raise ValueError('В выбранном меше нет геометрии')
+                if not coords: raise ValueError('The selected mesh has no geometry')
                 size=[max(v[i] for v in coords)-min(v[i] for v in coords) for i in range(3)]
-                if min(size)<1e-5: raise ValueError('Для проёма нужен объёмный меш')
+                if min(size)<1e-5: raise ValueError('An opening requires a solid mesh')
                 axis=min(range(3),key=lambda i:size[i]); p.cut_axis='XYZ'[axis]
                 w=size[1 if axis==0 else 0]; h=size[1 if axis==2 else 2]
                 p.open_width=min(context.scene.bs.door_width,w*.45)
@@ -106,10 +107,10 @@ def surface(context,event):
     from mathutils import Vector
     from mathutils.geometry import closest_point_on_tri
     target=surface_hit(context,event,force_surfaces=True)
-    if target is None:raise ValueError('Начните рисовать на стене или меше')
+    if target is None:raise ValueError('Start drawing on a wall or mesh')
     picked,front,obj=target
     if obj is None or obj.type!='MESH' or obj.get('bs_cutter') or (obj.bs.enabled and obj.bs.kind in REFERENCES):
-        raise ValueError('Начните рисовать на стене или меше')
+        raise ValueError('Start drawing on a wall or mesh')
     point=picked.translation.copy();normal=picked.col[1 if front else 2].xyz.normalized()
     world=obj.matrix_world; inv=world.inverted()
     normal.normalize(); up=Vector((0,0,1)); vertical=up-normal*up.dot(normal)
@@ -134,17 +135,17 @@ def surface(context,event):
         depth=thickness/local.length
     else:
         if not hit or (inv.to_3x3().transposed()@back_normal).normalized().dot(normal)>-.01:
-            raise ValueError('Начните внутри грани объёмного меша')
+            raise ValueError('Start inside a face of a solid mesh')
         depth=(inside-world@back).dot(normal)
     # shortcut: depth follows this face; redraw after changing the wall thickness.
-    if depth<.0001: raise ValueError('У поверхности нет толщины для выреза')
+    if depth<.0001: raise ValueError('The surface has no thickness for a cut')
     return obj,frame,depth
 
 
 def drawn_mesh(kind,start,end,depth):
     """The drag rectangle is the hole, rather than a new wall containing a hole."""
     left,right=sorted((start.x,end.x)); bottom,top=sorted((start.z,end.z))
-    if right-left<.01 or top-bottom<.01: raise ValueError('Протяните ширину и высоту проёма')
+    if right-left<.01 or top-bottom<.01: raise ValueError('Drag the opening width and height')
     shape=Mesh(); profile=[(left,bottom),(right,bottom)]
     if kind=='ARCH':
         profile += [(left+(right-left)*j/32,arch_top(j/32,right-left,top-bottom,bottom,'ROUND')) for j in range(32,-1,-1)]
@@ -163,7 +164,7 @@ def apply_drawn(context,obj,shape,frame):
     try:
         bm.from_mesh(mesh); bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces)); bm.to_mesh(mesh)
     finally: bm.free()
-    cutter=bpy.data.objects.new(obj.name+' • проём',mesh); context.collection.objects.link(cutter)
+    cutter=bpy.data.objects.new(obj.name+tr(' • opening'),mesh); context.collection.objects.link(cutter)
     cutter['bs_drawn_opening']=True; cutter['bs_cutter']=True; cutter['bs_managed']=True
     cutter['bs_signature']=signature(mesh)
     cutter.parent=obj; cutter.matrix_parent_inverse=Matrix.Identity(4)

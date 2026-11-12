@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Shared constraints for operators, native transforms, scripts and export."""
+from .translations import tr
 from contextlib import contextmanager
 from functools import wraps
 import sys
@@ -28,6 +29,24 @@ def core(): return sys.modules[__package__]
 def managed(obj):
     return ((obj.type=='MESH' and (obj.bs.enabled or obj.get('bs_managed',False))) or
             (obj.type=='CURVE' and obj.get('bs_curve_wall'))) and not obj.get('bs_guard_temp')
+
+
+def protected(obj):
+    return managed(obj) and not obj.bs.free_placement
+
+
+def placement_changed(self,context):
+    engine=core()
+    if engine.BUSY or not isinstance(self.id_data,bpy.types.Object) or self.id_data.mode!='OBJECT': return
+    if not self.free_placement:
+        errors=audit(context.scene,changed={self.id_data.as_pointer()})
+        if errors:
+            engine.BUSY=True
+            try: self.free_placement=True
+            finally: engine.BUSY=False
+            _messages[context.scene.as_pointer()]=errors[0][2]
+            return
+    flush(context.scene)
 
 
 def excluded(obj,scene,*,include_water=False):
@@ -135,19 +154,19 @@ def audit(scene,objects=None,changed=None,previous=None,limit=20):
     """Return actionable errors, testing real mesh components rather than object boxes."""
     dg=bpy.context.evaluated_depsgraph_get()
     objects=list(objects) if objects is not None else list(scene.objects)
-    objects=[o for o in objects if managed(o) and not o.bs.free_placement and not excluded(o,scene)]
+    objects=[o for o in objects if protected(o) and not excluded(o,scene)]
     errors=[]; solids={}
     for obj in objects:
         if changed is not None and obj.as_pointer() not in changed: continue
         node=obj
         while node:
             if any(v<=EPS for v in node.scale) or node.matrix_world.to_3x3().determinant()<=EPS**3:
-                errors.append((obj,None,'Отрицательный или нулевой масштаб: '+obj.name)); break
+                errors.append((obj,None,tr('Negative or zero scale: ')+obj.name)); break
             node=node.parent
     for obj in objects:
         try: solids[obj.as_pointer()]=surface(obj,dg)
         except GeometryError as exc:
-            if managed(obj) and (changed is None or obj.as_pointer() in changed): errors.append((obj,None,obj.name+': '+str(exc)))
+            if managed(obj) and (changed is None or obj.as_pointer() in changed): errors.append((obj,None,obj.name+': '+tr(str(exc))))
     ids={o.as_pointer():i for i,o in enumerate(objects)}
     candidates=[o for o in objects if changed is None or o.as_pointer() in changed]
     for a in candidates:
@@ -158,7 +177,7 @@ def audit(scene,objects=None,changed=None,previous=None,limit=20):
             if aid==bid or ((changed is None or bid in changed) and ids[bid]<ids[aid]): continue
             if previous and relative_unchanged(a,b,previous): continue
             right=solids.get(bid)
-            if right is not None and overlaps(left,right,scene): errors.append((a,b,'Пересечение: '+a.name+' ↔ '+b.name))
+            if right is not None and overlaps(left,right,scene): errors.append((a,b,tr('Intersection: ')+a.name+' ↔ '+b.name))
             if len(errors)>=limit: return errors
     return errors
 
@@ -188,6 +207,9 @@ def restore(scene,previous,current,changed):
                 if obj.type in {'MESH','CURVE'}:
                     mesh=obj.data; bpy.data.objects.remove(obj,do_unlink=True)
                     if mesh.users==0: (bpy.data.curves if isinstance(mesh,bpy.types.Curve) else bpy.data.meshes).remove(mesh)
+                continue
+            if state['free']:
+                obj.bs.free_placement=True
                 continue
             obj.parent=state['parent']; obj.matrix_parent_inverse=state['inverse']; obj.matrix_basis=state['basis']
             if state['params']:
@@ -269,7 +291,7 @@ def checked(function):
             with transaction(context): return function(*args,**kwargs)
         except ConstraintError as exc:
             if args and isinstance(args[0],bpy.types.Operator):
-                args[0].report({'WARNING'},str(exc))
+                args[0].report({'WARNING'},tr(str(exc)))
                 return {'RUNNING_MODAL'} if args[0].bl_idname in {'blocksmith.resize','blocksmith.draw'} else {'CANCELLED'}
             raise
     # Blender validates the concrete callback argument count, not inspect.signature.
@@ -344,7 +366,7 @@ def tick():
             if scene!=bpy.context.scene: continue
             if scene.as_pointer() in _dirty:
                 _dirty.discard(scene.as_pointer())
-                if all(o.mode=='OBJECT' for o in scene.objects if managed(o)):
+                if all(o.mode=='OBJECT' for o in scene.objects if protected(o)):
                     if _history: check_history(scene)
                     else: flush(scene)
     return .08
@@ -379,19 +401,19 @@ def placement_error(context,vertices,faces,matrix,kind,replacements=None):
         candidate=Solid([matrix@Vector(v) for v in vertices],faces)
         dg=context.evaluated_depsgraph_get()
         for obj in context.scene.objects:
-            if not managed(obj) or obj.bs.free_placement or excluded(obj,context.scene): continue
+            if not protected(obj) or excluded(obj,context.scene): continue
             if replacements and obj in replacements:
                 replacement=replacements[obj]
                 if replacement is None: continue
                 mesh,world=replacement
                 obstacle=Solid([world@Vector(v) for v in mesh.vertices],mesh.faces)
-                if overlaps(candidate,obstacle,context.scene): return 'Пересечение с '+obj.name
+                if overlaps(candidate,obstacle,context.scene): return tr('Intersection with ')+obj.name
                 continue
             from .collision import bounds, bounds_overlap
             if not bounds_overlap(candidate.bounds,bounds([obj.matrix_world@Vector(v) for v in obj.bound_box])): continue
             try: obstacle=surface(obj,dg)
             except GeometryError: continue
-            if overlaps(candidate,obstacle,context.scene): return 'Пересечение с '+obj.name
+            if overlaps(candidate,obstacle,context.scene): return tr('Intersection with ')+obj.name
         return ''
-    except GeometryError as exc: return str(exc)
+    except GeometryError as exc: return tr(str(exc))
     finally: _checking=saved

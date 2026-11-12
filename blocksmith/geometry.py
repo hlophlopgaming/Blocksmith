@@ -143,7 +143,7 @@ def build(p):
         if opening == 'NONE':
             start,end=getattr(p,'miter_start',0),getattr(p,'miter_end',0)
             if w+end-start<=1e-5:
-                raise ValueError('Стена слишком короткая для этого угла')
+                raise ValueError('The wall is too short for this angle')
             if start or end:
                 m.vertices=[(x,y,z) for z in (0,h) for x,y in ((0,0),(w,0),(w+end,d),(start,d))]
                 m.faces=[(3,2,1,0),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)]
@@ -156,7 +156,7 @@ def build(p):
             offset = max(-gap*.95,min(gap*.95,p.offset))
             start,end=getattr(p,'miter_start',0),getattr(p,'miter_end',0)
             if gap-max(0,start,-end)<=1e-5:
-                raise ValueError('Стена слишком короткая для проёма и подрезки угла')
+                raise ValueError('The wall is too short for the opening and miter')
             offset=max(max(-gap*.95,start-gap+.0001),min(min(gap*.95,gap+end-.0001),offset))
             last = 0
             for i in range(count):

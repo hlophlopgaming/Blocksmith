@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Module picker and direct editing in the viewport."""
+from .translations import tr
 from pathlib import Path
 from types import SimpleNamespace
 import math
@@ -45,9 +46,9 @@ def texture_view(context):
 
 
 class BS_OT_preset(bpy.types.Operator):
-    bl_idname='blocksmith.preset'; bl_label='Выбрать модуль'; bl_options={'REGISTER','UNDO'}
-    identifier: StringProperty(default='wall_4')
-    action: EnumProperty(items=[('SELECT','Выбрать',''),('ADD','Добавить у курсора',''),('PLACE','Разместить мышью',''),('STAMP','Серия копий',''),('DRAW','Рисовать',''),('NATIVE','Add Cube','')])
+    bl_idname='blocksmith.preset'; bl_label='Select Module'; bl_options={'REGISTER','UNDO'}
+    identifier: StringProperty(name='Identifier',default='wall_4')
+    action: EnumProperty(name='Action',items=[('SELECT','Select',''),('ADD','Add at Cursor',''),('PLACE','Place with Mouse',''),('STAMP','Stamp Copies',''),('DRAW','Draw',''),('NATIVE','Add Cube','')])
     @guard.checked
     def execute(self,context):
         if self.identifier not in BY_ID: return {'CANCELLED'}
@@ -64,9 +65,9 @@ class BS_OT_preset(bpy.types.Operator):
 
 
 class BS_OT_step(bpy.types.Operator):
-    bl_idname='blocksmith.step'; bl_label='Изменить на шаг сетки'; bl_options={'REGISTER','UNDO'}
-    key: EnumProperty(items=[(k,k,'') for k in ('width','depth','height')])
-    direction: IntProperty(default=1)
+    bl_idname='blocksmith.step'; bl_label='Change by Grid Step'; bl_options={'REGISTER','UNDO'}
+    key: EnumProperty(name='Key',items=[(k,k,'') for k in ('width','depth','height')])
+    direction: IntProperty(name='Direction',default=1)
     @classmethod
     def poll(cls,context):
         from . import manual
@@ -81,31 +82,34 @@ class BS_OT_step(bpy.types.Operator):
                 resize(o,self.key,getattr(o.bs,self.key)+self.direction*context.scene.bs.grid)
                 context.view_layer.update()
         return {'FINISHED'}
-    all_selected: BoolProperty(default=False,options={'SKIP_SAVE'})
+    all_selected: BoolProperty(name='All Selected',default=False,options={'SKIP_SAVE'})
     def invoke(self,context,event):
         self.all_selected=event.alt
         return self.execute(context)
 
 
 class BS_OT_free_placement(bpy.types.Operator):
-    bl_idname='blocksmith.free_placement'; bl_label='Свободное размещение'; bl_options={'REGISTER','UNDO'}
-    bl_description='Добавить или снять метку свободного размещения у выделенных мешей'
-    enabled: BoolProperty(default=True)
+    bl_idname='blocksmith.free_placement'; bl_label='Free Placement'; bl_options={'REGISTER','UNDO'}
+    bl_description='Set or clear free placement on selected meshes'
+    enabled: BoolProperty(name='Enabled',default=True)
     @classmethod
     def poll(cls,context):
-        return context.mode=='OBJECT' and any(o.type=='MESH' and o.is_editable for o in context.selected_objects)
+        return context.mode in {'OBJECT','EDIT_MESH'} and any(o.type=='MESH' and o.is_editable for o in context.selected_objects)
     @guard.checked
     def execute(self,context):
-        for obj in context.selected_objects:
-            if obj.type=='MESH' and obj.is_editable: obj.bs.free_placement=self.enabled
+        engine=guard.core(); saved=engine.BUSY; engine.BUSY=True
+        try:
+            for obj in context.selected_objects:
+                if obj.type=='MESH' and obj.is_editable: obj.bs.free_placement=self.enabled
+        finally: engine.BUSY=saved
         return {'FINISHED'}
 
 
 class BS_OT_attach(bpy.types.Operator):
-    bl_idname='blocksmith.attach'; bl_label='Пристыковать к грани'; bl_options={'REGISTER','UNDO'}
-    bl_description='Переместить соседнюю деталь к внешней грани активной, сохраняя форму и поворот; оси основной детали'
-    axis: EnumProperty(items=[(a,a,'Ось основной детали') for a in 'XYZ'])
-    direction: IntProperty(default=1,min=-1,max=1)
+    bl_idname='blocksmith.attach'; bl_label='Attach to Face'; bl_options={'REGISTER','UNDO'}
+    bl_description="Move the neighboring piece to the active object's outer face, preserving shape and rotation; target axes"
+    axis: EnumProperty(name='Axis',items=[(a,a,'Target Axis') for a in 'XYZ'])
+    direction: IntProperty(name='Direction',default=1,min=-1,max=1)
     @classmethod
     def poll(cls,context):
         objects=context.selected_objects
@@ -117,13 +121,13 @@ class BS_OT_attach(bpy.types.Operator):
         target=context.active_object; obj=next(o for o in context.selected_objects if o!=target)
         try: attach(context,obj,target,self.axis,-1 if self.direction<0 else 1)
         except ValueError as exc:
-            self.report({'WARNING'},str(exc)); return {'CANCELLED'}
+            self.report({'WARNING'},tr(str(exc))); return {'CANCELLED'}
         context.view_layer.update()
         return {'FINISHED'}
 
 
 class BS_OT_texture(bpy.types.Operator):
-    bl_idname='blocksmith.texture'; bl_label='Применить Kenney к выделенным'; bl_options={'REGISTER','UNDO'}
+    bl_idname='blocksmith.texture'; bl_label='Apply Kenney to Selected'; bl_options={'REGISTER','UNDO'}
     @guard.checked
     def execute(self,context):
         for obj in context.selected_objects:
@@ -135,9 +139,9 @@ class BS_OT_texture(bpy.types.Operator):
 
 
 class BS_OT_resize(bpy.types.Operator):
-    bl_idname='blocksmith.resize'; bl_label='Потянуть размер'; bl_options={'REGISTER','UNDO','BLOCKING'}
-    key: EnumProperty(items=[(k,k,'') for k in ('width','depth','height')])
-    side: IntProperty(default=1)
+    bl_idname='blocksmith.resize'; bl_label='Drag Dimension'; bl_options={'REGISTER','UNDO','BLOCKING'}
+    key: EnumProperty(name='Key',items=[(k,k,'') for k in ('width','depth','height')])
+    side: IntProperty(name='Side',default=1)
     @classmethod
     def poll(cls,context): return BS_OT_step.poll(context)
     def invoke(self,context,event):
@@ -171,7 +175,7 @@ class BS_OT_resize(bpy.types.Operator):
         self.screen_axis=(b-a) if a is not None and b is not None else Vector((0,50))
         if self.screen_axis.length<1: self.screen_axis=Vector((0,50))
         context.window_manager.modal_handler_add(self)
-        context.area.header_text_set('Тяните к ребру или вершине · Ctrl: без привязки · Esc: отменить')
+        context.area.header_text_set(tr('Drag to an edge or vertex · Ctrl: no snapping · Esc: cancel'))
         return {'RUNNING_MODAL'}
     @guard.checked
     def modal(self,context,event):
@@ -233,11 +237,11 @@ class BS_GGT_resize(bpy.types.GizmoGroup):
 
 
 class BS_PT_catalog(bpy.types.Panel):
-    bl_label='Готовые модули'; bl_idname='BS_PT_catalog'; bl_space_type='VIEW_3D'; bl_region_type='WINDOW'
+    bl_label='Module Presets'; bl_idname='BS_PT_catalog'; bl_space_type='VIEW_3D'; bl_region_type='WINDOW'
     bl_ui_units_x=24
     def draw(self,context):
         s=context.scene.bs; l=self.layout
-        l.prop(s,'preset_group',text='Раздел')
+        l.prop(s,'preset_group',text='Category')
         grid=l.grid_flow(columns=4,even_columns=True,align=True)
         for identifier,label,group,kind,params in PRESETS:
             if group!=s.preset_group: continue
@@ -257,90 +261,91 @@ def size_row(layout,p,key,label):
 def draw_creation(l,context):
     s=context.scene.bs
     box=l.column()
-    box.prop(s,'shape',text='Форма')
+    box.prop(s,'shape',text='Shape')
     if s.shape in {'DOOR','WINDOW','ARCH','STAIRS','RAMP'}:
         row=box.row(align=True)
-        row.prop(s,'object_snap',text='Привязка',toggle=True)
-        row.prop(s,'keep_drawing',text='Повторять',toggle=True)
+        row.prop(s,'object_snap',text='Snapping',toggle=True)
+        row.prop(s,'keep_drawing',text='Repeat',toggle=True)
         return
     row=box.row(align=True)
-    row.prop(s,'draw_height',text='Высота')
-    row.prop(s,'draw_depth',text='Толщина' if s.shape in {'WALL','DOOR','WINDOW','ARCH'} else 'Глубина')
-    box.prop(s,'draw_width',text='Длина при щелчке')
+    row.prop(s,'draw_height',text='Height')
+    row.prop(s,'draw_depth',text='Thickness' if s.shape in {'WALL','DOOR','WINDOW','ARCH'} else 'Depth')
+    box.prop(s,'draw_width',text='Click Length')
     row=box.row(align=True)
-    row.prop(s,'keep_drawing',text='Повторять',toggle=True)
-    row.prop(s,'surfaces',text='На поверхности',toggle=True)
-    row.prop(s,'object_snap',text='Привязка',toggle=True)
+    row.prop(s,'keep_drawing',text='Repeat',toggle=True)
+    row.prop(s,'surfaces',text='On Surfaces',toggle=True)
+    row.prop(s,'object_snap',text='Snapping',toggle=True)
     if s.shape=='WALL':
-        box.prop(s,'draw_chain',text='Соединять стены в цепочку')
-        if s.draw_chain: box.prop(s,'joint_mode',text='Стык')
+        box.prop(s,'draw_chain',text='Chain Walls')
+        if s.draw_chain: box.prop(s,'joint_mode',text='Joint')
     header,curves=l.panel('blocksmith_curves',default_closed=True)
-    header.label(text='Кривые стены',icon='CURVE_BEZCURVE')
+    header.label(text='Curved Walls',icon='CURVE_BEZCURVE')
     if curves:
         from .curves import MODES
         for mode,label,_ in MODES: curves.operator('blocksmith.curve',text=label).mode=mode
     row=box.row(align=True)
     row.operator('blocksmith.grid',text='÷2').factor=.5
-    row.prop(s,'grid',text='Сетка'); row.operator('blocksmith.grid',text='×2').factor=2
-    if not s.surfaces: box.prop(s,'draw_plane_z',text='Уровень основания')
+    row.prop(s,'grid',text='Grid'); row.operator('blocksmith.grid',text='×2').factor=2
+    if not s.surfaces: box.prop(s,'draw_plane_z',text='Base Elevation')
 
 
 def draw_tools(l,context):
-    for choices in ((('WALL','Стена'),('FLOOR','Пол'),('ROOM','Комната')),
-                    (('STAIRS','Лестница'),('RAMP','Пандус'),('BLOCK','Блок')),
-                    (('DOOR','Дверь'),('WINDOW','Окно'),('ARCH','Арка'))):
+    for choices in ((('WALL','Wall'),('FLOOR','Floor'),('ROOM','Room')),
+                    (('STAIRS','Stairs'),('RAMP','Ramp'),('BLOCK','Block')),
+                    (('DOOR','Door'),('WINDOW','Window'),('ARCH','Arch'))):
         row=l.row(align=True)
         for kind,label in choices:
             op=row.operator('blocksmith.activate',text=label,depress=context.scene.bs.shape==kind)
             op.kind=kind
     kind=context.scene.bs.shape
-    text=('Протяните проём прямо на стене' if kind in {'DOOR','WINDOW','ARCH'} else
-          'От нижнего пола к верхнему краю' if kind in {'STAIRS','RAMP'} else 'Протяните конструкцию в сцене')
+    text=('Drag an opening directly on a wall' if kind in {'DOOR','WINDOW','ARCH'} else
+          'From lower floor to upper edge' if kind in {'STAIRS','RAMP'} else 'Drag to draw a structure in the scene')
     l.label(text=text,icon='MOUSE_LMB')
 
 
 def draw_main(l,context):
     from . import manual
     s=context.scene.bs
+    obj=context.active_object
+    if obj and obj.type=='MESH':
+        box=l.box()
+        box.prop(obj.bs,'free_placement',text='Ignore Blocksmith Rules')
+        if obj.bs.free_placement: box.label(text='Object excluded from checks and rollbacks',icon='UNLOCKED')
+        if len(context.selected_objects)>1:
+            box.operator('blocksmith.free_placement',text='Apply to Selected').enabled=obj.bs.free_placement
     if context.mode!='OBJECT':
-        l.label(text='Tab → режим объектов',icon='INFO'); return
+        l.label(text='Tab → Object Mode',icon='INFO'); return
     from .drawing import ACTIVE, TOOL_ID
     tool=context.workspace.tools.from_space_view3d_mode('OBJECT',create=False)
     active=tool is not None and tool.idname==TOOL_ID
     row=l.row(align=True); row.scale_y=1.5
-    row.operator('blocksmith.activate',text='Рисовать конструкции',icon='GREASEPENCIL',depress=active)
+    row.operator('blocksmith.activate',text='Draw Structures',icon='GREASEPENCIL',depress=active)
     if active or ACTIVE is not None: row.operator('blocksmith.stop',text='',icon='CANCEL')
     draw_tools(l,context)
     if BS_OT_row.poll(context):
         row=l.row(align=True)
-        row.operator('blocksmith.row',text='Ряд объектов',icon='MOD_ARRAY')
+        row.operator('blocksmith.row',text='Object Row',icon='MOD_ARRAY')
         from .array_tool import opening_source
-        if opening_source(context.active_object):row.operator('blocksmith.row',text='Ряд проёмов').opening=True
+        if opening_source(context.active_object):row.operator('blocksmith.row',text='Opening Row').opening=True
     preset=BY_ID.get(s.preset)
     row=l.row(align=True)
     if preset and icon(preset[0]): row.template_icon(icon_value=icon(preset[0]),scale=3)
     col=row.column(align=True)
     if preset: col.label(text=preset[1])
-    col.popover(panel='BS_PT_catalog',text='Объекты с превью',icon='ASSET_MANAGER')
+    col.popover(panel='BS_PT_catalog',text='Preset Catalog',icon='ASSET_MANAGER')
     header,body=l.panel('blocksmith_create',default_closed=context.active_object is not None)
-    header.label(text='Следующая конструкция',icon='ADD')
+    header.label(text='Next Structure',icon='ADD')
     if body: draw_creation(body,context)
     if active:
-        l.label(text='Протяните ЛКМ · Esc / ПКМ: выделение')
-        if s.shape not in {'DOOR','WINDOW','ARCH','STAIRS','RAMP'}: l.label(text='H: высота · Ctrl: без привязки')
+        l.label(text='Drag LMB · Esc / RMB: select')
+        if s.shape not in {'DOOR','WINDOW','ARCH','STAIRS','RAMP'}: l.label(text='H: height · Ctrl: no snapping')
     warning=guard.message(context.scene)
     if warning:
         row=l.row(); row.alert=True; row.label(text=warning,icon='ERROR')
     obj=context.active_object
-    if obj and obj.type=='MESH':
-        box=l.box(); box.label(text='Свободное размещение',icon='UNLOCKED' if obj.bs.free_placement else 'LOCKED')
-        row=box.row(align=True)
-        row.operator('blocksmith.free_placement',text='Добавить метку').enabled=True
-        row.operator('blocksmith.free_placement',text='Снять метку').enabled=False
-        if obj.bs.free_placement: box.label(text='Метка включена · ограничения отключены')
     if BS_OT_attach.poll(context):
-        contact=l.box(); contact.label(text='К грани: '+obj.name)
-        contact.label(text='Оси основной детали; соседняя перемещается')
+        contact=l.box(); contact.label(text=tr('Attach to face: ')+obj.name)
+        contact.label(text='Target axes; the neighboring piece moves')
         for axis in 'XYZ':
             row=contact.row(align=True)
             for direction in (-1,1):
@@ -348,52 +353,52 @@ def draw_main(l,context):
                 op.axis=axis; op.direction=direction
     walls=[o for o in context.selected_objects if o.type=='MESH' and o.bs.enabled and o.bs.kind in {'WALL','DOOR','WINDOW','ARCH'}]
     if len(walls)==2 and len(context.selected_objects)==2:
-        joints=l.box(); joints.label(text='Стыки выделенных стен')
-        joints.label(text='Основная: '+context.active_object.name)
+        joints=l.box(); joints.label(text='Selected Wall Joints')
+        joints.label(text=tr('Target: ')+context.active_object.name)
         from .joints import MODES
         for mode,label,_ in MODES: joints.operator('blocksmith.join',text=label).mode=mode
     if obj and obj.type=='CURVE' and obj.get('bs_curve_wall'):
         box=l.box(); box.label(text=obj.name,icon='CURVE_BEZCURVE')
-        box.prop(obj.bs,'depth',text='Толщина'); box.prop(obj.bs,'height',text='Высота')
-        box.prop(obj.data,'resolution_u',text='Плавность')
-        box.operator('object.mode_set',text='Редактировать точки и ручки (Tab)').mode='EDIT'
+        box.prop(obj.bs,'depth',text='Thickness'); box.prop(obj.bs,'height',text='Height')
+        box.prop(obj.data,'resolution_u',text='Smoothness')
+        box.operator('object.mode_set',text='Edit Points and Handles (Tab)').mode='EDIT'
     if obj and obj.type=='MESH' and obj.bs.enabled:
-        p=obj.bs; box=l.box(); box.label(text='Выбранный объект',icon='EDITMODE_HLT'); box.label(text=obj.name)
+        p=obj.bs; box=l.box(); box.label(text='Selected Object',icon='EDITMODE_HLT'); box.label(text=obj.name)
         if s.show_metrics:
             from .editing import metric_issues
             for issue in metric_issues(p,s,obj.matrix_world.to_scale()):
                 row=box.row(); row.alert=True; row.label(text=issue,icon='ERROR')
         if manual(obj):
-            box.label(text='Ручная правка меша — размеры защищены',icon='LOCKED')
-            box.operator('blocksmith.tool',text='Сохранить как меш').action='BAKE'
-            box.operator('blocksmith.tool',text='Сбросить ручные правки').action='RESET'
+            box.label(text='Manual mesh edits — dimensions protected',icon='LOCKED')
+            box.operator('blocksmith.tool',text='Bake to Mesh').action='BAKE'
+            box.operator('blocksmith.tool',text='Reset Manual Edits').action='RESET'
         else:
-            for key,label in [('width','Длина'),('depth','Глубина'),('height','Высота')]: size_row(box,p,key,label)
-            box.prop(s,'handles',text='Тянуть размеры в сцене')
+            for key,label in [('width','Length'),('depth','Depth'),('height','Height')]: size_row(box,p,key,label)
+            box.prop(s,'handles',text='Drag Dimensions in Viewport')
             if 'STAIRS' in p.kind:
-                box.prop(p,'auto_steps',text='Автоматические ступени')
-                box.prop(p,'max_step' if p.auto_steps else 'steps',text='Высота шага' if p.auto_steps else 'Ступеней')
-                box.prop(p,'flip',text='Развернуть')
-                if p.kind in {'L_STAIRS','U_STAIRS'}: box.prop(p,'flight_width',text='Ширина марша')
-            if p.kind=='ROOM': box.prop(p,'thickness',text='Пол и стены')
-            if p.kind in {'CURVED_WALL','SPIRAL_STAIRS'}: box.prop(p,'angle',text='Угол поворота')
-            if p.kind=='RAILING': box.prop(p,'spacing',text='Шаг стоек'); box.prop(p,'rails',text='Перекладины')
-            if p.kind=='LADDER': box.prop(p,'spacing',text='Шаг перекладин')
-            if p.kind=='ROOF': box.prop(p,'roof',text='Тип крыши')
+                box.prop(p,'auto_steps',text='Automatic Steps')
+                box.prop(p,'max_step' if p.auto_steps else 'steps',text='Step Height' if p.auto_steps else 'Steps')
+                box.prop(p,'flip',text='Reverse')
+                if p.kind in {'L_STAIRS','U_STAIRS'}: box.prop(p,'flight_width',text='Flight Width')
+            if p.kind=='ROOM': box.prop(p,'thickness',text='Floor and Walls')
+            if p.kind in {'CURVED_WALL','SPIRAL_STAIRS'}: box.prop(p,'angle',text='Turn Angle')
+            if p.kind=='RAILING': box.prop(p,'spacing',text='Post Spacing'); box.prop(p,'rails',text='Rails')
+            if p.kind=='LADDER': box.prop(p,'spacing',text='Rung Spacing')
+            if p.kind=='ROOF': box.prop(p,'roof',text='Roof Type')
             row=box.row(align=True)
             for axis in 'XY':
-                op=row.operator('blocksmith.tool',text='Копия +'+axis); op.action='EXTEND'; op.axis=axis; op.direction=1
-            box.label(text='Alt + кнопка ±: все выделенные',icon='INFO')
-    elif not (obj and (obj.type=='MESH' or obj.get('bs_curve_wall'))): l.label(text='Выберите меш для проёма или редактирования',icon='INFO')
+                op=row.operator('blocksmith.tool',text=tr('Copy +')+axis); op.action='EXTEND'; op.axis=axis; op.direction=1
+            box.label(text='Alt + ± button: all selected',icon='INFO')
+    elif not (obj and (obj.type=='MESH' or obj.get('bs_curve_wall'))): l.label(text='Select a mesh to cut or edit',icon='INFO')
     row=l.row(align=True)
-    row.operator('blocksmith.view',text='Текстуры',icon='TEXTURE').mode='TEXTURE'
-    row.operator('blocksmith.view',text='Теги',icon='COLOR').mode='OBJECT'
+    row.operator('blocksmith.view',text='Textures',icon='TEXTURE').mode='TEXTURE'
+    row.operator('blocksmith.view',text='Tags',icon='COLOR').mode='OBJECT'
 
 
 class BS_OT_opening(bpy.types.Operator):
-    bl_idname='blocksmith.opening'; bl_label='Изменить проём'; bl_options={'REGISTER','UNDO'}
+    bl_idname='blocksmith.opening'; bl_label='Edit Opening'; bl_options={'REGISTER','UNDO'}
     from .openings import VARIANTS
-    variant: EnumProperty(items=VARIANTS)
+    variant: EnumProperty(name='Variant',items=VARIANTS)
     @classmethod
     def poll(cls,context):
         obj=context.active_object
@@ -403,14 +408,14 @@ class BS_OT_opening(bpy.types.Operator):
         from .openings import set_variant
         try: set_variant(context,context.active_object,self.variant)
         except ValueError as exc:
-            self.report({'WARNING'},str(exc)); return {'CANCELLED'}
+            self.report({'WARNING'},tr(str(exc))); return {'CANCELLED'}
         context.view_layer.update()
         return {'FINISHED'}
 
 
 class BS_OT_view(bpy.types.Operator):
-    bl_idname='blocksmith.view'; bl_label='Вид прототипа'
-    mode: EnumProperty(items=[('TEXTURE','Текстуры',''),('OBJECT','Цветовые теги','')])
+    bl_idname='blocksmith.view'; bl_label='Blockout View'
+    mode: EnumProperty(name='Mode',items=[('TEXTURE','Textures',''),('OBJECT','Color Tags','')])
     @guard.checked
     def execute(self,context):
         texture_view(context)
@@ -421,21 +426,21 @@ class BS_OT_view(bpy.types.Operator):
 
 class BS_PT_surface(bpy.types.Panel):
     bl_options={'DEFAULT_CLOSED'}
-    bl_label='Текстуры Kenney'; bl_idname='BS_PT_surface'; bl_parent_id='BS_PT_main'
+    bl_label='Kenney Textures'; bl_idname='BS_PT_surface'; bl_parent_id='BS_PT_main'
     bl_space_type='VIEW_3D'; bl_region_type='UI'; bl_category='Blocksmith'
     def draw(self,context):
         s=context.scene.bs; l=self.layout
-        l.prop(s,'palette',text='Цвет')
+        l.prop(s,'palette',text='Color')
         l.template_icon_view(s,'texture',show_labels=True,scale=3,scale_popup=4)
-        l.operator('blocksmith.texture',text='Применить к выделенным',icon='MATERIAL')
+        l.operator('blocksmith.texture',text='Apply to Selected',icon='MATERIAL')
         obj=context.active_object
         if obj and obj.type=='MESH' and obj.bs.enabled:
-            l.prop(obj.bs,'uv_tile',text='Размер плитки, м')
-        l.label(text='Kenney · CC0 · сохраняется в GLB')
+            l.prop(obj.bs,'uv_tile',text='Tile Size, m')
+        l.label(text='Kenney · CC0 · included in GLB')
 
 
 class BS_OT_audit(bpy.types.Operator):
-    bl_idname='blocksmith.audit'; bl_label='Проверить геометрию'
+    bl_idname='blocksmith.audit'; bl_label='Check Geometry'
     def execute(self,context):
         errors=guard.audit(context.scene)
         if errors:
@@ -443,15 +448,15 @@ class BS_OT_audit(bpy.types.Operator):
             for a,b,_ in errors:
                 for obj in (a,b):
                     if obj is not None: obj.select_set(True)
-            self.report({'WARNING'},'; '.join(e[2] for e in errors[:3]))
-        else: self.report({'INFO'},'Пересечений и инверсии нет')
+            self.report({'WARNING'},tr('; '.join((e[2] for e in errors[:3]))))
+        else: self.report({'INFO'},tr('No intersections or inverted geometry'))
         return {'FINISHED'}
 
 
 class BS_OT_activate(bpy.types.Operator):
-    bl_idname='blocksmith.activate'; bl_label='Рисовать конструкции'
-    bl_description='Протяните выбранную конструкцию в сцене. Esc / ПКМ — вернуться к выделению'
-    kind: StringProperty(default='')
+    bl_idname='blocksmith.activate'; bl_label='Draw Structures'
+    bl_description='Drag the selected structure in the scene. Esc / RMB returns to selection'
+    kind: StringProperty(name='Kind',default='')
     @classmethod
     def poll(cls,context): return context.mode=='OBJECT' and context.area and context.area.type=='VIEW_3D'
     def execute(self,context):
@@ -466,14 +471,14 @@ class BS_OT_activate(bpy.types.Operator):
 
 class BS_OT_native_tool(bpy.types.Operator):
     # Keep the old operator name for saved shortcuts.
-    bl_idname='blocksmith.native_tool'; bl_label='Рисовать конструкции'
+    bl_idname='blocksmith.native_tool'; bl_label='Draw Structures'
     @classmethod
     def poll(cls,context): return BS_OT_activate.poll(context)
     def execute(self,context): return bpy.ops.blocksmith.activate()
 
 
 class BS_OT_stop(bpy.types.Operator):
-    bl_idname='blocksmith.stop'; bl_label='Вернуться к выделению'
+    bl_idname='blocksmith.stop'; bl_label='Return to Selection'
     def execute(self,context):
         from .drawing import ACTIVE, leave_tool
         from .curves import ACTIVE as CURVE

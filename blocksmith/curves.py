@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Draw native Blender curves with a rectangular wall profile."""
+from .translations import tr
 import math
 import bpy
 import gpu
@@ -8,16 +9,16 @@ from mathutils import Vector, Matrix
 from gpu_extras.batch import batch_for_shader
 from . import guard
 
-MODES=[('POINTS','Точки / Безье','ЛКМ ставит точки; Enter завершает; ручки доступны в Tab'),
-       ('FREEHAND','Свободная линия','Протяните ЛКМ, чтобы нарисовать стену'),
-       ('ARC','Дуга по 3 точкам','Начало, точка на дуге, конец')]
+MODES=[('POINTS','Points / Bezier','LMB adds points; Enter finishes; Tab edits handles'),
+       ('FREEHAND','Freehand','Drag LMB to draw a wall'),
+       ('ARC','Three-Point Arc','Start, point on arc, end')]
 ACTIVE=None
 
 
 def arc_points(points,steps=48):
     a,b,c=(Vector(p) for p in points)
     u=b-a; v=c-a; det=2*(u.x*v.y-u.y*v.x)
-    if abs(det)<1e-6: raise ValueError('Три точки дуги не должны лежать на одной прямой')
+    if abs(det)<1e-6: raise ValueError('The three arc points must not be collinear')
     center=a+Vector(((v.y*u.length_squared-u.y*v.length_squared)/det,
                      (u.x*v.length_squared-v.x*u.length_squared)/det,0))
     start=math.atan2(a.y-center.y,a.x-center.x)
@@ -25,7 +26,7 @@ def arc_points(points,steps=48):
     end=(math.atan2(c.y-center.y,c.x-center.x)-start)%(2*math.pi)
     sweep=end if middle<end else end-2*math.pi
     radius=(a-center).length
-    if radius>10000: raise ValueError('Слишком большой радиус дуги')
+    if radius>10000: raise ValueError('The arc radius is too large')
     return [center+Vector((radius*math.cos(start+sweep*i/steps),radius*math.sin(start+sweep*i/steps),0)) for i in range(steps+1)]
 
 
@@ -65,11 +66,11 @@ def create(context,points,mode,frame=None):
     from . import collection
     from .materials import apply_texture
     points=[Vector(p) for p in points]
-    if mode not in {item[0] for item in MODES}: raise ValueError('Неизвестный режим кривой')
-    if any(not math.isfinite(v) or abs(v)>10000 for p in points for v in p): raise ValueError('Недопустимые координаты кривой')
+    if mode not in {item[0] for item in MODES}: raise ValueError('Unknown curve mode')
+    if any(not math.isfinite(v) or abs(v)>10000 for p in points for v in p): raise ValueError('Invalid curve coordinates')
     if len(points)<2 or all((p-points[0]).length<.01 for p in points[1:]):
-        raise ValueError('Нужны хотя бы две различные точки')
-    if len(points)>512: raise ValueError('Не более 512 точек на одну кривую')
+        raise ValueError('At least two distinct points are required')
+    if len(points)>512: raise ValueError('At most 512 points per curve')
     if mode=='ARC': points=arc_points(points)
     data=bpy.data.curves.new('BS_Curve','CURVE'); data.dimensions='3D'; data.resolution_u=12
     data.twist_mode='Z_UP'; data.use_fill_caps=True
@@ -81,13 +82,13 @@ def create(context,points,mode,frame=None):
     else:
         spline.points.add(len(points)-1)
         for point,co in zip(spline.points,points): point.co=(*co,1)
-    obj=bpy.data.objects.new('Кривая стена',data); collection(context).objects.link(obj)
+    obj=bpy.data.objects.new('Curved Wall',data); collection(context).objects.link(obj)
     obj.bs.depth=context.scene.bs.draw_depth; obj.bs.height=context.scene.bs.draw_height
     obj.bs.tag='WALL'; obj.bs.use_kenney=True; obj.bs.palette=context.scene.bs.palette; obj.bs.texture=context.scene.bs.texture
     obj['bs_curve_wall']=True; obj['bs_role']='WALL'
     update_profile(obj); apply_texture(obj)
     # Blender duplicates cap vertices; Weld keeps the exported wall watertight.
-    weld=obj.modifiers.new('Замкнуть торцы','WELD'); weld.merge_threshold=1e-5
+    weld=obj.modifiers.new('Close End Caps','WELD'); weld.merge_threshold=1e-5
     obj.matrix_world=frame if frame is not None else Matrix.Identity(4)
     for selected in context.selected_objects: selected.select_set(False)
     obj.select_set(True); context.view_layer.objects.active=obj; context.view_layer.update()
@@ -95,8 +96,8 @@ def create(context,points,mode,frame=None):
 
 
 class BS_OT_curve(bpy.types.Operator):
-    bl_idname='blocksmith.curve'; bl_label='Нарисовать кривую стену'; bl_options={'REGISTER','UNDO','BLOCKING'}
-    mode: EnumProperty(items=MODES)
+    bl_idname='blocksmith.curve'; bl_label='Draw Curved Wall'; bl_options={'REGISTER','UNDO','BLOCKING'}
+    mode: EnumProperty(name='Mode',items=MODES)
     @classmethod
     def poll(cls,context):
         from .drawing import ACTIVE as DRAWING
@@ -111,7 +112,7 @@ class BS_OT_curve(bpy.types.Operator):
         self.shader=gpu.shader.from_builtin('UNIFORM_COLOR')
         self.handle=bpy.types.SpaceView3D.draw_handler_add(self.draw_preview,(),'WINDOW','POST_VIEW')
         self.window.cursor_modal_set('CROSSHAIR'); context.window_manager.modal_handler_add(self); ACTIVE=self
-        self.area.header_text_set('Кривая · ЛКМ: точки / протянуть · Enter: готово · Backspace: удалить · Esc: отмена')
+        self.area.header_text_set(tr('Curve · LMB: points / drag · Enter: finish · Backspace: delete · Esc: cancel'))
         return {'RUNNING_MODAL'}
     def draw_preview(self):
         if self.batch is None or bpy.context.area!=self.area: return
@@ -130,12 +131,12 @@ class BS_OT_curve(bpy.types.Operator):
     def commit(self,context):
         try: create(context,self.points,self.mode,self.frame)
         except (ValueError,guard.ConstraintError) as exc:
-            self.report({'WARNING'},str(exc)); return {'RUNNING_MODAL'}
+            self.report({'WARNING'},tr(str(exc))); return {'RUNNING_MODAL'}
         return self.finish(context,{'FINISHED'})
     def modal(self,context,event):
         try: return self.handle_event(context,event)
         except Exception as exc:
-            self.report({'WARNING'},'Рисование кривой остановлено: '+str(exc))
+            self.report({'WARNING'},tr('Curve drawing stopped: ')+tr(str(exc)))
             return self.finish(context,{'CANCELLED'})
     def handle_event(self,context,event):
         from .drawing import surface_hit,point_on_plane,snap_point

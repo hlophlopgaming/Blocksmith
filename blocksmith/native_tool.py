@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Use Blender's own Add Cube interaction; adopt its completed result as a module."""
+from .translations import tr
 import bpy
 from bpy.app.handlers import persistent
 from mathutils import Vector
@@ -19,7 +20,7 @@ def adopt(context,obj,preset):
     low=Vector([min(v.co[i] for v in obj.data.vertices) for i in range(3)])
     high=Vector([max(v.co[i] for v in obj.data.vertices) for i in range(3)])
     size=high-low
-    if min(size)<=.00001: raise guard.ConstraintError('Модуль имеет нулевой размер')
+    if min(size)<=.00001: raise guard.ConstraintError('The module has zero size')
     with guard.transaction(context):
         temp=apply_preset(context,preset)
         core.BUSY=True
@@ -79,7 +80,7 @@ def tick():
                     except guard.ConstraintError as exc:
                         mesh=obj.data; bpy.data.objects.remove(obj,do_unlink=True)
                         if mesh.users==0: bpy.data.meshes.remove(mesh)
-                        window.workspace.status_text_set('Blocksmith: '+str(exc))
+                        window.workspace.status_text_set('Blocksmith: '+tr(str(exc)))
         record['ids']={o.session_uid for o in scene.objects}; record['running']=False; record['preset']=scene.bs.preset
     RESTORING=False
     return .03

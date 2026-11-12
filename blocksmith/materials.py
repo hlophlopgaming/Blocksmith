@@ -1,12 +1,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Kenney's CC0 images use ordinary UV textures supported by glTF."""
+from .translations import tr
 from pathlib import Path
 import bpy
 
 ROOT=Path(__file__).parent/'assets'/'kenney'/'PNG'
-PALETTES=[('Light','Светлый',''),('Dark','Тёмный',''),('Orange','Оранжевый',''),
-          ('Green','Зелёный',''),('Purple','Фиолетовый',''),('Red','Красный','')]
-PATTERNS=[(f'{i:02d}',f'Рисунок {i:02d}','') for i in range(1,14)]
+PALETTES=[('Light','Light',''),('Dark','Dark',''),('Orange','Orange',''),
+          ('Green','Green',''),('Purple','Purple',''),('Red','Red','')]
+PATTERNS=[(f'{i:02d}',tr('Pattern {0:02d}').format(i),'') for i in range(1,14)]
 
 
 def texture_items(self,context):
@@ -20,7 +21,7 @@ def apply_texture(obj):
     mat=bpy.data.materials.get(name)
     if mat is None:
         path=ROOT/p.palette/f'texture_{p.texture}.png'
-        if not path.is_file(): raise ValueError('Missing Kenney texture: '+str(path))
+        if not path.is_file(): raise ValueError(tr('Missing Kenney texture: ')+str(path))
         mat=bpy.data.materials.new(name); mat.use_nodes=True
         nodes=mat.node_tree.nodes
         shader=next(n for n in nodes if n.type=='BSDF_PRINCIPLED')
