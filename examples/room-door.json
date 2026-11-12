@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "name": "Editable room with doorway",
+  "objects": [
+    {"name":"Room", "preset":"room_6", "params":{
+      "width":8, "depth":6, "height":3, "thickness":0.3,
+      "opening":"DOOR", "room_wall":"FRONT", "open_width":1.4, "open_height":2.1, "offset":0.4
+    }}
+  ]
+}

@@ -1,0 +1,354 @@
+{
+  "version": 1,
+  "name": "Kenney Courtyard",
+  "metrics": {
+    "player_height": 1.8,
+    "player_radius": 0.3,
+    "max_step": 0.25
+  },
+  "objects": [
+    {
+      "name": "Ground",
+      "position": [
+        -10,
+        -8,
+        0
+      ],
+      "params": {
+        "width": 20,
+        "depth": 16,
+        "height": 0.25
+      },
+      "preset": "floor_8",
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "SouthDoor",
+      "position": [
+        -10,
+        -8,
+        0
+      ],
+      "params": {
+        "width": 20,
+        "height": 3,
+        "open_width": 2,
+        "open_height": 2.3
+      },
+      "preset": "double_door",
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "NorthWindows",
+      "position": [
+        -10,
+        7.8,
+        0
+      ],
+      "params": {
+        "width": 20,
+        "height": 3,
+        "count": 4,
+        "open_width": 2,
+        "open_height": 1.2,
+        "sill": 1
+      },
+      "preset": "windows",
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "WestWall",
+      "position": [
+        -10,
+        -8,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        90
+      ],
+      "params": {
+        "width": 16,
+        "height": 3
+      },
+      "preset": "wall_8",
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "EastWall",
+      "position": [
+        10.2,
+        -8,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        90
+      ],
+      "params": {
+        "width": 16,
+        "height": 3
+      },
+      "preset": "wall_8",
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "Platform",
+      "shape": "BLOCK",
+      "position": [
+        -7,
+        2,
+        0
+      ],
+      "tag": "WALKABLE",
+      "params": {
+        "width": 6,
+        "depth": 4,
+        "height": 1.5
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "PlatformStairs",
+      "position": [
+        -3,
+        -2,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        90
+      ],
+      "params": {
+        "width": 4,
+        "depth": 1.5,
+        "height": 1.5
+      },
+      "preset": "stairs_1",
+      "material": {
+        "palette": "Green",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "PlatformRailing",
+      "position": [
+        -7,
+        5.85,
+        1.5
+      ],
+      "params": {
+        "width": 6,
+        "depth": 0.1,
+        "height": 1.1,
+        "thickness": 0.07,
+        "spacing": 1,
+        "rails": 2
+      },
+      "preset": "railing",
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "Pool",
+      "shape": "WATER",
+      "position": [
+        2,
+        2,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 3,
+        "height": 1.5
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "CoverLow",
+      "position": [
+        1,
+        -3,
+        0
+      ],
+      "params": {
+        "width": 2,
+        "depth": 0.7
+      },
+      "preset": "cover_low",
+      "material": {
+        "palette": "Orange",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "CoverHigh",
+      "position": [
+        5,
+        -3,
+        0
+      ],
+      "params": {
+        "width": 2,
+        "depth": 0.7
+      },
+      "preset": "cover_high",
+      "material": {
+        "palette": "Orange",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "Arch",
+      "position": [
+        -8,
+        -2,
+        0
+      ],
+      "params": {
+        "width": 3,
+        "height": 3,
+        "open_width": 1.5,
+        "open_height": 2.4
+      },
+      "preset": "arch",
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "Pillar",
+      "position": [
+        7,
+        5,
+        0
+      ],
+      "params": {
+        "width": 1,
+        "height": 3
+      },
+      "preset": "pillar",
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "Ramp",
+      "position": [
+        2,
+        3,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        180
+      ],
+      "params": {
+        "width": 3,
+        "depth": 1.5,
+        "height": 1.5
+      },
+      "preset": "ramp",
+      "material": {
+        "palette": "Green",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "PlayerScale",
+      "shape": "PLAYER",
+      "position": [
+        0,
+        -5,
+        0
+      ],
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "HeightScale",
+      "shape": "HEIGHT_RULER",
+      "position": [
+        -8,
+        -6,
+        0
+      ],
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    },
+    {
+      "name": "PoolCut",
+      "shape": "BLOCK",
+      "position": [
+        2,
+        2,
+        -2
+      ],
+      "params": {
+        "width": 4,
+        "depth": 3,
+        "height": 3
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "target": "Ground",
+      "cutter": "PoolCut"
+    }
+  ]
+}

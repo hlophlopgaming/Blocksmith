@@ -1,0 +1,12 @@
+schema_version = "1.0.0"
+id = "blocksmith"
+version = "0.8.2"
+name = "Blocksmith"
+tagline = "Draw editable level blockouts and export to Godot"
+maintainer = "Blocksmith contributors"
+type = "add-on"
+blender_version_min = "5.0.0"
+license = ["SPDX:GPL-3.0-or-later", "SPDX:CC0-1.0"]
+tags = ["Modeling", "Game Engine"]
+[permissions]
+files = "Export blockout meshes to user-selected GLB or FBX files"

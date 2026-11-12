@@ -1,0 +1,458 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blocksmith level specification v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "objects"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "player_radius": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "low_cover": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "door_height": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "wall_thickness": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "floor_thickness": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "water_depth": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "player_height": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "max_slope": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "door_width": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "crouch_height": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "max_step": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "min_swim": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "jump_gap": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "max_wade": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "high_cover": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "wall_height": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "jump_height": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        }
+      }
+    },
+    "objects": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "anyOf": [
+          {
+            "required": [
+              "shape"
+            ]
+          },
+          {
+            "required": [
+              "preset"
+            ]
+          }
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 63
+          },
+          "shape": {
+            "enum": [
+              "BLOCK",
+              "WALL",
+              "DOOR",
+              "WINDOW",
+              "ARCH",
+              "FLOOR",
+              "STAIRS",
+              "RAMP",
+              "CYLINDER",
+              "CORNER",
+              "L_STAIRS",
+              "U_STAIRS",
+              "CURVED_WALL",
+              "SPIRAL_STAIRS",
+              "ROOF",
+              "LOW_COVER",
+              "HIGH_COVER",
+              "LADDER",
+              "RAILING",
+              "WATER",
+              "ROOM",
+              "PLAYER",
+              "CROUCH",
+              "HEIGHT_RULER",
+              "JUMP_RULER",
+              "CLEARANCE"
+            ]
+          },
+          "preset": {
+            "enum": [
+              "wall_2",
+              "wall_4",
+              "wall_8",
+              "floor_4",
+              "floor_8",
+              "platform",
+              "room_6",
+              "corner",
+              "door",
+              "double_door",
+              "window",
+              "windows",
+              "arch",
+              "pointed_arch",
+              "arcade",
+              "stairs_1",
+              "stairs_3",
+              "stairs_l",
+              "stairs_u",
+              "spiral",
+              "ramp",
+              "ladder",
+              "pillar",
+              "curved",
+              "railing",
+              "roof",
+              "shed",
+              "cover_low",
+              "cover_high",
+              "water",
+              "player",
+              "clearance"
+            ]
+          },
+          "material": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "palette": {
+                "enum": [
+                  "Light",
+                  "Dark",
+                  "Orange",
+                  "Green",
+                  "Purple",
+                  "Red"
+                ]
+              },
+              "pattern": {
+                "enum": [
+                  "01",
+                  "02",
+                  "03",
+                  "04",
+                  "05",
+                  "06",
+                  "07",
+                  "08",
+                  "09",
+                  "10",
+                  "11",
+                  "12",
+                  "13"
+                ]
+              },
+              "tile_size": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              }
+            }
+          },
+          "position": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": -10000,
+              "maximum": 10000
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "rotation": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": -3600,
+              "maximum": 3600
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "pivot": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "tag": {
+            "enum": [
+              "BLOCKOUT",
+              "WALKABLE",
+              "WALL",
+              "COVER",
+              "CLIMBABLE",
+              "INTERACTIVE",
+              "HAZARD",
+              "TRIGGER",
+              "PROP",
+              "OUT_OF_BOUNDS",
+              "WATER"
+            ]
+          },
+          "params": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "inner_radius": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "offset": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "thickness": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "height": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "spacing": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "open_height": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "sill": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1000
+              },
+              "width": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "flight_width": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "open_width": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "depth": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "max_step": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "uv_tile": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "miter_start": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "miter_end": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "angle": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "column": {
+                "type": "boolean"
+              },
+              "solid": {
+                "type": "boolean"
+              },
+              "auto_steps": {
+                "type": "boolean"
+              },
+              "flip": {
+                "type": "boolean"
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 512
+              },
+              "segments": {
+                "type": "integer",
+                "minimum": 8,
+                "maximum": 128
+              },
+              "count": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              },
+              "rails": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 12
+              },
+              "opening": {
+                "enum": [
+                  "NONE",
+                  "DOOR",
+                  "WINDOW",
+                  "ARCH",
+                  "ARCH_WINDOW"
+                ]
+              },
+              "room_wall": {
+                "enum": [
+                  "FRONT",
+                  "BACK",
+                  "LEFT",
+                  "RIGHT"
+                ]
+              },
+              "arch_style": {
+                "enum": [
+                  "ROUND",
+                  "SEGMENTAL",
+                  "POINTED"
+                ]
+              },
+              "roof": {
+                "enum": [
+                  "GABLE",
+                  "SHED"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "cuts": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "target",
+          "cutter"
+        ],
+        "properties": {
+          "target": {
+            "type": "string"
+          },
+          "cutter": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

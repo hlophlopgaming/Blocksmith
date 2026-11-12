@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "name": "Editable drafting and wall joints",
+  "objects": [
+    {"name": "Floor", "shape": "FLOOR", "position": [-0.2,-0.2,0], "params": {"width":6.4,"depth":6.4,"height":0.2}},
+    {"name": "Door wall", "shape": "WALL", "position": [0,0,0], "params": {"width":6,"depth":0.2,"height":3,"opening":"DOOR","open_width":1.2,"open_height":2.2,"miter_end":-0.2}},
+    {"name": "East wall", "shape": "WALL", "position": [6,0,0], "rotation":[0,0,90], "params": {"width":6,"depth":0.2,"height":3,"miter_start":0.2,"miter_end":-0.2}},
+    {"name": "North wall", "shape": "WALL", "position": [6,6,0], "rotation":[0,0,180], "params": {"width":6,"depth":0.2,"height":3,"miter_start":0.2}},
+    {"name": "Stairs", "preset":"stairs_1", "position":[0.5,2,0], "params":{"width":4}},
+    {"name": "Cover", "preset":"cover_low", "position":[4,4,0], "params":{"width":1}},
+    {"name": "Player", "preset":"player", "position":[2,0.8,0]},
+    {"name": "Room", "preset":"room_6", "position":[8,0,0]}
+  ]
+}

@@ -1,0 +1,226 @@
+[
+  {
+    "preset": "wall_2",
+    "raw_faces": 6,
+    "faces": 6,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "wall_4",
+    "raw_faces": 6,
+    "faces": 6,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "wall_8",
+    "raw_faces": 6,
+    "faces": 6,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "floor_4",
+    "raw_faces": 6,
+    "faces": 6,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "floor_8",
+    "raw_faces": 6,
+    "faces": 6,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "platform",
+    "raw_faces": 6,
+    "faces": 6,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "room_6",
+    "raw_faces": 30,
+    "faces": 22,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "corner",
+    "raw_faces": 12,
+    "faces": 11,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "door",
+    "raw_faces": 18,
+    "faces": 16,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "double_door",
+    "raw_faces": 18,
+    "faces": 16,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "window",
+    "raw_faces": 24,
+    "faces": 20,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "windows",
+    "raw_faces": 60,
+    "faces": 48,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "arch",
+    "raw_faces": 204,
+    "faces": 140,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "pointed_arch",
+    "raw_faces": 204,
+    "faces": 140,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "arcade",
+    "raw_faces": 798,
+    "faces": 542,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "stairs_1",
+    "raw_faces": 12,
+    "faces": 12,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "stairs_3",
+    "raw_faces": 28,
+    "faces": 28,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "stairs_l",
+    "raw_faces": 78,
+    "faces": 65,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "stairs_u",
+    "raw_faces": 78,
+    "faces": 67,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "spiral",
+    "raw_faces": 154,
+    "faces": 154,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "ramp",
+    "raw_faces": 5,
+    "faces": 5,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "ladder",
+    "raw_faces": 66,
+    "faces": 66,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "pillar",
+    "raw_faces": 96,
+    "faces": 96,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "curved",
+    "raw_faces": 130,
+    "faces": 130,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "railing",
+    "raw_faces": 42,
+    "faces": 129,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "roof",
+    "raw_faces": 5,
+    "faces": 5,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "shed",
+    "raw_faces": 5,
+    "faces": 5,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "cover_low",
+    "raw_faces": 6,
+    "faces": 6,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "cover_high",
+    "raw_faces": 6,
+    "faces": 6,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "water",
+    "raw_faces": 6,
+    "faces": 6,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "player",
+    "raw_faces": 546,
+    "faces": 546,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  },
+  {
+    "preset": "clearance",
+    "raw_faces": 18,
+    "faces": 24,
+    "bad_edges_after_weld": 0,
+    "merged_vertices": 0
+  }
+]

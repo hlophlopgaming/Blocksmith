@@ -1,0 +1,4620 @@
+{
+  "version": 1,
+  "name": "Hangar — E1M1 inspired blockout",
+  "metrics": {
+    "player_height": 1.8,
+    "player_radius": 0.3,
+    "max_step": 0.25
+  },
+  "objects": [
+    {
+      "name": "ExitBooth_Floor_01",
+      "position": [
+        24,
+        -29,
+        0
+      ],
+      "params": {
+        "width": 6,
+        "depth": 5,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "ExitHall_Floor_02",
+      "position": [
+        22,
+        -24,
+        0
+      ],
+      "params": {
+        "width": 10,
+        "depth": 8,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "ExitPassage_Floor_03",
+      "position": [
+        24,
+        -16,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 6,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "SecretPassage_Floor_04",
+      "position": [
+        2,
+        -14,
+        0
+      ],
+      "params": {
+        "width": 22,
+        "depth": 4,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "SecretPassage_Floor_05",
+      "position": [
+        0,
+        -12,
+        0
+      ],
+      "params": {
+        "width": 2,
+        "depth": 4,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "SecretPassage_Floor_06",
+      "position": [
+        2,
+        -10,
+        0
+      ],
+      "params": {
+        "width": 2,
+        "depth": 2,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Zigzag_Floor_07",
+      "position": [
+        18,
+        -10,
+        -0.8
+      ],
+      "params": {
+        "width": 18,
+        "depth": 22,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "ArmorRoom_Floor_08",
+      "position": [
+        -52,
+        -8,
+        0
+      ],
+      "params": {
+        "width": 14,
+        "depth": 16,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Courtyard_Floor_09",
+      "position": [
+        -18,
+        -8,
+        0
+      ],
+      "params": {
+        "width": 34,
+        "depth": 20,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Green",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Start_Floor_10",
+      "position": [
+        -32,
+        -7,
+        0
+      ],
+      "params": {
+        "width": 14,
+        "depth": 14,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "ArmorPassage_Floor_11",
+      "position": [
+        -38,
+        -2,
+        0
+      ],
+      "params": {
+        "width": 6,
+        "depth": 4,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "NorthPassage_Floor_12",
+      "position": [
+        -26,
+        7,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 9,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "NorthPassage_Floor_13",
+      "position": [
+        -22,
+        12,
+        0
+      ],
+      "params": {
+        "width": 14,
+        "depth": 4,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "EastPassage_Floor_14",
+      "position": [
+        20,
+        12,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 11,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "ControlRoom_Floor_15",
+      "position": [
+        -12,
+        16,
+        0
+      ],
+      "params": {
+        "width": 24,
+        "depth": 14,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "EastPassage_Floor_16",
+      "position": [
+        12,
+        19,
+        0
+      ],
+      "params": {
+        "width": 8,
+        "depth": 4,
+        "height": 0.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "FLOOR",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "OuterWall_001",
+      "position": [
+        24,
+        -29.25,
+        0.4
+      ],
+      "params": {
+        "width": 6,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_001",
+      "position": [
+        24,
+        -29.25,
+        -0.9
+      ],
+      "params": {
+        "width": 6,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_002",
+      "position": [
+        22,
+        -24.25,
+        0.4
+      ],
+      "params": {
+        "width": 1.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_002",
+      "position": [
+        22,
+        -24.25,
+        -0.9
+      ],
+      "params": {
+        "width": 1.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_003",
+      "position": [
+        30.25,
+        -24.25,
+        0.4
+      ],
+      "params": {
+        "width": 1.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_003",
+      "position": [
+        30.25,
+        -24.25,
+        -0.9
+      ],
+      "params": {
+        "width": 1.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_004",
+      "position": [
+        22,
+        -16,
+        0.4
+      ],
+      "params": {
+        "width": 1.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_004",
+      "position": [
+        22,
+        -16,
+        -0.9
+      ],
+      "params": {
+        "width": 1.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_005",
+      "position": [
+        28.25,
+        -16,
+        0.4
+      ],
+      "params": {
+        "width": 3.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_005",
+      "position": [
+        28.25,
+        -16,
+        -0.9
+      ],
+      "params": {
+        "width": 3.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_006",
+      "position": [
+        2,
+        -14.25,
+        0.4
+      ],
+      "params": {
+        "width": 21.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_006",
+      "position": [
+        2,
+        -14.25,
+        -0.9
+      ],
+      "params": {
+        "width": 21.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_007",
+      "position": [
+        0,
+        -12.25,
+        0.4
+      ],
+      "params": {
+        "width": 1.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_007",
+      "position": [
+        0,
+        -12.25,
+        -0.9
+      ],
+      "params": {
+        "width": 1.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_008",
+      "position": [
+        28.25,
+        -10.25,
+        0.4
+      ],
+      "params": {
+        "width": 7.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_008",
+      "position": [
+        28.25,
+        -10.25,
+        -0.9
+      ],
+      "params": {
+        "width": 7.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_009",
+      "position": [
+        4.25,
+        -10,
+        0.4
+      ],
+      "params": {
+        "width": 13.5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_009",
+      "position": [
+        4.25,
+        -10,
+        -0.9
+      ],
+      "params": {
+        "width": 13.5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_010",
+      "position": [
+        -52,
+        -8.25,
+        0.4
+      ],
+      "params": {
+        "width": 14,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_010",
+      "position": [
+        -52,
+        -8.25,
+        -0.9
+      ],
+      "params": {
+        "width": 14,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_011",
+      "position": [
+        -18,
+        -8.25,
+        0.4
+      ],
+      "params": {
+        "width": 17.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_011",
+      "position": [
+        -18,
+        -8.25,
+        -0.9
+      ],
+      "params": {
+        "width": 17.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_012",
+      "position": [
+        4.25,
+        -8.25,
+        0.4
+      ],
+      "params": {
+        "width": 11.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_012",
+      "position": [
+        4.25,
+        -8.25,
+        -0.9
+      ],
+      "params": {
+        "width": 11.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_013",
+      "position": [
+        -32,
+        -7.25,
+        0.4
+      ],
+      "params": {
+        "width": 13.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_013",
+      "position": [
+        -32,
+        -7.25,
+        -0.9
+      ],
+      "params": {
+        "width": 13.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_014",
+      "position": [
+        -37.75,
+        -2.25,
+        0.4
+      ],
+      "params": {
+        "width": 5.5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_014",
+      "position": [
+        -37.75,
+        -2.25,
+        -0.9
+      ],
+      "params": {
+        "width": 5.5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_015",
+      "position": [
+        -37.75,
+        2,
+        0.4
+      ],
+      "params": {
+        "width": 5.5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_015",
+      "position": [
+        -37.75,
+        2,
+        -0.9
+      ],
+      "params": {
+        "width": 5.5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_016",
+      "position": [
+        -32,
+        7,
+        0.4
+      ],
+      "params": {
+        "width": 5.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_016",
+      "position": [
+        -32,
+        7,
+        -0.9
+      ],
+      "params": {
+        "width": 5.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_017",
+      "position": [
+        -21.75,
+        7,
+        0.4
+      ],
+      "params": {
+        "width": 3.5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_017",
+      "position": [
+        -21.75,
+        7,
+        -0.9
+      ],
+      "params": {
+        "width": 3.5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_018",
+      "position": [
+        -52,
+        8,
+        0.4
+      ],
+      "params": {
+        "width": 14,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_018",
+      "position": [
+        -52,
+        8,
+        -0.9
+      ],
+      "params": {
+        "width": 14,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_019",
+      "position": [
+        -21.75,
+        11.75,
+        0.4
+      ],
+      "params": {
+        "width": 3.5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_019",
+      "position": [
+        -21.75,
+        11.75,
+        -0.9
+      ],
+      "params": {
+        "width": 3.5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_020",
+      "position": [
+        -7.75,
+        12,
+        0.4
+      ],
+      "params": {
+        "width": 23.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_020",
+      "position": [
+        -7.75,
+        12,
+        -0.9
+      ],
+      "params": {
+        "width": 23.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_021",
+      "position": [
+        18,
+        12,
+        0.4
+      ],
+      "params": {
+        "width": 1.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_021",
+      "position": [
+        18,
+        12,
+        -0.9
+      ],
+      "params": {
+        "width": 1.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_022",
+      "position": [
+        24.25,
+        12,
+        0.4
+      ],
+      "params": {
+        "width": 11.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_022",
+      "position": [
+        24.25,
+        12,
+        -0.9
+      ],
+      "params": {
+        "width": 11.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_023",
+      "position": [
+        -7.75,
+        15.75,
+        0.4
+      ],
+      "params": {
+        "width": 19.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_023",
+      "position": [
+        -7.75,
+        15.75,
+        -0.9
+      ],
+      "params": {
+        "width": 19.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_024",
+      "position": [
+        -26,
+        16,
+        0.4
+      ],
+      "params": {
+        "width": 13.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_024",
+      "position": [
+        -26,
+        16,
+        -0.9
+      ],
+      "params": {
+        "width": 13.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_025",
+      "position": [
+        12.25,
+        18.75,
+        0.4
+      ],
+      "params": {
+        "width": 7.5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_025",
+      "position": [
+        12.25,
+        18.75,
+        -0.9
+      ],
+      "params": {
+        "width": 7.5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_026",
+      "position": [
+        12.25,
+        23,
+        0.4
+      ],
+      "params": {
+        "width": 11.75,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_026",
+      "position": [
+        12.25,
+        23,
+        -0.9
+      ],
+      "params": {
+        "width": 11.75,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_027",
+      "position": [
+        -12,
+        30,
+        0.4
+      ],
+      "params": {
+        "width": 24,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "WallBelt_027",
+      "position": [
+        -12,
+        30,
+        -0.9
+      ],
+      "params": {
+        "width": 24,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL"
+    },
+    {
+      "name": "OuterWall_028",
+      "position": [
+        -52,
+        -8,
+        0.4
+      ],
+      "params": {
+        "width": 16,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_028",
+      "position": [
+        -52,
+        -8,
+        -0.9
+      ],
+      "params": {
+        "width": 16,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_029",
+      "position": [
+        -37.75,
+        -8,
+        0.4
+      ],
+      "params": {
+        "width": 6,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_029",
+      "position": [
+        -37.75,
+        -8,
+        -0.9
+      ],
+      "params": {
+        "width": 6,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_030",
+      "position": [
+        -37.75,
+        2,
+        0.4
+      ],
+      "params": {
+        "width": 6,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_030",
+      "position": [
+        -37.75,
+        2,
+        -0.9
+      ],
+      "params": {
+        "width": 6,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_031",
+      "position": [
+        -32,
+        -7,
+        0.4
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_031",
+      "position": [
+        -32,
+        -7,
+        -0.9
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_032",
+      "position": [
+        -32,
+        2,
+        0.4
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_032",
+      "position": [
+        -32,
+        2,
+        -0.9
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_033",
+      "position": [
+        -26,
+        7,
+        0.4
+      ],
+      "params": {
+        "width": 9,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_033",
+      "position": [
+        -26,
+        7,
+        -0.9
+      ],
+      "params": {
+        "width": 9,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_034",
+      "position": [
+        -21.75,
+        7,
+        0.4
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_034",
+      "position": [
+        -21.75,
+        7,
+        -0.9
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_035",
+      "position": [
+        -18,
+        -8,
+        0.4
+      ],
+      "params": {
+        "width": 1,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_035",
+      "position": [
+        -18,
+        -8,
+        -0.9
+      ],
+      "params": {
+        "width": 1,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_036",
+      "position": [
+        -18,
+        7,
+        0.4
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_036",
+      "position": [
+        -18,
+        7,
+        -0.9
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_037",
+      "position": [
+        -12,
+        16,
+        0.4
+      ],
+      "params": {
+        "width": 14,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_037",
+      "position": [
+        -12,
+        16,
+        -0.9
+      ],
+      "params": {
+        "width": 14,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_038",
+      "position": [
+        -7.75,
+        12,
+        0.4
+      ],
+      "params": {
+        "width": 4,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_038",
+      "position": [
+        -7.75,
+        12,
+        -0.9
+      ],
+      "params": {
+        "width": 4,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_039",
+      "position": [
+        0,
+        -12,
+        0.4
+      ],
+      "params": {
+        "width": 4,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_039",
+      "position": [
+        0,
+        -12,
+        -0.9
+      ],
+      "params": {
+        "width": 4,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_040",
+      "position": [
+        2,
+        -14,
+        0.4
+      ],
+      "params": {
+        "width": 2,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_040",
+      "position": [
+        2,
+        -14,
+        -0.9
+      ],
+      "params": {
+        "width": 2,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_041",
+      "position": [
+        4.25,
+        -10,
+        0.4
+      ],
+      "params": {
+        "width": 2,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_041",
+      "position": [
+        4.25,
+        -10,
+        -0.9
+      ],
+      "params": {
+        "width": 2,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_042",
+      "position": [
+        12.25,
+        16,
+        0.4
+      ],
+      "params": {
+        "width": 3,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_042",
+      "position": [
+        12.25,
+        16,
+        -0.9
+      ],
+      "params": {
+        "width": 3,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_043",
+      "position": [
+        12.25,
+        23,
+        0.4
+      ],
+      "params": {
+        "width": 7,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_043",
+      "position": [
+        12.25,
+        23,
+        -0.9
+      ],
+      "params": {
+        "width": 7,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_044",
+      "position": [
+        16.25,
+        -8,
+        0.4
+      ],
+      "params": {
+        "width": 20,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_044",
+      "position": [
+        16.25,
+        -8,
+        -0.9
+      ],
+      "params": {
+        "width": 20,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_045",
+      "position": [
+        18,
+        -10,
+        0.4
+      ],
+      "params": {
+        "width": 22,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_045",
+      "position": [
+        18,
+        -10,
+        -0.9
+      ],
+      "params": {
+        "width": 22,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_046",
+      "position": [
+        20,
+        12,
+        0.4
+      ],
+      "params": {
+        "width": 7,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_046",
+      "position": [
+        20,
+        12,
+        -0.9
+      ],
+      "params": {
+        "width": 7,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_047",
+      "position": [
+        22,
+        -24,
+        0.4
+      ],
+      "params": {
+        "width": 8,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_047",
+      "position": [
+        22,
+        -24,
+        -0.9
+      ],
+      "params": {
+        "width": 8,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_048",
+      "position": [
+        24,
+        -29,
+        0.4
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_048",
+      "position": [
+        24,
+        -29,
+        -0.9
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_049",
+      "position": [
+        24,
+        -16,
+        0.4
+      ],
+      "params": {
+        "width": 2,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_049",
+      "position": [
+        24,
+        -16,
+        -0.9
+      ],
+      "params": {
+        "width": 2,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_050",
+      "position": [
+        24.25,
+        12,
+        0.4
+      ],
+      "params": {
+        "width": 11,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_050",
+      "position": [
+        24.25,
+        12,
+        -0.9
+      ],
+      "params": {
+        "width": 11,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_051",
+      "position": [
+        28.25,
+        -16,
+        0.4
+      ],
+      "params": {
+        "width": 6,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_051",
+      "position": [
+        28.25,
+        -16,
+        -0.9
+      ],
+      "params": {
+        "width": 6,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_052",
+      "position": [
+        30.25,
+        -29,
+        0.4
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_052",
+      "position": [
+        30.25,
+        -29,
+        -0.9
+      ],
+      "params": {
+        "width": 5,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_053",
+      "position": [
+        32.25,
+        -24,
+        0.4
+      ],
+      "params": {
+        "width": 8,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_053",
+      "position": [
+        32.25,
+        -24,
+        -0.9
+      ],
+      "params": {
+        "width": 8,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "OuterWall_054",
+      "position": [
+        36.25,
+        -10,
+        0.4
+      ],
+      "params": {
+        "width": 22,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "WallBelt_054",
+      "position": [
+        36.25,
+        -10,
+        -0.9
+      ],
+      "params": {
+        "width": 22,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "WALL",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "CornerUpper_-52_-8",
+      "position": [
+        -52.25,
+        -8.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_-52_-8",
+      "position": [
+        -52.25,
+        -8.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_-52_8",
+      "position": [
+        -52.25,
+        8,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_-52_8",
+      "position": [
+        -52.25,
+        8,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_-38_-8",
+      "position": [
+        -38,
+        -8.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_-38_-8",
+      "position": [
+        -38,
+        -8.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_-38_8",
+      "position": [
+        -38,
+        8,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_-38_8",
+      "position": [
+        -38,
+        8,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_-32_-7",
+      "position": [
+        -32.25,
+        -7.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_-32_-7",
+      "position": [
+        -32.25,
+        -7.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_-32_7",
+      "position": [
+        -32.25,
+        7,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_-32_7",
+      "position": [
+        -32.25,
+        7,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_-26_16",
+      "position": [
+        -26.25,
+        16,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_-26_16",
+      "position": [
+        -26.25,
+        16,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_-18_-8",
+      "position": [
+        -18.25,
+        -8.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_-18_-8",
+      "position": [
+        -18.25,
+        -8.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_-12_30",
+      "position": [
+        -12.25,
+        30,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_-12_30",
+      "position": [
+        -12.25,
+        30,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_0_-12",
+      "position": [
+        -0.25,
+        -12.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_0_-12",
+      "position": [
+        -0.25,
+        -12.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_2_-14",
+      "position": [
+        1.75,
+        -14.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_2_-14",
+      "position": [
+        1.75,
+        -14.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_12_16",
+      "position": [
+        12,
+        15.75,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_12_16",
+      "position": [
+        12,
+        15.75,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_12_30",
+      "position": [
+        12,
+        30,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_12_30",
+      "position": [
+        12,
+        30,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_16_-8",
+      "position": [
+        16,
+        -8.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_16_-8",
+      "position": [
+        16,
+        -8.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_16_12",
+      "position": [
+        16,
+        12,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_16_12",
+      "position": [
+        16,
+        12,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_18_12",
+      "position": [
+        17.75,
+        12,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_18_12",
+      "position": [
+        17.75,
+        12,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_22_-24",
+      "position": [
+        21.75,
+        -24.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_22_-24",
+      "position": [
+        21.75,
+        -24.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_22_-16",
+      "position": [
+        21.75,
+        -16,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_22_-16",
+      "position": [
+        21.75,
+        -16,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_24_-29",
+      "position": [
+        23.75,
+        -29.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_24_-29",
+      "position": [
+        23.75,
+        -29.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_24_23",
+      "position": [
+        24,
+        23,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_24_23",
+      "position": [
+        24,
+        23,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_30_-29",
+      "position": [
+        30,
+        -29.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_30_-29",
+      "position": [
+        30,
+        -29.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_32_-24",
+      "position": [
+        32,
+        -24.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_32_-24",
+      "position": [
+        32,
+        -24.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_32_-16",
+      "position": [
+        32,
+        -16,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_32_-16",
+      "position": [
+        32,
+        -16,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_36_-10",
+      "position": [
+        36,
+        -10.25,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_36_-10",
+      "position": [
+        36,
+        -10.25,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerUpper_36_12",
+      "position": [
+        36,
+        12,
+        0.4
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 3.4
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "CornerBelt_36_12",
+      "position": [
+        36,
+        12,
+        -0.9
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.25,
+        "height": 1.3
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Start_CourtyardWindows",
+      "position": [
+        -18,
+        -7,
+        0
+      ],
+      "params": {
+        "width": 14,
+        "depth": 0.35,
+        "height": 3.8,
+        "count": 2,
+        "open_width": 4,
+        "open_height": 1.9,
+        "sill": 0.9
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "WINDOW",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "Start_WestDoor",
+      "position": [
+        -32,
+        -2,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 0.4,
+        "height": 3.8,
+        "open_width": 3.2,
+        "open_height": 2.8
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "DOOR",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "North_EntryFrame",
+      "position": [
+        -12,
+        16,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 0.4,
+        "height": 3.8,
+        "open_width": 3.2,
+        "open_height": 2.8
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "DOOR"
+    },
+    {
+      "name": "North_EastFrame",
+      "position": [
+        12,
+        19,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 0.4,
+        "height": 3.8,
+        "open_width": 3.2,
+        "open_height": 2.8
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "DOOR",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "Zigzag_EntryFrame",
+      "position": [
+        20,
+        12,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 0.4,
+        "height": 3.8,
+        "open_width": 3.3,
+        "open_height": 2.8
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "DOOR"
+    },
+    {
+      "name": "Exit_HallFrame",
+      "position": [
+        24,
+        -16,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 0.4,
+        "height": 3.8,
+        "open_width": 3.2,
+        "open_height": 2.8
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "DOOR"
+    },
+    {
+      "name": "Exit_FinalFrame",
+      "position": [
+        24,
+        -24,
+        0
+      ],
+      "params": {
+        "width": 6,
+        "depth": 0.4,
+        "height": 3.8,
+        "open_width": 3,
+        "open_height": 2.8
+      },
+      "material": {
+        "palette": "Red",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "DOOR"
+    },
+    {
+      "name": "Secret_OpenFrame",
+      "position": [
+        17,
+        -14,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 0.35,
+        "height": 3.8,
+        "open_width": 3.2,
+        "open_height": 2.8
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "03",
+        "tile_size": 2
+      },
+      "shape": "DOOR",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "Armor_RaisedDais",
+      "position": [
+        -51,
+        -5,
+        0
+      ],
+      "params": {
+        "width": 9,
+        "depth": 10,
+        "height": 1
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Armor_Stairs",
+      "position": [
+        -38,
+        1.5,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 3,
+        "height": 1,
+        "max_step": 0.2
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "STAIRS",
+      "rotation": [
+        0,
+        0,
+        180
+      ]
+    },
+    {
+      "name": "Armor_PickupPedestal",
+      "position": [
+        -47,
+        0,
+        1
+      ],
+      "params": {
+        "width": 1.2,
+        "depth": 1.2,
+        "height": 0.4,
+        "segments": 8
+      },
+      "material": {
+        "palette": "Green",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "CYLINDER",
+      "tag": "INTERACTIVE"
+    },
+    {
+      "name": "Start_Pedestal_-5",
+      "position": [
+        -29,
+        -5,
+        0
+      ],
+      "params": {
+        "width": 1.5,
+        "depth": 1,
+        "height": 0.9
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Start_Pedestal_4",
+      "position": [
+        -29,
+        4,
+        0
+      ],
+      "params": {
+        "width": 1.5,
+        "depth": 1,
+        "height": 0.9
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Control_RaisedStation",
+      "position": [
+        3,
+        19,
+        0
+      ],
+      "params": {
+        "width": 6,
+        "depth": 8,
+        "height": 1
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Control_StationStairs",
+      "position": [
+        -1,
+        21,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 4,
+        "height": 1,
+        "max_step": 0.2
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "STAIRS"
+    },
+    {
+      "name": "Control_Console_20",
+      "position": [
+        -8,
+        20,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 1.3,
+        "height": 1.1
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Control_Screen_20",
+      "position": [
+        -7.8,
+        20.12,
+        1.1
+      ],
+      "params": {
+        "width": 3.6,
+        "depth": 1,
+        "height": 0.12
+      },
+      "material": {
+        "palette": "Purple",
+        "pattern": "09",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "tag": "INTERACTIVE"
+    },
+    {
+      "name": "Control_Console_25",
+      "position": [
+        -8,
+        25,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 1.3,
+        "height": 1.1
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Control_Screen_25",
+      "position": [
+        -7.8,
+        25.12,
+        1.1
+      ],
+      "params": {
+        "width": 3.6,
+        "depth": 1,
+        "height": 0.12
+      },
+      "material": {
+        "palette": "Purple",
+        "pattern": "09",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "tag": "INTERACTIVE"
+    },
+    {
+      "name": "Control_Pillar_-11_17",
+      "position": [
+        -11,
+        17,
+        0
+      ],
+      "params": {
+        "width": 0.65,
+        "depth": 0.65,
+        "height": 3.8
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Control_Pillar_-11_28",
+      "position": [
+        -11,
+        28,
+        0
+      ],
+      "params": {
+        "width": 0.65,
+        "depth": 0.65,
+        "height": 3.8
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Control_Pillar_10_17",
+      "position": [
+        10,
+        17,
+        0
+      ],
+      "params": {
+        "width": 0.65,
+        "depth": 0.65,
+        "height": 3.8
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Control_Pillar_10_28",
+      "position": [
+        10,
+        28,
+        0
+      ],
+      "params": {
+        "width": 0.65,
+        "depth": 0.65,
+        "height": 3.8
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Courtyard_Island",
+      "position": [
+        -2,
+        2,
+        0
+      ],
+      "params": {
+        "width": 8,
+        "depth": 8,
+        "height": 0.35,
+        "segments": 8
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "CYLINDER",
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Courtyard_ArmorMarker",
+      "position": [
+        -2,
+        2,
+        0.35
+      ],
+      "params": {
+        "width": 0.8,
+        "depth": 0.8,
+        "height": 0.6,
+        "segments": 8
+      },
+      "material": {
+        "palette": "Purple",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "CYLINDER",
+      "tag": "INTERACTIVE"
+    },
+    {
+      "name": "Zigzag_AcidWater",
+      "position": [
+        18,
+        -10,
+        -0.25
+      ],
+      "params": {
+        "width": 18,
+        "depth": 22,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Green",
+        "pattern": "08",
+        "tile_size": 2
+      },
+      "shape": "WATER",
+      "tag": "WATER"
+    },
+    {
+      "name": "Zigzag_Bridge_00",
+      "position": [
+        20.5,
+        12.0,
+        -0.5
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 3,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Zigzag_Bridge_01",
+      "position": [
+        21.390792300919827,
+        6.6292826770696145,
+        -0.498
+      ],
+      "params": {
+        "width": 9.848857801796104,
+        "depth": 3,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "rotation": [
+        0,
+        0,
+        -23.962488974578186
+      ],
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Zigzag_Bridge_02",
+      "position": [
+        30.271535603232053,
+        5.311235914182307,
+        -0.496
+      ],
+      "params": {
+        "width": 10.295630140987,
+        "depth": 3,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "rotation": [
+        0,
+        0,
+        -150.94539590092285
+      ],
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Zigzag_Bridge_03",
+      "position": [
+        21.271535603232053,
+        -2.3112359141823067,
+        -0.494
+      ],
+      "params": {
+        "width": 10.295630140987,
+        "depth": 3,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "rotation": [
+        0,
+        0,
+        -29.054604099077146
+      ],
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Zigzag_Bridge_04",
+      "position": [
+        30.062957428668362,
+        -4.828696785835454,
+        -0.492
+      ],
+      "params": {
+        "width": 6.4031242374328485,
+        "depth": 3,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "rotation": [
+        0,
+        0,
+        -141.34019174590992
+      ],
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "BridgeJoint_Cutter_01",
+      "position": [
+        20.5,
+        12.0,
+        -0.5
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 3,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "BridgeJoint_Cutter_02",
+      "position": [
+        21.390792300919827,
+        6.6292826770696145,
+        -0.498
+      ],
+      "params": {
+        "width": 9.848857801796104,
+        "depth": 3,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "rotation": [
+        0,
+        0,
+        -23.962488974578186
+      ],
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "BridgeJoint_Cutter_03",
+      "position": [
+        30.271535603232053,
+        5.311235914182307,
+        -0.496
+      ],
+      "params": {
+        "width": 10.295630140987,
+        "depth": 3,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "rotation": [
+        0,
+        0,
+        -150.94539590092285
+      ],
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "BridgeJoint_Cutter_04",
+      "position": [
+        21.271535603232053,
+        -2.3112359141823067,
+        -0.494
+      ],
+      "params": {
+        "width": 10.295630140987,
+        "depth": 3,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "rotation": [
+        0,
+        0,
+        -29.054604099077146
+      ],
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "BridgeExit_Flush",
+      "position": [
+        17,
+        -14,
+        -1
+      ],
+      "params": {
+        "width": 20,
+        "depth": 4,
+        "height": 2
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Zigzag_ImpLedge",
+      "position": [
+        33,
+        -1,
+        0
+      ],
+      "params": {
+        "width": 2.6,
+        "depth": 9,
+        "height": 1.5
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK"
+    },
+    {
+      "name": "Zigzag_LedgeStair",
+      "position": [
+        35.7,
+        -5,
+        0
+      ],
+      "params": {
+        "width": 4,
+        "depth": 2.5,
+        "height": 1.5,
+        "max_step": 0.2
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "STAIRS",
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "name": "Zigzag_Barrel_0",
+      "position": [
+        34.3,
+        0,
+        1.5
+      ],
+      "params": {
+        "width": 0.7,
+        "depth": 0.7,
+        "height": 1,
+        "segments": 12
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "11",
+        "tile_size": 2
+      },
+      "shape": "CYLINDER",
+      "tag": "PROP"
+    },
+    {
+      "name": "Zigzag_Barrel_1",
+      "position": [
+        34.3,
+        5,
+        1.5
+      ],
+      "params": {
+        "width": 0.7,
+        "depth": 0.7,
+        "height": 1,
+        "segments": 12
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "11",
+        "tile_size": 2
+      },
+      "shape": "CYLINDER",
+      "tag": "PROP"
+    },
+    {
+      "name": "TechCrate_23_-22",
+      "position": [
+        23,
+        -22,
+        0
+      ],
+      "params": {
+        "width": 1.2,
+        "depth": 1.2,
+        "height": 1
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "11",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "tag": "PROP"
+    },
+    {
+      "name": "TechCrate_29_-19",
+      "position": [
+        29,
+        -19,
+        0
+      ],
+      "params": {
+        "width": 1.2,
+        "depth": 1.2,
+        "height": 1
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "11",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "tag": "PROP"
+    },
+    {
+      "name": "TechCrate_6_-12",
+      "position": [
+        6,
+        -12,
+        0
+      ],
+      "params": {
+        "width": 1.2,
+        "depth": 1.2,
+        "height": 1
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "11",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "tag": "PROP"
+    },
+    {
+      "name": "Exit_ButtonPanel",
+      "position": [
+        26.4,
+        -28.65,
+        0.7
+      ],
+      "params": {
+        "width": 1.2,
+        "depth": 0.25,
+        "height": 1.2
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "tag": "INTERACTIVE"
+    },
+    {
+      "name": "Exit_Button",
+      "position": [
+        26.7,
+        -28.4,
+        1
+      ],
+      "params": {
+        "width": 0.6,
+        "depth": 0.12,
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Red",
+        "pattern": "01",
+        "tile_size": 2
+      },
+      "shape": "BLOCK",
+      "tag": "INTERACTIVE"
+    },
+    {
+      "name": "Start_PlayerScale",
+      "position": [
+        -25,
+        -4,
+        0
+      ],
+      "params": {},
+      "material": {
+        "palette": "Light",
+        "pattern": "13",
+        "tile_size": 2
+      },
+      "shape": "PLAYER"
+    }
+  ],
+  "cuts": [
+    {
+      "target": "Zigzag_Bridge_01",
+      "cutter": "BridgeJoint_Cutter_01"
+    },
+    {
+      "target": "Zigzag_Bridge_02",
+      "cutter": "BridgeJoint_Cutter_02"
+    },
+    {
+      "target": "Zigzag_Bridge_03",
+      "cutter": "BridgeJoint_Cutter_03"
+    },
+    {
+      "target": "Zigzag_Bridge_04",
+      "cutter": "BridgeJoint_Cutter_04"
+    },
+    {
+      "target": "Zigzag_Bridge_04",
+      "cutter": "BridgeExit_Flush"
+    }
+  ]
+}
