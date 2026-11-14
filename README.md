@@ -19,11 +19,12 @@ Blocksmith is an independent implementation inspired by publicly described Block
 
 ## CLI example: Entryway in space
 
-![Entryway built through the CLI and rendered with Eevee](examples/entryway-space/renders/overview.jpg)
+[![Entryway — eight-second Eevee video](examples/entryway-space/renders/entryway-eevee.gif)](https://github.com/hlophlopgaming/Blocksmith/releases/download/v0.8.7/entryway-eevee.mp4)
+
+*Eevee · 8 seconds · 720p · 24 fps. Click the animation to open the MP4.*
 
 [Open the complete example](examples/entryway-space): a downloadable `.blend` map,
 five space skyboxes, Eevee renders, source data and exact terminal commands.
-[Watch the eight-second Eevee video](examples/entryway-space/renders/entryway-eevee.mp4).
 The level geometry was created with Python through Blocksmith’s native CLI;
 a separate Blender CLI script sets the skybox, lights and cameras.
 
