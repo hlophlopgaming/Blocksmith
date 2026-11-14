@@ -38,7 +38,7 @@ class BS_OT_row(bpy.types.Operator):
     @classmethod
     def poll(cls,context):
         o=context.active_object
-        return context.mode=='OBJECT' and context.area and context.area.type=='VIEW_3D' and o is not None and o.type=='MESH' and not o.get('bs_cutter')
+        return guard.enabled() and context.mode=='OBJECT' and context.area and context.area.type=='VIEW_3D' and o is not None and o.type=='MESH' and not o.get('bs_cutter')
     def invoke(self,context,event):
         global ACTIVE
         from .drawing import ACTIVE as DRAW

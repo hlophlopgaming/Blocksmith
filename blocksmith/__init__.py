@@ -22,7 +22,7 @@ from .materials import PALETTES, PATTERNS, apply_texture, texture_changed, textu
 from .joints import MODES as JOINT_MODES, BS_OT_join
 from .curves import BS_OT_curve
 
-bl_info = {'name':'Blocksmith','author':'Blocksmith contributors','version':(0,8,3),
+bl_info = {'name':'Blocksmith','author':'Blocksmith contributors','version':(0,8,7),
            'blender':(5,0,0),'location':'View3D > Sidebar > Blocksmith','category':'Object'}
 TAGS = {'BLOCKOUT':(.55,.55,.55,1),'WALKABLE':(.25,.65,.35,1),'WALL':(.55,.65,.8,1),
         'COVER':(.7,.5,.2,1),'CLIMBABLE':(.9,.65,.15,1),'INTERACTIVE':(.3,.8,.9,1),
@@ -31,7 +31,7 @@ TAGS = {'BLOCKOUT':(.55,.55,.55,1),'WALKABLE':(.25,.65,.35,1),'WALL':(.55,.65,.8
 SHAPE_LABELS=dict(zip(SHAPES,('Block','Wall','Door','Window','Arch','Floor','Stairs','Ramp','Cylinder',
     'Corner','L Stairs','U Stairs','Arc Wall','Spiral Stairs','Roof','Low Cover',
     'High Cover','Ladder','Railing','Water','Room','Player','Crouching Player',
-    'Height Ruler','Jump Ruler','Clearance')))
+    'Height Ruler','Jump Ruler','Clearance','Contour Floor','Contour Volume')))
 SHAPE_ITEMS=[(k,SHAPE_LABELS[k],'') for k in SHAPES]
 BUSY=False
 KEYMAPS=[]
@@ -125,7 +125,7 @@ def rebuild(obj, force=False):
 
 
 def changed(self,context):
-    if BUSY or not isinstance(self.id_data,bpy.types.Object): return
+    if not guard.enabled() or BUSY or not isinstance(self.id_data,bpy.types.Object): return
     obj=self.id_data
     from .openings import modifier, update
     try:
@@ -149,6 +149,7 @@ class BSShape(bpy.types.PropertyGroup):
     free_placement: BoolProperty(name='Ignore Blocksmith Rules',default=False,update=guard.placement_changed,
         description='Allow overlaps, reflections and manual edits without Blocksmith rollbacks')
     kind: EnumProperty(name='Kind',items=SHAPE_ITEMS,update=changed)
+    contours: StringProperty(name='Contours',default='[[[0,0],[2,0],[2,2],[0,2]]]',update=changed)
     tag: EnumProperty(name='Tag',items=enum(TAGS))
     width: FloatProperty(name='Width / Run',default=2,min=.01,max=10000,unit='LENGTH',update=changed)
     depth: FloatProperty(name='Depth / Flight',default=2,min=.01,max=10000,unit='LENGTH',update=changed)
@@ -194,6 +195,7 @@ class BSShape(bpy.types.PropertyGroup):
 
 
 def grid_update(self,context):
+    if not guard.enabled(): return
     if context.screen and self.sync_grid:
         for area in context.screen.areas:
             if area.type=='VIEW_3D':
@@ -205,11 +207,26 @@ def grid_update(self,context):
 
 
 def draw_shape_changed(self,context):
+    if not guard.enabled(): return
     from .drawing import shape_changed
     shape_changed(self,context)
 
 
+def file_enabled_changed(self,context):
+    global BUSY
+    if BUSY: return
+    BUSY=True
+    try:
+        for scene in bpy.data.scenes: scene.bs.file_enabled=self.file_enabled
+    finally: BUSY=False
+    guard.sync_enabled()
+    for window in context.window_manager.windows:
+        for area in window.screen.areas: area.tag_redraw()
+
+
 class BSSettings(bpy.types.PropertyGroup):
+    file_enabled: BoolProperty(name='Enable Blocksmith in This File',default=True,update=file_enabled_changed,
+        description='Pause tools, checks and overlays in this blend file without disabling the add-on')
     shape: EnumProperty(name='Shape',items=SHAPE_ITEMS,default='WALL',update=draw_shape_changed)
     preset: StringProperty(name='Preset',default='wall_4')
     preset_group: EnumProperty(name='Preset Group',items=GROUPS)
@@ -226,6 +243,8 @@ class BSSettings(bpy.types.PropertyGroup):
     draw_depth: FloatProperty(name='Depth / Thickness',default=.2,min=.01,max=10000,unit='LENGTH')
     draw_height: FloatProperty(name='Height',default=3,min=.01,max=10000,unit='LENGTH')
     draw_plane_z: FloatProperty(name='Base Elevation',default=0,min=-10000,max=10000,unit='LENGTH')
+    contour_input: EnumProperty(name='Input',items=[('POINTS','Points',''),('FREEHAND','Freehand','')])
+    contour_tolerance: FloatProperty(name='Stroke Simplification',default=.03,min=.001,max=1,unit='LENGTH')
     draw_chain: BoolProperty(name='Wall Chain',default=False)
     joint_mode: EnumProperty(name='Wall Joint',items=JOINT_MODES)
     dimensions: BoolProperty(name='Dimensions',default=True)
@@ -282,7 +301,7 @@ def create(context,kind):
         p.thickness=s.wall_thickness
         p.open_width=s.door_width; p.open_height=s.door_height
         if kind in {'WALL','DOOR','WINDOW','ARCH','RAILING','LADDER'}: p.depth=s.wall_thickness
-        if kind=='FLOOR': p.height=s.floor_thickness
+        if kind in {'FLOOR','POLY_FLOOR'}: p.height=s.floor_thickness
         if kind=='WATER': p.height=s.water_depth
         if kind=='WINDOW': p.open_height=1
         if kind=='LOW_COVER': p.height=s.low_cover
@@ -292,7 +311,7 @@ def create(context,kind):
             p.height=s.player_height if kind=='PLAYER' else s.crouch_height
         if kind=='HEIGHT_RULER': p.height=s.player_height
         tag=('WALL' if kind in {'WALL','DOOR','WINDOW','ARCH','CORNER','CURVED_WALL'} else
-             'WALKABLE' if kind in {'FLOOR','STAIRS','L_STAIRS','U_STAIRS','SPIRAL_STAIRS','RAMP'} else
+             'WALKABLE' if kind in {'FLOOR','POLY_FLOOR','STAIRS','L_STAIRS','U_STAIRS','SPIRAL_STAIRS','RAMP'} else
              'COVER' if kind.endswith('COVER') else 'CLIMBABLE' if kind=='LADDER' else
              'WATER' if kind=='WATER' else 'BLOCKOUT')
         tag_object(obj,tag)
@@ -567,6 +586,8 @@ class BS_PT_main(bpy.types.Panel):
 class BS_PT_tools(bpy.types.Panel):
     bl_label='Additional Tools'; bl_idname='BS_PT_tools'; bl_parent_id='BS_PT_main'
     bl_space_type='VIEW_3D'; bl_region_type='UI'; bl_category='Blocksmith'; bl_options={'DEFAULT_CLOSED'}
+    @classmethod
+    def poll(cls,context): return guard.enabled()
     def draw(self,context):
         l=self.layout
         box=l.box(); box.label(text='Selected Object Tools')
@@ -591,6 +612,8 @@ class BS_PT_tools(bpy.types.Panel):
 class BS_PT_tags(bpy.types.Panel):
     bl_label='Object Tags'; bl_idname='BS_PT_tags'; bl_parent_id='BS_PT_main'
     bl_space_type='VIEW_3D'; bl_region_type='UI'; bl_category='Blocksmith'; bl_options={'DEFAULT_CLOSED'}
+    @classmethod
+    def poll(cls,context): return guard.enabled()
     def draw(self,context):
         for tag in TAGS:
             row=self.layout.row(align=True)
@@ -601,6 +624,8 @@ class BS_PT_tags(bpy.types.Panel):
 class BS_PT_metrics(bpy.types.Panel):
     bl_label='Player Dimensions and Standards'; bl_idname='BS_PT_metrics'; bl_parent_id='BS_PT_main'
     bl_space_type='VIEW_3D'; bl_region_type='UI'; bl_category='Blocksmith'; bl_options={'DEFAULT_CLOSED'}
+    @classmethod
+    def poll(cls,context): return guard.enabled()
     def draw(self,context):
         self.layout.prop(context.scene.bs,'show_metrics',text='Viewport Hints')
         for key in ('player_height','player_radius','crouch_height','max_step','jump_height','jump_gap',
@@ -613,6 +638,8 @@ class BS_PT_metrics(bpy.types.Panel):
 class BS_PT_export(bpy.types.Panel):
     bl_label='Export to Godot'; bl_idname='BS_PT_export'; bl_parent_id='BS_PT_main'
     bl_space_type='VIEW_3D'; bl_region_type='UI'; bl_category='Blocksmith'; bl_options={'DEFAULT_CLOSED'}
+    @classmethod
+    def poll(cls,context): return guard.enabled()
     def draw(self,context):
         s=context.scene.bs
         for key in ('export_format','export_scope','export_path','filename','prefix','per_object','center','collision'):
@@ -622,7 +649,7 @@ class BS_PT_export(bpy.types.Panel):
 
 def draw_dimensions():
     context=bpy.context
-    if not context.scene.bs.dimensions or not context.region_data: return
+    if not guard.enabled() or context.mode!='OBJECT' or not context.scene.bs.dimensions or not context.region_data: return
     for obj in context.selected_objects:
         if obj.type!='MESH' or not obj.bs.enabled: continue
         point=view3d_utils.location_3d_to_region_2d(context.region,context.region_data,obj.matrix_world.translation)
@@ -648,11 +675,13 @@ def draw_dimensions():
             blf.position(0,b.x+8,b.y,0); blf.color(0,*color); blf.draw(0,tr('{0} {1:.2f} m').format(tr(label),height))
 
 
-def menu_add(self,context): self.layout.menu('BS_MT_add')
+def menu_add(self,context):
+    if guard.enabled(): self.layout.menu('BS_MT_add')
 
 from .ui import UI_CLASSES, register_ui, unregister_ui
+from .outlines import BS_OT_outline
 
-CLASSES=(BSShape,BSSettings,BS_OT_add,BS_OT_tool,BS_OT_tag,BS_OT_grid,BS_OT_draw,BS_OT_curve,BS_OT_join,BS_OT_export,
+CLASSES=(BSShape,BSSettings,BS_OT_add,BS_OT_tool,BS_OT_tag,BS_OT_grid,BS_OT_draw,BS_OT_curve,BS_OT_outline,BS_OT_join,BS_OT_export,
          BS_MT_add,BS_MT_pie,BS_PT_main,BS_PT_tools,BS_PT_tags,BS_PT_metrics,BS_PT_export)+UI_CLASSES
 
 

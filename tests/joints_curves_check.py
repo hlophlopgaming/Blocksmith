@@ -76,7 +76,7 @@ for i,mode in enumerate(('POINTS','FREEHAND','ARC')):
     print('PASS:',mode,'closed evaluated mesh, native handles, editable height/thickness')
 
 # Native point editing must use the same protection as a mesh move.
-curve=bpy.data.objects.get('Кривая стена'); old=curve.data.splines[0].bezier_points[0].co.copy()
+curve=next(o for o in c.scene.objects if o.get('bs_curve_wall') and o.data.splines[0].type=='BEZIER'); old=curve.data.splines[0].bezier_points[0].co.copy()
 curve.data.splines[0].bezier_points[0].co=(-20,0,0); c.view_layer.update()
 assert not bs.guard.flush(),'Curve endpoint passed through an existing wall'
 assert (curve.data.splines[0].bezier_points[0].co-old).length<1e-5

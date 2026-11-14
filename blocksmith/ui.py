@@ -72,7 +72,7 @@ class BS_OT_step(bpy.types.Operator):
     def poll(cls,context):
         from . import manual
         o=context.active_object
-        return context.mode=='OBJECT' and o is not None and o.type=='MESH' and o.bs.enabled and not manual(o)
+        return guard.enabled() and context.mode=='OBJECT' and o is not None and o.type=='MESH' and o.bs.enabled and not manual(o)
     @guard.checked
     def execute(self,context):
         from . import manual
@@ -207,6 +207,8 @@ class BS_OT_resize(bpy.types.Operator):
             context.view_layer.update()
             resize(self.obj,self.key,value,self.side); context.view_layer.update(); context.area.tag_redraw()
         return {'RUNNING_MODAL'}
+    def cancel(self,context):
+        if context.area: context.area.header_text_set(None)
 
 
 class BS_GGT_resize(bpy.types.GizmoGroup):
@@ -239,6 +241,8 @@ class BS_GGT_resize(bpy.types.GizmoGroup):
 class BS_PT_catalog(bpy.types.Panel):
     bl_label='Module Presets'; bl_idname='BS_PT_catalog'; bl_space_type='VIEW_3D'; bl_region_type='WINDOW'
     bl_ui_units_x=24
+    @classmethod
+    def poll(cls,context): return guard.enabled()
     def draw(self,context):
         s=context.scene.bs; l=self.layout
         l.prop(s,'preset_group',text='Category')
@@ -261,7 +265,6 @@ def size_row(layout,p,key,label):
 def draw_creation(l,context):
     s=context.scene.bs
     box=l.column()
-    box.prop(s,'shape',text='Shape')
     if s.shape in {'DOOR','WINDOW','ARCH','STAIRS','RAMP'}:
         row=box.row(align=True)
         row.prop(s,'object_snap',text='Snapping',toggle=True)
@@ -278,11 +281,6 @@ def draw_creation(l,context):
     if s.shape=='WALL':
         box.prop(s,'draw_chain',text='Chain Walls')
         if s.draw_chain: box.prop(s,'joint_mode',text='Joint')
-    header,curves=l.panel('blocksmith_curves',default_closed=True)
-    header.label(text='Curved Walls',icon='CURVE_BEZCURVE')
-    if curves:
-        from .curves import MODES
-        for mode,label,_ in MODES: curves.operator('blocksmith.curve',text=label).mode=mode
     row=box.row(align=True)
     row.operator('blocksmith.grid',text='÷2').factor=.5
     row.prop(s,'grid',text='Grid'); row.operator('blocksmith.grid',text='×2').factor=2
@@ -290,22 +288,82 @@ def draw_creation(l,context):
 
 
 def draw_tools(l,context):
-    for choices in ((('WALL','Wall'),('FLOOR','Floor'),('ROOM','Room')),
-                    (('STAIRS','Stairs'),('RAMP','Ramp'),('BLOCK','Block')),
-                    (('DOOR','Door'),('WINDOW','Window'),('ARCH','Arch'))):
-        row=l.row(align=True)
-        for kind,label in choices:
-            op=row.operator('blocksmith.activate',text=label,depress=context.scene.bs.shape==kind)
+    from . import SHAPE_LABELS
+    tools=(('WALL','MOD_BUILD'),('FLOOR','MESH_PLANE'),
+           ('BLOCK','MESH_CUBE'),('ROOM','MESH_GRID'),
+           ('DOOR','MOD_BOOLEAN'),('WINDOW','MOD_WIREFRAME'),
+           ('ARCH','SPHERECURVE'),('CORNER','MESH_CIRCLE'),
+           ('STAIRS','MOD_ARRAY'),('RAMP','IPO_LINEAR'),
+           ('L_STAIRS','MOD_ARRAY'),('U_STAIRS','MOD_ARRAY'),
+           ('CYLINDER','MESH_CYLINDER'),('SPIRAL_STAIRS','FORCE_VORTEX'),
+           ('ROOF','MESH_CONE'),('CURVED_WALL','CURVE_BEZCURVE'),
+           ('LOW_COVER','MESH_CUBE'),('HIGH_COVER','MESH_CUBE'),
+           ('RAILING','MOD_WIREFRAME'),('LADDER','MOD_ARRAY'),('WATER','MOD_FLUID'))
+    header,body=l.panel('blocksmith_shapes',default_closed=False)
+    header.label(text='Create',icon='ADD')
+    if body:
+        grid=body.grid_flow(row_major=True,columns=2,even_columns=True,even_rows=True,align=True)
+        grid.scale_y=1.25
+        for kind,icon_name in tools:
+            op=grid.operator('blocksmith.activate',text=SHAPE_LABELS[kind],icon=icon_name,
+                             depress=context.scene.bs.shape==kind)
             op.kind=kind
-    kind=context.scene.bs.shape
-    text=('Drag an opening directly on a wall' if kind in {'DOOR','WINDOW','ARCH'} else
-          'From lower floor to upper edge' if kind in {'STAIRS','RAMP'} else 'Drag to draw a structure in the scene')
-    l.label(text=text,icon='MOUSE_LMB')
+    header,body=l.panel('blocksmith_references',default_closed=True)
+    header.label(text='Scale References',icon='ARMATURE_DATA')
+    if body:
+        from .geometry import SHAPES,REFERENCES
+        grid=body.grid_flow(row_major=True,columns=2,even_columns=True,align=True)
+        for kind in SHAPES:
+            if kind not in REFERENCES:continue
+            grid.operator('blocksmith.activate',text=SHAPE_LABELS[kind],
+                          depress=context.scene.bs.shape==kind).kind=kind
+    header,body=l.panel('blocksmith_curves',default_closed=True)
+    header.label(text='Curved Walls',icon='CURVE_BEZCURVE')
+    if body:
+        from .curves import MODES
+        body.operator('blocksmith.activate',text='Arc by Diameter and Angle',icon='MESH_CIRCLE').kind='CURVED_WALL'
+        for mode,label,_ in MODES: body.operator('blocksmith.curve',text=label).mode=mode
 
 
 def draw_main(l,context):
     from . import manual
     s=context.scene.bs
+    l.prop(s,'file_enabled',text='Enable Blocksmith in This File',toggle=True)
+    if not guard.enabled():
+        l.label(text='Blocksmith is paused in this file',icon='PAUSE')
+        l.label(text='Model and sculpt with Blender as usual')
+        return
+    if context.mode=='OBJECT':
+        from .drawing import TOOL_ID
+        tool=context.workspace.tools.from_space_view3d_mode('OBJECT',create=False)
+        active=tool is not None and tool.idname==TOOL_ID
+        draw_tools(l,context)
+        sketch=l.box();sketch.label(text='Draw Geometry',icon='GREASEPENCIL')
+        sketch.prop(s,'contour_input',expand=True)
+        row=sketch.row(align=True)
+        for kind,label in [('POLY_FLOOR','Contour Floor'),('POLY_BLOCK','Contour Volume')]:
+            op=row.operator('blocksmith.outline',text=label)
+            op.kind=kind;op.mode=s.contour_input
+        if s.contour_input=='FREEHAND':sketch.prop(s,'contour_tolerance')
+        sketch.label(text='Enter: finish · O: hole · H: height')
+        preset=BY_ID.get(s.preset)
+        row=l.row(align=True)
+        if preset and icon(preset[0]): row.template_icon(icon_value=icon(preset[0]),scale=3)
+        col=row.column(align=True)
+        if preset: col.label(text=preset[1])
+        col.popover(panel='BS_PT_catalog',text='Preset Catalog',icon='ASSET_MANAGER')
+        header,body=l.panel('blocksmith_create',default_closed=context.active_object is not None)
+        header.label(text='Drawing Settings',icon='PREFERENCES')
+        if body:
+            draw_creation(body,context)
+        kind=s.shape
+        l.label(text=('Drag an opening directly on a wall' if kind in {'DOOR','WINDOW','ARCH'} else
+                      'From lower floor to upper edge' if kind in {'STAIRS','RAMP'} else
+                      'Drag to draw a structure in the scene'),icon='MOUSE_LMB')
+        if active:
+            l.operator('blocksmith.stop',text='Return to Selection',icon='RESTRICT_SELECT_OFF')
+            l.label(text='Drag LMB · Esc / RMB: select')
+            if s.shape not in {'DOOR','WINDOW','ARCH','STAIRS','RAMP'}: l.label(text='H: height · Ctrl: no snapping')
     obj=context.active_object
     if obj and obj.type=='MESH':
         box=l.box()
@@ -315,34 +373,25 @@ def draw_main(l,context):
             box.operator('blocksmith.free_placement',text='Apply to Selected').enabled=obj.bs.free_placement
     if context.mode!='OBJECT':
         l.label(text='Tab → Object Mode',icon='INFO'); return
-    from .drawing import ACTIVE, TOOL_ID
-    tool=context.workspace.tools.from_space_view3d_mode('OBJECT',create=False)
-    active=tool is not None and tool.idname==TOOL_ID
-    row=l.row(align=True); row.scale_y=1.5
-    row.operator('blocksmith.activate',text='Draw Structures',icon='GREASEPENCIL',depress=active)
-    if active or ACTIVE is not None: row.operator('blocksmith.stop',text='',icon='CANCEL')
-    draw_tools(l,context)
     if BS_OT_row.poll(context):
         row=l.row(align=True)
         row.operator('blocksmith.row',text='Object Row',icon='MOD_ARRAY')
         from .array_tool import opening_source
         if opening_source(context.active_object):row.operator('blocksmith.row',text='Opening Row').opening=True
-    preset=BY_ID.get(s.preset)
-    row=l.row(align=True)
-    if preset and icon(preset[0]): row.template_icon(icon_value=icon(preset[0]),scale=3)
-    col=row.column(align=True)
-    if preset: col.label(text=preset[1])
-    col.popover(panel='BS_PT_catalog',text='Preset Catalog',icon='ASSET_MANAGER')
-    header,body=l.panel('blocksmith_create',default_closed=context.active_object is not None)
-    header.label(text='Next Structure',icon='ADD')
-    if body: draw_creation(body,context)
-    if active:
-        l.label(text='Drag LMB · Esc / RMB: select')
-        if s.shape not in {'DOOR','WINDOW','ARCH','STAIRS','RAMP'}: l.label(text='H: height · Ctrl: no snapping')
     warning=guard.message(context.scene)
     if warning:
         row=l.row(); row.alert=True; row.label(text=warning,icon='ERROR')
     obj=context.active_object
+    if obj is not None and obj.type=='MESH':
+        cutters=[m.object for m in obj.modifiers if m.type=='BOOLEAN' and m.object and
+                 (m.object.get('bs_drawn_opening') or m.object.get('bs_opening'))]
+        if cutters:
+            openings=l.box(); openings.label(text='Edit Placed Openings',icon='MOD_BOOLEAN')
+            for cutter in cutters:
+                box=openings.box(); box.label(text=cutter.name)
+                box.prop(cutter,'location',text='Position')
+                box.prop(cutter,'dimensions',text='Size')
+                box.prop(cutter,'rotation_euler',text='Rotation')
     if BS_OT_attach.poll(context):
         contact=l.box(); contact.label(text=tr('Attach to face: ')+obj.name)
         contact.label(text='Target axes; the neighboring piece moves')
@@ -373,7 +422,10 @@ def draw_main(l,context):
             box.operator('blocksmith.tool',text='Bake to Mesh').action='BAKE'
             box.operator('blocksmith.tool',text='Reset Manual Edits').action='RESET'
         else:
-            for key,label in [('width','Length'),('depth','Depth'),('height','Height')]: size_row(box,p,key,label)
+            for key,label in [('width','Diameter' if p.kind=='CURVED_WALL' else 'Length'),('depth','Depth'),('height','Height')]: size_row(box,p,key,label)
+            if p.kind in {'POLY_FLOOR','POLY_BLOCK'}:
+                op=box.operator('blocksmith.outline',text='Edit Contour Points',icon='EDITMODE_HLT')
+                op.edit=True;op.mode='POINTS'
             box.prop(s,'handles',text='Drag Dimensions in Viewport')
             if 'STAIRS' in p.kind:
                 box.prop(p,'auto_steps',text='Automatic Steps')
@@ -428,6 +480,8 @@ class BS_PT_surface(bpy.types.Panel):
     bl_options={'DEFAULT_CLOSED'}
     bl_label='Kenney Textures'; bl_idname='BS_PT_surface'; bl_parent_id='BS_PT_main'
     bl_space_type='VIEW_3D'; bl_region_type='UI'; bl_category='Blocksmith'
+    @classmethod
+    def poll(cls,context): return guard.enabled()
     def draw(self,context):
         s=context.scene.bs; l=self.layout
         l.prop(s,'palette',text='Color')
@@ -441,6 +495,7 @@ class BS_PT_surface(bpy.types.Panel):
 
 class BS_OT_audit(bpy.types.Operator):
     bl_idname='blocksmith.audit'; bl_label='Check Geometry'
+    @guard.checked
     def execute(self,context):
         errors=guard.audit(context.scene)
         if errors:
@@ -458,7 +513,7 @@ class BS_OT_activate(bpy.types.Operator):
     bl_description='Drag the selected structure in the scene. Esc / RMB returns to selection'
     kind: StringProperty(name='Kind',default='')
     @classmethod
-    def poll(cls,context): return context.mode=='OBJECT' and context.area and context.area.type=='VIEW_3D'
+    def poll(cls,context): return guard.enabled() and context.mode=='OBJECT' and context.area and context.area.type=='VIEW_3D'
     def execute(self,context):
         from .drawing import TOOL_ID
         if self.kind: context.scene.bs.shape=self.kind
@@ -482,6 +537,8 @@ class BS_OT_stop(bpy.types.Operator):
     def execute(self,context):
         from .drawing import ACTIVE, leave_tool
         from .curves import ACTIVE as CURVE
+        from .outlines import ACTIVE as OUTLINE
+        if OUTLINE is not None:OUTLINE.finish(context,{'CANCELLED'})
         if CURVE is not None: CURVE.finish(context,{'CANCELLED'})
         if ACTIVE is not None: ACTIVE.stop_requested=True
         else: leave_tool(context)
@@ -505,20 +562,28 @@ def register_ui():
     bpy.utils.register_tool(BS_WST_draw,after={'builtin.primitive_cube_add'},separator=True)
 
 
-def unregister_ui():
-    global PREVIEWS
+def stop_tools():
     from .array_tool import ACTIVE as ROW
     if ROW is not None:ROW.cleanup()
     from .drawing import ACTIVE
     from .curves import ACTIVE as CURVE
+    from .outlines import ACTIVE as OUTLINE
+    if OUTLINE is not None:OUTLINE.finish(bpy.context,{'CANCELLED'})
     if CURVE is not None: CURVE.finish(bpy.context,{'CANCELLED'})
     if ACTIVE is not None: ACTIVE.finish(bpy.context)
-    from .drawing import BS_WST_draw, CHAIN, TOOL_ID
+    from .drawing import CHAIN, TOOL_ID
     for window in bpy.context.window_manager.windows:
         area=next((a for a in window.screen.areas if a.type=='VIEW_3D'),None)
         tool=window.workspace.tools.from_space_view3d_mode('OBJECT',create=False)
         if area and tool and tool.idname==TOOL_ID:
-            with bpy.context.temp_override(window=window,area=area): bpy.ops.wm.tool_set_by_id(name='builtin.select_box')
-    bpy.utils.unregister_tool(BS_WST_draw)
+            with bpy.context.temp_override(window=window,area=area):
+                if bpy.context.mode=='OBJECT': bpy.ops.wm.tool_set_by_id(name='builtin.select_box')
     CHAIN.clear()
+
+
+def unregister_ui():
+    global PREVIEWS
+    stop_tools()
+    from .drawing import BS_WST_draw
+    bpy.utils.unregister_tool(BS_WST_draw)
     if PREVIEWS: bpy.utils.previews.remove(PREVIEWS); PREVIEWS=None

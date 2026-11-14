@@ -7,6 +7,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'blocksmith'))
 from geometry import SHAPES
 from presets import PRESETS, BY_ID
+from outline_geometry import validate as validate_contours
 
 TAGS=('BLOCKOUT','WALKABLE','WALL','COVER','CLIMBABLE','INTERACTIVE','HAZARD','TRIGGER','PROP','OUT_OF_BOUNDS','WATER')
 DIMENSIONS={'width','depth','height','thickness','open_width','open_height','sill','offset',
@@ -52,7 +53,7 @@ def validate(spec):
     names=set()
     for i,obj in enumerate(objects):
         path=f'objects[{i}]'
-        keys(obj,{'name','shape','preset','material','position','rotation','tag','params','pivot'},path)
+        keys(obj,{'name','shape','preset','material','position','rotation','tag','params','pivot','contours'},path)
         if 'preset' in obj:
             if not isinstance(obj['preset'],str) or obj['preset'] not in BY_ID: fail(path+'.preset','unknown preset')
             if 'shape' in obj and obj['shape']!=BY_ID[obj['preset']][3]: fail(path,'shape conflicts with preset')
@@ -69,6 +70,11 @@ def validate(spec):
         if name in names: fail(path+'.name','duplicate name '+name)
         names.add(name)
         if obj.get('shape') not in SHAPES: fail(path+'.shape','unknown shape; run shapes to list')
+        if obj['shape'] in {'POLY_FLOOR','POLY_BLOCK'}:
+            if 'contours' not in obj:fail(path+'.contours','required for contour shapes')
+            try:validate_contours(obj['contours'])
+            except ValueError as exc:fail(path+'.contours',str(exc))
+        elif 'contours' in obj:fail(path+'.contours','only supported by contour shapes')
         if 'position' in obj: vector(obj['position'],path+'.position')
         if 'rotation' in obj: vector(obj['rotation'],path+'.rotation',-3600,3600)
         if 'pivot' in obj: vector(obj['pivot'],path+'.pivot',0,1)
@@ -138,12 +144,16 @@ def schema():
                 'objects':{'type':'array','minItems':1,'maxItems':1000,'items':{
                     'type':'object','additionalProperties':False,'required':['name'],'anyOf':[{'required':['shape']},{'required':['preset']}],'properties':{
                         'name':{'type':'string','minLength':1,'maxLength':63},'shape':{'enum':SHAPES},'preset':{'enum':list(BY_ID)},
+                        'contours':{'type':'array','minItems':1,'maxItems':17,'items':{'type':'array','minItems':3,'maxItems':256,
+                            'items':{'type':'array','minItems':2,'maxItems':2,'items':{'type':'number','minimum':-10000,'maximum':10000}}}},
                         'material':{'type':'object','additionalProperties':False,'properties':{
                             'palette':{'enum':['Light','Dark','Orange','Green','Purple','Red']},
                             'pattern':{'enum':[f'{i:02d}' for i in range(1,14)]},'tile_size':positive}},
                         'position':vector3,'rotation':{**vector3,'items':{'type':'number','minimum':-3600,'maximum':3600}},
                         'pivot':{**vector3,'items':{'type':'number','minimum':0,'maximum':1}},
-                        'tag':{'enum':TAGS},'params':{'type':'object','additionalProperties':False,'properties':params}}}},
+                        'tag':{'enum':TAGS},'params':{'type':'object','additionalProperties':False,'properties':params}},
+                    'allOf':[{'if':{'required':['shape'],'properties':{'shape':{'enum':['POLY_FLOOR','POLY_BLOCK']}}},
+                              'then':{'required':['contours']},'else':{'not':{'required':['contours']}}}]}},
                 'cuts':{'type':'array','maxItems':1000,'items':{'type':'object','additionalProperties':False,
                     'required':['target','cutter'],'properties':{'target':{'type':'string'},'cutter':{'type':'string'}}}}}}
 

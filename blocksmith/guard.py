@@ -20,10 +20,35 @@ _depth=0
 _checking=False
 _history=None
 _history_reverting=False
-_bootstrap=False
+_enabled=None
 
 
 def core(): return sys.modules[__package__]
+
+
+def enabled():
+    return all(scene.bs.file_enabled for scene in bpy.data.scenes)
+
+
+def sync_enabled():
+    global _enabled,_history
+    active=enabled()
+    if active!=_enabled:
+        _enabled=active; _history=None
+        _states.clear(); _messages.clear(); _surfaces.clear(); _dirty.clear(); cleanup()
+        for _,item in core().KEYMAPS: item.active=active
+        if active:
+            # Resuming accepts the file's current meshes, including sculpt edits.
+            for scene in bpy.data.scenes: _states[scene.as_pointer()]=capture(scene)
+    if not active:
+        engine=core(); saved=engine.BUSY; engine.BUSY=True
+        try:
+            for scene in bpy.data.scenes:
+                if scene.bs.file_enabled: scene.bs.file_enabled=False
+        finally: engine.BUSY=saved
+        from .ui import stop_tools
+        stop_tools()
+    return active
 
 
 def managed(obj):
@@ -32,12 +57,12 @@ def managed(obj):
 
 
 def protected(obj):
-    return managed(obj) and not obj.bs.free_placement
+    return enabled() and managed(obj) and not obj.bs.free_placement
 
 
 def placement_changed(self,context):
     engine=core()
-    if engine.BUSY or not isinstance(self.id_data,bpy.types.Object) or self.id_data.mode!='OBJECT': return
+    if not enabled() or engine.BUSY or not isinstance(self.id_data,bpy.types.Object) or self.id_data.mode!='OBJECT': return
     if not self.free_placement:
         errors=audit(context.scene,changed={self.id_data.as_pointer()})
         if errors:
@@ -152,6 +177,7 @@ def surface(obj,depsgraph):
 
 def audit(scene,objects=None,changed=None,previous=None,limit=20):
     """Return actionable errors, testing real mesh components rather than object boxes."""
+    if not enabled(): return []
     dg=bpy.context.evaluated_depsgraph_get()
     objects=list(objects) if objects is not None else list(scene.objects)
     objects=[o for o in objects if protected(o) and not excluded(o,scene)]
@@ -244,7 +270,7 @@ def restore(scene,previous,current,changed):
 
 def flush(scene=None,throw=False):
     global _checking
-    if _checking or _depth: return True
+    if not enabled() or _checking or _depth: return True
     scene=scene or bpy.context.scene
     _checking=True
     try:
@@ -275,6 +301,9 @@ def flush(scene=None,throw=False):
 @contextmanager
 def transaction(context):
     global _depth
+    if not enabled():
+        yield
+        return
     if not _depth and not _checking and context.scene.as_pointer() not in _states:
         _states[context.scene.as_pointer()]=capture(context.scene)
     _depth+=1
@@ -287,6 +316,11 @@ def transaction(context):
 def checked(function):
     def run(args,kwargs):
         context=next((a for a in args if hasattr(a,'scene') and hasattr(a,'view_layer')),bpy.context)
+        if not enabled():
+            if args and isinstance(args[0],bpy.types.Operator):
+                if function.__name__=='modal' and hasattr(args[0],'cancel'): args[0].cancel(context)
+                return {'CANCELLED'}
+            return None
         try:
             with transaction(context): return function(*args,**kwargs)
         except ConstraintError as exc:
@@ -309,17 +343,20 @@ def message(scene): return _messages.get(scene.as_pointer(),'')
 
 @persistent
 def dirty(scene,depsgraph):
-    if not _checking and not _depth: _dirty.add(scene.as_pointer())
+    if enabled() and not _checking and not _depth: _dirty.add(scene.as_pointer())
 
 
 @persistent
 def reload_state(*args):
-    global _history
-    _history=None; _states.clear(); _surfaces.clear(); _dirty.update(s.as_pointer() for s in bpy.data.scenes)
+    global _history,_enabled
+    _enabled=None; _history=None; _states.clear(); _surfaces.clear(); _dirty.update(s.as_pointer() for s in bpy.data.scenes)
 
 
 def history_event(action):
     global _history
+    if not enabled():
+        _history=None; _states.clear()
+        return
     baseline={s['name']:{'raw':s['raw'],'stamp':s['stamp'],'world':s['world'].copy(),'free':s['free']}
               for states in _states.values() for s in states.values()}
     _states.clear()
@@ -337,6 +374,7 @@ def after_redo(*args): history_event('REDO')
 
 def check_history(scene):
     global _history,_history_reverting,_checking
+    if not enabled(): return
     action,baseline=_history; _history=None; _checking=True
     try:
         current=capture(scene)
@@ -357,10 +395,7 @@ def check_history(scene):
 
 
 def tick():
-    global _bootstrap
-    if _bootstrap:
-        _bootstrap=False
-        for scene in bpy.data.scenes: _states[scene.as_pointer()]=capture(scene)
+    if not sync_enabled(): return .5
     if not bpy.app.is_job_running('RENDER') and not _checking and not _depth:
         for scene in list(bpy.data.scenes):
             if scene!=bpy.context.scene: continue
@@ -373,11 +408,10 @@ def tick():
 
 
 def register():
-    global _bootstrap
+    global _enabled
+    _enabled=None
     # Blender restricts scene access while enabling an installed extension.
-    _bootstrap=not hasattr(bpy.data,'scenes')
-    if not _bootstrap:
-        for scene in bpy.data.scenes: _states[scene.as_pointer()]=capture(scene)
+    if hasattr(bpy.data,'scenes'): sync_enabled()
     bpy.app.handlers.depsgraph_update_post.append(dirty)
     bpy.app.handlers.load_post.append(reload_state)
     bpy.app.handlers.undo_post.append(after_undo); bpy.app.handlers.redo_post.append(after_redo)
@@ -394,7 +428,7 @@ def unregister():
 
 def placement_error(context,vertices,faces,matrix,kind,replacements=None):
     global _checking
-    if kind in REFERENCES|{'WATER'}: return ''
+    if not enabled() or kind in REFERENCES|{'WATER'}: return ''
     saved=_checking; _checking=True
     try:
         from mathutils import Vector

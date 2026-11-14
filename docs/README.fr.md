@@ -2,7 +2,7 @@
 
 [English](../README.md) · [Español](README.es.md) · **Français** · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
-Dessinez des prototypes de niveaux modifiables dans **Blender 5+** et exportez-les vers **Godot**. Version **0.8.3**, sous licence **GPL-3.0-or-later**.
+Dessinez des prototypes de niveaux modifiables dans **Blender 5+** et exportez-les vers **Godot**. Version **0.8.7**, sous licence **GPL-3.0-or-later**.
 
 Blocksmith est une réalisation indépendante inspirée des méthodes de travail de BlockD décrites publiquement. Il ne reprend pas toutes les fonctions de BlockD. L’interface est disponible en anglais, espagnol, français, allemand et russe. Choisissez la langue dans **Edit → Preferences → Interface → Translation** et activez **Interface** et **Tooltips**. Blocksmith suit la langue de Blender ; les noms des objets existants sont conservés.
 
@@ -17,15 +17,18 @@ Blocksmith est une réalisation indépendante inspirée des méthodes de travail
 - Marquez des maillages pour permettre leur **placement libre**, sans les contraintes géométriques de Blocksmith.
 - Générez des niveaux à partir de JSON validé grâce à une interface en ligne de commande Python, sans installer le module dans votre session personnelle de Blender.
 
+
+Désactivez **Activer Blocksmith dans ce fichier** en haut du panneau pour modéliser ou sculpter librement. Ce réglage est enregistré dans le `.blend` et s’applique à toutes ses scènes. Les outils, raccourcis, indications, mises à jour automatiques et annulations de géométrie sont suspendus ; l’extension reste activée dans Blender. Réactivez le même réglage pour reprendre sans restaurer l’ancienne géométrie. Les paramètres d’accrochage natifs de Blender restent inchangés.
+
 ## Installation
 
-1. Téléchargez `blocksmith-0.8.3.zip` depuis les [versions publiées](https://github.com/hlophlopgaming/Blocksmith/releases), ou créez l’archive depuis la racine du dépôt :
+1. Téléchargez `blocksmith-0.8.7.zip` depuis les [versions publiées](https://github.com/hlophlopgaming/Blocksmith/releases), ou créez l’archive depuis la racine du dépôt :
 
    ```sh
    python3 tools/package.py
    ```
 
-2. Dans Blender, ouvrez **Edit → Preferences → Get Extensions → menu en haut à droite → Install from Disk**. Sélectionnez le ZIP téléchargé ou `dist/blocksmith-0.8.3.zip`, puis activez l’extension.
+2. Dans Blender, ouvrez **Edit → Preferences → Get Extensions → menu en haut à droite → Install from Disk**. Sélectionnez le ZIP téléchargé ou `dist/blocksmith-0.8.7.zip`, puis activez l’extension.
 3. Dans la vue 3D, appuyez sur **N** et ouvrez l’onglet **Blocksmith**.
 
 La création de l’archive nécessite Python 3.10+, sans dépendance Python externe. Les archives automatiques **Source code** de GitHub contiennent les sources ; ce ne sont pas des archives d’installation de l’extension.

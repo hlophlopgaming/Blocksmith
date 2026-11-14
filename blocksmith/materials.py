@@ -40,4 +40,6 @@ def apply_texture(obj):
 
 
 def texture_changed(self,context):
+    from . import guard
+    if not guard.enabled(): return
     if self.enabled or self.id_data.get('bs_curve_wall'): apply_texture(self.id_data)

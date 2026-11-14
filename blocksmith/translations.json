@@ -2903,5 +2903,187 @@
     "FBX",
     "FBX",
     "FBX"
+  ],
+  [
+    "Create",
+    "Создание",
+    "Crear",
+    "Créer",
+    "Erstellen"
+  ],
+  [
+    "Scale References",
+    "Масштабные ориентиры",
+    "Referencias de escala",
+    "Repères d’échelle",
+    "Maßstabsreferenzen"
+  ],
+  [
+    "Drawing Settings",
+    "Параметры рисования",
+    "Ajustes de dibujo",
+    "Réglages du dessin",
+    "Zeicheneinstellungen"
+  ],
+  [
+    "Enable Blocksmith in This File",
+    "Включить Blocksmith в этом файле",
+    "Activar Blocksmith en este archivo",
+    "Activer Blocksmith dans ce fichier",
+    "Blocksmith in dieser Datei aktivieren"
+  ],
+  [
+    "Pause tools, checks and overlays in this blend file without disabling the add-on",
+    "Приостановить инструменты, проверки и подсказки в этом blend-файле, оставив аддон включённым",
+    "Pausar herramientas, comprobaciones y superposiciones en este archivo blend sin desactivar el complemento",
+    "Suspendre les outils, les vérifications et les indications dans ce fichier blend sans désactiver l’extension",
+    "Werkzeuge, Prüfungen und Einblendungen in dieser Blend-Datei pausieren, ohne das Add-on zu deaktivieren"
+  ],
+  [
+    "Blocksmith is paused in this file",
+    "Blocksmith приостановлен в этом файле",
+    "Blocksmith está en pausa en este archivo",
+    "Blocksmith est suspendu dans ce fichier",
+    "Blocksmith ist in dieser Datei pausiert"
+  ],
+  [
+    "Model and sculpt with Blender as usual",
+    "Можно моделить и скульптить как обычно",
+    "Modela y esculpe con Blender como siempre",
+    "Modélisez et sculptez dans Blender comme d’habitude",
+    "Wie gewohnt mit Blender modellieren und formen"
+  ],
+  [
+    "Precise Segments",
+    "Точные сегменты",
+    "Segmentos precisos",
+    "Segments précis",
+    "Präzise Segmente"
+  ],
+  [
+    "Arc by Diameter and Angle",
+    "Дуга по диаметру и углу",
+    "Arco por diámetro y ángulo",
+    "Arc par diamètre et angle",
+    "Bogen nach Durchmesser und Winkel"
+  ],
+  [
+    "Diameter",
+    "Диаметр",
+    "Diámetro",
+    "Diamètre",
+    "Durchmesser"
+  ],
+  [
+    "Edit Placed Openings",
+    "Редактирование проёмов",
+    "Editar aberturas colocadas",
+    "Modifier les ouvertures placées",
+    "Platzierte Öffnungen bearbeiten"
+  ],
+  [
+    "Position",
+    "Положение",
+    "Posición",
+    "Position",
+    "Position"
+  ],
+  [
+    "Draw Geometry",
+    "Рисование геометрии",
+    "Dibujar geometría",
+    "Dessiner la géométrie",
+    "Geometrie zeichnen"
+  ],
+  [
+    "Contour Floor",
+    "Пол по контуру",
+    "Suelo por contorno",
+    "Sol par contour",
+    "Konturboden"
+  ],
+  [
+    "Contour Volume",
+    "Объём по контуру",
+    "Volumen por contorno",
+    "Volume par contour",
+    "Konturvolumen"
+  ],
+  [
+    "Draw Contour",
+    "Рисовать контур",
+    "Dibujar contorno",
+    "Dessiner un contour",
+    "Kontur zeichnen"
+  ],
+  [
+    "Contour",
+    "Контур",
+    "Contorno",
+    "Contour",
+    "Kontur"
+  ],
+  [
+    "Edit Contour Points",
+    "Редактировать точки контура",
+    "Editar puntos del contorno",
+    "Modifier les points du contour",
+    "Konturpunkte bearbeiten"
+  ],
+  [
+    "Stroke Simplification",
+    "Упрощение штриха",
+    "Simplificación del trazo",
+    "Simplification du trait",
+    "Strichvereinfachung"
+  ],
+  [
+    "Points",
+    "По точкам",
+    "Puntos",
+    "Points",
+    "Punkte"
+  ],
+  [
+    "Input",
+    "Ввод",
+    "Entrada",
+    "Saisie",
+    "Eingabe"
+  ],
+  [
+    "Enter: finish · O: hole · H: height",
+    "Enter: завершить · O: отверстие · H: высота",
+    "Enter: terminar · O: hueco · H: altura",
+    "Entrée : terminer · O : trou · H : hauteur",
+    "Enter: fertig · O: Loch · H: Höhe"
+  ],
+  [
+    "LMB: points",
+    "ЛКМ: точки",
+    "BIR: puntos",
+    "Clic gauche : points",
+    "LMT: Punkte"
+  ],
+  [
+    "Drag LMB: closed stroke",
+    "Зажать ЛКМ: замкнутый штрих",
+    "Arrastrar BIR: trazo cerrado",
+    "Glisser avec le bouton gauche : contour fermé",
+    "LMT ziehen: geschlossener Strich"
+  ],
+  [
+    "LMB: move point · I: insert · Del: delete point · X: remove hole",
+    "ЛКМ: двигать точку · I: вставить · Del: удалить точку · X: удалить отверстие",
+    "BIR: mover punto · I: insertar · Supr: borrar punto · X: borrar hueco",
+    "Clic gauche : déplacer · I : insérer · Suppr : supprimer le point · X : supprimer le trou",
+    "LMT: Punkt bewegen · I: einfügen · Entf: Punkt löschen · X: Loch löschen"
+  ],
+  [
+    "O: hole · Tab: edit · Enter: finish · Esc: cancel",
+    "O: отверстие · Tab: точки · Enter: завершить · Esc: отмена",
+    "O: hueco · Tab: editar · Enter: terminar · Esc: cancelar",
+    "O : trou · Tab : modifier · Entrée : terminer · Échap : annuler",
+    "O: Loch · Tab: bearbeiten · Enter: fertig · Esc: abbrechen"
   ]
 ]

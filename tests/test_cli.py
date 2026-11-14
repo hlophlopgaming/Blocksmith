@@ -12,6 +12,14 @@ from level_spec import validate, load, resolve
 ROOT=Path(__file__).resolve().parents[1]
 
 class SpecificationTests(unittest.TestCase):
+    def test_contour_shapes_validate_boundaries(self):
+        floor={'name':'Outline','shape':'POLY_FLOOR','contours':[[[0,0],[5,0],[5,5],[0,5]],[[1,1],[2,1],[2,2],[1,2]]]}
+        validate({'version':1,'objects':[floor]})
+        for change in ({'contours':[[[0,0],[2,2],[0,2],[2,0]]]}, {'shape':'FLOOR'}):
+            with self.assertRaises(ValueError):validate({'version':1,'objects':[{**floor,**change}]})
+        floor.pop('contours')
+        with self.assertRaises(ValueError):validate({'version':1,'objects':[floor]})
+
     def setUp(self):
         self.spec={'version':1,'objects':[{'name':'Floor','shape':'FLOOR','params':{'width':10,'depth':8,'height':.2}}]}
 

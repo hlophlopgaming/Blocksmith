@@ -2,7 +2,7 @@
 
 **English** · [Español](docs/README.es.md) · [Français](docs/README.fr.md) · [Deutsch](docs/README.de.md) · [Русский](docs/README.ru.md)
 
-Draw editable level blockouts in **Blender 5+** and export them to **Godot**. Version **0.8.3**, licensed under **GPL-3.0-or-later**.
+Draw editable level blockouts in **Blender 5+** and export them to **Godot**. Version **0.8.7**, licensed under **GPL-3.0-or-later**.
 
 Blocksmith is an independent implementation inspired by publicly described BlockD workflows. It does not implement every BlockD feature. The interface supports English, Spanish, French, German and Russian. Choose your language in **Edit → Preferences → Interface → Translation** and enable **Interface** and **Tooltips**. Blocksmith follows Blender’s language; existing object names are preserved.
 
@@ -17,29 +17,41 @@ Blocksmith is an independent implementation inspired by publicly described Block
 - Mark individual meshes for **free placement** to bypass Blocksmith's geometry restrictions.
 - Generate levels from validated JSON through a Python CLI, without installing the add-on in your personal Blender session.
 
+## CLI example: Entryway in space
+
+![Entryway built through the CLI and rendered with Eevee](examples/entryway-space/renders/overview.jpg)
+
+[Open the complete example](examples/entryway-space): a downloadable `.blend` map,
+five space skyboxes, Eevee renders, source data and exact terminal commands.
+[Watch the eight-second Eevee video](examples/entryway-space/renders/entryway-eevee.mp4).
+The level geometry was created with Python through Blocksmith’s native CLI;
+a separate Blender CLI script sets the skybox, lights and cameras.
+
 ## Installation
 
-1. Download `blocksmith-0.8.3.zip` from [Releases](https://github.com/hlophlopgaming/Blocksmith/releases), or build it from this repository:
+1. Download `blocksmith-0.8.7.zip` from [Releases](https://github.com/hlophlopgaming/Blocksmith/releases), or build it from this repository:
 
    ```sh
    python3 tools/package.py
    ```
 
-2. In Blender, open **Edit → Preferences → Get Extensions → top-right menu → Install from Disk**. Select the downloaded ZIP or `dist/blocksmith-0.8.3.zip` and enable the extension.
+2. In Blender, open **Edit → Preferences → Get Extensions → top-right menu → Install from Disk**. Select the downloaded ZIP or `dist/blocksmith-0.8.7.zip` and enable the extension.
 3. In the 3D Viewport, press **N** and open the **Blocksmith** tab.
 
 Building requires Python 3.10+ and no third-party Python dependencies. GitHub's automatic **Source code** archives are source distributions, not installable extension ZIPs.
 
 ## Quick start
 
-1. Click **Draw Structures**, or press **Shift+Alt+D**.
-2. Choose a shape in the top row or **Next Structure**. Open **Preset Catalog** for the preset catalog.
+1. Click a shape under **Create**, or press **Shift+Alt+D** to activate the current shape.
+2. Choose a shape in the two-column **Create** section; expand **Drawing Settings** for dimensions and snapping. Open **Preset Catalog** for the preset catalog.
 3. Drag with the left mouse button, then release to create the structure. Select it to edit its dimensions or drag the orange handles.
 4. Keep **Repeat** enabled to draw more pieces. **Esc / right-click** cancels an unfinished gesture or returns to selection.
 
 During ordinary drawing, **Ctrl** temporarily disables snapping, **Shift** constrains the direction to 45° increments or makes a square footprint, **H** adjusts height, and **F** reverses stairs or ramps. Navigation and sidebar controls remain available between gestures.
 
 For straight stairs or ramps, drag from the lower floor to the upper landing edge; the reverse gesture also works. For a door, window or arch, drag a rectangle directly on a solid mesh. Each completed opening adds a non-destructive Boolean cut. Curved walls use points, a freehand stroke or a three-point arc. See the [detailed Russian manual](docs/manual.ru.md) for advanced tools and their individual controls.
+
+Turn off **Enable Blocksmith in This File** at the top of the sidebar to model or sculpt freely. The switch is saved in the `.blend` and applies to all its scenes. Tools, shortcuts, dimension overlays, property-driven updates and geometry rollbacks pause; the add-on stays installed and enabled. Resume with the same switch. Current mesh edits are accepted without restoring old geometry; manually edited modules retain their edit protection. Native Blender snapping settings stay as you left them.
 
 ## Free placement
 

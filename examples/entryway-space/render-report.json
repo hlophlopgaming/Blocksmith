@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "geometry_unchanged": true,
+  "mesh_signature": "0d135705193f39924aa7ab32215aa55fe5518bf74482a88396f9928d9985ad20",
+  "visible_modules": 185,
+  "cutters": 11,
+  "render_engine": "Eevee",
+  "samples": 64,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "primary_skybox": "galaxy",
+  "skyboxes": [
+    "nebula",
+    "galaxy",
+    "day",
+    "dark",
+    "band"
+  ],
+  "cli_generated": true,
+  "skybox_sha256": {
+    "nebula": "5e52edd76a8eb2da520041d89b5bec9fd53c003e33fd33ca8e522abc36112946",
+    "galaxy": "cdd101c186f9f5e36eab656dd71fe6151a194242ad5f9568295f756e0cb669f6",
+    "day": "a8e1e517a13d9bd83d78d2701e375cea4a97599ccb0db2743e3779d3c1633539",
+    "dark": "873104aa5ce7e6cff031dd17260460b2f8021c84898b11a74ab5ae6016a195f2",
+    "band": "54ce0b10c02762d983e47da823eabaf471e93427d58f92526b86a4909dbbdd4a"
+  }
+}

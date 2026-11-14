@@ -1,0 +1,6746 @@
+{
+  "version": 1,
+  "name": "Entryway | Native contour tools",
+  "metrics": {
+    "player_height": 1.75,
+    "max_step": 0.25
+  },
+  "objects": [
+    {
+      "name": "Stairs_Left",
+      "shape": "STAIRS",
+      "position": [
+        -14.0,
+        3.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        30.96375653207352
+      ],
+      "params": {
+        "width": 5.144957554275265,
+        "depth": 11.661903789690601,
+        "height": 1.5,
+        "auto_steps": false,
+        "steps": 6,
+        "solid": true
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "shape": "BLOCK",
+      "position": [
+        -14.00005,
+        129.25,
+        -1.03125
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 250.0,
+        "depth": 93.75,
+        "height": 1.5625
+      },
+      "name": "Cut_232"
+    },
+    {
+      "shape": "BLOCK",
+      "position": [
+        -137.0,
+        13.0,
+        -1.03125
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.0
+      ],
+      "params": {
+        "width": 250.0,
+        "depth": 93.75,
+        "height": 1.5625
+      },
+      "name": "Cut_233"
+    },
+    {
+      "name": "Stairs_Right",
+      "shape": "STAIRS",
+      "position": [
+        -8.0,
+        13.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        149.03624346792648
+      ],
+      "params": {
+        "width": 5.144957554275265,
+        "depth": 11.661903789690601,
+        "height": 1.5,
+        "auto_steps": false,
+        "steps": 6,
+        "solid": true
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "shape": "BLOCK",
+      "position": [
+        -13.99995,
+        -120.75,
+        -1.03125
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 250.0,
+        "depth": 93.75,
+        "height": 1.5625
+      },
+      "name": "Cut_234"
+    },
+    {
+      "shape": "BLOCK",
+      "position": [
+        -137.0,
+        13.0,
+        -1.03125
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.0
+      ],
+      "params": {
+        "width": 250.0,
+        "depth": 93.75,
+        "height": 1.5625
+      },
+      "name": "Cut_235"
+    },
+    {
+      "name": "Wall_000",
+      "shape": "WALL",
+      "position": [
+        -26.0,
+        -3.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 8.0,
+        "depth": 0.1,
+        "height": 2.5,
+        "miter_start": 0.09999999999999964,
+        "miter_end": -0.09999999999999964
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_001",
+      "shape": "WALL",
+      "position": [
+        -14.0,
+        -5.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 6.5,
+        "miter_start": -0.02360679774997898,
+        "miter_end": -0.04142135623730958
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_002",
+      "shape": "WALL",
+      "position": [
+        -10.0,
+        -3.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -153.434948822922
+      ],
+      "params": {
+        "width": 4.47213595499958,
+        "depth": 0.1,
+        "height": 6.5,
+        "miter_start": -0.061803398874989646,
+        "miter_end": 0.02360679774997959
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_003",
+      "shape": "WALL",
+      "position": [
+        -14.0,
+        -7.25,
+        3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 3.25,
+        "miter_start": -0.10000000000000142,
+        "miter_end": 0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_004",
+      "shape": "WALL",
+      "position": [
+        -14.0,
+        -5.25,
+        3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 3.75,
+        "depth": 0.1,
+        "height": 3.25,
+        "miter_start": -0.10000000000000009,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_006",
+      "shape": "WALL",
+      "position": [
+        -10.25,
+        -7.25,
+        3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 3.75,
+        "depth": 0.1,
+        "height": 3.25,
+        "miter_start": 0.0,
+        "miter_end": 0.10000000000000009
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_007",
+      "shape": "WALL",
+      "position": [
+        -10.0,
+        -1.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 6.5,
+        "miter_start": 0.10000000000000142,
+        "miter_end": 0.06180339887498931
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_009",
+      "shape": "WALL",
+      "position": [
+        -20.0,
+        -1.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        135.0
+      ],
+      "params": {
+        "width": 5.656854249492381,
+        "depth": 0.1,
+        "height": 8.0,
+        "miter_start": -0.041421356237310455,
+        "miter_end": 0.05351837584879897
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_010",
+      "shape": "WALL",
+      "position": [
+        -24.0,
+        3.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        78.69006752597979
+      ],
+      "params": {
+        "width": 10.198039027185569,
+        "depth": 0.1,
+        "height": 8.0,
+        "miter_start": -0.05351837584879986,
+        "miter_end": 0.08198039027185713
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_011",
+      "shape": "WALL",
+      "position": [
+        -8.0,
+        13.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 8.0,
+        "miter_start": 0.0,
+        "miter_end": 0.08198039027185544
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_012",
+      "shape": "WALL",
+      "position": [
+        -6.0,
+        13.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -78.69006752597979
+      ],
+      "params": {
+        "width": 10.198039027185569,
+        "depth": 0.1,
+        "height": 8.0,
+        "miter_start": -0.08198039027185713,
+        "miter_end": 0.05351837584879986
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_013",
+      "shape": "WALL",
+      "position": [
+        -4.0,
+        3.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -135.0
+      ],
+      "params": {
+        "width": 5.656854249492381,
+        "depth": 0.1,
+        "height": 8.0,
+        "miter_start": -0.05351837584879897,
+        "miter_end": 0.041421356237310455
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_014",
+      "shape": "WALL",
+      "position": [
+        -8.0,
+        -1.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 8.0,
+        "miter_start": -0.04142135623730958,
+        "miter_end": -0.10000000000000009
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_015",
+      "shape": "WALL",
+      "position": [
+        -18.0,
+        -1.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 8.0,
+        "miter_start": 0.09999999999999964,
+        "miter_end": 0.04142135623730958
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_016",
+      "shape": "WALL",
+      "position": [
+        -22.0,
+        13.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 8.0,
+        "miter_start": -0.08198039027185544,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_017",
+      "shape": "WALL",
+      "position": [
+        -20.0,
+        13.0,
+        -0.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 7.75,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_018",
+      "shape": "WALL",
+      "position": [
+        -19.0,
+        13.0,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 7.5,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_019",
+      "shape": "WALL",
+      "position": [
+        -18.0,
+        13.0,
+        -0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 7.25,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_020",
+      "shape": "WALL",
+      "position": [
+        -17.0,
+        13.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 7.0,
+        "miter_start": 0.0,
+        "miter_end": -0.09999999999999964
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_021",
+      "shape": "WALL",
+      "position": [
+        -16.0,
+        13.0,
+        2.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 4.25,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_022",
+      "shape": "WALL",
+      "position": [
+        -12.0,
+        13.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 7.0,
+        "miter_start": 0.1,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_023",
+      "shape": "WALL",
+      "position": [
+        -11.0,
+        13.0,
+        -0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 7.25,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_024",
+      "shape": "WALL",
+      "position": [
+        -10.0,
+        13.0,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 7.5,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_025",
+      "shape": "WALL",
+      "position": [
+        -9.0,
+        13.0,
+        -0.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 7.75,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_045",
+      "shape": "WALL",
+      "position": [
+        -18.0,
+        -3.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 6.5,
+        "miter_start": 0.10000000000000142,
+        "miter_end": -0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_046",
+      "shape": "WALL",
+      "position": [
+        -2.0,
+        21.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 10.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.09999999999999964,
+        "miter_end": -0.1
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_047",
+      "shape": "WALL",
+      "position": [
+        -8.0,
+        29.0,
+        2.625
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 0.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_049",
+      "shape": "WALL",
+      "position": [
+        6.0,
+        27.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.041421356237307805,
+        "miter_end": 0.041421356237307805
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_050",
+      "shape": "WALL",
+      "position": [
+        8.0,
+        27.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -45.0
+      ],
+      "params": {
+        "width": 4.242640687119285,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.04142135623731172,
+        "miter_end": -0.04142135623731172
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_051",
+      "shape": "WALL",
+      "position": [
+        11.0,
+        24.0,
+        4.375
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 0.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_052",
+      "shape": "WALL",
+      "position": [
+        11.0,
+        22.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -135.0
+      ],
+      "params": {
+        "width": 4.242640687119285,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": 0.04142135623731172,
+        "miter_end": 0.04142135623731172
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_053",
+      "shape": "WALL",
+      "position": [
+        8.0,
+        19.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.041421356237307805,
+        "miter_end": 0.041421356237307805
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_054",
+      "shape": "WALL",
+      "position": [
+        4.0,
+        21.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.04142135623730958,
+        "miter_end": -0.09999999999999964
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_055",
+      "shape": "WALL",
+      "position": [
+        -8.0,
+        29.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 2.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_056",
+      "shape": "WALL",
+      "position": [
+        -8.0,
+        29.25,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 3.0,
+        "miter_start": 0.0,
+        "miter_end": -0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_057",
+      "shape": "WALL",
+      "position": [
+        -8.0,
+        29.5,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 6.5,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.10000000000000009,
+        "miter_end": 0.06368630238164563
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_058",
+      "shape": "WALL",
+      "position": [
+        -14.5,
+        29.5,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        115.01689347810004
+      ],
+      "params": {
+        "width": 8.276472678623424,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": -0.06368630238164695,
+        "miter_end": 0.022184933674952903
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_059",
+      "shape": "WALL",
+      "position": [
+        -18.0,
+        37.0,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 14.0,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": -0.022184933674957108,
+        "miter_end": 0.041421356237307805
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_060",
+      "shape": "WALL",
+      "position": [
+        -18.0,
+        51.0,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        45.0
+      ],
+      "params": {
+        "width": 5.656854249492381,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": -0.04142135623731044,
+        "miter_end": 0.04142135623730543
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_061",
+      "shape": "WALL",
+      "position": [
+        -14.0,
+        55.0,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 16.0,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": -0.04142135623730958,
+        "miter_end": -0.04142135623730958
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_062",
+      "shape": "WALL",
+      "position": [
+        2.0,
+        55.0,
+        4.125
+      ],
+      "rotation": [
+        0,
+        0,
+        -45.0
+      ],
+      "params": {
+        "width": 5.656854249492381,
+        "depth": 0.1,
+        "height": 2.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_063",
+      "shape": "WALL",
+      "position": [
+        6.0,
+        51.0,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 14.0,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.041421356237307805,
+        "miter_end": 0.022184933674957108
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_064",
+      "shape": "WALL",
+      "position": [
+        6.0,
+        37.0,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        -115.01689347810004
+      ],
+      "params": {
+        "width": 8.276472678623424,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": -0.022184933674953652,
+        "miter_end": 0.06368630238164695
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_065",
+      "shape": "WALL",
+      "position": [
+        2.5,
+        29.5,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 6.5,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": -0.06368630238164563,
+        "miter_end": -0.09999999999999964
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_066",
+      "shape": "WALL",
+      "position": [
+        -4.0,
+        29.5,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 3.0,
+        "miter_start": 0.10000000000000142,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_067",
+      "shape": "WALL",
+      "position": [
+        -4.0,
+        29.25,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 2.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_068",
+      "shape": "WALL",
+      "position": [
+        -4.0,
+        29.25,
+        2.625
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 0.875,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_069",
+      "shape": "WALL",
+      "position": [
+        -4.0,
+        29.5,
+        3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 2.75,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_104",
+      "shape": "WALL",
+      "position": [
+        -6.25,
+        -5.25,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        55.7842978675626
+      ],
+      "params": {
+        "width": 7.558108228915487,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.05292973166264614,
+        "miter_end": -0.03077901715095325
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_114",
+      "shape": "WALL",
+      "position": [
+        2.0,
+        55.0,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        45.0
+      ],
+      "params": {
+        "width": 0.7071067811865476,
+        "depth": 0.1,
+        "height": 3.875,
+        "miter_start": 0.04142135623731548,
+        "miter_end": -0.04142135623731044
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_115",
+      "shape": "WALL",
+      "position": [
+        6.5,
+        51.5,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        -135.0
+      ],
+      "params": {
+        "width": 0.7071067811865476,
+        "depth": 0.1,
+        "height": 3.875,
+        "miter_start": 0.04142135623731673,
+        "miter_end": -0.041421356237311704
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_116",
+      "shape": "WALL",
+      "position": [
+        6.5,
+        51.5,
+        4.125
+      ],
+      "rotation": [
+        0,
+        0,
+        135.0
+      ],
+      "params": {
+        "width": 5.656854249492381,
+        "depth": 0.1,
+        "height": 0.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_117",
+      "shape": "WALL",
+      "position": [
+        2.5,
+        55.5,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 1.5,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": 0.041421356237307805,
+        "miter_end": 0.09999999999999432
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_118",
+      "shape": "WALL",
+      "position": [
+        2.5,
+        57.0,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 5.5,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.09999999999999964,
+        "miter_end": 0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_119",
+      "shape": "WALL",
+      "position": [
+        8.0,
+        57.0,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 5.5,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.09999999999999432,
+        "miter_end": 0.09999999999999432
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_120",
+      "shape": "WALL",
+      "position": [
+        8.0,
+        51.5,
+        0.25
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 1.5,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.10000000000000142,
+        "miter_end": -0.041421356237307805
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_121",
+      "shape": "WALL",
+      "position": [
+        -10.0,
+        -5.25,
+        3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 3.75,
+        "depth": 0.1,
+        "height": 2.5,
+        "miter_start": 0.0,
+        "miter_end": -0.05292973166264758
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_122",
+      "shape": "WALL",
+      "position": [
+        -10.25,
+        -5.25,
+        3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 2.375,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_123",
+      "shape": "WALL",
+      "position": [
+        -10.0,
+        -7.25,
+        3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 2.375,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_125",
+      "shape": "WALL",
+      "position": [
+        -6.25,
+        -7.25,
+        3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 3.75,
+        "depth": 0.1,
+        "height": 2.5,
+        "miter_start": 0.052251528053234075,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_127",
+      "shape": "WALL",
+      "position": [
+        4.0,
+        21.0,
+        2.75
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 1.75,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_128",
+      "shape": "WALL",
+      "position": [
+        2.0,
+        3.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 16.0,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.09999999999999964,
+        "miter_end": -0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_129",
+      "shape": "WALL",
+      "position": [
+        18.0,
+        3.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 2.75,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.10000000000000142,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_131",
+      "shape": "WALL",
+      "position": [
+        18.0,
+        5.75,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 2.125,
+        "miter_start": 0.0,
+        "miter_end": -0.061803398874992865
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_132",
+      "shape": "WALL",
+      "position": [
+        18.0,
+        3.0,
+        2.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 3.75,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_133",
+      "shape": "WALL",
+      "position": [
+        20.0,
+        6.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 2.125,
+        "miter_start": 0.061803398874992865,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_134",
+      "shape": "WALL",
+      "position": [
+        20.0,
+        5.75,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 2.75,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.0,
+        "miter_end": -0.06180339887498931
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_136",
+      "shape": "WALL",
+      "position": [
+        20.0,
+        3.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -26.56505117707799
+      ],
+      "params": {
+        "width": 4.47213595499958,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.061803398874990825,
+        "miter_end": -0.02360679774998118
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_137",
+      "shape": "WALL",
+      "position": [
+        24.0,
+        1.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 2.0,
+        "miter_start": 0.023606797749977204,
+        "miter_end": 0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_138",
+      "shape": "WALL",
+      "position": [
+        28.0,
+        1.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 2.0,
+        "miter_start": -0.10000000000000142,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_142",
+      "shape": "WALL",
+      "position": [
+        28.0,
+        -7.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 2.0,
+        "miter_start": 0.0,
+        "miter_end": 0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_143",
+      "shape": "WALL",
+      "position": [
+        28.0,
+        -9.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 3.75,
+        "depth": 0.1,
+        "height": 2.0,
+        "miter_start": -0.10000000000000142,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_144",
+      "shape": "WALL",
+      "position": [
+        24.0,
+        -9.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -116.56505117707799
+      ],
+      "params": {
+        "width": 4.47213595499958,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.061803398874989236,
+        "miter_end": 0.061803398874987654
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_145",
+      "shape": "WALL",
+      "position": [
+        22.0,
+        -13.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 3.0,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": -0.061803398874992865,
+        "miter_end": -0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_152",
+      "shape": "WALL",
+      "position": [
+        10.0,
+        -11.0,
+        1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 5.5,
+        "miter_start": 0.0,
+        "miter_end": -0.041421356237307805
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_153",
+      "shape": "WALL",
+      "position": [
+        10.0,
+        -10.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        135.0
+      ],
+      "params": {
+        "width": 1.0606601717798212,
+        "depth": 0.1,
+        "height": 5.75,
+        "miter_start": 0.04142135623731172,
+        "miter_end": -0.04142135623731172
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_154",
+      "shape": "WALL",
+      "position": [
+        9.25,
+        -9.25,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.041421356237307805,
+        "miter_end": -0.041421356237307805
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_155",
+      "shape": "WALL",
+      "position": [
+        8.25,
+        -11.75,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 0.75,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.041421356237307805,
+        "miter_end": 0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_156",
+      "shape": "WALL",
+      "position": [
+        9.0,
+        -11.75,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 1.25,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": -0.09999999999999964,
+        "miter_end": 0.09999999999999964
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_157",
+      "shape": "WALL",
+      "position": [
+        9.0,
+        -13.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 11.25,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": -0.10000000000000142,
+        "miter_end": 0.05225152805323319
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_158",
+      "shape": "WALL",
+      "position": [
+        -2.25,
+        -13.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        124.8244891569568
+      ],
+      "params": {
+        "width": 7.00446286306095,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": -0.05225152805323402,
+        "miter_end": -0.05225152805323498
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_159",
+      "shape": "WALL",
+      "position": [
+        18.0,
+        6.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        153.434948822922
+      ],
+      "params": {
+        "width": 2.23606797749979,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.061803398874989236,
+        "miter_end": 0.061803398874989236
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_160",
+      "shape": "WALL",
+      "position": [
+        16.0,
+        7.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": -0.061803398874992865,
+        "miter_end": 0.04142135623731491
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_161",
+      "shape": "WALL",
+      "position": [
+        16.0,
+        9.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        45.0
+      ],
+      "params": {
+        "width": 2.8284271247461903,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": -0.04142135623730668,
+        "miter_end": 0.041421356237311704
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_162",
+      "shape": "WALL",
+      "position": [
+        18.0,
+        11.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": -0.041421356237307805,
+        "miter_end": 0.04142135623731491
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_163",
+      "shape": "WALL",
+      "position": [
+        20.0,
+        11.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -45.0
+      ],
+      "params": {
+        "width": 2.8284271247461903,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": -0.04142135623730668,
+        "miter_end": 0.041421356237311704
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_164",
+      "shape": "WALL",
+      "position": [
+        22.0,
+        9.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": -0.041421356237307805,
+        "miter_end": 0.061803398874992865
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_165",
+      "shape": "WALL",
+      "position": [
+        22.0,
+        7.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -153.434948822922
+      ],
+      "params": {
+        "width": 2.23606797749979,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": -0.061803398874989236,
+        "miter_end": -0.061803398874989236
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_166",
+      "shape": "WALL",
+      "position": [
+        18.0,
+        5.75,
+        2.125
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 0.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_167",
+      "shape": "WALL",
+      "position": [
+        20.0,
+        6.0,
+        2.125
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 0.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_169",
+      "shape": "WALL",
+      "position": [
+        24.0,
+        1.0,
+        2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_170",
+      "shape": "WALL",
+      "position": [
+        24.0,
+        -7.0,
+        1.875
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 4.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_172",
+      "shape": "WALL",
+      "position": [
+        24.25,
+        -9.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 1.875,
+        "miter_start": 0.0,
+        "miter_end": -0.061803398874992865
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_173",
+      "shape": "WALL",
+      "position": [
+        24.25,
+        -9.0,
+        1.875
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 0.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_176",
+      "shape": "WALL",
+      "position": [
+        28.0,
+        -1.0,
+        1.75
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 6.0,
+        "depth": 0.1,
+        "height": 0.25,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_178",
+      "shape": "WALL",
+      "position": [
+        7.5,
+        -11.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -45.0
+      ],
+      "params": {
+        "width": 1.0606601717798212,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.04142135623731172,
+        "miter_end": -0.041421356237310455
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_179",
+      "shape": "WALL",
+      "position": [
+        7.5,
+        -10.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.041421356237307805,
+        "miter_end": -0.041421356237307805
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_180",
+      "shape": "WALL",
+      "position": [
+        8.25,
+        -9.25,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -135.0
+      ],
+      "params": {
+        "width": 1.0606601717798212,
+        "depth": 0.1,
+        "height": 6.0,
+        "miter_start": 0.04142135623731172,
+        "miter_end": -0.04142135623731172
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_185",
+      "shape": "WALL",
+      "position": [
+        18.5,
+        5.25,
+        1.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 0.5,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_186",
+      "shape": "WALL",
+      "position": [
+        19.5,
+        5.25,
+        1.75
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 0.5,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_187",
+      "shape": "WALL",
+      "position": [
+        19.5,
+        5.5,
+        1.75
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 1.0,
+        "depth": 0.1,
+        "height": 0.5,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_188",
+      "shape": "WALL",
+      "position": [
+        18.5,
+        5.5,
+        1.75
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 0.5,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_189",
+      "shape": "WALL",
+      "position": [
+        -2.0,
+        1.0,
+        2.75
+      ],
+      "rotation": [
+        0,
+        0,
+        26.56505117707799
+      ],
+      "params": {
+        "width": 4.47213595499958,
+        "depth": 0.1,
+        "height": 3.25,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_194",
+      "shape": "WALL",
+      "position": [
+        16.75,
+        -13.75,
+        2.625
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 2.25,
+        "depth": 0.1,
+        "height": 0.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_195",
+      "shape": "WALL",
+      "position": [
+        10.0,
+        -11.5,
+        1.75
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 0.5,
+        "depth": 0.1,
+        "height": 3.0,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_196",
+      "shape": "WALL",
+      "position": [
+        10.0,
+        -13.0,
+        -1.5
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 1.5,
+        "depth": 0.1,
+        "height": 8.25,
+        "miter_start": 0.04142135623730958,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_197",
+      "shape": "WALL",
+      "position": [
+        9.25,
+        -13.75,
+        -2.25
+      ],
+      "rotation": [
+        0,
+        0,
+        45.0
+      ],
+      "params": {
+        "width": 1.0606601717798212,
+        "depth": 0.1,
+        "height": 9.0,
+        "miter_start": 0.041421356237310455,
+        "miter_end": -0.04142135623731046
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_198",
+      "shape": "WALL",
+      "position": [
+        -3.0,
+        -13.75,
+        -2.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 12.25,
+        "depth": 0.1,
+        "height": 9.0,
+        "miter_start": -0.042857142857142705,
+        "miter_end": -0.041421356237307805
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_199",
+      "shape": "WALL",
+      "position": [
+        10.0,
+        -11.5,
+        4.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 6.0,
+        "depth": 0.1,
+        "height": 2.0,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_206",
+      "shape": "WALL",
+      "position": [
+        30.5,
+        -9.0,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        42.27368900609374
+      ],
+      "params": {
+        "width": 14.866068747318506,
+        "depth": 0.1,
+        "height": 7.25,
+        "miter_start": 0.003154751854969294,
+        "miter_end": -0.04423698861198849
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_207",
+      "shape": "WALL",
+      "position": [
+        28.0,
+        -11.0,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        38.65980825409009
+      ],
+      "params": {
+        "width": 3.2015621187164243,
+        "depth": 0.1,
+        "height": 9.25,
+        "miter_start": 0.00043858805440977894,
+        "miter_end": -0.003154751854967601
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_208",
+      "shape": "WALL",
+      "position": [
+        24.5,
+        -13.75,
+        -2.25
+      ],
+      "rotation": [
+        0,
+        0,
+        38.15722658736906
+      ],
+      "params": {
+        "width": 4.451123453691214,
+        "depth": 0.1,
+        "height": 9.0,
+        "miter_start": 0.03458630740695341,
+        "miter_end": -0.0004385880544075932
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_209",
+      "shape": "WALL",
+      "position": [
+        -10.0,
+        -39.0,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        63.43494882292201
+      ],
+      "params": {
+        "width": 4.47213595499958,
+        "depth": 0.1,
+        "height": 9.25,
+        "miter_start": 0.005158649140883917,
+        "miter_end": -0.023606797749979
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_210",
+      "shape": "WALL",
+      "position": [
+        -8.0,
+        -19.0,
+        -2.25
+      ],
+      "rotation": [
+        0,
+        0,
+        46.39718102729638
+      ],
+      "params": {
+        "width": 7.25,
+        "depth": 0.1,
+        "height": 9.0,
+        "miter_start": -0.04000000000000069,
+        "miter_end": 0.042857142857142705
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_211",
+      "shape": "WALL",
+      "position": [
+        -8.0,
+        -35.0,
+        -2.25
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 16.0,
+        "depth": 0.1,
+        "height": 9.0,
+        "miter_start": 0.02360679774997898,
+        "miter_end": 0.03999999999999915
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_224",
+      "shape": "WALL",
+      "position": [
+        19.0,
+        -13.75,
+        -1.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 5.5,
+        "depth": 0.1,
+        "height": 8.25,
+        "miter_start": 0.10000000000000142,
+        "miter_end": -0.03458630740695412
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_226",
+      "shape": "WALL",
+      "position": [
+        19.0,
+        -13.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 0.75,
+        "depth": 0.1,
+        "height": 2.625,
+        "miter_start": 0.09999999999999964,
+        "miter_end": -0.09999999999999964
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_227",
+      "shape": "WALL",
+      "position": [
+        19.0,
+        -13.0,
+        2.625
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 3.375,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_236",
+      "shape": "WALL",
+      "position": [
+        -15.25,
+        -47.25,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        57.52880770915151
+      ],
+      "params": {
+        "width": 9.778803607803972,
+        "depth": 0.1,
+        "height": 7.25,
+        "miter_start": 0.05615240204303115,
+        "miter_end": -0.005158649140882911
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_237",
+      "shape": "WALL",
+      "position": [
+        16.75,
+        -13.75,
+        2.75
+      ],
+      "rotation": [
+        0,
+        0,
+        -51.34019174590991
+      ],
+      "params": {
+        "width": 1.6007810593582121,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_238",
+      "shape": "WALL",
+      "position": [
+        17.75,
+        -15.0,
+        2.75
+      ],
+      "rotation": [
+        0,
+        0,
+        45.0
+      ],
+      "params": {
+        "width": 1.7677669529663689,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_263",
+      "shape": "WALL",
+      "position": [
+        11.0,
+        24.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 3.875,
+        "miter_start": 0.041421356237307805,
+        "miter_end": -0.06930004681646906
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_264",
+      "shape": "WALL",
+      "position": [
+        11.25,
+        24.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        69.44395478041653
+      ],
+      "params": {
+        "width": 2.1360009363293826,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": 0.0693000468164705,
+        "miter_end": 0.0693000468164705
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_265",
+      "shape": "WALL",
+      "position": [
+        12.0,
+        26.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.06930004681646906,
+        "miter_end": 0.043990171634163744
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_266",
+      "shape": "WALL",
+      "position": [
+        14.0,
+        26.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -47.48955292199916
+      ],
+      "params": {
+        "width": 4.0697051490249265,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.04399017163416559,
+        "miter_end": 0.09166666666666762
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_267",
+      "shape": "WALL",
+      "position": [
+        16.75,
+        23.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -132.51044707800085
+      ],
+      "params": {
+        "width": 4.0697051490249265,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.09166666666666762,
+        "miter_end": 0.04399017163416559
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_268",
+      "shape": "WALL",
+      "position": [
+        14.0,
+        20.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.043990171634163744,
+        "miter_end": 0.06930004681646906
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_269",
+      "shape": "WALL",
+      "position": [
+        12.0,
+        20.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        110.55604521958347
+      ],
+      "params": {
+        "width": 2.1360009363293826,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.0693000468164705,
+        "miter_end": -0.0693000468164705
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_270",
+      "shape": "WALL",
+      "position": [
+        11.25,
+        22.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 0.25,
+        "depth": 0.1,
+        "height": 3.875,
+        "miter_start": 0.06930004681646906,
+        "miter_end": -0.041421356237307805
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_271",
+      "shape": "WALL",
+      "position": [
+        11.25,
+        22.0,
+        4.375
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 2.0,
+        "depth": 0.1,
+        "height": 0.125,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_290",
+      "shape": "WALL",
+      "position": [
+        -12.0,
+        21.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 8.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.10000000000000142,
+        "miter_end": -0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_298",
+      "shape": "WALL",
+      "position": [
+        -16.0,
+        25.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 8.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": -0.09999999999999964,
+        "miter_end": -0.10000000000000009
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_303",
+      "shape": "WALL",
+      "position": [
+        -4.0,
+        25.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 8.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.09999999999999964,
+        "miter_end": -0.04142135623730958
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_311",
+      "shape": "WALL",
+      "position": [
+        -8.0,
+        25.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.10000000000000142,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_313",
+      "shape": "WALL",
+      "position": [
+        -4.0,
+        29.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.0,
+        "miter_end": -0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_315",
+      "shape": "WALL",
+      "position": [
+        2.0,
+        21.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 18.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.10000000000000142,
+        "miter_end": -0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_332",
+      "shape": "WALL",
+      "position": [
+        -16.0,
+        -5.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -135.0
+      ],
+      "params": {
+        "width": 5.656854249492381,
+        "depth": 0.1,
+        "height": 2.5,
+        "miter_start": 0.041421356237310455,
+        "miter_end": 0.041421356237310455
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_333",
+      "shape": "WALL",
+      "position": [
+        -20.0,
+        -9.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 6.0,
+        "depth": 0.1,
+        "height": 2.5,
+        "miter_start": -0.04142135623730958,
+        "miter_end": -0.09512492197250388
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_336",
+      "shape": "WALL",
+      "position": [
+        -26.0,
+        -9.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -92.86240522611175
+      ],
+      "params": {
+        "width": 10.012492197250394,
+        "depth": 0.1,
+        "height": 8.0,
+        "miter_start": 0.09512492197250533,
+        "miter_end": -0.0024984394500789115
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_337",
+      "shape": "WALL",
+      "position": [
+        -26.5,
+        -19.0,
+        0.75
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 6.25,
+        "miter_start": 0.002498439450078216,
+        "miter_end": 0.10000000000000009
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_339",
+      "shape": "WALL",
+      "position": [
+        -26.5,
+        15.0,
+        0.75
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 6.25,
+        "miter_start": -0.10000000000000142,
+        "miter_end": -0.002498439450079104
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_340",
+      "shape": "WALL",
+      "position": [
+        -26.5,
+        11.0,
+        -1.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -87.13759477388825
+      ],
+      "params": {
+        "width": 10.012492197250394,
+        "depth": 0.1,
+        "height": 8.0,
+        "miter_start": 0.002498439450078024,
+        "miter_end": 0.002498439450078024
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_354",
+      "shape": "WALL",
+      "position": [
+        -16.0,
+        -5.0,
+        3.0
+      ],
+      "rotation": [
+        0,
+        0,
+        135.0
+      ],
+      "params": {
+        "width": 2.8284271247461903,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_355",
+      "shape": "WALL",
+      "position": [
+        -16.0,
+        13.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 12.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.10000000000000142,
+        "miter_end": 0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_359",
+      "shape": "WALL",
+      "position": [
+        -2.0,
+        1.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 20.0,
+        "depth": 0.1,
+        "height": 2.25,
+        "miter_start": 0.03077901715095166,
+        "miter_end": -0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_363",
+      "shape": "WALL",
+      "position": [
+        4.0,
+        25.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        45.0
+      ],
+      "params": {
+        "width": 2.82842712474619,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": 0.04142135623731046,
+        "miter_end": 0.041421356237311704
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_365",
+      "shape": "WALL",
+      "position": [
+        6.0,
+        19.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        135.0
+      ],
+      "params": {
+        "width": 2.82842712474619,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": -0.041421356237311704,
+        "miter_end": -0.04142135623731046
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Lintel_367",
+      "shape": "WALL",
+      "position": [
+        -26.0,
+        -3.0,
+        3.0
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 6.0,
+        "depth": 0.1,
+        "height": 4.0,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Wall_368",
+      "shape": "WALL",
+      "position": [
+        -26.0,
+        1.0,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -90.0
+      ],
+      "params": {
+        "width": 4.0,
+        "depth": 0.1,
+        "height": 6.5,
+        "miter_start": -0.002498439450079104,
+        "miter_end": -0.10000000000000142
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Cut_236",
+      "shape": "WALL",
+      "position": [
+        18.4999,
+        5.2499,
+        1.7499
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0002,
+        "depth": 0.10020000000000001,
+        "height": 0.5002,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Cut_237",
+      "shape": "WALL",
+      "position": [
+        19.5001,
+        5.2499,
+        1.7499
+      ],
+      "rotation": [
+        0,
+        0,
+        90.0
+      ],
+      "params": {
+        "width": 0.2502,
+        "depth": 0.10020000000000001,
+        "height": 0.5002,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Cut_238",
+      "shape": "WALL",
+      "position": [
+        18.4999,
+        5.2499,
+        1.7499
+      ],
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "width": 1.0002,
+        "depth": 0.10020000000000001,
+        "height": 0.5002,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Cut_239",
+      "shape": "WALL",
+      "position": [
+        19.5001,
+        5.5001,
+        1.7499
+      ],
+      "rotation": [
+        0,
+        0,
+        180.0
+      ],
+      "params": {
+        "width": 1.0002,
+        "depth": 0.10020000000000001,
+        "height": 0.5002,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "shape": "RAMP",
+      "position": [
+        16.0,
+        -13.0,
+        6.75
+      ],
+      "rotation": [
+        -90,
+        0,
+        -45.0
+      ],
+      "params": {
+        "width": 0.7071067811865476,
+        "depth": 8.25,
+        "height": 0.7071067811865476
+      },
+      "name": "Cut_240"
+    },
+    {
+      "shape": "RAMP",
+      "position": [
+        16.75,
+        -13.75,
+        -1.5
+      ],
+      "rotation": [
+        90,
+        0,
+        135.0
+      ],
+      "params": {
+        "width": 0.3535533905932738,
+        "depth": 8.25,
+        "height": 0.7071067811865476
+      },
+      "name": "Cut_241"
+    },
+    {
+      "name": "Cut_242",
+      "shape": "WALL",
+      "position": [
+        16.7498594436143,
+        -13.749984382623811,
+        2.7499
+      ],
+      "rotation": [
+        0,
+        0,
+        -51.34019174590991
+      ],
+      "params": {
+        "width": 1.600981059358212,
+        "depth": 0.10020000000000001,
+        "height": 4.0002,
+        "miter_start": 0.0,
+        "miter_end": 0.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "StairHall",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            -8.0,
+            13.0
+          ],
+          [
+            -9.0,
+            13.0
+          ],
+          [
+            -10.0,
+            13.0
+          ],
+          [
+            -11.0,
+            13.0
+          ],
+          [
+            -12.0,
+            13.0
+          ],
+          [
+            -16.0,
+            13.0
+          ],
+          [
+            -17.0,
+            13.0
+          ],
+          [
+            -18.0,
+            13.0
+          ],
+          [
+            -19.0,
+            13.0
+          ],
+          [
+            -20.0,
+            13.0
+          ],
+          [
+            -22.0,
+            13.0
+          ],
+          [
+            -24.0,
+            3.0
+          ],
+          [
+            -20.0,
+            -1.0
+          ],
+          [
+            -18.0,
+            -1.0
+          ],
+          [
+            -10.0,
+            -1.0
+          ],
+          [
+            -8.0,
+            -1.0
+          ],
+          [
+            -4.0,
+            3.0
+          ],
+          [
+            -6.0,
+            13.0
+          ]
+        ],
+        [
+          [
+            -18.0,
+            5.0
+          ],
+          [
+            -18.0,
+            3.0
+          ],
+          [
+            -20.0,
+            3.0
+          ],
+          [
+            -20.0,
+            5.0
+          ]
+        ],
+        [
+          [
+            -8.0,
+            5.0
+          ],
+          [
+            -8.0,
+            3.0
+          ],
+          [
+            -10.0,
+            3.0
+          ],
+          [
+            -10.0,
+            5.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -1.0
+      ],
+      "params": {
+        "height": 0.16
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "WestLanding",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            -18.0,
+            -3.0
+          ],
+          [
+            -16.0,
+            -5.0
+          ],
+          [
+            -14.0,
+            -5.0
+          ],
+          [
+            -10.0,
+            -3.0
+          ],
+          [
+            -10.0,
+            -1.0
+          ],
+          [
+            -18.0,
+            -1.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.5
+      ],
+      "params": {
+        "height": 1.66
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Lift",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            -6.25,
+            -7.25
+          ],
+          [
+            -6.25,
+            -5.25
+          ],
+          [
+            -10.0,
+            -5.25
+          ],
+          [
+            -10.25,
+            -5.25
+          ],
+          [
+            -14.0,
+            -5.25
+          ],
+          [
+            -14.0,
+            -7.25
+          ],
+          [
+            -10.25,
+            -7.25
+          ],
+          [
+            -10.0,
+            -7.25
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        3.5
+      ],
+      "params": {
+        "height": 3.66
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "WestPassage",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            -26.0,
+            1.0
+          ],
+          [
+            -28.0,
+            1.0
+          ],
+          [
+            -30.0,
+            -5.0
+          ],
+          [
+            -26.0,
+            -9.0
+          ],
+          [
+            -20.0,
+            -9.0
+          ],
+          [
+            -16.0,
+            -5.0
+          ],
+          [
+            -18.0,
+            -3.0
+          ],
+          [
+            -26.0,
+            -3.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.5
+      ],
+      "params": {
+        "height": 1.66
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "WestYard",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            -28.0,
+            1.0
+          ],
+          [
+            -26.0,
+            1.0
+          ],
+          [
+            -26.5,
+            11.0
+          ],
+          [
+            -28.0,
+            9.0
+          ],
+          [
+            -39.75,
+            9.0
+          ],
+          [
+            -47.75,
+            -5.0
+          ],
+          [
+            -42.75,
+            -19.0
+          ],
+          [
+            -26.5,
+            -19.0
+          ],
+          [
+            -26.0,
+            -9.0
+          ],
+          [
+            -30.0,
+            -5.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -1.0
+      ],
+      "params": {
+        "height": 0.16
+      },
+      "material": {
+        "palette": "Green",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "WestTerrace",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            -52.75,
+            15.0
+          ],
+          [
+            -52.75,
+            -23.0
+          ],
+          [
+            -26.5,
+            -23.0
+          ],
+          [
+            -26.5,
+            -19.0
+          ],
+          [
+            -42.75,
+            -19.0
+          ],
+          [
+            -47.75,
+            -5.0
+          ],
+          [
+            -39.75,
+            9.0
+          ],
+          [
+            -28.0,
+            9.0
+          ],
+          [
+            -26.5,
+            11.0
+          ],
+          [
+            -26.5,
+            15.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.75
+      ],
+      "params": {
+        "height": 1.91
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "OuterBasin",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            -10.0,
+            -39.0
+          ],
+          [
+            4.25,
+            -48.0
+          ],
+          [
+            27.5,
+            -41.5
+          ],
+          [
+            36.25,
+            -23.5
+          ],
+          [
+            35.25,
+            -14.25
+          ],
+          [
+            30.5,
+            -9.0
+          ],
+          [
+            28.0,
+            -11.0
+          ],
+          [
+            30.0,
+            -15.0
+          ],
+          [
+            30.0,
+            -23.0
+          ],
+          [
+            22.0,
+            -35.25
+          ],
+          [
+            6.0,
+            -37.25
+          ],
+          [
+            -8.0,
+            -35.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -2.5
+      ],
+      "params": {
+        "height": 0.15999999999999992
+      },
+      "material": {
+        "palette": "Purple",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "EastYard",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            -10.0,
+            -39.0
+          ],
+          [
+            -15.25,
+            -47.25
+          ],
+          [
+            -28.25,
+            -47.0
+          ],
+          [
+            -28.25,
+            -50.5
+          ],
+          [
+            -8.0,
+            -57.0
+          ],
+          [
+            34.25,
+            -57.0
+          ],
+          [
+            52.75,
+            -23.75
+          ],
+          [
+            52.75,
+            13.75
+          ],
+          [
+            41.5,
+            21.0
+          ],
+          [
+            41.5,
+            1.0
+          ],
+          [
+            30.5,
+            -9.0
+          ],
+          [
+            35.25,
+            -14.25
+          ],
+          [
+            36.25,
+            -23.5
+          ],
+          [
+            27.5,
+            -41.5
+          ],
+          [
+            4.25,
+            -48.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -0.5
+      ],
+      "params": {
+        "height": 2.16
+      },
+      "material": {
+        "palette": "Green",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "EastIsland",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            24.5,
+            -13.75
+          ],
+          [
+            22.0,
+            -19.0
+          ],
+          [
+            16.0,
+            -19.0
+          ],
+          [
+            10.0,
+            -13.0
+          ],
+          [
+            9.25,
+            -13.75
+          ],
+          [
+            -3.0,
+            -13.75
+          ],
+          [
+            -8.0,
+            -19.0
+          ],
+          [
+            -8.0,
+            -35.0
+          ],
+          [
+            6.0,
+            -37.25
+          ],
+          [
+            22.0,
+            -35.25
+          ],
+          [
+            30.0,
+            -23.0
+          ],
+          [
+            30.0,
+            -15.0
+          ],
+          [
+            28.0,
+            -11.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -2.25
+      ],
+      "params": {
+        "height": 0.4099999999999999
+      },
+      "material": {
+        "palette": "Green",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "EntryHall",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            17.0,
+            -13.0
+          ],
+          [
+            19.0,
+            -13.0
+          ],
+          [
+            22.0,
+            -13.0
+          ],
+          [
+            24.0,
+            -9.0
+          ],
+          [
+            24.25,
+            -9.0
+          ],
+          [
+            28.0,
+            -9.0
+          ],
+          [
+            28.0,
+            -7.0
+          ],
+          [
+            28.0,
+            -1.0
+          ],
+          [
+            28.0,
+            1.0
+          ],
+          [
+            24.0,
+            1.0
+          ],
+          [
+            20.0,
+            3.0
+          ],
+          [
+            20.0,
+            5.0
+          ],
+          [
+            20.0,
+            5.75
+          ],
+          [
+            20.0,
+            6.0
+          ],
+          [
+            22.0,
+            7.0
+          ],
+          [
+            22.0,
+            9.0
+          ],
+          [
+            20.0,
+            11.0
+          ],
+          [
+            18.0,
+            11.0
+          ],
+          [
+            16.0,
+            9.0
+          ],
+          [
+            16.0,
+            7.0
+          ],
+          [
+            18.0,
+            6.0
+          ],
+          [
+            18.0,
+            5.75
+          ],
+          [
+            18.0,
+            5.0
+          ],
+          [
+            18.0,
+            3.0
+          ],
+          [
+            2.0,
+            3.0
+          ],
+          [
+            -2.0,
+            1.0
+          ],
+          [
+            -6.25,
+            -5.25
+          ],
+          [
+            -6.25,
+            -7.25
+          ],
+          [
+            -2.25,
+            -13.0
+          ],
+          [
+            9.0,
+            -13.0
+          ],
+          [
+            9.0,
+            -11.75
+          ],
+          [
+            8.25,
+            -11.75
+          ],
+          [
+            7.5,
+            -11.0
+          ],
+          [
+            7.5,
+            -10.0
+          ],
+          [
+            8.25,
+            -9.25
+          ],
+          [
+            9.25,
+            -9.25
+          ],
+          [
+            10.0,
+            -10.0
+          ],
+          [
+            10.0,
+            -11.0
+          ],
+          [
+            10.0,
+            -11.5
+          ],
+          [
+            16.0,
+            -11.5
+          ],
+          [
+            16.0,
+            -11.0
+          ],
+          [
+            16.0,
+            -10.0
+          ],
+          [
+            16.75,
+            -9.25
+          ],
+          [
+            17.75,
+            -9.25
+          ],
+          [
+            18.5,
+            -10.0
+          ],
+          [
+            18.5,
+            -11.0
+          ],
+          [
+            17.75,
+            -11.75
+          ],
+          [
+            17.0,
+            -11.75
+          ]
+        ],
+        [
+          [
+            27.75,
+            -1.0
+          ],
+          [
+            27.75,
+            -7.0
+          ],
+          [
+            24.25,
+            -7.0
+          ],
+          [
+            24.0,
+            -7.0
+          ],
+          [
+            24.0,
+            -1.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "height": 1.6600000000000001
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "EntryBasin",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            20.0,
+            -15.0
+          ],
+          [
+            18.0,
+            -17.0
+          ],
+          [
+            16.0,
+            -17.0
+          ],
+          [
+            14.75,
+            -15.0
+          ],
+          [
+            16.0,
+            -13.0
+          ],
+          [
+            16.0,
+            -11.5
+          ],
+          [
+            10.0,
+            -11.5
+          ],
+          [
+            10.0,
+            -13.0
+          ],
+          [
+            16.0,
+            -19.0
+          ],
+          [
+            22.0,
+            -19.0
+          ],
+          [
+            24.5,
+            -13.75
+          ],
+          [
+            19.0,
+            -13.75
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -1.5
+      ],
+      "params": {
+        "height": 0.9099999999999999
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "EntryInset",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            18.0,
+            -17.0
+          ],
+          [
+            20.0,
+            -15.0
+          ],
+          [
+            19.0,
+            -13.75
+          ],
+          [
+            19.0,
+            -13.0
+          ],
+          [
+            17.0,
+            -13.0
+          ],
+          [
+            16.75,
+            -13.75
+          ],
+          [
+            16.0,
+            -13.0
+          ],
+          [
+            14.75,
+            -15.0
+          ],
+          [
+            16.0,
+            -17.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -0.75
+      ],
+      "params": {
+        "height": 0.91
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "NorthGallery",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            6.5,
+            51.5
+          ],
+          [
+            8.0,
+            51.5
+          ],
+          [
+            8.0,
+            57.0
+          ],
+          [
+            2.5,
+            57.0
+          ],
+          [
+            2.5,
+            55.5
+          ],
+          [
+            2.0,
+            55.0
+          ],
+          [
+            -14.0,
+            55.0
+          ],
+          [
+            -18.0,
+            51.0
+          ],
+          [
+            -18.0,
+            37.0
+          ],
+          [
+            -14.5,
+            29.5
+          ],
+          [
+            -8.0,
+            29.5
+          ],
+          [
+            -4.0,
+            29.5
+          ],
+          [
+            2.5,
+            29.5
+          ],
+          [
+            6.0,
+            37.0
+          ],
+          [
+            6.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            -8.0,
+            45.0
+          ],
+          [
+            -10.0,
+            45.0
+          ],
+          [
+            -10.0,
+            47.0
+          ],
+          [
+            -8.0,
+            47.0
+          ]
+        ],
+        [
+          [
+            -2.0,
+            45.0
+          ],
+          [
+            -4.0,
+            45.0
+          ],
+          [
+            -4.0,
+            47.0
+          ],
+          [
+            -2.0,
+            47.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.25
+      ],
+      "params": {
+        "height": 0.15999999999999992
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "NorthRoute",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            2.0,
+            3.0
+          ],
+          [
+            2.0,
+            3.5
+          ],
+          [
+            2.0,
+            5.0
+          ],
+          [
+            2.0,
+            7.0
+          ],
+          [
+            2.0,
+            9.0
+          ],
+          [
+            2.0,
+            11.0
+          ],
+          [
+            2.0,
+            13.0
+          ],
+          [
+            2.0,
+            15.0
+          ],
+          [
+            2.0,
+            17.0
+          ],
+          [
+            2.0,
+            19.0
+          ],
+          [
+            2.0,
+            21.0
+          ],
+          [
+            4.0,
+            21.0
+          ],
+          [
+            4.0,
+            25.0
+          ],
+          [
+            2.0,
+            25.0
+          ],
+          [
+            0.0,
+            25.0
+          ],
+          [
+            -2.0,
+            25.0
+          ],
+          [
+            -4.0,
+            25.0
+          ],
+          [
+            -4.0,
+            27.0
+          ],
+          [
+            -4.0,
+            29.0
+          ],
+          [
+            -4.0,
+            29.25
+          ],
+          [
+            -4.0,
+            29.5
+          ],
+          [
+            -8.0,
+            29.5
+          ],
+          [
+            -8.0,
+            29.25
+          ],
+          [
+            -8.0,
+            29.0
+          ],
+          [
+            -8.0,
+            27.0
+          ],
+          [
+            -8.0,
+            25.0
+          ],
+          [
+            -10.0,
+            25.0
+          ],
+          [
+            -12.0,
+            25.0
+          ],
+          [
+            -14.0,
+            25.0
+          ],
+          [
+            -16.0,
+            25.0
+          ],
+          [
+            -16.0,
+            23.0
+          ],
+          [
+            -16.0,
+            21.0
+          ],
+          [
+            -16.0,
+            19.0
+          ],
+          [
+            -16.0,
+            17.0
+          ],
+          [
+            -16.0,
+            15.0
+          ],
+          [
+            -16.0,
+            13.5
+          ],
+          [
+            -16.0,
+            13.0
+          ],
+          [
+            -12.0,
+            13.0
+          ],
+          [
+            -12.0,
+            13.5
+          ],
+          [
+            -12.0,
+            15.0
+          ],
+          [
+            -12.0,
+            17.0
+          ],
+          [
+            -12.0,
+            19.0
+          ],
+          [
+            -12.0,
+            21.0
+          ],
+          [
+            -10.0,
+            21.0
+          ],
+          [
+            -8.0,
+            21.0
+          ],
+          [
+            -6.0,
+            21.0
+          ],
+          [
+            -4.0,
+            21.0
+          ],
+          [
+            -2.0,
+            21.0
+          ],
+          [
+            -2.0,
+            19.0
+          ],
+          [
+            -2.0,
+            17.25
+          ],
+          [
+            -2.0,
+            15.0
+          ],
+          [
+            -2.0,
+            13.0
+          ],
+          [
+            -2.0,
+            11.0
+          ],
+          [
+            -2.0,
+            9.0
+          ],
+          [
+            -2.0,
+            7.0
+          ],
+          [
+            -2.0,
+            5.0
+          ],
+          [
+            -2.0,
+            3.0
+          ],
+          [
+            -2.0,
+            1.5
+          ],
+          [
+            -2.0,
+            1.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.5
+      ],
+      "params": {
+        "height": 1.66
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "NorthSecret",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            4.0,
+            21.0
+          ],
+          [
+            4.75,
+            20.25
+          ],
+          [
+            6.0,
+            19.0
+          ],
+          [
+            8.0,
+            19.0
+          ],
+          [
+            11.0,
+            22.0
+          ],
+          [
+            11.25,
+            22.0
+          ],
+          [
+            12.0,
+            20.0
+          ],
+          [
+            14.0,
+            20.0
+          ],
+          [
+            16.75,
+            23.0
+          ],
+          [
+            14.0,
+            26.0
+          ],
+          [
+            12.0,
+            26.0
+          ],
+          [
+            11.25,
+            24.0
+          ],
+          [
+            11.0,
+            24.0
+          ],
+          [
+            8.0,
+            27.0
+          ],
+          [
+            6.0,
+            27.0
+          ],
+          [
+            4.75,
+            25.75
+          ],
+          [
+            4.0,
+            25.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.5
+      ],
+      "params": {
+        "height": 0.15999999999999992
+      },
+      "material": {
+        "palette": "Light",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S20",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            0.0,
+            -5.0
+          ],
+          [
+            0.0,
+            -7.0
+          ],
+          [
+            2.0,
+            -7.0
+          ],
+          [
+            2.0,
+            -5.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "height": 1.0
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S23",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            10.0,
+            -10.0
+          ],
+          [
+            10.75,
+            -8.5
+          ],
+          [
+            12.25,
+            -7.75
+          ],
+          [
+            14.25,
+            -7.75
+          ],
+          [
+            15.5,
+            -8.75
+          ],
+          [
+            16.0,
+            -10.0
+          ],
+          [
+            16.75,
+            -9.25
+          ],
+          [
+            16.0,
+            -7.0
+          ],
+          [
+            14.0,
+            -6.0
+          ],
+          [
+            12.75,
+            -5.0
+          ],
+          [
+            12.0,
+            -3.0
+          ],
+          [
+            10.0,
+            -1.0
+          ],
+          [
+            8.0,
+            -0.25
+          ],
+          [
+            5.25,
+            -0.75
+          ],
+          [
+            4.75,
+            -2.0
+          ],
+          [
+            7.5,
+            -3.25
+          ],
+          [
+            10.0,
+            -6.5
+          ],
+          [
+            10.0,
+            -7.75
+          ],
+          [
+            9.25,
+            -9.25
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "height": 0.5
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S25",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            10.75,
+            -8.5
+          ],
+          [
+            10.0,
+            -10.0
+          ],
+          [
+            10.0,
+            -11.0
+          ],
+          [
+            16.0,
+            -11.0
+          ],
+          [
+            16.0,
+            -10.0
+          ],
+          [
+            15.5,
+            -8.75
+          ],
+          [
+            14.25,
+            -7.75
+          ],
+          [
+            12.25,
+            -7.75
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "height": 1.0
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S27",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            10.0,
+            -11.5
+          ],
+          [
+            16.0,
+            -11.5
+          ],
+          [
+            16.0,
+            -11.0
+          ],
+          [
+            10.0,
+            -11.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "height": 1.75
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S31",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            19.0,
+            -13.0
+          ],
+          [
+            17.0,
+            -13.0
+          ],
+          [
+            16.75,
+            -13.75
+          ],
+          [
+            19.0,
+            -13.75
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -0.75
+      ],
+      "params": {
+        "height": 0.75
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S39",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            27.75,
+            -1.0
+          ],
+          [
+            27.75,
+            -7.0
+          ],
+          [
+            28.0,
+            -7.0
+          ],
+          [
+            28.0,
+            -1.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "height": 1.75
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S40",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            16.0,
+            -3.0
+          ],
+          [
+            16.0,
+            -5.0
+          ],
+          [
+            18.0,
+            -5.0
+          ],
+          [
+            18.0,
+            -3.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "height": 1.0
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S46",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            -2.0,
+            45.0
+          ],
+          [
+            -4.0,
+            45.0
+          ],
+          [
+            -4.0,
+            43.0
+          ],
+          [
+            0.0,
+            43.0
+          ],
+          [
+            0.0,
+            45.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.25
+      ],
+      "params": {
+        "height": 2.0
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S47",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            -4.0,
+            47.0
+          ],
+          [
+            -2.0,
+            47.0
+          ],
+          [
+            0.0,
+            47.0
+          ],
+          [
+            0.0,
+            49.0
+          ],
+          [
+            -4.0,
+            49.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.25
+      ],
+      "params": {
+        "height": 2.0
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S50",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            -10.0,
+            47.0
+          ],
+          [
+            -8.0,
+            47.0
+          ],
+          [
+            -8.0,
+            49.0
+          ],
+          [
+            -12.0,
+            49.0
+          ],
+          [
+            -12.0,
+            47.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.25
+      ],
+      "params": {
+        "height": 2.0
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Platform_S51",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            -8.0,
+            45.0
+          ],
+          [
+            -10.0,
+            45.0
+          ],
+          [
+            -12.0,
+            45.0
+          ],
+          [
+            -12.0,
+            43.0
+          ],
+          [
+            -8.0,
+            43.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.25
+      ],
+      "params": {
+        "height": 2.0
+      },
+      "material": {
+        "palette": "Orange",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALKABLE"
+    },
+    {
+      "name": "Canopy_Right",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            -4.0,
+            51.0
+          ],
+          [
+            -4.0,
+            49.0
+          ],
+          [
+            -4.0,
+            47.0
+          ],
+          [
+            -2.0,
+            47.0
+          ],
+          [
+            -2.0,
+            45.0
+          ],
+          [
+            -4.0,
+            45.0
+          ],
+          [
+            -4.0,
+            43.0
+          ],
+          [
+            -4.0,
+            41.0
+          ],
+          [
+            2.0,
+            41.0
+          ],
+          [
+            2.0,
+            51.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        6.25
+      ],
+      "params": {
+        "height": 2.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Canopy_Left",
+      "shape": "POLY_FLOOR",
+      "contours": [
+        [
+          [
+            -8.0,
+            41.0
+          ],
+          [
+            -8.0,
+            43.0
+          ],
+          [
+            -8.0,
+            45.0
+          ],
+          [
+            -10.0,
+            45.0
+          ],
+          [
+            -10.0,
+            47.0
+          ],
+          [
+            -8.0,
+            47.0
+          ],
+          [
+            -8.0,
+            49.0
+          ],
+          [
+            -8.0,
+            51.0
+          ],
+          [
+            -14.0,
+            51.0
+          ],
+          [
+            -14.0,
+            41.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        6.25
+      ],
+      "params": {
+        "height": 2.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Column_01",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            17.0,
+            -11.75
+          ],
+          [
+            17.75,
+            -11.75
+          ],
+          [
+            18.5,
+            -11.0
+          ],
+          [
+            18.5,
+            -10.0
+          ],
+          [
+            17.75,
+            -9.25
+          ],
+          [
+            16.75,
+            -9.25
+          ],
+          [
+            16.0,
+            -10.0
+          ],
+          [
+            16.0,
+            -11.0
+          ],
+          [
+            16.0,
+            -11.5
+          ],
+          [
+            16.0,
+            -13.0
+          ],
+          [
+            16.75,
+            -13.75
+          ],
+          [
+            17.0,
+            -13.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -1.5
+      ],
+      "params": {
+        "height": 8.25
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Column_02",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            24.0,
+            -1.0
+          ],
+          [
+            24.0,
+            -7.0
+          ],
+          [
+            24.25,
+            -7.0
+          ],
+          [
+            27.75,
+            -7.0
+          ],
+          [
+            27.75,
+            -1.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.0
+      ],
+      "params": {
+        "height": 6.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Column_03",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            -8.0,
+            47.0
+          ],
+          [
+            -10.0,
+            47.0
+          ],
+          [
+            -10.0,
+            45.0
+          ],
+          [
+            -8.0,
+            45.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.25
+      ],
+      "params": {
+        "height": 6.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Column_04",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            -2.0,
+            47.0
+          ],
+          [
+            -4.0,
+            47.0
+          ],
+          [
+            -4.0,
+            45.0
+          ],
+          [
+            -2.0,
+            45.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        0.25
+      ],
+      "params": {
+        "height": 6.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Column_05",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            -20.0,
+            5.0
+          ],
+          [
+            -20.0,
+            3.0
+          ],
+          [
+            -18.0,
+            3.0
+          ],
+          [
+            -18.0,
+            5.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -1.0
+      ],
+      "params": {
+        "height": 8.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    },
+    {
+      "name": "Column_06",
+      "shape": "POLY_BLOCK",
+      "contours": [
+        [
+          [
+            -10.0,
+            5.0
+          ],
+          [
+            -10.0,
+            3.0
+          ],
+          [
+            -8.0,
+            3.0
+          ],
+          [
+            -8.0,
+            5.0
+          ]
+        ]
+      ],
+      "position": [
+        0,
+        0,
+        -1.0
+      ],
+      "params": {
+        "height": 8.0
+      },
+      "material": {
+        "palette": "Dark",
+        "pattern": "07",
+        "tile_size": 2
+      },
+      "tag": "WALL"
+    }
+  ],
+  "cuts": [
+    {
+      "target": "Stairs_Left",
+      "cutter": "Cut_232"
+    },
+    {
+      "target": "Stairs_Left",
+      "cutter": "Cut_233"
+    },
+    {
+      "target": "Stairs_Right",
+      "cutter": "Cut_234"
+    },
+    {
+      "target": "Stairs_Right",
+      "cutter": "Cut_235"
+    },
+    {
+      "target": "Lintel_186",
+      "cutter": "Cut_236"
+    },
+    {
+      "target": "Lintel_187",
+      "cutter": "Cut_237"
+    },
+    {
+      "target": "Lintel_188",
+      "cutter": "Cut_238"
+    },
+    {
+      "target": "Lintel_188",
+      "cutter": "Cut_239"
+    },
+    {
+      "target": "Lintel_194",
+      "cutter": "Cut_240"
+    },
+    {
+      "target": "Lintel_194",
+      "cutter": "Cut_241"
+    },
+    {
+      "target": "Lintel_238",
+      "cutter": "Cut_242"
+    }
+  ]
+}

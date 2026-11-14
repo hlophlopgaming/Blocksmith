@@ -337,12 +337,13 @@ class BS_OT_draw(bpy.types.Operator):
     repeat: BoolProperty(name='Repeat',default=False,options={'HIDDEN'})
     @classmethod
     def poll(cls,context):
-        return context.mode=='OBJECT' and context.area and context.area.type=='VIEW_3D'
+        return guard.enabled() and context.mode=='OBJECT' and context.area and context.area.type=='VIEW_3D'
     def invoke(self,context,event):
         global ACTIVE
         from .curves import ACTIVE as CURVE
+        from .outlines import ACTIVE as OUTLINE
         if event.alt: return {'PASS_THROUGH'}
-        if ACTIVE is not None or CURVE is not None: return {'CANCELLED'}
+        if ACTIVE is not None or CURVE is not None or OUTLINE is not None: return {'CANCELLED'}
         self.closed=False; self.stop_requested=False; self.batch=None; self.error=''
         self.window=context.window; self.workspace=context.workspace; self.area=context.area; self.scene=context.scene
         tool=self.workspace.tools.from_space_view3d_mode('OBJECT',create=False)

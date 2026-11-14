@@ -9,13 +9,15 @@ from mathutils import Vector, Matrix
 from gpu_extras.batch import batch_for_shader
 from . import guard
 
-MODES=[('POINTS','Points / Bezier','LMB adds points; Enter finishes; Tab edits handles'),
+MODES=[('POLY','Precise Segments','Snapped straight segments; Enter finishes'),
+       ('POINTS','Points / Bezier','LMB adds points; Enter finishes; Tab edits handles'),
        ('FREEHAND','Freehand','Drag LMB to draw a wall'),
        ('ARC','Three-Point Arc','Start, point on arc, end')]
 ACTIVE=None
 
 
 def arc_points(points,steps=48):
+    if len(points)!=3: raise ValueError('Specify exactly three arc points')
     a,b,c=(Vector(p) for p in points)
     u=b-a; v=c-a; det=2*(u.x*v.y-u.y*v.x)
     if abs(det)<1e-6: raise ValueError('The three arc points must not be collinear')
@@ -74,7 +76,7 @@ def create(context,points,mode,frame=None):
     if mode=='ARC': points=arc_points(points)
     data=bpy.data.curves.new('BS_Curve','CURVE'); data.dimensions='3D'; data.resolution_u=12
     data.twist_mode='Z_UP'; data.use_fill_caps=True
-    spline=data.splines.new('POLY' if mode=='ARC' else 'BEZIER')
+    spline=data.splines.new('POLY' if mode in {'ARC','POLY'} else 'BEZIER')
     if spline.type=='BEZIER':
         spline.bezier_points.add(len(points)-1)
         for point,co in zip(spline.bezier_points,points):
@@ -101,7 +103,8 @@ class BS_OT_curve(bpy.types.Operator):
     @classmethod
     def poll(cls,context):
         from .drawing import ACTIVE as DRAWING
-        return context.mode=='OBJECT' and context.area and context.area.type=='VIEW_3D' and ACTIVE is None and DRAWING is None
+        from .outlines import ACTIVE as OUTLINE
+        return guard.enabled() and context.mode=='OBJECT' and context.area and context.area.type=='VIEW_3D' and ACTIVE is None and DRAWING is None and OUTLINE is None
     def invoke(self,context,event):
         global ACTIVE
         from .drawing import leave_tool
@@ -131,7 +134,9 @@ class BS_OT_curve(bpy.types.Operator):
     def commit(self,context):
         try: create(context,self.points,self.mode,self.frame)
         except (ValueError,guard.ConstraintError) as exc:
-            self.report({'WARNING'},tr(str(exc))); return {'RUNNING_MODAL'}
+            self.area.header_text_set(tr(str(exc)))
+            if self.mode=='ARC' and len(self.points)==3: self.points.pop()
+            return {'RUNNING_MODAL'}
         return self.finish(context,{'FINISHED'})
     def modal(self,context,event):
         try: return self.handle_event(context,event)
@@ -154,10 +159,14 @@ class BS_OT_curve(bpy.types.Operator):
             return {'RUNNING_MODAL'}
         if event.type in {'MIDDLEMOUSE','WHEELUPMOUSE','WHEELDOWNMOUSE','NDOF_MOTION'}: return {'PASS_THROUGH'}
         if self.frame is None:
-            target=surface_hit(context,event)
+            target=surface_hit(context,event,force_surfaces=True)
             if target is not None:
                 # Wall height follows the supporting plane's normal.
                 frame,_=target[:2]
+                if target[1]:
+                    normal=frame.col[1].xyz.copy()
+                    frame=normal.to_track_quat('Z','Y').to_matrix().to_4x4()
+                    frame.translation=target[0].translation
                 point=frame.translation.copy()
             else: return {'RUNNING_MODAL'}
         else:
@@ -166,6 +175,10 @@ class BS_OT_curve(bpy.types.Operator):
         if self.mode!='FREEHAND' and context.scene.bs.object_snap and not event.ctrl:
             point,_=snap_point(context,event,point,frame)
         local=frame.inverted()@point; local.z=0
+        if self.mode=='POLY' and self.points and event.shift:
+            delta=local-self.points[-1]
+            if abs(delta.x)>=abs(delta.y): local.y=self.points[-1].y
+            else: local.x=self.points[-1].x
         self.cursor=local
         if event.type=='LEFTMOUSE' and event.value=='PRESS':
             if self.frame is None: self.frame=frame

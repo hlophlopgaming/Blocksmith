@@ -24,72 +24,7 @@
           "minimum": 0.01,
           "maximum": 1000
         },
-        "low_cover": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "door_height": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "wall_thickness": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "floor_thickness": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "water_depth": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "player_height": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
         "max_slope": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "door_width": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "crouch_height": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "max_step": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "min_swim": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "jump_gap": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "max_wade": {
-          "type": "number",
-          "minimum": 0.01,
-          "maximum": 1000
-        },
-        "high_cover": {
           "type": "number",
           "minimum": 0.01,
           "maximum": 1000
@@ -99,7 +34,72 @@
           "minimum": 0.01,
           "maximum": 1000
         },
+        "floor_thickness": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "wall_thickness": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "door_width": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "max_step": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "water_depth": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "door_height": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "player_height": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
         "jump_height": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "low_cover": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "min_swim": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "max_wade": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "crouch_height": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "jump_gap": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1000
+        },
+        "high_cover": {
           "type": "number",
           "minimum": 0.01,
           "maximum": 1000
@@ -161,7 +161,9 @@
               "CROUCH",
               "HEIGHT_RULER",
               "JUMP_RULER",
-              "CLEARANCE"
+              "CLEARANCE",
+              "POLY_FLOOR",
+              "POLY_BLOCK"
             ]
           },
           "preset": {
@@ -199,6 +201,26 @@
               "player",
               "clearance"
             ]
+          },
+          "contours": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 17,
+            "items": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 256,
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number",
+                  "minimum": -10000,
+                  "maximum": 10000
+                }
+              }
+            }
           },
           "material": {
             "type": "object",
@@ -287,6 +309,41 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "open_width": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "sill": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1000
+              },
+              "flight_width": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "height": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "thickness": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "open_height": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "spacing": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
               "inner_radius": {
                 "type": "number",
                 "minimum": 0.01,
@@ -297,52 +354,17 @@
                 "minimum": -1000,
                 "maximum": 1000
               },
-              "thickness": {
-                "type": "number",
-                "minimum": 0.01,
-                "maximum": 1000
-              },
-              "height": {
-                "type": "number",
-                "minimum": 0.01,
-                "maximum": 1000
-              },
-              "spacing": {
-                "type": "number",
-                "minimum": 0.01,
-                "maximum": 1000
-              },
-              "open_height": {
-                "type": "number",
-                "minimum": 0.01,
-                "maximum": 1000
-              },
-              "sill": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 1000
-              },
-              "width": {
-                "type": "number",
-                "minimum": 0.01,
-                "maximum": 1000
-              },
-              "flight_width": {
-                "type": "number",
-                "minimum": 0.01,
-                "maximum": 1000
-              },
-              "open_width": {
-                "type": "number",
-                "minimum": 0.01,
-                "maximum": 1000
-              },
               "depth": {
                 "type": "number",
                 "minimum": 0.01,
                 "maximum": 1000
               },
               "max_step": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1000
+              },
+              "width": {
                 "type": "number",
                 "minimum": 0.01,
                 "maximum": 1000
@@ -373,10 +395,10 @@
               "solid": {
                 "type": "boolean"
               },
-              "auto_steps": {
+              "flip": {
                 "type": "boolean"
               },
-              "flip": {
+              "auto_steps": {
                 "type": "boolean"
               },
               "steps": {
@@ -431,7 +453,36 @@
               }
             }
           }
-        }
+        },
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "shape"
+              ],
+              "properties": {
+                "shape": {
+                  "enum": [
+                    "POLY_FLOOR",
+                    "POLY_BLOCK"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "contours"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "contours"
+                ]
+              }
+            }
+          }
+        ]
       }
     },
     "cuts": {

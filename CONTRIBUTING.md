@@ -9,6 +9,9 @@
 ```sh
 python3 -m unittest discover -s tests -p 'test_*.py' -v
 python3 -m compileall -q blocksmith tools tests
+blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/outline_check.py
+blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/outline_interaction_check.py
+blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/file_pause_check.py
 blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/free_placement_check.py
 blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/guard_check.py
 blender -b -noaudio --factory-startup --python-exit-code 1 --python tests/guard_scope_check.py
@@ -20,6 +23,11 @@ python3 tools/package.py
 GitHub Actions запускает обычные Python-тесты, проверяет синтаксис и собирает ZIP.
 Blender-проверки запускаются локально в отдельном процессе с пустой сценой;
 проверки `*_viewport_check.py` требуют графического окружения.
+
+`outline_viewport_check.py` проверяет настоящий GPU-предпросмотр, модальный цикл и
+Undo/Redo в работающем Blender с включённым Blocksmith. События подаются через
+реальную проекцию вьюпорта; нативный таймер завершает обработчик Window Manager.
+Проверка временно включает глобальную историю, затем восстанавливает настройку.
 
 Для изменения геометрии или ограничений добавьте небольшой сценарий,
 проверяющий поведение, и запустите связанные Blender-проверки.

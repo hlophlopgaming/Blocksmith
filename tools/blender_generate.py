@@ -33,6 +33,11 @@ with bs.guard.transaction(context):
         bs.BUSY=True
         try:
             for key,value in data.get('params',{}).items(): setattr(obj.bs,key,value)
+            if 'contours' in data:
+                obj.bs.contours=json.dumps(data['contours'])
+                xs=[p[0] for loop in data['contours'] for p in loop];ys=[p[1] for loop in data['contours'] for p in loop]
+                if 'width' not in data.get('params',{}):obj.bs.width=max(xs)-min(xs)
+                if 'depth' not in data.get('params',{}):obj.bs.depth=max(ys)-min(ys)
         finally: bs.BUSY=False
         if 'material' in data:
             material=data['material']; obj.bs.palette=material.get('palette','Light')

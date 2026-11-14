@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "visible": 185,
+  "cutters": 11,
+  "contour_structures": 34,
+  "intersections": 0,
+  "invalid_meshes": 0,
+  "contour_cutters": 0,
+  "checked_areas_and_heights": 34,
+  "before": {
+    "visible": 305,
+    "cutters": 243
+  },
+  "required_addon": "Blocksmith 0.8.7 preview"
+}

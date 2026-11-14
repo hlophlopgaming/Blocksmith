@@ -90,7 +90,7 @@ def sync_references(s,context):
     from . import rebuild
     import sys
     core=sys.modules[__package__]
-    if core.BUSY or not hasattr(s.id_data,'objects'): return
+    if not guard.enabled() or core.BUSY or not hasattr(s.id_data,'objects'): return
     from .geometry import REFERENCES
     with guard.transaction(context):
         for obj in s.id_data.objects:

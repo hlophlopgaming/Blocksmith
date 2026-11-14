@@ -7,8 +7,8 @@ SHAPES = ('BLOCK', 'WALL', 'DOOR', 'WINDOW', 'ARCH', 'FLOOR', 'STAIRS',
           'RAMP', 'CYLINDER', 'CORNER', 'L_STAIRS', 'U_STAIRS', 'CURVED_WALL',
           'SPIRAL_STAIRS', 'ROOF', 'LOW_COVER', 'HIGH_COVER', 'LADDER',
           'RAILING', 'WATER', 'ROOM', 'PLAYER', 'CROUCH', 'HEIGHT_RULER',
-          'JUMP_RULER', 'CLEARANCE')
-REFERENCES = set(SHAPES[21:])
+          'JUMP_RULER', 'CLEARANCE', 'POLY_FLOOR', 'POLY_BLOCK')
+REFERENCES = {'PLAYER','CROUCH','HEIGHT_RULER','JUMP_RULER','CLEARANCE'}
 
 
 def wall_min_width(p):
@@ -136,7 +136,14 @@ def build(p):
     k = p.kind
     w,d,h = max(.001,p.width), max(.001,p.depth), max(.001,p.height)
     t = min(p.thickness,w/3,d/3)
-    if k in {'BLOCK','LOW_COVER','HIGH_COVER','FLOOR','WATER'}:
+    if k in {'POLY_FLOOR','POLY_BLOCK'}:
+        import json
+        if __package__:
+            from .outline_geometry import extrude
+        else:
+            from outline_geometry import extrude
+        m.vertices,m.faces=extrude(json.loads(p.contours),h,k=='POLY_FLOOR',w,d)
+    elif k in {'BLOCK','LOW_COVER','HIGH_COVER','FLOOR','WATER'}:
         m.box(0,0,-h if k in {'FLOOR','WATER'} else 0,w,d,h)
     elif k in {'WALL','DOOR','WINDOW','ARCH'}:
         opening = p.opening if k == 'WALL' else {'DOOR':'DOOR','WINDOW':'WINDOW','ARCH':'ARCH'}[k]

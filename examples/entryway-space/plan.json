@@ -1,0 +1,240 @@
+[
+  {
+    "name": "StairHall",
+    "area": 236.0,
+    "top": -1.0,
+    "low": -1.16,
+    "loops": 3
+  },
+  {
+    "name": "WestLanding",
+    "area": 26.0,
+    "top": 0.5,
+    "low": -1.16,
+    "loops": 1
+  },
+  {
+    "name": "Lift",
+    "area": 15.5,
+    "top": 3.5,
+    "low": -0.15999999999999992,
+    "loops": 1
+  },
+  {
+    "name": "WestPassage",
+    "area": 76.0,
+    "top": 0.5,
+    "low": -1.16,
+    "loops": 1
+  },
+  {
+    "name": "WestYard",
+    "area": 489.5,
+    "top": -1.0,
+    "low": -1.16,
+    "loops": 1
+  },
+  {
+    "name": "WestTerrace",
+    "area": 492.0,
+    "top": 0.75,
+    "low": -1.16,
+    "loops": 1
+  },
+  {
+    "name": "OuterBasin",
+    "area": 478.84375,
+    "top": -2.5,
+    "low": -2.66,
+    "loops": 1
+  },
+  {
+    "name": "EastYard",
+    "area": 1685.46875,
+    "top": -0.5,
+    "low": -2.66,
+    "loops": 1
+  },
+  {
+    "name": "EastIsland",
+    "area": 738.15625,
+    "top": -2.25,
+    "low": -2.66,
+    "loops": 1
+  },
+  {
+    "name": "EntryHall",
+    "area": 463.90625,
+    "top": 0.0,
+    "low": -1.6600000000000001,
+    "loops": 2
+  },
+  {
+    "name": "EntryBasin",
+    "area": 52.1875,
+    "top": -1.5,
+    "low": -2.41,
+    "loops": 1
+  },
+  {
+    "name": "EntryInset",
+    "area": 14.75,
+    "top": -0.75,
+    "low": -1.6600000000000001,
+    "loops": 1
+  },
+  {
+    "name": "NorthGallery",
+    "area": 588.0,
+    "top": 0.25,
+    "low": 0.09000000000000008,
+    "loops": 3
+  },
+  {
+    "name": "NorthRoute",
+    "area": 206.0,
+    "top": 0.5,
+    "low": -1.16,
+    "loops": 1
+  },
+  {
+    "name": "NorthSecret",
+    "area": 66.75,
+    "top": 0.5,
+    "low": 0.3400000000000001,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S20",
+    "area": 4.0,
+    "top": 1.0,
+    "low": 0.0,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S23",
+    "area": 40.8125,
+    "top": 0.5,
+    "low": 0.0,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S25",
+    "area": 16.375,
+    "top": 1.0,
+    "low": 0.0,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S27",
+    "area": 3.0,
+    "top": 1.75,
+    "low": 0.0,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S31",
+    "area": 1.59375,
+    "top": 0.0,
+    "low": -0.75,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S39",
+    "area": 1.5,
+    "top": 1.75,
+    "low": 0.0,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S40",
+    "area": 4.0,
+    "top": 1.0,
+    "low": 0.0,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S46",
+    "area": 8.0,
+    "top": 2.25,
+    "low": 0.25,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S47",
+    "area": 8.0,
+    "top": 2.25,
+    "low": 0.25,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S50",
+    "area": 8.0,
+    "top": 2.25,
+    "low": 0.25,
+    "loops": 1
+  },
+  {
+    "name": "Platform_S51",
+    "area": 8.0,
+    "top": 2.25,
+    "low": 0.25,
+    "loops": 1
+  },
+  {
+    "name": "Canopy_Right",
+    "area": 56.0,
+    "top": 6.25,
+    "low": 4.25,
+    "loops": 1
+  },
+  {
+    "name": "Canopy_Left",
+    "area": 56.0,
+    "top": 6.25,
+    "low": 4.25,
+    "loops": 1
+  },
+  {
+    "name": "Column_01",
+    "area": 7.03125,
+    "top": 6.75,
+    "low": -1.5,
+    "loops": 1
+  },
+  {
+    "name": "Column_02",
+    "area": 22.5,
+    "top": 6.0,
+    "low": 0.0,
+    "loops": 1
+  },
+  {
+    "name": "Column_03",
+    "area": 4.0,
+    "top": 6.25,
+    "low": 0.25,
+    "loops": 1
+  },
+  {
+    "name": "Column_04",
+    "area": 4.0,
+    "top": 6.25,
+    "low": 0.25,
+    "loops": 1
+  },
+  {
+    "name": "Column_05",
+    "area": 4.0,
+    "top": 7.0,
+    "low": -1.0,
+    "loops": 1
+  },
+  {
+    "name": "Column_06",
+    "area": 4.0,
+    "top": 7.0,
+    "low": -1.0,
+    "loops": 1
+  }
+]

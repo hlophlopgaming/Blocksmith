@@ -1,0 +1,41 @@
+name: Publish version
+on:
+  push:
+    branches: [main]
+    paths:
+      - blocksmith/blender_manifest.toml
+      - .github/workflows/release.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.10'
+      - name: Test and package
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py' -v
+          python -m compileall -q blocksmith tools tests
+          python tools/package.py
+      - name: Publish missing version with the installable extension and example
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          version="$(python -c 'import pathlib,re; print(re.search(r"^version = \"([0-9.]+)\"$",pathlib.Path("blocksmith/blender_manifest.toml").read_text(),re.M).group(1))')"
+          if gh release view "v$version" >/dev/null 2>&1; then
+            echo "Version v$version is already published; preserving its assets."
+            exit 0
+          fi
+          gh release create "v$version" \
+            "dist/blocksmith-$version.zip" \
+            examples/entryway-space/Entryway-Space.blend \
+            examples/entryway-space/renders/overview.jpg \
+            examples/entryway-space/renders/entryway-eevee.mp4 \
+            --target "$GITHUB_SHA" \
+            --title "Blocksmith $version" \
+            --notes-file "docs/release-$version.md"
